@@ -137,209 +137,6 @@ reg                    [287:0]   ifbuf5;
 
 always @(posedge clk) begin
     if (layer == 1) begin
-        ifbuf1[7:0] <= ifbuf1[15:8]
-        ifbuf1[15:8] <= ifbuf1[23:16]
-        ifbuf1[23:16] <= ifbuf1[31:24]
-        ifbuf1[31:24] <= ifbuf1[39:32]
-        ifbuf1[39:32] <= ifbuf1[47:40]
-        ifbuf1[47:40] <= ifbuf1[55:48]
-        ifbuf1[55:48] <= ifbuf1[63:56]
-        ifbuf1[63:56] <= ifbuf1[71:64]
-        ifbuf1[71:64] <= ifbuf1[79:72]
-        ifbuf1[79:72] <= ifbuf1[87:80]
-        ifbuf1[87:80] <= ifbuf1[95:88]
-        ifbuf1[95:88] <= ifbuf1[103:96]
-        ifbuf1[103:96] <= ifbuf1[111:104]
-        ifbuf1[111:104] <= ifbuf1[119:112]
-        ifbuf1[119:112] <= ifbuf1[127:120]
-        ifbuf1[127:120] <= ifbuf1[135:128]
-        ifbuf1[135:128] <= ifbuf1[143:136]
-        
-        ifbuf1[151:144] <= ifbuf1[159:152]
-        ifbuf1[159:152] <= ifbuf1[167:160]
-        ifbuf1[167:160] <= ifbuf1[175:168]
-        ifbuf1[175:168] <= ifbuf1[183:176]
-        ifbuf1[183:176] <= ifbuf1[191:184]
-        ifbuf1[191:184] <= ifbuf1[199:192]
-        ifbuf1[199:192] <= ifbuf1[207:200]
-        ifbuf1[207:200] <= ifbuf1[215:208]
-        ifbuf1[215:208] <= ifbuf1[223:216]
-        ifbuf1[223:216] <= ifbuf1[231:224]
-        ifbuf1[231:224] <= ifbuf1[239:232]
-        ifbuf1[239:232] <= ifbuf1[247:240]
-        ifbuf1[247:240] <= ifbuf1[255:248]
-        ifbuf1[255:248] <= ifbuf1[263:256]
-        ifbuf1[263:256] <= ifbuf1[271:264]
-        ifbuf1[271:264] <= ifbuf1[279:272]
-        ifbuf1[279:272] <= ifbuf1[287:280]
-        
-
-        ifbuf2[7:0] <= ifbuf2[15:8]
-        ifbuf2[15:8] <= ifbuf2[23:16]
-        ifbuf2[23:16] <= ifbuf2[31:24]
-        ifbuf2[31:24] <= ifbuf2[39:32]
-        ifbuf2[39:32] <= ifbuf2[47:40]
-        ifbuf2[47:40] <= ifbuf2[55:48]
-        ifbuf2[55:48] <= ifbuf2[63:56]
-        ifbuf2[63:56] <= ifbuf2[71:64]
-        ifbuf2[71:64] <= ifbuf2[79:72]
-        ifbuf2[79:72] <= ifbuf2[87:80]
-        ifbuf2[87:80] <= ifbuf2[95:88]
-        ifbuf2[95:88] <= ifbuf2[103:96]
-        ifbuf2[103:96] <= ifbuf2[111:104]
-        ifbuf2[111:104] <= ifbuf2[119:112]
-        ifbuf2[119:112] <= ifbuf2[127:120]
-        ifbuf2[127:120] <= ifbuf2[135:128]
-        ifbuf2[135:128] <= ifbuf2[143:136]
-        
-        ifbuf2[151:144] <= ifbuf2[159:152]
-        ifbuf2[159:152] <= ifbuf2[167:160]
-        ifbuf2[167:160] <= ifbuf2[175:168]
-        ifbuf2[175:168] <= ifbuf2[183:176]
-        ifbuf2[183:176] <= ifbuf2[191:184]
-        ifbuf2[191:184] <= ifbuf2[199:192]
-        ifbuf2[199:192] <= ifbuf2[207:200]
-        ifbuf2[207:200] <= ifbuf2[215:208]
-        ifbuf2[215:208] <= ifbuf2[223:216]
-        ifbuf2[223:216] <= ifbuf2[231:224]
-        ifbuf2[231:224] <= ifbuf2[239:232]
-        ifbuf2[239:232] <= ifbuf2[247:240]
-        ifbuf2[247:240] <= ifbuf2[255:248]
-        ifbuf2[255:248] <= ifbuf2[263:256]
-        ifbuf2[263:256] <= ifbuf2[271:264]
-        ifbuf2[271:264] <= ifbuf2[279:272]
-        ifbuf2[279:272] <= ifbuf2[287:280]
-        
-
-        ifbuf3[7:0] <= ifbuf3[15:8]
-        ifbuf3[15:8] <= ifbuf3[23:16]
-        ifbuf3[23:16] <= ifbuf3[31:24]
-        ifbuf3[31:24] <= ifbuf3[39:32]
-        ifbuf3[39:32] <= ifbuf3[47:40]
-        ifbuf3[47:40] <= ifbuf3[55:48]
-        ifbuf3[55:48] <= ifbuf3[63:56]
-        ifbuf3[63:56] <= ifbuf3[71:64]
-        ifbuf3[71:64] <= ifbuf3[79:72]
-        ifbuf3[79:72] <= ifbuf3[87:80]
-        ifbuf3[87:80] <= ifbuf3[95:88]
-        ifbuf3[95:88] <= ifbuf3[103:96]
-        ifbuf3[103:96] <= ifbuf3[111:104]
-        ifbuf3[111:104] <= ifbuf3[119:112]
-        ifbuf3[119:112] <= ifbuf3[127:120]
-        ifbuf3[127:120] <= ifbuf3[135:128]
-        ifbuf3[135:128] <= ifbuf3[143:136]
-        
-        ifbuf3[151:144] <= ifbuf3[159:152]
-        ifbuf3[159:152] <= ifbuf3[167:160]
-        ifbuf3[167:160] <= ifbuf3[175:168]
-        ifbuf3[175:168] <= ifbuf3[183:176]
-        ifbuf3[183:176] <= ifbuf3[191:184]
-        ifbuf3[191:184] <= ifbuf3[199:192]
-        ifbuf3[199:192] <= ifbuf3[207:200]
-        ifbuf3[207:200] <= ifbuf3[215:208]
-        ifbuf3[215:208] <= ifbuf3[223:216]
-        ifbuf3[223:216] <= ifbuf3[231:224]
-        ifbuf3[231:224] <= ifbuf3[239:232]
-        ifbuf3[239:232] <= ifbuf3[247:240]
-        ifbuf3[247:240] <= ifbuf3[255:248]
-        ifbuf3[255:248] <= ifbuf3[263:256]
-        ifbuf3[263:256] <= ifbuf3[271:264]
-        ifbuf3[271:264] <= ifbuf3[279:272]
-        ifbuf3[279:272] <= ifbuf3[287:280]
-        
-
-        ifbuf4[7:0] <= ifbuf4[15:8]
-        ifbuf4[15:8] <= ifbuf4[23:16]
-        ifbuf4[23:16] <= ifbuf4[31:24]
-        ifbuf4[31:24] <= ifbuf4[39:32]
-        ifbuf4[39:32] <= ifbuf4[47:40]
-        ifbuf4[47:40] <= ifbuf4[55:48]
-        ifbuf4[55:48] <= ifbuf4[63:56]
-        ifbuf4[63:56] <= ifbuf4[71:64]
-        ifbuf4[71:64] <= ifbuf4[79:72]
-        ifbuf4[79:72] <= ifbuf4[87:80]
-        ifbuf4[87:80] <= ifbuf4[95:88]
-        ifbuf4[95:88] <= ifbuf4[103:96]
-        ifbuf4[103:96] <= ifbuf4[111:104]
-        ifbuf4[111:104] <= ifbuf4[119:112]
-        ifbuf4[119:112] <= ifbuf4[127:120]
-        ifbuf4[127:120] <= ifbuf4[135:128]
-        ifbuf4[135:128] <= ifbuf4[143:136]
-        
-        ifbuf4[151:144] <= ifbuf4[159:152]
-        ifbuf4[159:152] <= ifbuf4[167:160]
-        ifbuf4[167:160] <= ifbuf4[175:168]
-        ifbuf4[175:168] <= ifbuf4[183:176]
-        ifbuf4[183:176] <= ifbuf4[191:184]
-        ifbuf4[191:184] <= ifbuf4[199:192]
-        ifbuf4[199:192] <= ifbuf4[207:200]
-        ifbuf4[207:200] <= ifbuf4[215:208]
-        ifbuf4[215:208] <= ifbuf4[223:216]
-        ifbuf4[223:216] <= ifbuf4[231:224]
-        ifbuf4[231:224] <= ifbuf4[239:232]
-        ifbuf4[239:232] <= ifbuf4[247:240]
-        ifbuf4[247:240] <= ifbuf4[255:248]
-        ifbuf4[255:248] <= ifbuf4[263:256]
-        ifbuf4[263:256] <= ifbuf4[271:264]
-        ifbuf4[271:264] <= ifbuf4[279:272]
-        ifbuf4[279:272] <= ifbuf4[287:280]
-        
-
-        ifbuf5[7:0] <= ifbuf5[15:8]
-        ifbuf5[15:8] <= ifbuf5[23:16]
-        ifbuf5[23:16] <= ifbuf5[31:24]
-        ifbuf5[31:24] <= ifbuf5[39:32]
-        ifbuf5[39:32] <= ifbuf5[47:40]
-        ifbuf5[47:40] <= ifbuf5[55:48]
-        ifbuf5[55:48] <= ifbuf5[63:56]
-        ifbuf5[63:56] <= ifbuf5[71:64]
-        ifbuf5[71:64] <= ifbuf5[79:72]
-        ifbuf5[79:72] <= ifbuf5[87:80]
-        ifbuf5[87:80] <= ifbuf5[95:88]
-        ifbuf5[95:88] <= ifbuf5[103:96]
-        ifbuf5[103:96] <= ifbuf5[111:104]
-        ifbuf5[111:104] <= ifbuf5[119:112]
-        ifbuf5[119:112] <= ifbuf5[127:120]
-        ifbuf5[127:120] <= ifbuf5[135:128]
-        ifbuf5[135:128] <= ifbuf5[143:136]
-        
-        ifbuf5[151:144] <= ifbuf5[159:152]
-        ifbuf5[159:152] <= ifbuf5[167:160]
-        ifbuf5[167:160] <= ifbuf5[175:168]
-        ifbuf5[175:168] <= ifbuf5[183:176]
-        ifbuf5[183:176] <= ifbuf5[191:184]
-        ifbuf5[191:184] <= ifbuf5[199:192]
-        ifbuf5[199:192] <= ifbuf5[207:200]
-        ifbuf5[207:200] <= ifbuf5[215:208]
-        ifbuf5[215:208] <= ifbuf5[223:216]
-        ifbuf5[223:216] <= ifbuf5[231:224]
-        ifbuf5[231:224] <= ifbuf5[239:232]
-        ifbuf5[239:232] <= ifbuf5[247:240]
-        ifbuf5[247:240] <= ifbuf5[255:248]
-        ifbuf5[255:248] <= ifbuf5[263:256]
-        ifbuf5[263:256] <= ifbuf5[271:264]
-        ifbuf5[271:264] <= ifbuf5[279:272]
-        ifbuf5[279:272] <= ifbuf5[287:280]
-        
-
-        if (initializing == 1) begin
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in1[31:24];
-            ifbuf5[7:0] <= ifmap_in1[39:32];
-        end
-        
-        ifbuf1[287:280] <= ifbuf2[7:0];
-        ifbuf2[287:280] <= ifbuf3[7:0];
-        ifbuf3[287:280] <= ifbuf4[7:0];
-        ifbuf4[287:280] <= ifbuf5[7:0];
-        ifbuf5[287:280] <= ifmap_in1[7:0];
-        
-    end
-    
-    if (layer == 3) begin
-        ifbuf1[7:0] <= ifbuf1[15:8];
         ifbuf1[15:8] <= ifbuf1[23:16];
         ifbuf1[23:16] <= ifbuf1[31:24];
         ifbuf1[31:24] <= ifbuf1[39:32];
@@ -356,7 +153,7 @@ always @(posedge clk) begin
         ifbuf1[119:112] <= ifbuf1[127:120];
         ifbuf1[127:120] <= ifbuf1[135:128];
         ifbuf1[135:128] <= ifbuf1[143:136];
-        
+        ifbuf1[143:136] <= ifbuf1[151:144];
         ifbuf1[151:144] <= ifbuf1[159:152];
         ifbuf1[159:152] <= ifbuf1[167:160];
         ifbuf1[167:160] <= ifbuf1[175:168];
@@ -375,8 +172,6 @@ always @(posedge clk) begin
         ifbuf1[271:264] <= ifbuf1[279:272];
         ifbuf1[279:272] <= ifbuf1[287:280];
         
-
-        ifbuf2[7:0] <= ifbuf2[15:8];
         ifbuf2[15:8] <= ifbuf2[23:16];
         ifbuf2[23:16] <= ifbuf2[31:24];
         ifbuf2[31:24] <= ifbuf2[39:32];
@@ -393,7 +188,7 @@ always @(posedge clk) begin
         ifbuf2[119:112] <= ifbuf2[127:120];
         ifbuf2[127:120] <= ifbuf2[135:128];
         ifbuf2[135:128] <= ifbuf2[143:136];
-        
+        ifbuf2[143:136] <= ifbuf2[151:144];
         ifbuf2[151:144] <= ifbuf2[159:152];
         ifbuf2[159:152] <= ifbuf2[167:160];
         ifbuf2[167:160] <= ifbuf2[175:168];
@@ -412,8 +207,6 @@ always @(posedge clk) begin
         ifbuf2[271:264] <= ifbuf2[279:272];
         ifbuf2[279:272] <= ifbuf2[287:280];
         
-
-        ifbuf3[7:0] <= ifbuf3[15:8];
         ifbuf3[15:8] <= ifbuf3[23:16];
         ifbuf3[23:16] <= ifbuf3[31:24];
         ifbuf3[31:24] <= ifbuf3[39:32];
@@ -430,7 +223,7 @@ always @(posedge clk) begin
         ifbuf3[119:112] <= ifbuf3[127:120];
         ifbuf3[127:120] <= ifbuf3[135:128];
         ifbuf3[135:128] <= ifbuf3[143:136];
-        
+        ifbuf3[143:136] <= ifbuf3[151:144];
         ifbuf3[151:144] <= ifbuf3[159:152];
         ifbuf3[159:152] <= ifbuf3[167:160];
         ifbuf3[167:160] <= ifbuf3[175:168];
@@ -449,8 +242,6 @@ always @(posedge clk) begin
         ifbuf3[271:264] <= ifbuf3[279:272];
         ifbuf3[279:272] <= ifbuf3[287:280];
         
-
-        ifbuf4[7:0] <= ifbuf4[15:8];
         ifbuf4[15:8] <= ifbuf4[23:16];
         ifbuf4[23:16] <= ifbuf4[31:24];
         ifbuf4[31:24] <= ifbuf4[39:32];
@@ -467,7 +258,7 @@ always @(posedge clk) begin
         ifbuf4[119:112] <= ifbuf4[127:120];
         ifbuf4[127:120] <= ifbuf4[135:128];
         ifbuf4[135:128] <= ifbuf4[143:136];
-        
+        ifbuf4[143:136] <= ifbuf4[151:144];
         ifbuf4[151:144] <= ifbuf4[159:152];
         ifbuf4[159:152] <= ifbuf4[167:160];
         ifbuf4[167:160] <= ifbuf4[175:168];
@@ -485,9 +276,7 @@ always @(posedge clk) begin
         ifbuf4[263:256] <= ifbuf4[271:264];
         ifbuf4[271:264] <= ifbuf4[279:272];
         ifbuf4[279:272] <= ifbuf4[287:280];
-        
 
-        ifbuf5[7:0] <= ifbuf5[15:8];
         ifbuf5[15:8] <= ifbuf5[23:16];
         ifbuf5[23:16] <= ifbuf5[31:24];
         ifbuf5[31:24] <= ifbuf5[39:32];
@@ -504,7 +293,7 @@ always @(posedge clk) begin
         ifbuf5[119:112] <= ifbuf5[127:120];
         ifbuf5[127:120] <= ifbuf5[135:128];
         ifbuf5[135:128] <= ifbuf5[143:136];
-        
+        ifbuf5[143:136] <= ifbuf5[151:144];
         ifbuf5[151:144] <= ifbuf5[159:152];
         ifbuf5[159:152] <= ifbuf5[167:160];
         ifbuf5[167:160] <= ifbuf5[175:168];
@@ -524,7 +313,200 @@ always @(posedge clk) begin
         ifbuf5[279:272] <= ifbuf5[287:280];
         
 
-        ifbuf6[7:0] <= ifbuf6[15:8];
+        if (initializing == 1) begin
+            ifbuf1[7:0] <= ifmap_in1[7:0];
+            ifbuf2[7:0] <= ifmap_in1[15:8];
+            ifbuf3[7:0] <= ifmap_in1[23:16];
+            ifbuf4[7:0] <= ifmap_in1[31:24];
+            ifbuf5[7:0] <= ifmap_in1[39:32];
+        end
+        else begin
+            ifbuf1[7:0] <= ifbuf1[15:8];
+            ifbuf2[7:0] <= ifbuf2[15:8];
+            ifbuf3[7:0] <= ifbuf3[15:8];
+            ifbuf4[7:0] <= ifbuf4[15:8];
+            ifbuf5[7:0] <= ifbuf5[15:8];
+        end
+        
+        ifbuf1[287:280] <= ifbuf2[7:0];
+        ifbuf2[287:280] <= ifbuf3[7:0];
+        ifbuf3[287:280] <= ifbuf4[7:0];
+        ifbuf4[287:280] <= ifbuf5[7:0];
+        ifbuf5[287:280] <= ifmap_in1[7:0];
+        
+    end
+    
+    if (layer == 3) begin
+        ifbuf1[15:8] <= ifbuf1[23:16];
+        ifbuf1[23:16] <= ifbuf1[31:24];
+        ifbuf1[31:24] <= ifbuf1[39:32];
+        ifbuf1[39:32] <= ifbuf1[47:40];
+        ifbuf1[47:40] <= ifbuf1[55:48];
+        ifbuf1[55:48] <= ifbuf1[63:56];
+        ifbuf1[63:56] <= ifbuf1[71:64];
+        ifbuf1[71:64] <= ifbuf1[79:72];
+        ifbuf1[79:72] <= ifbuf1[87:80];
+        ifbuf1[87:80] <= ifbuf1[95:88];
+        ifbuf1[95:88] <= ifbuf1[103:96];
+        ifbuf1[103:96] <= ifbuf1[111:104];
+        ifbuf1[111:104] <= ifbuf1[119:112];
+        ifbuf1[119:112] <= ifbuf1[127:120];
+        ifbuf1[127:120] <= ifbuf1[135:128];
+        ifbuf1[135:128] <= ifbuf1[143:136];
+        
+        ifbuf1[159:152] <= ifbuf1[167:160];
+        ifbuf1[167:160] <= ifbuf1[175:168];
+        ifbuf1[175:168] <= ifbuf1[183:176];
+        ifbuf1[183:176] <= ifbuf1[191:184];
+        ifbuf1[191:184] <= ifbuf1[199:192];
+        ifbuf1[199:192] <= ifbuf1[207:200];
+        ifbuf1[207:200] <= ifbuf1[215:208];
+        ifbuf1[215:208] <= ifbuf1[223:216];
+        ifbuf1[223:216] <= ifbuf1[231:224];
+        ifbuf1[231:224] <= ifbuf1[239:232];
+        ifbuf1[239:232] <= ifbuf1[247:240];
+        ifbuf1[247:240] <= ifbuf1[255:248];
+        ifbuf1[255:248] <= ifbuf1[263:256];
+        ifbuf1[263:256] <= ifbuf1[271:264];
+        ifbuf1[271:264] <= ifbuf1[279:272];
+        ifbuf1[279:272] <= ifbuf1[287:280];
+        
+        ifbuf2[15:8] <= ifbuf2[23:16];
+        ifbuf2[23:16] <= ifbuf2[31:24];
+        ifbuf2[31:24] <= ifbuf2[39:32];
+        ifbuf2[39:32] <= ifbuf2[47:40];
+        ifbuf2[47:40] <= ifbuf2[55:48];
+        ifbuf2[55:48] <= ifbuf2[63:56];
+        ifbuf2[63:56] <= ifbuf2[71:64];
+        ifbuf2[71:64] <= ifbuf2[79:72];
+        ifbuf2[79:72] <= ifbuf2[87:80];
+        ifbuf2[87:80] <= ifbuf2[95:88];
+        ifbuf2[95:88] <= ifbuf2[103:96];
+        ifbuf2[103:96] <= ifbuf2[111:104];
+        ifbuf2[111:104] <= ifbuf2[119:112];
+        ifbuf2[119:112] <= ifbuf2[127:120];
+        ifbuf2[127:120] <= ifbuf2[135:128];
+        ifbuf2[135:128] <= ifbuf2[143:136];
+        
+        ifbuf2[159:152] <= ifbuf2[167:160];
+        ifbuf2[167:160] <= ifbuf2[175:168];
+        ifbuf2[175:168] <= ifbuf2[183:176];
+        ifbuf2[183:176] <= ifbuf2[191:184];
+        ifbuf2[191:184] <= ifbuf2[199:192];
+        ifbuf2[199:192] <= ifbuf2[207:200];
+        ifbuf2[207:200] <= ifbuf2[215:208];
+        ifbuf2[215:208] <= ifbuf2[223:216];
+        ifbuf2[223:216] <= ifbuf2[231:224];
+        ifbuf2[231:224] <= ifbuf2[239:232];
+        ifbuf2[239:232] <= ifbuf2[247:240];
+        ifbuf2[247:240] <= ifbuf2[255:248];
+        ifbuf2[255:248] <= ifbuf2[263:256];
+        ifbuf2[263:256] <= ifbuf2[271:264];
+        ifbuf2[271:264] <= ifbuf2[279:272];
+        ifbuf2[279:272] <= ifbuf2[287:280];
+        
+        ifbuf3[15:8] <= ifbuf3[23:16];
+        ifbuf3[23:16] <= ifbuf3[31:24];
+        ifbuf3[31:24] <= ifbuf3[39:32];
+        ifbuf3[39:32] <= ifbuf3[47:40];
+        ifbuf3[47:40] <= ifbuf3[55:48];
+        ifbuf3[55:48] <= ifbuf3[63:56];
+        ifbuf3[63:56] <= ifbuf3[71:64];
+        ifbuf3[71:64] <= ifbuf3[79:72];
+        ifbuf3[79:72] <= ifbuf3[87:80];
+        ifbuf3[87:80] <= ifbuf3[95:88];
+        ifbuf3[95:88] <= ifbuf3[103:96];
+        ifbuf3[103:96] <= ifbuf3[111:104];
+        ifbuf3[111:104] <= ifbuf3[119:112];
+        ifbuf3[119:112] <= ifbuf3[127:120];
+        ifbuf3[127:120] <= ifbuf3[135:128];
+        ifbuf3[135:128] <= ifbuf3[143:136];
+        
+        ifbuf3[159:152] <= ifbuf3[167:160];
+        ifbuf3[167:160] <= ifbuf3[175:168];
+        ifbuf3[175:168] <= ifbuf3[183:176];
+        ifbuf3[183:176] <= ifbuf3[191:184];
+        ifbuf3[191:184] <= ifbuf3[199:192];
+        ifbuf3[199:192] <= ifbuf3[207:200];
+        ifbuf3[207:200] <= ifbuf3[215:208];
+        ifbuf3[215:208] <= ifbuf3[223:216];
+        ifbuf3[223:216] <= ifbuf3[231:224];
+        ifbuf3[231:224] <= ifbuf3[239:232];
+        ifbuf3[239:232] <= ifbuf3[247:240];
+        ifbuf3[247:240] <= ifbuf3[255:248];
+        ifbuf3[255:248] <= ifbuf3[263:256];
+        ifbuf3[263:256] <= ifbuf3[271:264];
+        ifbuf3[271:264] <= ifbuf3[279:272];
+        ifbuf3[279:272] <= ifbuf3[287:280];
+        
+        ifbuf4[15:8] <= ifbuf4[23:16];
+        ifbuf4[23:16] <= ifbuf4[31:24];
+        ifbuf4[31:24] <= ifbuf4[39:32];
+        ifbuf4[39:32] <= ifbuf4[47:40];
+        ifbuf4[47:40] <= ifbuf4[55:48];
+        ifbuf4[55:48] <= ifbuf4[63:56];
+        ifbuf4[63:56] <= ifbuf4[71:64];
+        ifbuf4[71:64] <= ifbuf4[79:72];
+        ifbuf4[79:72] <= ifbuf4[87:80];
+        ifbuf4[87:80] <= ifbuf4[95:88];
+        ifbuf4[95:88] <= ifbuf4[103:96];
+        ifbuf4[103:96] <= ifbuf4[111:104];
+        ifbuf4[111:104] <= ifbuf4[119:112];
+        ifbuf4[119:112] <= ifbuf4[127:120];
+        ifbuf4[127:120] <= ifbuf4[135:128];
+        ifbuf4[135:128] <= ifbuf4[143:136];
+        
+        ifbuf4[159:152] <= ifbuf4[167:160];
+        ifbuf4[167:160] <= ifbuf4[175:168];
+        ifbuf4[175:168] <= ifbuf4[183:176];
+        ifbuf4[183:176] <= ifbuf4[191:184];
+        ifbuf4[191:184] <= ifbuf4[199:192];
+        ifbuf4[199:192] <= ifbuf4[207:200];
+        ifbuf4[207:200] <= ifbuf4[215:208];
+        ifbuf4[215:208] <= ifbuf4[223:216];
+        ifbuf4[223:216] <= ifbuf4[231:224];
+        ifbuf4[231:224] <= ifbuf4[239:232];
+        ifbuf4[239:232] <= ifbuf4[247:240];
+        ifbuf4[247:240] <= ifbuf4[255:248];
+        ifbuf4[255:248] <= ifbuf4[263:256];
+        ifbuf4[263:256] <= ifbuf4[271:264];
+        ifbuf4[271:264] <= ifbuf4[279:272];
+        ifbuf4[279:272] <= ifbuf4[287:280];
+        
+        ifbuf5[15:8] <= ifbuf5[23:16];
+        ifbuf5[23:16] <= ifbuf5[31:24];
+        ifbuf5[31:24] <= ifbuf5[39:32];
+        ifbuf5[39:32] <= ifbuf5[47:40];
+        ifbuf5[47:40] <= ifbuf5[55:48];
+        ifbuf5[55:48] <= ifbuf5[63:56];
+        ifbuf5[63:56] <= ifbuf5[71:64];
+        ifbuf5[71:64] <= ifbuf5[79:72];
+        ifbuf5[79:72] <= ifbuf5[87:80];
+        ifbuf5[87:80] <= ifbuf5[95:88];
+        ifbuf5[95:88] <= ifbuf5[103:96];
+        ifbuf5[103:96] <= ifbuf5[111:104];
+        ifbuf5[111:104] <= ifbuf5[119:112];
+        ifbuf5[119:112] <= ifbuf5[127:120];
+        ifbuf5[127:120] <= ifbuf5[135:128];
+        ifbuf5[135:128] <= ifbuf5[143:136];
+        
+        ifbuf5[159:152] <= ifbuf5[167:160];
+        ifbuf5[167:160] <= ifbuf5[175:168];
+        ifbuf5[175:168] <= ifbuf5[183:176];
+        ifbuf5[183:176] <= ifbuf5[191:184];
+        ifbuf5[191:184] <= ifbuf5[199:192];
+        ifbuf5[199:192] <= ifbuf5[207:200];
+        ifbuf5[207:200] <= ifbuf5[215:208];
+        ifbuf5[215:208] <= ifbuf5[223:216];
+        ifbuf5[223:216] <= ifbuf5[231:224];
+        ifbuf5[231:224] <= ifbuf5[239:232];
+        ifbuf5[239:232] <= ifbuf5[247:240];
+        ifbuf5[247:240] <= ifbuf5[255:248];
+        ifbuf5[255:248] <= ifbuf5[263:256];
+        ifbuf5[263:256] <= ifbuf5[271:264];
+        ifbuf5[271:264] <= ifbuf5[279:272];
+        ifbuf5[279:272] <= ifbuf5[287:280];
+
         ifbuf6[15:8] <= ifbuf6[23:16];
         ifbuf6[23:16] <= ifbuf6[31:24];
         ifbuf6[31:24] <= ifbuf6[39:32];
@@ -542,7 +524,6 @@ always @(posedge clk) begin
         ifbuf6[127:120] <= ifbuf6[135:128];
         ifbuf6[135:128] <= ifbuf6[143:136];
 
-        ifbuf6[151:144] <= ifbuf6[159:152];
         ifbuf6[159:152] <= ifbuf6[167:160];
         ifbuf6[167:160] <= ifbuf6[175:168];
         ifbuf6[175:168] <= ifbuf6[183:176];
@@ -575,6 +556,20 @@ always @(posedge clk) begin
             ifbuf5[7:0] <= ifmap_in3[15:8];
             ifbuf6[7:0] <= ifmap_in3[23:16];
         end
+        else begin
+            ifbuf1[7:0] <= ifbuf1[15:8];
+            ifbuf1[151:144] <= ifbuf1[159:152];
+            ifbuf2[7:0] <= ifbuf2[15:8];
+            ifbuf2[151:144] <= ifbuf2[159:152];
+            ifbuf3[7:0] <= ifbuf3[15:8];
+            ifbuf3[151:144] <= ifbuf3[159:152];
+            ifbuf4[7:0] <= ifbuf4[15:8];
+            ifbuf4[151:144] <= ifbuf4[159:152];
+            ifbuf5[7:0] <= ifbuf5[15:8];
+            ifbuf5[151:144] <= ifbuf5[159:152];
+            ifbuf6[7:0] <= ifbuf6[15:8];
+            ifbuf6[151:144] <= ifbuf6[159:152];
+        end
         
         ifbuf1[287:280] <= ifbuf2[151:144];
         ifbuf2[287:280] <= ifbuf3[151:144];
@@ -593,8 +588,6 @@ always @(posedge clk) begin
     end
 
     if (layer == 4) begin
-        ifbuf1[7:0] <= ifbuf1[23:16];
-        ifbuf1[15:8] <= ifbuf1[31:24];
         ifbuf1[23:16] <= ifbuf1[39:32];
         ifbuf1[31:24] <= ifbuf1[47:40];
         ifbuf1[39:32] <= ifbuf1[55:48];
@@ -610,8 +603,6 @@ always @(posedge clk) begin
         ifbuf1[119:112] <= ifbuf1[135:128];
         ifbuf1[127:120] <= ifbuf1[143:136];
 
-        ifbuf1[151:144] <= ifbuf1[167:160];
-        ifbuf1[159:152] <= ifbuf1[175:168];
         ifbuf1[167:160] <= ifbuf1[183:176];
         ifbuf1[175:168] <= ifbuf1[191:184];
         ifbuf1[183:176] <= ifbuf1[199:192];
@@ -627,8 +618,6 @@ always @(posedge clk) begin
         ifbuf1[263:256] <= ifbuf1[279:272];
         ifbuf1[271:264] <= ifbuf1[287:280];
 
-        ifbuf2[7:0] <= ifbuf2[23:16];
-        ifbuf2[15:8] <= ifbuf2[31:24];
         ifbuf2[23:16] <= ifbuf2[39:32];
         ifbuf2[31:24] <= ifbuf2[47:40];
         ifbuf2[39:32] <= ifbuf2[55:48];
@@ -643,9 +632,7 @@ always @(posedge clk) begin
         ifbuf2[111:104] <= ifbuf2[127:120];
         ifbuf2[119:112] <= ifbuf2[135:128];
         ifbuf2[127:120] <= ifbuf2[143:136];
-        
-        ifbuf2[151:144] <= ifbuf2[167:160];
-        ifbuf2[159:152] <= ifbuf2[175:168];
+
         ifbuf2[167:160] <= ifbuf2[183:176];
         ifbuf2[175:168] <= ifbuf2[191:184];
         ifbuf2[183:176] <= ifbuf2[199:192];
@@ -661,8 +648,6 @@ always @(posedge clk) begin
         ifbuf2[263:256] <= ifbuf2[279:272];
         ifbuf2[271:264] <= ifbuf2[287:280];
 
-        ifbuf3[7:0] <= ifbuf3[23:16];
-        ifbuf3[15:8] <= ifbuf3[31:24];
         ifbuf3[23:16] <= ifbuf3[39:32];
         ifbuf3[31:24] <= ifbuf3[47:40];
         ifbuf3[39:32] <= ifbuf3[55:48];
@@ -677,9 +662,7 @@ always @(posedge clk) begin
         ifbuf3[111:104] <= ifbuf3[127:120];
         ifbuf3[119:112] <= ifbuf3[135:128];
         ifbuf3[127:120] <= ifbuf3[143:136];
-        
-        ifbuf3[151:144] <= ifbuf3[167:160];
-        ifbuf3[159:152] <= ifbuf3[175:168];
+
         ifbuf3[167:160] <= ifbuf3[183:176];
         ifbuf3[175:168] <= ifbuf3[191:184];
         ifbuf3[183:176] <= ifbuf3[199:192];
@@ -695,8 +678,6 @@ always @(posedge clk) begin
         ifbuf3[263:256] <= ifbuf3[279:272];
         ifbuf3[271:264] <= ifbuf3[287:280];
 
-        ifbuf4[7:0] <= ifbuf4[23:16];
-        ifbuf4[15:8] <= ifbuf4[31:24];
         ifbuf4[23:16] <= ifbuf4[39:32];
         ifbuf4[31:24] <= ifbuf4[47:40];
         ifbuf4[39:32] <= ifbuf4[55:48];
@@ -711,9 +692,7 @@ always @(posedge clk) begin
         ifbuf4[111:104] <= ifbuf4[127:120];
         ifbuf4[119:112] <= ifbuf4[135:128];
         ifbuf4[127:120] <= ifbuf4[143:136];
-        
-        ifbuf4[151:144] <= ifbuf4[167:160];
-        ifbuf4[159:152] <= ifbuf4[175:168];
+
         ifbuf4[167:160] <= ifbuf4[183:176];
         ifbuf4[175:168] <= ifbuf4[191:184];
         ifbuf4[183:176] <= ifbuf4[199:192];
@@ -729,8 +708,6 @@ always @(posedge clk) begin
         ifbuf4[263:256] <= ifbuf4[279:272];
         ifbuf4[271:264] <= ifbuf4[287:280];
 
-        ifbuf5[7:0] <= ifbuf5[23:16];
-        ifbuf5[15:8] <= ifbuf5[31:24];
         ifbuf5[23:16] <= ifbuf5[39:32];
         ifbuf5[31:24] <= ifbuf5[47:40];
         ifbuf5[39:32] <= ifbuf5[55:48];
@@ -745,9 +722,7 @@ always @(posedge clk) begin
         ifbuf5[111:104] <= ifbuf5[127:120];
         ifbuf5[119:112] <= ifbuf5[135:128];
         ifbuf5[127:120] <= ifbuf5[143:136];
-        
-        ifbuf5[151:144] <= ifbuf5[167:160];
-        ifbuf5[159:152] <= ifbuf5[175:168];
+
         ifbuf5[167:160] <= ifbuf5[183:176];
         ifbuf5[175:168] <= ifbuf5[191:184];
         ifbuf5[183:176] <= ifbuf5[199:192];
@@ -763,8 +738,6 @@ always @(posedge clk) begin
         ifbuf5[263:256] <= ifbuf5[279:272];
         ifbuf5[271:264] <= ifbuf5[287:280];
 
-        ifbuf6[7:0] <= ifbuf6[23:16];
-        ifbuf6[15:8] <= ifbuf6[31:24];
         ifbuf6[23:16] <= ifbuf6[39:32];
         ifbuf6[31:24] <= ifbuf6[47:40];
         ifbuf6[39:32] <= ifbuf6[55:48];
@@ -780,8 +753,6 @@ always @(posedge clk) begin
         ifbuf6[119:112] <= ifbuf6[135:128];
         ifbuf6[127:120] <= ifbuf6[143:136];
         
-        ifbuf6[151:144] <= ifbuf6[167:160];
-        ifbuf6[159:152] <= ifbuf6[175:168];
         ifbuf6[167:160] <= ifbuf6[183:176];
         ifbuf6[175:168] <= ifbuf6[191:184];
         ifbuf6[183:176] <= ifbuf6[199:192];
@@ -822,6 +793,32 @@ always @(posedge clk) begin
             ifbuf4[7:0] <= ifmap_in1[31:24];
             ifbuf5[7:0] <= ifmap_in1[39:32];
             ifbuf6[7:0] <= ifmap_in1[47:40];
+        end
+        else begin
+            ifbuf1[7:0] <= ifbuf1[23:16];
+            ifbuf1[15:8] <= ifbuf1[31:24];
+            ifbuf1[151:144] <= ifbuf1[167:160];
+            ifbuf1[159:152] <= ifbuf1[175:168];
+            ifbuf2[7:0] <= ifbuf2[23:16];
+            ifbuf2[15:8] <= ifbuf2[31:24];
+            ifbuf2[151:144] <= ifbuf2[167:160];
+            ifbuf2[159:152] <= ifbuf2[175:168];
+            ifbuf3[7:0] <= ifbuf3[23:16];
+            ifbuf3[15:8] <= ifbuf3[31:24];
+            ifbuf3[151:144] <= ifbuf3[167:160];
+            ifbuf3[159:152] <= ifbuf3[175:168];
+            ifbuf4[7:0] <= ifbuf4[23:16];
+            ifbuf4[15:8] <= ifbuf4[31:24];
+            ifbuf4[151:144] <= ifbuf4[167:160];
+            ifbuf4[159:152] <= ifbuf4[175:168];
+            ifbuf5[7:0] <= ifbuf5[23:16];
+            ifbuf5[15:8] <= ifbuf5[31:24];
+            ifbuf5[151:144] <= ifbuf5[167:160];
+            ifbuf5[159:152] <= ifbuf5[175:168];
+            ifbuf6[7:0] <= ifbuf6[23:16];
+            ifbuf6[15:8] <= ifbuf6[31:24];
+            ifbuf6[151:144] <= ifbuf6[167:160];
+            ifbuf6[159:152] <= ifbuf6[175:168];
         end
         
         ifbuf1[287:280] <= ifbuf3[159:152];
