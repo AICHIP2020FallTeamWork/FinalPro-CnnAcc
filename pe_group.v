@@ -7,6 +7,7 @@ module pe_group(
     weight3_in,
     weight4_in,
     weight5_in,
+    weight6_in,
     // load ifmap, 256-bit continuous, but BRAM has only 64-bit wide
     ifmap_in1,
     ifmap_in2,
@@ -27,6 +28,7 @@ input        signed    [7:0]             weight2_in;
 input        signed    [7:0]             weight3_in;
 input        signed    [7:0]             weight4_in;
 input        signed    [7:0]             weight5_in;
+input        signed    [7:0]             weight6_in;
 
 input        signed    [7:0]             ifmap_in1;
 input        signed    [7:0]             ifmap_in2;
@@ -66,9 +68,9 @@ always @(posedge weight_en) begin
         weight1 <= weight1_in;
         weight2 <= weight2_in;
         weight3 <= weight3_in;
-        weight4 <= weight1_in;
-        weight5 <= weight2_in;
-        weight6 <= weight3_in;
+        weight4 <= weight4_in;
+        weight5 <= weight5_in;
+        weight6 <= weight6_in;
     end
 end
 

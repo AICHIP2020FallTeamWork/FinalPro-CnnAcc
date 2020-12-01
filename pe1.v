@@ -35,6 +35,13 @@ module pe_set(
     weight55_in,
     weight64_in,
     weight65_in,
+    weight16_in,
+    weight26_in,
+    weight36_in,
+    weight46_in,
+    weight56_in,
+    weight66_in,
+
     // load ifmap, 256-bit continuous, but BRAM has only 64-bit wide
     // ifmap_in1,
     // ifmap_in2,
@@ -84,6 +91,24 @@ input        signed    [7:0]      weight53_in;
 input        signed    [7:0]      weight61_in;
 input        signed    [7:0]      weight62_in;
 input        signed    [7:0]      weight63_in;
+input        signed    [7:0]      weight14_in;
+input        signed    [7:0]      weight15_in;
+input        signed    [7:0]      weight16_in;
+input        signed    [7:0]      weight24_in;
+input        signed    [7:0]      weight25_in;
+input        signed    [7:0]      weight26_in;
+input        signed    [7:0]      weight34_in;
+input        signed    [7:0]      weight35_in;
+input        signed    [7:0]      weight36_in;
+input        signed    [7:0]      weight44_in;
+input        signed    [7:0]      weight45_in;
+input        signed    [7:0]      weight46_in;
+input        signed    [7:0]      weight54_in;
+input        signed    [7:0]      weight55_in;
+input        signed    [7:0]      weight56_in;
+input        signed    [7:0]      weight64_in;
+input        signed    [7:0]      weight65_in;
+input        signed    [7:0]      weight66_in;
 
 output  reg  signed    [19:0]      ofmap_out;
 
@@ -854,11 +879,12 @@ end
 pegroup pegroup1(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight11_en),
-    .weight2_in(weight12_en),
-    .weight3_in(weight13_en),
-    .weight4_in(weight14_en),
-    .weight5_in(weight15_en),
+    .weight1_in(weight11_in),
+    .weight2_in(weight12_in),
+    .weight3_in(weight13_in),
+    .weight4_in(weight14_in),
+    .weight5_in(weight15_in),
+    .weight6_in(weight16_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf1[151:0]),
     .ifmap_in2(ifbuf1[144:0]),
@@ -872,11 +898,12 @@ pegroup pegroup1(
 pegroup pegroup2(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight21_en),
-    .weight2_in(weight22_en),
-    .weight3_in(weight23_en),
-    .weight4_in(weight24_en),
-    .weight5_in(weight25_en),
+    .weight1_in(weight21_in),
+    .weight2_in(weight22_in),
+    .weight3_in(weight23_in),
+    .weight4_in(weight24_in),
+    .weight5_in(weight25_in),
+    .weight6_in(weight26_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf2[7:0]),
     .ifmap_in2(ifbuf2[151:144]),
@@ -890,11 +917,12 @@ pegroup pegroup2(
 pegroup pegroup3(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight31_en),
-    .weight2_in(weight32_en),
-    .weight3_in(weight33_en),
-    .weight4_in(weight34_en),
-    .weight5_in(weight35_en),
+    .weight1_in(weight31_in),
+    .weight2_in(weight32_in),
+    .weight3_in(weight33_in),
+    .weight4_in(weight34_in),
+    .weight5_in(weight35_in),
+    .weight6_in(weight36_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf3[7:0]),
     .ifmap_in2(ifbuf3[151:144]),
@@ -908,11 +936,12 @@ pegroup pegroup3(
 pegroup pegroup4(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight41_en),
-    .weight2_in(weight42_en),
-    .weight3_in(weight43_en),
-    .weight4_in(weight44_en),
-    .weight5_in(weight45_en),
+    .weight1_in(weight41_in),
+    .weight2_in(weight42_in),
+    .weight3_in(weight43_in),
+    .weight4_in(weight44_in),
+    .weight5_in(weight45_in),
+    .weight6_in(weight46_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf4[151:0]),
     .ifmap_in2(ifbuf4[144:0]),
@@ -926,11 +955,12 @@ pegroup pegroup4(
 pegroup pegroup5(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight51_en),
-    .weight2_in(weight52_en),
-    .weight3_in(weight53_en),
-    .weight4_in(weight54_en),
-    .weight5_in(weight55_en),
+    .weight1_in(weight51_in),
+    .weight2_in(weight52_in),
+    .weight3_in(weight53_in),
+    .weight4_in(weight54_in),
+    .weight5_in(weight55_in),
+    .weight6_in(weight56_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf5[7:0]),
     .ifmap_in2(ifbuf5[151:144]),
@@ -944,11 +974,12 @@ pegroup pegroup5(
 pegroup pegroup6(
     .clk(clk),
     .weight_en(weight_en),
-    .weight1_in(weight61_en),
-    .weight2_in(weight62_en),
-    .weight3_in(weight63_en),
-    .weight4_in(weight64_en),
-    .weight5_in(weight65_en),
+    .weight1_in(weight61_in),
+    .weight2_in(weight62_in),
+    .weight3_in(weight63_in),
+    .weight4_in(weight64_in),
+    .weight5_in(weight65_in),
+    .weight6_in(weight66_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf6[7:0]),
     .ifmap_in2(ifbuf6[151:144]),
