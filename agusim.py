@@ -1,14 +1,15 @@
 import numpy as np
 import math
 
-pewt = np.zeros((3,3))
+pewt = np.zeros((6,6))
 memwt = np.zeros((64,32,3,3))
-buffer = np.zeros((3,18))
+buffer = np.zeros((6,36))
 memin = np.zeros((32,18,18))
-pein = np.zeros((3,3))
-peout = np.zeros((3,3))
+pein = np.zeros((6,6))
+peout = np.zeros((6,6))
 memout = np.zeros((64,18,18))
 memout0 = np.zeros((64,18,18))
+temp = np.zeros((2,2,2))
 
 memining = np.fromfile('D:/OneDrive/course/Grade2_Autumn/FPGA/final-project/data/im1/conv2.input.dat', dtype=np.int8)
 for a in range(32):
@@ -48,36 +49,49 @@ for a in range(64):
 
 
 for k in range(64):
-    for wcha in range(32):
-        for wrow in range(3):
-            for wcol in range(3):
-                pewt[wrow][wcol] = memwt[k][wcha][wrow][wcol]
-        for row in range(18):
-            for col in range(18):
-                buffer[0][col] = buffer[1][col]
-                buffer[1][col] = buffer[2][col]
-                buffer[2][col] = memin[wcha][row][col]
-            # print(buffer[0][15])
-            if row > 1:
-                for col in range(18):
-                    groupout = np.zeros((3))
-                    setout = 0
-                    for group in range(3):
-                        pein[group][0] = pein[group][1]
-                        pein[group][1] = pein[group][2]
-                        pein[group][2] = buffer[group][col]
-                        # if col == 17:
-                        #     print(pein)
-                        if col > 1:
-                            for pe in range(3):
-                                peout[group][pe] = pein[group][pe] * pewt[group][pe]
-                                groupout[group] += peout[group][pe]
-                        setout += groupout[group]
-                    memout[k][row-1][col-1] += setout
-                    # if memout[k][row-1][col-1] > 3.96875:
-                    #     memout[k][row-1][col-1] = 3.96875
-                    # if memout[k][row-1][col-1] < -4:
-                    #     memout[k][row-1][col-1] = -4 
+    for d_wcha in range(8):
+        for group in range(6):
+            for multier in range(6):
+                pewt[group][multier] = memwt[k][4*d_wcha+2*int(group/3)+int(multier/3)][group%3][multier%3]
+        for c in range(288):
+            for group in range(6):    
+                if c < 18:
+                    buffer[group][0] = memin[4*d_wcha+2*int(group/3)][group%3][c]
+                    buffer[group][18] = memin[4*d_wcha+2*int(group/3)+1][group%3][c]
+                else:
+                    buffer[group][0] = buffer[group][1]
+                    buffer[group][18] = buffer[group][19]
+                for col in range(1,17):
+                    buffer[group][col] = buffer[group][col+1]
+                for col in range(19,35):
+                    buffer[group][col] = buffer[group][col+1]
+                pein[group][0] = pein[group][1]
+                pein[group][3] = pein[group][4]
+                pein[group][1] = pein[group][2]
+                pein[group][4] = pein[group][5]
+                pein[group][2] = buffer[group][0]
+                pein[group][5] = buffer[group][18]
+                if c%18 > 1:
+                    for i in range(6):
+                        peout[group][i] = pein[group][i] * pewt[group][i]
+                    groupout1 = peout[group][0] + peout[group][1] + peout[group][2]
+                    groupout2 = peout[group][3] + peout[group][4] + peout[group][5]
+                    memout[k][int(c/18)+1][c%18-1] += (groupout1 + groupout2)
+            # 赋值早了一个周期    
+            
+            for part in range(2):
+                for gp in range(2):
+                    buffer[3*part+gp][17] = temp[part][gp][0]
+                    temp[part][gp][0] = buffer[3*part+gp+1][0]
+                    buffer[3*part+gp][35] = temp[part][gp][1]
+                    temp[part][gp][1] = buffer[3*part+gp+1][18]
+                if c < 271 and c > 0:
+                    buffer[3*part+2][17] = memin[4*d_wcha+2*part][int((c-1)/18)+3][c%18-1]
+                    buffer[3*part+2][35] = memin[4*d_wcha+2*part+1][int((c-1)/18)+3][c%18-1]
+
+
+                
+
     for row in range(18):
         for col in range(18):
             memout[k][row][col] = math.floor(memout[k][row][col]/2**8)
@@ -85,6 +99,8 @@ for k in range(64):
                 memout[k][row][col] = 127
             if memout[k][row][col] < -128:
                 memout[k][row][col] = -128
+
+
 
 false = 0
 for a in range(64):
