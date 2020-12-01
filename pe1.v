@@ -43,14 +43,14 @@ module pe_set(
     weight66_in,
 
     // load ifmap, 256-bit continuous, but BRAM has only 64-bit wide
-    // ifmap_in1,
-    // ifmap_in2,
-    // ifmap_in3,
-    // ifmap_in4,
     ifmap_in1,
     ifmap_in2,
     ifmap_in3,
     ifmap_in4,
+    ifmap_in10,
+    ifmap_in20,
+    ifmap_in30,
+    ifmap_in40,
     ofmap_out,
     clk,
     initializing,
@@ -63,14 +63,14 @@ input                  [3:0]      stride;
 input                             weight_en;
 input                             calculate_en;
 input                             initialing;
-// input        signed    [64:0]     ifmap_in1;
-// input        signed    [64:0]     ifmap_in2;
-// input        signed    [64:0]     ifmap_in3;
-// input        signed    [64:0]     ifmap_in4;
-input        signed    [47:0]     ifmap_in1;
-input        signed    [47:0]     ifmap_in2;
-input        signed    [47:0]     ifmap_in3;
-input        signed    [47:0]     ifmap_in4;
+input                  [31:0]     ifmap_in1;
+input                  [31:0]     ifmap_in2;
+input                  [31:0]     ifmap_in3;
+input                  [31:0]     ifmap_in4;
+input                  [47:0]     ifmap_in10;
+input                  [47:0]     ifmap_in20;
+input                  [47:0]     ifmap_in30;
+input                  [47:0]     ifmap_in40;
 input                             clk;
 input                  [3:0]      layer;
 input        signed    [7:0]      weight11_in;
@@ -136,6 +136,10 @@ reg          signed    [17:0]    psum61;
 reg          signed    [17:0]    psum42;
 reg          signed    [17:0]    psum52;
 reg          signed    [17:0]    psum62;
+reg                    [31:0]    ifmap_in1r;
+reg                    [31:0]    ifmap_in2r;
+reg                    [31:0]    ifmap_in3r;
+reg                    [31:0]    ifmap_in4r;
 
 reg                    [7:0]     num;
 reg                    [287:0]   ifbuf1;
@@ -339,11 +343,11 @@ always @(posedge clk) begin
         
 
         if (initializing == 1) begin
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in1[31:24];
-            ifbuf5[7:0] <= ifmap_in1[39:32];
+            ifbuf1[7:0] <= ifmap_in10[7:0];
+            ifbuf2[7:0] <= ifmap_in10[15:8];
+            ifbuf3[7:0] <= ifmap_in10[23:16];
+            ifbuf4[7:0] <= ifmap_in10[31:24];
+            ifbuf5[7:0] <= ifmap_in10[39:32];
         end
         else begin
             ifbuf1[7:0] <= ifbuf1[15:8];
@@ -357,7 +361,7 @@ always @(posedge clk) begin
         ifbuf2[287:280] <= ifbuf3[7:0];
         ifbuf3[287:280] <= ifbuf4[7:0];
         ifbuf4[287:280] <= ifbuf5[7:0];
-        ifbuf5[287:280] <= ifmap_in1[7:0];
+        ifbuf5[287:280] <= ifmap_in1r[7:0];
         
     end
     
@@ -568,18 +572,18 @@ always @(posedge clk) begin
         
         
         if (initializing == 1) begin
-            ifbuf1[151:144] <= ifmap_in2[7:0];
-            ifbuf2[151:144] <= ifmap_in2[15:8];
-            ifbuf3[151:144] <= ifmap_in2[23:16];
-            ifbuf4[151:144] <= ifmap_in4[7:0];
-            ifbuf5[151:144] <= ifmap_in4[15:8];
-            ifbuf6[151:144] <= ifmap_in4[23:16];
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in3[7:0];
-            ifbuf5[7:0] <= ifmap_in3[15:8];
-            ifbuf6[7:0] <= ifmap_in3[23:16];
+            ifbuf1[151:144] <= ifmap_in20[7:0];
+            ifbuf2[151:144] <= ifmap_in20[15:8];
+            ifbuf3[151:144] <= ifmap_in20[23:16];
+            ifbuf4[151:144] <= ifmap_in40[7:0];
+            ifbuf5[151:144] <= ifmap_in40[15:8];
+            ifbuf6[151:144] <= ifmap_in40[23:16];
+            ifbuf1[7:0] <= ifmap_in10[7:0];
+            ifbuf2[7:0] <= ifmap_in10[15:8];
+            ifbuf3[7:0] <= ifmap_in10[23:16];
+            ifbuf4[7:0] <= ifmap_in30[7:0];
+            ifbuf5[7:0] <= ifmap_in30[15:8];
+            ifbuf6[7:0] <= ifmap_in30[23:16];
         end
         else begin
             ifbuf1[7:0] <= ifbuf1[15:8];
@@ -598,16 +602,16 @@ always @(posedge clk) begin
         
         ifbuf1[287:280] <= ifbuf2[151:144];
         ifbuf2[287:280] <= ifbuf3[151:144];
-        ifbuf3[287:280] <= ifmap_in2[7:0];
+        ifbuf3[287:280] <= ifmap_in2r[7:0];
         ifbuf4[287:280] <= ifbuf5[151:144];
         ifbuf5[287:280] <= ifbuf6[151:144];
-        ifbuf6[287:280] <= ifmap_in4[7:0];
+        ifbuf6[287:280] <= ifmap_in4r[7:0];
         ifbuf1[143:136] <= ifbuf2[7:0];
         ifbuf2[143:136] <= ifbuf3[7:0];
-        ifbuf3[143:136] <= ifmap_in1[7:0];
+        ifbuf3[143:136] <= ifmap_in1r[7:0];
         ifbuf4[143:136] <= ifbuf5[7:0];
         ifbuf5[143:136] <= ifbuf6[7:0];
-        ifbuf6[143:136] <= ifmap_in3[7:0];
+        ifbuf6[143:136] <= ifmap_in3r[7:0];
         
 
     end
@@ -794,30 +798,30 @@ always @(posedge clk) begin
         ifbuf6[271:264] <= ifbuf6[287:280];
 
         if (initializing == 1) begin
-            ifbuf1[159:152] <= ifmap_in4[7:0];
-            ifbuf2[159:152] <= ifmap_in4[15:8];
-            ifbuf3[159:152] <= ifmap_in4[23:16];
-            ifbuf4[159:152] <= ifmap_in4[31:24];
-            ifbuf5[159:152] <= ifmap_in4[39:32];
-            ifbuf6[159:152] <= ifmap_in4[47:40];
-            ifbuf1[15:8] <= ifmap_in3[7:0];
-            ifbuf2[15:8] <= ifmap_in3[15:8];
-            ifbuf3[15:8] <= ifmap_in3[23:16];
-            ifbuf4[15:8] <= ifmap_in3[31:24];
-            ifbuf5[15:8] <= ifmap_in3[39:32];
-            ifbuf6[15:8] <= ifmap_in3[47:40];
-            ifbuf1[151:144] <= ifmap_in2[7:0];
-            ifbuf2[151:144] <= ifmap_in2[15:8];
-            ifbuf3[151:144] <= ifmap_in2[23:16];
-            ifbuf4[151:144] <= ifmap_in2[31:24];
-            ifbuf5[151:144] <= ifmap_in2[39:32];
-            ifbuf6[151:144] <= ifmap_in2[47:40];
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in1[31:24];
-            ifbuf5[7:0] <= ifmap_in1[39:32];
-            ifbuf6[7:0] <= ifmap_in1[47:40];
+            ifbuf1[159:152] <= ifmap_in40[7:0];
+            ifbuf2[159:152] <= ifmap_in40[15:8];
+            ifbuf3[159:152] <= ifmap_in40[23:16];
+            ifbuf4[159:152] <= ifmap_in40[31:24];
+            ifbuf5[159:152] <= ifmap_in40[39:32];
+            ifbuf6[159:152] <= ifmap_in40[47:40];
+            ifbuf1[15:8] <= ifmap_in30[7:0];
+            ifbuf2[15:8] <= ifmap_in30[15:8];
+            ifbuf3[15:8] <= ifmap_in30[23:16];
+            ifbuf4[15:8] <= ifmap_in30[31:24];
+            ifbuf5[15:8] <= ifmap_in30[39:32];
+            ifbuf6[15:8] <= ifmap_in30[47:40];
+            ifbuf1[151:144] <= ifmap_in20[7:0];
+            ifbuf2[151:144] <= ifmap_in20[15:8];
+            ifbuf3[151:144] <= ifmap_in20[23:16];
+            ifbuf4[151:144] <= ifmap_in20[31:24];
+            ifbuf5[151:144] <= ifmap_in20[39:32];
+            ifbuf6[151:144] <= ifmap_in20[47:40];
+            ifbuf1[7:0] <= ifmap_in10[7:0];
+            ifbuf2[7:0] <= ifmap_in10[15:8];
+            ifbuf3[7:0] <= ifmap_in10[23:16];
+            ifbuf4[7:0] <= ifmap_in10[31:24];
+            ifbuf5[7:0] <= ifmap_in10[39:32];
+            ifbuf6[7:0] <= ifmap_in10[47:40];
         end
         else begin
             ifbuf1[7:0] <= ifbuf1[23:16];
@@ -847,26 +851,26 @@ always @(posedge clk) begin
         end
         
         ifbuf1[287:280] <= ifbuf3[159:152];
-        ifbuf2[287:280] <= ifmap_in4[7:0];
-        ifbuf3[287:280] <= ifmap_in4[15:8];
+        ifbuf2[287:280] <= ifmap_in4r[7:0];
+        ifbuf3[287:280] <= ifmap_in4r[15:8];
         ifbuf4[287:280] <= ifbuf6[159:152];
-        ifbuf5[287:280] <= ifmap_in4[23:16];
-        ifbuf6[287:280] <= ifmap_in4[31:24];
+        ifbuf5[287:280] <= ifmap_in4r[23:16];
+        ifbuf6[287:280] <= ifmap_in4r[31:24];
         ifbuf1[143:136] <= ifbuf3[15:8];
-        ifbuf2[143:136] <= ifmap_in3[7:0];
-        ifbuf3[143:136] <= ifmap_in3[15:8];
+        ifbuf2[143:136] <= ifmap_in3r[7:0];
+        ifbuf3[143:136] <= ifmap_in3r[15:8];
         ifbuf4[143:136] <= ifbuf6[15:8];
-        ifbuf5[143:136] <= ifmap_in3[23:16];
-        ifbuf6[143:136] <= ifmap_in3[31:24];
+        ifbuf5[143:136] <= ifmap_in3r[23:16];
+        ifbuf6[143:136] <= ifmap_in3r[31:24];
         ifbuf1[279:272] <= ifbuf3[151:144];
-        ifbuf2[279:272] <= ifmap_in2[7:0];
-        ifbuf3[279:272] <= ifmap_in2[15:8];
+        ifbuf2[279:272] <= ifmap_in2r[7:0];
+        ifbuf3[279:272] <= ifmap_in2r[15:8];
         ifbuf4[279:272] <= ifbuf6[151:144];
-        ifbuf5[279:272] <= ifmap_in2[23:16];
-        ifbuf6[279:272] <= ifmap_in2[31:24];
+        ifbuf5[279:272] <= ifmap_in2r[23:16];
+        ifbuf6[279:272] <= ifmap_in2r[31:24];
         ifbuf1[135:128] <= ifbuf3[7:0];
-        ifbuf2[135:128] <= ifmap_in1[7:0];
-        ifbuf3[135:128] <= ifmap_in1[15:8];
+        ifbuf2[135:128] <= ifmap_in1r[7:0];
+        ifbuf3[135:128] <= ifmap_in1r[15:8];
         ifbuf4[135:128] <= ifbuf6[7:0];
         ifbuf5[135:128] <= ifmap_in1[23:16];
         ifbuf6[135:128] <= ifmap_in1[31:24];
