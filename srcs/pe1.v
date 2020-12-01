@@ -150,21 +150,6 @@ reg                    [287:0]   ifbuf4;
 reg                    [287:0]   ifbuf5;
 
 
-// always @(posedge weight_en) begin
-//     weight11 <= weight11_in;
-//     weight12 <= weight12_in;
-//     weight13 <= weight13_in;
-//     weight21 <= weight21_in;
-//     weight22 <= weight22_in;
-//     weight23 <= weight23_in;
-//     weight31 <= weight31_in;
-//     weight32 <= weight32_in;
-//     weight33 <= weight33_in;
-// end
-
-
-
-
 always @(posedge clk) begin
     case ( Layer )
      
