@@ -2,6 +2,7 @@
 
 module pe_set(
     // enable updates of ifmap rows and weights
+    rst,
     layer,
     weight_en,
     shift_en,
@@ -161,10 +162,12 @@ reg                    [287:0]   ifbuf5;
 
 
 
-always @(posedge clk) begin
+always @(posedge clk or negedge rst) begin
+if ( rst == `RstEnable ) begin    
+
+end else begin
     case ( Layer )
      
-        
     
      
     `Layer1: begin
@@ -367,8 +370,10 @@ always @(posedge clk) begin
         
     end
 
-    `Layer2:  
-    
+    `Layer2:  begin
+        
+    end
+
     `Layer3: begin
         ifbuf1[15:8] <= ifbuf1[23:16];
         ifbuf1[23:16] <= ifbuf1[31:24];
