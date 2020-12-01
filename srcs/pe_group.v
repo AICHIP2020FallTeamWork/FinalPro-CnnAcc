@@ -94,13 +94,14 @@ always @(posedge clk) begin
         ifmap1 <= ifmap3;
         ifmap2 <= storeeven1;
         ifmap3 <= ifmap_in1;
-        storeeven <= ifmap_in3;
+        storeeven1 <= ifmap_in3;
         ifmap4 <= ifmap6;
         ifmap5 <= storeeven2;
         ifmap6 <= ifmap_in2;
         storeeven2 <= ifmap_in4;
     end
-    if (calculate_en == 1) begin
+
+    if (calculate_en == 1 ) begin
         prod1 <= ifmap1 * weight1;
         prod2 <= ifmap2 * weight2;
         prod3 <= ifmap3 * weight3;
@@ -121,8 +122,7 @@ always @(posedge clk) begin
 
     if (layer == 1) begin
         groupsum_out1 <= half1 + half2;
-    end
-    if (layer == 3 || layer == 4) begin
+    end else if (layer == 3 || layer == 4) begin
         groupsum_out1 <= half1;
         groupsum_out2 <= half2;
     end

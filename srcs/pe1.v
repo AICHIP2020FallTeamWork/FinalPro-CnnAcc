@@ -892,7 +892,7 @@ end else begin
     endcase
 end
 
-pegroup pegroup1(
+pe_group pe_group1(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight11_in),
@@ -902,8 +902,8 @@ pegroup pegroup1(
     .weight5_in(weight15_in),
     .weight6_in(weight16_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf1[151:0]),
-    .ifmap_in2(ifbuf1[144:0]),
+    .ifmap_in1(ifbuf1[7:0]),
+    .ifmap_in2(ifbuf1[151:144]),
     .ifmap_in3(ifbuf1[15:8]),
     .ifmap_in4(ifbuf1[159:152]),
     .groupsum_out1(psum11),
@@ -911,7 +911,7 @@ pegroup pegroup1(
     .layer(layer)
 );
 
-pegroup pegroup2(
+pe_group pe_group2(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight21_in),
@@ -930,7 +930,7 @@ pegroup pegroup2(
     .layer(layer)
 );
 
-pegroup pegroup3(
+pe_group pe_group3(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight31_in),
@@ -949,7 +949,7 @@ pegroup pegroup3(
     .layer(layer)
 );
 
-pegroup pegroup4(
+pe_group pe_group4(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight41_in),
@@ -959,16 +959,16 @@ pegroup pegroup4(
     .weight5_in(weight45_in),
     .weight6_in(weight46_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf4[151:0]),
-    .ifmap_in2(ifbuf4[144:0]),
-    .ifmap_in3(ifbuf4[15:8]),
-    .ifmap_in4(ifbuf4[159:152]),
+    .ifmap_in1(ifbuf5[7:0]),
+    .ifmap_in2(ifbuf5[151:144]),
+    .ifmap_in3(ifbuf5[15:8]),
+    .ifmap_in4(ifbuf5[159:152]),
     .groupsum_out1(psum41),
     .groupsum_out2(psum42),
     .layer(layer)
 );
 
-pegroup pegroup5(
+pe_group pe_group5(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight51_in),
@@ -987,7 +987,7 @@ pegroup pegroup5(
     .layer(layer)
 );
 
-pegroup pegroup6(
+pe_group pe_group6(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight61_in),
