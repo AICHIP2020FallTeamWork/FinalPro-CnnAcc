@@ -329,13 +329,13 @@ always @(posedge clk) begin
             ifbuf4[7:0] <= ifmap_in1[31:24];
             ifbuf5[7:0] <= ifmap_in1[39:32];
         end
-        else begin
-            ifbuf1[287:280] <= ifbuf2[7:0];
-            ifbuf2[287:280] <= ifbuf3[7:0];
-            ifbuf3[287:280] <= ifbuf4[7:0];
-            ifbuf4[287:280] <= ifbuf5[7:0];
-            ifbuf5[287:280] <= ifmap_in1[7:0];
-        end
+        
+        ifbuf1[287:280] <= ifbuf2[7:0];
+        ifbuf2[287:280] <= ifbuf3[7:0];
+        ifbuf3[287:280] <= ifbuf4[7:0];
+        ifbuf4[287:280] <= ifbuf5[7:0];
+        ifbuf5[287:280] <= ifmap_in1[7:0];
+        
     end
     
     if (layer == 3) begin
@@ -575,20 +575,20 @@ always @(posedge clk) begin
             ifbuf5[7:0] <= ifmap_in3[15:8];
             ifbuf6[7:0] <= ifmap_in3[23:16];
         end
-        else begin
-            ifbuf1[287:280] <= ifbuf2[151:144];
-            ifbuf2[287:280] <= ifbuf3[151:144];
-            ifbuf3[287:280] <= ifmap_in2[7:0];
-            ifbuf4[287:280] <= ifbuf5[151:144];
-            ifbuf5[287:280] <= ifbuf6[151:144];
-            ifbuf6[287:280] <= ifmap_in4[7:0];
-            ifbuf1[143:136] <= ifbuf2[7:0];
-            ifbuf2[143:136] <= ifbuf3[7:0];
-            ifbuf3[143:136] <= ifmap_in1[7:0];
-            ifbuf4[143:136] <= ifbuf5[7:0];
-            ifbuf5[143:136] <= ifbuf6[7:0];
-            ifbuf6[143:136] <= ifmap_in3[7:0];
-        end
+        
+        ifbuf1[287:280] <= ifbuf2[151:144];
+        ifbuf2[287:280] <= ifbuf3[151:144];
+        ifbuf3[287:280] <= ifmap_in2[7:0];
+        ifbuf4[287:280] <= ifbuf5[151:144];
+        ifbuf5[287:280] <= ifbuf6[151:144];
+        ifbuf6[287:280] <= ifmap_in4[7:0];
+        ifbuf1[143:136] <= ifbuf2[7:0];
+        ifbuf2[143:136] <= ifbuf3[7:0];
+        ifbuf3[143:136] <= ifmap_in1[7:0];
+        ifbuf4[143:136] <= ifbuf5[7:0];
+        ifbuf5[143:136] <= ifbuf6[7:0];
+        ifbuf6[143:136] <= ifmap_in3[7:0];
+        
 
     end
 
@@ -823,32 +823,32 @@ always @(posedge clk) begin
             ifbuf5[7:0] <= ifmap_in1[39:32];
             ifbuf6[7:0] <= ifmap_in1[47:40];
         end
-        else begin
-            ifbuf1[287:280] <= ifbuf3[159:152];
-            ifbuf2[287:280] <= ifmap_in4[7:0];
-            ifbuf3[287:280] <= ifmap_in4[15:8];
-            ifbuf4[287:280] <= ifbuf6[159:152];
-            ifbuf5[287:280] <= ifmap_in4[23:16];
-            ifbuf6[287:280] <= ifmap_in4[31:24];
-            ifbuf1[143:136] <= ifbuf3[15:8];
-            ifbuf2[143:136] <= ifmap_in3[7:0];
-            ifbuf3[143:136] <= ifmap_in3[15:8];
-            ifbuf4[143:136] <= ifbuf6[15:8];
-            ifbuf5[143:136] <= ifmap_in3[23:16];
-            ifbuf6[143:136] <= ifmap_in3[31:24];
-            ifbuf1[279:272] <= ifbuf3[151:144];
-            ifbuf2[279:272] <= ifmap_in2[7:0];
-            ifbuf3[279:272] <= ifmap_in2[15:8];
-            ifbuf4[279:272] <= ifbuf6[151:144];
-            ifbuf5[279:272] <= ifmap_in2[23:16];
-            ifbuf6[279:272] <= ifmap_in2[31:24];
-            ifbuf1[135:128] <= ifbuf3[7:0];
-            ifbuf2[135:128] <= ifmap_in1[7:0];
-            ifbuf3[135:128] <= ifmap_in1[15:8];
-            ifbuf4[135:128] <= ifbuf6[7:0];
-            ifbuf5[135:128] <= ifmap_in1[23:16];
-            ifbuf6[135:128] <= ifmap_in1[31:24];
-        end
+        
+        ifbuf1[287:280] <= ifbuf3[159:152];
+        ifbuf2[287:280] <= ifmap_in4[7:0];
+        ifbuf3[287:280] <= ifmap_in4[15:8];
+        ifbuf4[287:280] <= ifbuf6[159:152];
+        ifbuf5[287:280] <= ifmap_in4[23:16];
+        ifbuf6[287:280] <= ifmap_in4[31:24];
+        ifbuf1[143:136] <= ifbuf3[15:8];
+        ifbuf2[143:136] <= ifmap_in3[7:0];
+        ifbuf3[143:136] <= ifmap_in3[15:8];
+        ifbuf4[143:136] <= ifbuf6[15:8];
+        ifbuf5[143:136] <= ifmap_in3[23:16];
+        ifbuf6[143:136] <= ifmap_in3[31:24];
+        ifbuf1[279:272] <= ifbuf3[151:144];
+        ifbuf2[279:272] <= ifmap_in2[7:0];
+        ifbuf3[279:272] <= ifmap_in2[15:8];
+        ifbuf4[279:272] <= ifbuf6[151:144];
+        ifbuf5[279:272] <= ifmap_in2[23:16];
+        ifbuf6[279:272] <= ifmap_in2[31:24];
+        ifbuf1[135:128] <= ifbuf3[7:0];
+        ifbuf2[135:128] <= ifmap_in1[7:0];
+        ifbuf3[135:128] <= ifmap_in1[15:8];
+        ifbuf4[135:128] <= ifbuf6[7:0];
+        ifbuf5[135:128] <= ifmap_in1[23:16];
+        ifbuf6[135:128] <= ifmap_in1[31:24];
+        
 
     end
   
