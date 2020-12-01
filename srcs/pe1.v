@@ -1,3 +1,5 @@
+`include "defines.v"
+
 module pe_set(
     // enable updates of ifmap rows and weights
     layer,
@@ -54,7 +56,6 @@ module pe_set(
     ofmap_out,
     clk,
     initializing,
-
 );
 
 input                  [3:0]      size;
@@ -72,7 +73,7 @@ input        signed    [47:0]     ifmap_in2;
 input        signed    [47:0]     ifmap_in3;
 input        signed    [47:0]     ifmap_in4;
 input                             clk;
-input                  [3:0]      layer;
+input                  [2:0]      Layer;                    //----修改size[3:0] ->[2:0]
 input        signed    [7:0]      weight11_in;
 input        signed    [7:0]      weight12_in;
 input        signed    [7:0]      weight13_in;
@@ -161,7 +162,12 @@ reg                    [287:0]   ifbuf5;
 
 
 always @(posedge clk) begin
-    if (layer == 1) begin
+    case ( Layer )
+     
+        
+    
+     
+    `Layer1: begin
         ifbuf1[15:8] <= ifbuf1[23:16];
         ifbuf1[23:16] <= ifbuf1[31:24];
         ifbuf1[31:24] <= ifbuf1[39:32];
@@ -360,8 +366,10 @@ always @(posedge clk) begin
         ifbuf5[287:280] <= ifmap_in1[7:0];
         
     end
+
+    `Layer2:  
     
-    if (layer == 3) begin
+    `Layer3: begin
         ifbuf1[15:8] <= ifbuf1[23:16];
         ifbuf1[23:16] <= ifbuf1[31:24];
         ifbuf1[31:24] <= ifbuf1[39:32];
@@ -612,7 +620,7 @@ always @(posedge clk) begin
 
     end
 
-    if (layer == 4) begin
+    `Layer4: begin
         ifbuf1[23:16] <= ifbuf1[39:32];
         ifbuf1[31:24] <= ifbuf1[47:40];
         ifbuf1[39:32] <= ifbuf1[55:48];
@@ -873,7 +881,10 @@ always @(posedge clk) begin
         
 
     end
-  
+    `Layer5: begin
+
+    end
+    endcase
 end
 
 pegroup pegroup1(
