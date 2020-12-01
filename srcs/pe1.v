@@ -114,16 +114,6 @@ input        signed    [7:0]      weight66_in;
 output  reg  signed    [19:0]      ofmap_out;
 
 
-// reg          signed    [7:0]     weight11;
-// reg          signed    [7:0]     weight12;
-// reg          signed    [7:0]     weight13;
-// reg          signed    [7:0]     weight21;
-// reg          signed    [7:0]     weight22;
-// reg          signed    [7:0]     weight23;
-// reg          signed    [7:0]     weight31;
-// reg          signed    [7:0]     weight32;
-// reg          signed    [7:0]     weight33;
- 
 
 reg          signed    [17:0]    psum11;
 reg          signed    [17:0]    psum21;
@@ -148,6 +138,7 @@ reg                    [287:0]   ifbuf2;
 reg                    [287:0]   ifbuf3;
 reg                    [287:0]   ifbuf4;
 reg                    [287:0]   ifbuf5;
+reg                    [63:0]    break;
 
 
 always @(posedge clk) begin
@@ -348,10 +339,14 @@ always @(posedge clk) begin
             ifbuf5[7:0] <= ifbuf5[15:8];
         end
         
-        ifbuf1[287:280] <= ifbuf2[7:0];
-        ifbuf2[287:280] <= ifbuf3[7:0];
-        ifbuf3[287:280] <= ifbuf4[7:0];
-        ifbuf4[287:280] <= ifbuf5[7:0];
+        ifbuf1[287:280] <= break[7:0]
+        break[7:0] <= ifbuf2[7:0];
+        ifbuf2[287:280] <= break[15:8]
+        break[15:8] <= ifbuf3[7:0];
+        ifbuf3[287:280] <= break[23:16]
+        break[23:16] <= ifbuf4[7:0];
+        ifbuf4[287:280] <= break[31:24]
+        break[31:24] <= ifbuf5[7:0];
         ifbuf5[287:280] <= ifmap_in1r[7:0];
         
     end
@@ -593,17 +588,25 @@ always @(posedge clk) begin
             ifbuf6[151:144] <= ifbuf6[159:152];
         end
         
-        ifbuf1[287:280] <= ifbuf2[151:144];
-        ifbuf2[287:280] <= ifbuf3[151:144];
+        ifbuf1[287:280] <= break[7:0]
+        break[7:0] <= ifbuf2[151:144];
+        ifbuf2[287:280] <= break[15:8]
+        break[15:8] <= ifbuf3[151:144];
         ifbuf3[287:280] <= ifmap_in2r[7:0];
-        ifbuf4[287:280] <= ifbuf5[151:144];
-        ifbuf5[287:280] <= ifbuf6[151:144];
+        ifbuf4[287:280] <= break[23:16]
+        break[23:16] <= ifbuf5[151:144];
+        ifbuf5[287:280] <= break[31:24]
+        break[31:24] <= ifbuf6[151:144];
         ifbuf6[287:280] <= ifmap_in4r[7:0];
-        ifbuf1[143:136] <= ifbuf2[7:0];
-        ifbuf2[143:136] <= ifbuf3[7:0];
+        ifbuf1[143:136] <= break[39:32]
+        break[39:32] <= ifbuf2[7:0];
+        ifbuf2[143:136] <= break[47:40]
+        break[47:40] <= ifbuf3[7:0];
         ifbuf3[143:136] <= ifmap_in1r[7:0];
-        ifbuf4[143:136] <= ifbuf5[7:0];
-        ifbuf5[143:136] <= ifbuf6[7:0];
+        ifbuf4[143:136] <= break[55:48]
+        break[55:48] <= ifbuf5[7:0];
+        ifbuf5[143:136] <= break[63:56]
+        break[63:56] <= ifbuf6[7:0];
         ifbuf6[143:136] <= ifmap_in3r[7:0];
         
 
@@ -843,28 +846,36 @@ always @(posedge clk) begin
             ifbuf6[159:152] <= ifbuf6[175:168];
         end
         
-        ifbuf1[287:280] <= ifbuf3[159:152];
+        ifbuf1[287:280] <= break[7:0]
+        break[7:0] <= ifbuf3[159:152];
         ifbuf2[287:280] <= ifmap_in4r[7:0];
         ifbuf3[287:280] <= ifmap_in4r[15:8];
-        ifbuf4[287:280] <= ifbuf6[159:152];
+        ifbuf4[287:280] <= break[15:8]
+        break[15:8] <= ifbuf6[159:152];
         ifbuf5[287:280] <= ifmap_in4r[23:16];
         ifbuf6[287:280] <= ifmap_in4r[31:24];
-        ifbuf1[143:136] <= ifbuf3[15:8];
+        ifbuf1[143:136] <= break[23:16]
+        break[23:16] <= ifbuf3[15:8];
         ifbuf2[143:136] <= ifmap_in3r[7:0];
         ifbuf3[143:136] <= ifmap_in3r[15:8];
-        ifbuf4[143:136] <= ifbuf6[15:8];
+        ifbuf4[143:136] <= break[31:24]
+        break[31:24] <= ifbuf6[15:8];
         ifbuf5[143:136] <= ifmap_in3r[23:16];
         ifbuf6[143:136] <= ifmap_in3r[31:24];
-        ifbuf1[279:272] <= ifbuf3[151:144];
+        ifbuf1[279:272] <= break[39:32]
+        break[39:32] <= ifbuf3[151:144];
         ifbuf2[279:272] <= ifmap_in2r[7:0];
         ifbuf3[279:272] <= ifmap_in2r[15:8];
-        ifbuf4[279:272] <= ifbuf6[151:144];
+        ifbuf4[279:272] <= break[47:40]
+        break[47:40] <= ifbuf6[151:144];
         ifbuf5[279:272] <= ifmap_in2r[23:16];
         ifbuf6[279:272] <= ifmap_in2r[31:24];
-        ifbuf1[135:128] <= ifbuf3[7:0];
+        ifbuf1[135:128] <= break[55:48]
+        break[55:48] <= ifbuf3[7:0];
         ifbuf2[135:128] <= ifmap_in1r[7:0];
         ifbuf3[135:128] <= ifmap_in1r[15:8];
-        ifbuf4[135:128] <= ifbuf6[7:0];
+        ifbuf4[135:128] <= break[63:56]
+        break[63:56] <= ifbuf6[7:0];
         ifbuf5[135:128] <= ifmap_in1[23:16];
         ifbuf6[135:128] <= ifmap_in1[31:24];
         
@@ -886,8 +897,8 @@ pegroup pegroup1(
     .weight5_in(weight15_in),
     .weight6_in(weight16_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf1[151:0]),
-    .ifmap_in2(ifbuf1[144:0]),
+    .ifmap_in1(ifbuf1[7:0]),
+    .ifmap_in2(ifbuf1[151:144]),
     .ifmap_in3(ifbuf1[15:8]),
     .ifmap_in4(ifbuf1[159:152]),
     .groupsum_out1(psum11),
@@ -943,8 +954,8 @@ pegroup pegroup4(
     .weight5_in(weight45_in),
     .weight6_in(weight46_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf4[151:0]),
-    .ifmap_in2(ifbuf4[144:0]),
+    .ifmap_in1(ifbuf4[7:0]),
+    .ifmap_in2(ifbuf4[151:144]),
     .ifmap_in3(ifbuf4[15:8]),
     .ifmap_in4(ifbuf4[159:152]),
     .groupsum_out1(psum41),
