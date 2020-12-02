@@ -3,19 +3,19 @@ import math
 
 pewt = np.zeros((6,6))
 memwt = np.zeros((64,32,5,5))
-buffer = np.zeros((6,36))
-memin = np.zeros((1,36,36))
+buffer = np.zeros((6,32))
+memin = np.zeros((1,32,32))
 pein = np.zeros((6,6))
 peout = np.zeros((6,6))
 memout = np.zeros((32,32,32))
 memout0 = np.zeros((32,32,32))
-temp = np.zeros((5))
+regpad = np.zeros((5,2))
 
 memining = np.fromfile('/scorpio/home/chenqihang/malaoshi/data/im2/conv1.input.dat', dtype=np.int8)
 for a in range(1):
     for b in range(32):
         for c in range(32):
-            memin[a][b+2][c+2] = memining[1024*a+32*b+c]
+            memin[a][b][c] = memining[1024*a+32*b+c]
 
 # print(len(memining))
 
@@ -53,42 +53,50 @@ for k in range(32):
         for group in range(5):
             for multier in range(5):
                 pewt[group][multier] = memwt[k][0][group][multier]
-        for c in range(20):
-            for group in range(5):
+        for c in range(12):
+            for group in range(2,5):
                 for colset in range(4):
-                    if colset != 3:    
-                        for col in range(9):
-                            buffer[group][9*colset+col] = buffer[group][9*(colset+1)+col]
+                    if colset != 3:
+                        for col in range(8):
+                            buffer[group][8*colset+col] = buffer[group][8*(colset+1)+col]
                     else:
-                        for col in range(9):
+                        for col in range(8):
                             if group != 4:
-                                buffer[group][9*colset+col] = buffer[group+1][col]
+                                buffer[group][8*colset+col] = buffer[group+1][col]
                             else:
-                                buffer[group][9*colset+col] = memin[0][int(c/4)][9*(c%4)+col]
-
-        for c in range(1152):
+                                buffer[group][8*colset+col] = memin[0][int(c/4)][8*(c%4)+col]
+        for group in range(2):
+            for reg in range(32):
+                buffer[group][reg] = 0
+        for c in range(1088):
             for group in range(5):
                 pein[group][0] = pein[group][1]
                 pein[group][1] = pein[group][2]
                 pein[group][2] = pein[group][3]
                 pein[group][3] = pein[group][4]
-                pein[group][4] = buffer[group][0]  
-                for col in range(0,35):
-                    buffer[group][col] = buffer[group][col+1]
-            # for group in range(5):    
-                if group != 4:
-                    buffer[group][35] = buffer[group+1][0]
+                pein[group][4] = regpad[group][0]  
+                regpad[group][0] = regpad[group][1]
+                regpad[group][1] = buffer[group][0]
+                for col in range(0,31):
+                    buffer[group][col] = buffer[group][col+1]    
+                
+                if group != 4:                    
+                    buffer[group][31] = regpad[group+1][0]
                 else:
-                    if ((c%9) == 8):
-                        for col in range(9):
-                            if c < 1117:
-                                buffer[4][27+col] = memin[0][5+int(c/36)][c%36-8+col]
+                    if ((c%34 == 9) or (c%34 == 17) or (c%34 == 25) or (c%34 == 33)):
+                        for col in range(8):
+                            if c < 987:
+                                buffer[4][24+col] = memin[0][3+int(c/34)][c%34-9+col]
+                            elif c < 1055:
+                                buffer[4][24+col] = 0
+                    elif ((c%34 == 0) or (c%34 == 1)):
+                        buffer[4][31] = 0
 
-                if (c%36) > 3:
+                if ((c-2)%34) > 1:
                     for i in range(5):
                         peout[group][i] = pein[group][i] * pewt[group][i]
                     groupout = peout[group][0] + peout[group][1] + peout[group][2] + peout[group][3] + peout[group][4]
-                    memout[k][int(c/36)][c%36-4] += groupout
+                    memout[k][int((c-2)/34)][(c-2)%34-2] += groupout
 
                 
             
