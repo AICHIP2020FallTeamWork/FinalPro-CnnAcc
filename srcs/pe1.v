@@ -263,11 +263,16 @@ end else begin
                 ifbuf1[`Byte][29]   <=      0;
                 ifbuf1[`Byte][30]   <=      0;
                 ifbuf1[`Byte][31]   <=      0;                
-                regPad1[`Byte][1:0]   <= 0;
-                regPad2[`Byte][1:0]   <= 0;
-                regPad3[`Byte][1:0]   <= 0;
-                regPad4[`Byte][1:0]   <= 0;
-                regPad5[`Byte][1:0]   <= 0;
+                regPad1[`Byte][0]   <= 0;
+                regPad2[`Byte][0]   <= 0;
+                regPad3[`Byte][0]   <= 0;
+                regPad4[`Byte][0]   <= 0;
+                regPad5[`Byte][0]   <= 0;
+                regPad1[`Byte][1]   <= 0;
+                regPad2[`Byte][1]   <= 0;
+                regPad3[`Byte][1]   <= 0;
+                regPad4[`Byte][1]   <= 0;
+                regPad5[`Byte][1]   <= 0;
                 Process <= `Start;
                 Counter <= 0;
               end
