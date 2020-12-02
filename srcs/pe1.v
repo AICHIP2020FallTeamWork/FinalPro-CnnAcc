@@ -427,7 +427,7 @@ end else begin
                 ifbuf1[`Byte][30]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[15:8];
                 ifbuf1[`Byte][31]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
-                Trashdata <= 1;
+                Trashdata <= 1; //signal for disable
             end
             6'd37 : begin
                 ifbuf1[`Byte][24]   <=      ifbuf1[`Byte][25];
