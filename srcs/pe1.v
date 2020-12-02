@@ -179,14 +179,14 @@ end else begin
             if (Counter != 5'd12)
                 Counter <= Counter + 1;
                 Process <= `Init;
-                ifbuf5[`Byte][24]   <=   8'd0:ifmap_in1[63:56];
-                ifbuf5[`Byte][25]   <=   8'd0:ifmap_in1[55:48];
-                ifbuf5[`Byte][26]   <=   8'd0:ifmap_in1[47:40];
-                ifbuf5[`Byte][27]   <=   8'd0:ifmap_in1[39:32];
-                ifbuf5[`Byte][28]   <=   8'd0:ifmap_in1[31:24];
-                ifbuf5[`Byte][29]   <=   8'd0:ifmap_in1[23:16];
-                ifbuf5[`Byte][30]   <=   8'd0:ifmap_in1[15:8];
-                ifbuf5[`Byte][31]   <=   8'd0:ifmap_in1[7:0];
+                ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];
                 ifbuf5[`Byte][23:16] <=      ifbuf5[`Byte][31:24];
                 ifbuf5[`Byte][15:8]  <=      ifbuf5[`Byte][23:16];
                 ifbuf5[`Byte][7:0]   <=      ifbuf5[`Byte][15:8];
@@ -1113,7 +1113,66 @@ end else begin
 
     end
     `Layer5: begin 
+        case ( State )     
+        `Init:begin
+            ifbuf6[`Byte][24]   <=   0;
+            ifbuf6[`Byte][25]   <=   0;
+            ifbuf6[`Byte][26]   <=   0;
+            ifbuf6[`Byte][27]   <=   0;
+            ifbuf6[`Byte][28]   <=   0;
+            ifbuf6[`Byte][29]   <=   0;
+            ifbuf6[`Byte][30]   <=   0;
+            ifbuf6[`Byte][31]   <=   0;
+                
+            ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+            ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+            ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+            ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+            ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+            ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+            ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+            ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];  
+
+            ifbuf4[`Byte][24]   <=   ifmap_in2[63:56];
+            ifbuf4[`Byte][25]   <=   ifmap_in2[55:48];
+            ifbuf4[`Byte][26]   <=   ifmap_in2[47:40];
+            ifbuf4[`Byte][27]   <=   ifmap_in2[39:32];
+            ifbuf4[`Byte][28]   <=   ifmap_in2[31:24];
+            ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
+            ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
+            ifbuf4[`Byte][31]   <=   ifmap_in2[7:0]; 
+            State <= `Start;  
+        end
+        `Start:begin
+            ifbuf6[`Byte][24]   <=   ifbuf4[`Byte][24];
+            ifbuf6[`Byte][25]   <=   ifbuf4[`Byte][25];
+            ifbuf6[`Byte][26]   <=   ifbuf4[`Byte][26];
+            ifbuf6[`Byte][27]   <=   ifbuf4[`Byte][27];
+            ifbuf6[`Byte][28]   <=   ifbuf4[`Byte][28];
+            ifbuf6[`Byte][29]   <=   ifbuf4[`Byte][29];
+            ifbuf6[`Byte][30]   <=   ifbuf4[`Byte][30];
+            ifbuf6[`Byte][31]   <=   ifbuf4[`Byte][31];
+                
+            ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+            ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+            ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+            ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+            ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+            ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+            ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+            ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];  
+
+            ifbuf4[`Byte][24]   <=   ifmap_in2[63:56];
+            ifbuf4[`Byte][25]   <=   ifmap_in2[55:48];
+            ifbuf4[`Byte][26]   <=   ifmap_in2[47:40];
+            ifbuf4[`Byte][27]   <=   ifmap_in2[39:32];
+            ifbuf4[`Byte][28]   <=   ifmap_in2[31:24];
+            ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
+            ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
+            ifbuf4[`Byte][31]   <=   ifmap_in2[7:0];
             
+                         
+        end
     end
     endcase
 end
