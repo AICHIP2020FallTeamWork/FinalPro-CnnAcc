@@ -1141,9 +1141,13 @@ end else begin
             ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
             ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
             ifbuf4[`Byte][31]   <=   ifmap_in2[7:0]; 
+            regPad4[`Byte][1]   <= 0;
+            regPad5[`Byte][1]   <= 0;
+            regPad6[`Byte][1]   <= 0;
             State <= `Start;  
         end
         `Start:begin
+//------------------------------------------------------
             ifbuf6[`Byte][24]   <=   ifbuf4[`Byte][24];
             ifbuf6[`Byte][25]   <=   ifbuf4[`Byte][25];
             ifbuf6[`Byte][26]   <=   ifbuf4[`Byte][26];
@@ -1170,6 +1174,72 @@ end else begin
             ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
             ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
             ifbuf4[`Byte][31]   <=   ifmap_in2[7:0];
+//---------------------------------------------------------
+            multi111 <= weight11_in * ifbuf6[`Byte][25];
+            multi112 <= weight12_in * ifbuf6[`Byte][24]; 
+            multi113 <= weight13_in * regpad6[`Byte][1];
+            multi121 <= weight21_in * ifbuf5[`Byte][25]; 
+            multi122 <= weight22_in * ifbuf5[`Byte][24];
+            multi123 <= weight23_in * regpad5[`Byte][1];
+            multi131 <= weight31_in * ifbuf4[`Byte][25];
+            multi132 <= weight32_in * ifbuf4[`Byte][24];
+            multi133 <= weight33_in * regpad4[`Byte][1];
+
+            plusi11 <= multi111 + multi112 + multi113;
+            plusi12 <= multi121 + multi122 + multi123;
+            plusi13 <= multi131 + multi132 + multi133;
+            plusi1s <= plusi11  + plusi12  + plusi13;
+//----------------------------------------------------------
+            multi211 <= weight11_in * ifbuf6[`Byte][28];
+            multi212 <= weight12_in * ifbuf6[`Byte][27]; 
+            multi213 <= weight13_in * ifbuf6[`Byte][26];
+            multi221 <= weight21_in * ifbuf5[`Byte][28]; 
+            multi222 <= weight22_in * ifbuf5[`Byte][27];
+            multi223 <= weight23_in * ifbuf5[`Byte][26];
+            multi231 <= weight31_in * ifbuf4[`Byte][28];
+            multi232 <= weight32_in * ifbuf4[`Byte][27];
+            multi233 <= weight33_in * ifbuf4[`Byte][26];
+
+            plusi21 <= multi211 + multi212 + multi213;
+            plusi22 <= multi221 + multi222 + multi223;
+            plusi23 <= multi231 + multi232 + multi233;
+            plusi2s <= plusi21  + plusi22  + plusi23;
+//----------------------------------------------------------
+            multi311 <= weight11_in * ifbuf6[`Byte][28];
+            multi312 <= weight12_in * ifbuf6[`Byte][27]; 
+            multi313 <= weight13_in * ifbuf6[`Byte][26];
+            multi321 <= weight21_in * ifbuf5[`Byte][28]; 
+            multi322 <= weight22_in * ifbuf5[`Byte][27];
+            multi323 <= weight23_in * ifbuf5[`Byte][26];
+            multi331 <= weight31_in * ifbuf4[`Byte][28];
+            multi332 <= weight32_in * ifbuf4[`Byte][27];
+            multi333 <= weight33_in * ifbuf4[`Byte][26];
+
+            plusi31 <= multi311 + multi312 + multi313;
+            plusi32 <= multi321 + multi322 + multi323;
+            plusi33 <= multi331 + multi332 + multi333;
+            plusi3s <= plusi31  + plusi32  + plusi33;
+//----------------------------------------------------------
+            multi411 <= weight11_in * ifbuf6[`Byte][28];
+            multi412 <= weight12_in * ifbuf6[`Byte][27]; 
+            multi413 <= weight13_in * ifbuf6[`Byte][26];
+            multi421 <= weight21_in * ifbuf5[`Byte][28]; 
+            multi422 <= weight22_in * ifbuf5[`Byte][27];
+            multi423 <= weight23_in * ifbuf5[`Byte][26];
+            multi431 <= weight31_in * ifbuf4[`Byte][28];
+            multi432 <= weight32_in * ifbuf4[`Byte][27];
+            multi433 <= weight33_in * ifbuf4[`Byte][26];
+
+            plusi41 <= multi411 + multi412 + multi413;
+            plusi42 <= multi421 + multi422 + multi423;
+            plusi43 <= multi431 + multi432 + multi433;
+            plusi4s <= plusi41  + plusi42  + plusi43;
+//----------------------------------------------------------
+            //6   31 30 29 28 27 26 25 24 pad0
+            //5   31 30 29 28 27 26 25 24 pad0
+            //4   31 30 29 28 27 26 25 24 pad0
+//----------------------------------------------------------
+
             
                          
         end
