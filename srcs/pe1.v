@@ -1144,7 +1144,10 @@ end else begin
             regPad4[`Byte][1]   <= 0;
             regPad5[`Byte][1]   <= 0;
             regPad6[`Byte][1]   <= 0;
-            State <= `Start;  
+            StateBubble3 <= `Start;
+            StateBubble2 <= `Start;
+            StateBubble1 <= `Start;
+            State        <= `Start;  
         end
         `Start:begin
 //------------------------------------------------------
@@ -1188,7 +1191,7 @@ end else begin
             plusi11 <= multi111 + multi112 + multi113;
             plusi12 <= multi121 + multi122 + multi123;
             plusi13 <= multi131 + multi132 + multi133;
-            plusi1s <= plusi11  + plusi12  + plusi13;
+            
 //----------------------------------------------------------
             multi211 <= weight11_in * ifbuf6[`Byte][28];
             multi212 <= weight12_in * ifbuf6[`Byte][27]; 
@@ -1203,7 +1206,7 @@ end else begin
             plusi21 <= multi211 + multi212 + multi213;
             plusi22 <= multi221 + multi222 + multi223;
             plusi23 <= multi231 + multi232 + multi233;
-            plusi2s <= plusi21  + plusi22  + plusi23;
+            
 //----------------------------------------------------------
             multi311 <= weight11_in * ifbuf6[`Byte][28];
             multi312 <= weight12_in * ifbuf6[`Byte][27]; 
@@ -1218,7 +1221,7 @@ end else begin
             plusi31 <= multi311 + multi312 + multi313;
             plusi32 <= multi321 + multi322 + multi323;
             plusi33 <= multi331 + multi332 + multi333;
-            plusi3s <= plusi31  + plusi32  + plusi33;
+            
 //----------------------------------------------------------
             multi411 <= weight11_in * ifbuf6[`Byte][28];
             multi412 <= weight12_in * ifbuf6[`Byte][27]; 
@@ -1233,14 +1236,55 @@ end else begin
             plusi41 <= multi411 + multi412 + multi413;
             plusi42 <= multi421 + multi422 + multi423;
             plusi43 <= multi431 + multi432 + multi433;
-            plusi4s <= plusi41  + plusi42  + plusi43;
+//----------------------------------------------------------
+            if(StateBubble3 <= `Init) begin
+            ifbuf6[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf6[`Byte][23];
+            ifbuf6[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf6[`Byte][22];
+            ifbuf6[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf6[`Byte][21];
+            ifbuf6[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf6[`Byte][20];
+            end
+//----------------------------------------------------------
+            if(StateBubble4 <= `Init) begin
+            ifbuf5[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf5[`Byte][23];
+            ifbuf5[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf5[`Byte][22];
+            ifbuf5[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf5[`Byte][21];
+            ifbuf5[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf5[`Byte][20];
+//----------------------------------------------------------
+            if(StateBubble5 <= `Init) begin
+            ifbuf4[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf4[`Byte][23];
+            ifbuf4[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf4[`Byte][22];
+            ifbuf4[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf4[`Byte][21];
+            ifbuf4[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf4[`Byte][20];
+//----------------------------------------------------------
+            if(State <= `Init) begin
+            ifbuf3[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf3[`Byte][23];
+            ifbuf3[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf3[`Byte][22];
+            ifbuf3[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf3[`Byte][21];
+            ifbuf3[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf3[`Byte][20];
 //----------------------------------------------------------
             //6   31 30 29 28 27 26 25 24 pad0
             //5   31 30 29 28 27 26 25 24 pad0
             //4   31 30 29 28 27 26 25 24 pad0
 //----------------------------------------------------------
-
-            
+            ifbuf6[`Byte][23] <= ifbuf6[`Byte][22];
+//----------------------------------------------------------
+            //6   23 22 21 20 
+            //5   23 22 21 20 
+            //4   23 22 21 20 
+            //3   23 22 21 20   
+//----------------------------------------------------------
+            StateBubble1 <= `Init;
+            StateBubble2 <= StateBubble1;
+            StateBubble3 <= StateBubble2;
+            StateBubble4 <= StateBubble3;
+            StateBubble5 <= StateBubble4;
+            if(kernCounter == 64 && StateBubble5 == `Init) begin
+                kernCounter <= 1 ; 
+                State <= `CalPool;
+            end else if(kernCounter != 64 && StateBubble5 == `Init) begin
+                State <= StateBubble5; 
+                kernCounter <= kernCounter + 1;
+            end
                          
         end
     end
