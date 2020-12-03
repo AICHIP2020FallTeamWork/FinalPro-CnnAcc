@@ -1288,6 +1288,49 @@ end else begin
                          
         end
     end
+    `CalPool: begin
+//-----------------------------------
+        ifbuf6[`Byte][19] <= ($signed(ifbuf6[`Byte][23]) + $signed(ifbuf6[`Byte][22])) >>>1;
+        ifbuf6[`Byte][18] <= ($signed(ifbuf6[`Byte][21]) + $signed(ifbuf6[`Byte][20])) >>>1;
+        ifbuf5[`Byte][19] <= ($signed(ifbuf5[`Byte][21]) + $signed(ifbuf5[`Byte][20])) >>>1;
+        ifbuf5[`Byte][18] <= ($signed(ifbuf5[`Byte][21]) + $signed(ifbuf5[`Byte][20])) >>>1;
+        ifbuf4[`Byte][19] <= ($signed(ifbuf4[`Byte][21]) + $signed(ifbuf4[`Byte][20])) >>>1;
+        ifbuf4[`Byte][18] <= ($signed(ifbuf4[`Byte][21]) + $signed(ifbuf4[`Byte][20])) >>>1;
+//-----------------------------------
+        ifbuf6[`Byte][17] <= ($signed(ifbuf6[`Byte][19]) + $signed(ifbuf6[`Byte][18])) >>>1;
+        ifbuf5[`Byte][17] <= ($signed(ifbuf5[`Byte][19]) + $signed(ifbuf5[`Byte][18])) >>>1;
+        ifbuf4[`Byte][17] <= ($signed(ifbuf4[`Byte][19]) + $signed(ifbuf4[`Byte][18])) >>>1;
+        ifbuf3[`Byte][17] <= ($signed(ifbuf3[`Byte][19]) + $signed(ifbuf3[`Byte][18])) >>>1;
+//-----------------------------------
+        ifbuf5[`Byte][16] <= ($signed(ifbuf6[`Byte][17]) + $signed(ifbuf4[`Byte][17])) >>>1;
+        ifbuf4[`Byte][16] <= ($signed(ifbuf5[`Byte][17]) + $signed(ifbuf3[`Byte][17])) >>>1;
+//-----------------------------------
+        ifbuf5[`Byte][15] <= ($signed(ifbuf5[`Byte][16]) + $signed(ifbuf4[`Byte][16])) >>>1;
+//-----------------------------------
+        ifbuf1[`Byte][1] <= ifbuf1[`Byte][1] + weight11_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][2] <= ifbuf1[`Byte][2] + weight12_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][3] <= ifbuf1[`Byte][3] + weight13_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][4] <= ifbuf1[`Byte][4] + weight21_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][5] <= ifbuf1[`Byte][5] + weight22_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][6] <= ifbuf1[`Byte][6] + weight23_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][7] <= ifbuf1[`Byte][7] + weight31_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][8] <= ifbuf1[`Byte][8] + weight32_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][9] <= ifbuf1[`Byte][9] + weight33_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][10] <= ifbuf1[`Byte][10] + weight41_in * ifbuf5[`Byte][15];
+        StateBubble1 <= `Init;
+        StateBubble2 <= StateBubble1;
+        StateBubble3 <= StateBubble2;
+        StateBubble4 <= StateBubble3;
+        State <= StateBubble4;
+//-----------------------------------
+            //6   (19 18 ) 17
+            //5   (19 18 ) 17 16 15
+            //4   (19 18 ) 17 16 
+            //3   (19 18 ) 17  
+
+//-----------------------------------
+
+    end
     endcase
 end
 
