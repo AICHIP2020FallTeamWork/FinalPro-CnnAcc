@@ -597,7 +597,7 @@ end else begin
         end
 //----------------------------------------------------------
         Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数字 //1位即可
-
+//---------
     end
 
     `Layer3: begin
@@ -1193,70 +1193,70 @@ end else begin
             plusi13 <= multi131 + multi132 + multi133;
             
 //----------------------------------------------------------
-            multi211 <= weight11_in * ifbuf6[`Byte][28];
-            multi212 <= weight12_in * ifbuf6[`Byte][27]; 
-            multi213 <= weight13_in * ifbuf6[`Byte][26];
-            multi221 <= weight21_in * ifbuf5[`Byte][28]; 
-            multi222 <= weight22_in * ifbuf5[`Byte][27];
-            multi223 <= weight23_in * ifbuf5[`Byte][26];
-            multi231 <= weight31_in * ifbuf4[`Byte][28];
-            multi232 <= weight32_in * ifbuf4[`Byte][27];
-            multi233 <= weight33_in * ifbuf4[`Byte][26];
+            multi211 <= weight11_in * ifbuf6[`Byte][27];
+            multi212 <= weight12_in * ifbuf6[`Byte][26]; 
+            multi213 <= weight13_in * ifbuf6[`Byte][25];
+            multi221 <= weight21_in * ifbuf5[`Byte][27]; 
+            multi222 <= weight22_in * ifbuf5[`Byte][26];
+            multi223 <= weight23_in * ifbuf5[`Byte][25];
+            multi231 <= weight31_in * ifbuf4[`Byte][27];
+            multi232 <= weight32_in * ifbuf4[`Byte][26];
+            multi233 <= weight33_in * ifbuf4[`Byte][25];
 
             plusi21 <= multi211 + multi212 + multi213;
             plusi22 <= multi221 + multi222 + multi223;
             plusi23 <= multi231 + multi232 + multi233;
             
 //----------------------------------------------------------
-            multi311 <= weight11_in * ifbuf6[`Byte][28];
-            multi312 <= weight12_in * ifbuf6[`Byte][27]; 
-            multi313 <= weight13_in * ifbuf6[`Byte][26];
-            multi321 <= weight21_in * ifbuf5[`Byte][28]; 
-            multi322 <= weight22_in * ifbuf5[`Byte][27];
-            multi323 <= weight23_in * ifbuf5[`Byte][26];
-            multi331 <= weight31_in * ifbuf4[`Byte][28];
-            multi332 <= weight32_in * ifbuf4[`Byte][27];
-            multi333 <= weight33_in * ifbuf4[`Byte][26];
+            multi311 <= weight11_in * ifbuf6[`Byte][29];
+            multi312 <= weight12_in * ifbuf6[`Byte][28]; 
+            multi313 <= weight13_in * ifbuf6[`Byte][27];
+            multi321 <= weight21_in * ifbuf5[`Byte][29]; 
+            multi322 <= weight22_in * ifbuf5[`Byte][28];
+            multi323 <= weight23_in * ifbuf5[`Byte][27];
+            multi331 <= weight31_in * ifbuf4[`Byte][29];
+            multi332 <= weight32_in * ifbuf4[`Byte][28];
+            multi333 <= weight33_in * ifbuf4[`Byte][27];
 
             plusi31 <= multi311 + multi312 + multi313;
             plusi32 <= multi321 + multi322 + multi323;
             plusi33 <= multi331 + multi332 + multi333;
             
 //----------------------------------------------------------
-            multi411 <= weight11_in * ifbuf6[`Byte][28];
-            multi412 <= weight12_in * ifbuf6[`Byte][27]; 
-            multi413 <= weight13_in * ifbuf6[`Byte][26];
-            multi421 <= weight21_in * ifbuf5[`Byte][28]; 
-            multi422 <= weight22_in * ifbuf5[`Byte][27];
-            multi423 <= weight23_in * ifbuf5[`Byte][26];
-            multi431 <= weight31_in * ifbuf4[`Byte][28];
-            multi432 <= weight32_in * ifbuf4[`Byte][27];
-            multi433 <= weight33_in * ifbuf4[`Byte][26];
+            multi411 <= weight11_in * ifbuf6[`Byte][31];
+            multi412 <= weight12_in * ifbuf6[`Byte][30]; 
+            multi413 <= weight13_in * ifbuf6[`Byte][29];
+            multi421 <= weight21_in * ifbuf5[`Byte][31]; 
+            multi422 <= weight22_in * ifbuf5[`Byte][30];
+            multi423 <= weight23_in * ifbuf5[`Byte][29];
+            multi431 <= weight31_in * ifbuf4[`Byte][31];
+            multi432 <= weight32_in * ifbuf4[`Byte][30];
+            multi433 <= weight33_in * ifbuf4[`Byte][29];
 
             plusi41 <= multi411 + multi412 + multi413;
             plusi42 <= multi421 + multi422 + multi423;
             plusi43 <= multi431 + multi432 + multi433;
 //----------------------------------------------------------
-            if(StateBubble3 <= `Init) begin
+            if(StateBubble2 == `Init) begin
             ifbuf6[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf6[`Byte][23];
             ifbuf6[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf6[`Byte][22];
             ifbuf6[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf6[`Byte][21];
             ifbuf6[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf6[`Byte][20];
             end
 //----------------------------------------------------------
-            if(StateBubble4 <= `Init) begin
+            if(StateBubble3 == `Init) begin
             ifbuf5[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf5[`Byte][23];
             ifbuf5[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf5[`Byte][22];
             ifbuf5[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf5[`Byte][21];
             ifbuf5[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf5[`Byte][20];
 //----------------------------------------------------------
-            if(StateBubble5 <= `Init) begin
+            if(StateBubble4 == `Init) begin
             ifbuf4[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf4[`Byte][23];
             ifbuf4[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf4[`Byte][22];
             ifbuf4[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf4[`Byte][21];
             ifbuf4[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf4[`Byte][20];
 //----------------------------------------------------------
-            if(State <= `Init) begin
+            if(StateBubble5 == `Init) begin
             ifbuf3[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf3[`Byte][23];
             ifbuf3[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf3[`Byte][22];
             ifbuf3[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf3[`Byte][21];
