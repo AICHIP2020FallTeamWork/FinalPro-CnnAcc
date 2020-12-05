@@ -534,14 +534,14 @@ end else begin
     `Layer2:begin
     
         //-------------------------------------------------
-        ifbuf5[`Byte][24]   <=   8'd0:ifmap_in1[63:56];
-        ifbuf5[`Byte][25]   <=   8'd0:ifmap_in1[55:48];
-        ifbuf5[`Byte][26]   <=   8'd0:ifmap_in1[47:40];
-        ifbuf5[`Byte][27]   <=   8'd0:ifmap_in1[39:32];
-        ifbuf5[`Byte][28]   <=   8'd0:ifmap_in1[31:24];
-        ifbuf5[`Byte][29]   <=   8'd0:ifmap_in1[23:16];
-        ifbuf5[`Byte][30]   <=   8'd0:ifmap_in1[15:8];
-        ifbuf5[`Byte][31]   <=   8'd0:ifmap_in1[7:0];
+        ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+        ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+        ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+        ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+        ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+        ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+        ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+        ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];
         //-------------------------------------------------
         if($signed(ifbuf5[`Byte][24]) >= $signed(ifbuf5[`Byte][25])) begin
             ifbuf4[`Byte][25] <= ifbuf5[`Byte][24];
@@ -566,36 +566,36 @@ end else begin
         end else begin
             ifbuf4[`Byte][31] <= ifbuf5[`Byte][31];
         end
-        //-------------------------------------------------
+//-------------------------------------------------
         ifbuf3[`Byte][25] <= ifbuf4[`Byte][25];
         ifbuf3[`Byte][27] <= ifbuf4[`Byte][27];
         ifbuf3[`Byte][29] <= ifbuf4[`Byte][29];
         ifbuf3[`Byte][31] <= ifbuf4[`Byte][31];
-        //-------------------------------------------------        
-        if($signed(ifbuf3[`Byte][25]) >= $signed(ifbuf5[`Byte][25])) begin
+//-------------------------------------------------        
+        if($signed(ifbuf3[`Byte][25]) >= $signed(ifbuf4[`Byte][25])) begin
             ifbuf2[`Byte][25] <= ifbuf3[`Byte][25];
         end else begin
             ifbuf2[`Byte][25] <= ifbuf4[`Byte][25];
         end
 
-        if($signed(ifbuf5[`Byte][27]) >= $signed(ifbuf5[`Byte][27])) begin
+        if($signed(ifbuf3[`Byte][27]) >= $signed(ifbuf4[`Byte][27])) begin
             ifbuf2[`Byte][27] <= ifbuf3[`Byte][27];
         end else begin
             ifbuf2[`Byte][27] <= ifbuf4[`Byte][27];
         end
         
-        if($signed(ifbuf5[`Byte][29]) >= $signed(ifbuf5[`Byte][29])) begin
+        if($signed(ifbuf3[`Byte][29]) >= $signed(ifbuf4[`Byte][29])) begin
             ifbuf2[`Byte][29] <= ifbuf3[`Byte][29];
         end else begin
             ifbuf2[`Byte][29] <= ifbuf4[`Byte][29];
         end
 
-        if($signed(ifbuf5[`Byte][31]) >= $signed(ifbuf5[`Byte][31])) begin
+        if($signed(ifbuf3[`Byte][31]) >= $signed(ifbuf4[`Byte][31])) begin
             ifbuf2[`Byte][31] <= ifbuf3[`Byte][31];
         end else begin
             ifbuf2[`Byte][31] <= ifbuf4[`Byte][31];
         end
-
+//----------------------------------------------------------
         Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数字 //1位即可
 
     end
