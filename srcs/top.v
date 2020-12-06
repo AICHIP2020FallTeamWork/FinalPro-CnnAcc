@@ -18,7 +18,7 @@ clk_wiz_0 clk0(
     .clock_out1(clk),
     .locked(locked)
 );
-//-------------------------------------------
+//------------------------------------------------------
 wire [13:0] addr_weight_1;
 wire [13:0] addr_weight_2;
 wire [71:0] dout_weight_1;
