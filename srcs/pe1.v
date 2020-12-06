@@ -441,7 +441,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]这是数据�?????
+        //ifbuf5[31]这是数据�??????
         `Start:begin
             
             regPad1[0]   <=      regPad1[1];
@@ -763,7 +763,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�????? //1位即�?????
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�?????? //1位即�??????
 //---------
     end
 // -----------
@@ -1278,7 +1278,7 @@ end else begin
         ifbuf6[135:128] <= ifmap_in1[31:24];
 //-------------       
 
-    // end
+     end
     `Layer5: begin 
         case ( State )     
         `Init:begin
