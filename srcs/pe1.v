@@ -449,50 +449,50 @@ end else begin
 
             case ( Counter )
             6'd10 : begin
-                ifbuf5[`Byte][24]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[`Byte][25]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[`Byte][26]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[`Byte][27]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[`Byte][28]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[`Byte][29]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[`Byte][30]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[`Byte][31]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd18 : begin
-                ifbuf5[`Byte][24]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[`Byte][25]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[`Byte][26]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[`Byte][27]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[`Byte][28]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[`Byte][29]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[`Byte][30]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[`Byte][31]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd26 :begin
-                ifbuf5[`Byte][24]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[`Byte][25]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[`Byte][26]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[`Byte][27]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[`Byte][28]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[`Byte][29]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[`Byte][30]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[`Byte][31]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd34 :
-                ifbuf5[`Byte][24]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[`Byte][25]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[`Byte][26]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[`Byte][27]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[`Byte][28]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[`Byte][29]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[`Byte][30]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[`Byte][31]   <=   (Row == 5'd23 || Row == 5'd24)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 1; //signal for disable
             end
@@ -506,7 +506,7 @@ end else begin
                 ifbuf5[`Byte][30]   <=      ifbuf5[`Byte][31];
                 ifbuf5[`Byte][31]   <=      ifbuf1[`Byte][0];
                 Counter <= 0;          
-                end else if(Row == 5'd25) begin
+                if(Row == 5'd31) begin
                     Row <= 0;
                 end else begin
                     Row <= Row + 1;                    
