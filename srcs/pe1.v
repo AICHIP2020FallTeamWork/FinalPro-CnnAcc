@@ -441,7 +441,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]这是数据�??????
+        //ifbuf5[31]这是数据�???????
         `Start:begin
             
             regPad5[0]   <=      regPad5[1];
@@ -771,7 +771,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�?????? //1位即�??????
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�??????? //1位即�???????
 //---------
     end
 // -----------
@@ -1063,7 +1063,7 @@ end else begin
             ifbuf5[12]   <=      ifbuf5[13];
             ifbuf5[13]   <=      ifbuf5[14];
             ifbuf5[14]   <=      ifbuf5[15];
-            ifbuf5[15]   <=      regpad6[0];
+            ifbuf5[15]   <=      regPad6[0];
 
             regPad5[1]   <=      ifbuf5[16];
             ifbuf5[16]   <=      ifbuf5[17];
@@ -1100,7 +1100,7 @@ end else begin
             ifbuf4[12]   <=      ifbuf4[13];
             ifbuf4[13]   <=      ifbuf4[14];
             ifbuf4[14]   <=      ifbuf4[15];
-            ifbuf4[15]   <=      regPad5[0]
+            ifbuf4[15]   <=      regPad5[0];
 
             regPad4[1]   <=      ifbuf4[16];
             ifbuf4[16]   <=      ifbuf4[17];
@@ -1356,7 +1356,7 @@ end else begin
 
                 Counter <= Counter + 1;
                 Trashdata <= 0;
-            
+            end
             6'd15 : begin
                 ifbuf6[8]   <=      ifbuf6[9];
                 ifbuf6[9]   <=      ifbuf6[10];
