@@ -619,9 +619,3 @@ INFO: [Common 17-83] Releasing license: Synthesis
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:03:14 ; elapsed = 00:03:19 . Memory (MB): peak = 922.965 ; gain = 628.824
 INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/weightROM.xci
-INFO: [Coretcl 2-1174] Renamed 72 cell refs.
-INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file weightROM_utilization_synth.rpt -pb weightROM_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.163 . Memory (MB): peak = 922.965 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 18:59:26 2020...

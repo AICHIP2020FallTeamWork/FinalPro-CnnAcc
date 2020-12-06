@@ -19,8 +19,6 @@ clk_wiz_0 clk0(
     .locked(locked)
 );
 //-------------------------------------------
-
-
 wire [16:0] addr_weight_1;
 wire [16:0] addr_weight_2;
 wire [7:0] dout_weight_1;
@@ -34,8 +32,6 @@ weightROM weightRom(
     .douta(dout_weight_1),
     .doutb(dout_weight_2)
 );
-
-
 //-------------------------------------------
 
 
