@@ -657,7 +657,7 @@ end else begin
                 ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
                 ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
                 ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
-                Counter <= Counter + 1;
+                Counter <= 0; 
                 Trashdata <= 0; //signal for disable
                 if(Row == 5'd31) begin
                     Row <= 0;
@@ -674,7 +674,7 @@ end else begin
                 ifbuf5[29]   <=      ifbuf5[30];
                 ifbuf5[30]   <=      ifbuf5[31];
                 ifbuf5[31]   <=      ifbuf1[0];
-                Counter <= 0;          
+                Counter <= Counter + 1;         
                 Trashdata <= 1;
             end
             default :begin
