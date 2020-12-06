@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sun Dec  6 19:16:19 2020
+# Process ID: 4760
+# Current directory: D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.runs/synth_1
+# Command line: vivado.exe -log pe1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pe1.tcl
+# Log file: D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.runs/synth_1/pe1.vds
+# Journal file: D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pe1.tcl -notrace
+Command: synth_design -top pe1 -part xc7z035ffg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10392 
+ERROR: [Synth 8-1031] calculate_en is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:19]
+WARNING: [Synth 8-1935] empty port in module declaration [D:/study_tools/FPGA/final_project/srcs/pe_group.v:20]
+ERROR: [Synth 8-1031] weight1 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:58]
+ERROR: [Synth 8-1031] weight2 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:59]
+ERROR: [Synth 8-1031] weight3 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:60]
+ERROR: [Synth 8-1031] weight4 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:61]
+ERROR: [Synth 8-1031] weight5 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:62]
+ERROR: [Synth 8-1031] weight6 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:63]
+ERROR: [Synth 8-1031] weight1 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:68]
+ERROR: [Synth 8-1031] weight2 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:69]
+ERROR: [Synth 8-1031] weight3 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:70]
+ERROR: [Synth 8-1031] weight4 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:71]
+ERROR: [Synth 8-1031] weight5 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:72]
+ERROR: [Synth 8-1031] weight6 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:73]
+ERROR: [Synth 8-1031] ifmap4 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:81]
+ERROR: [Synth 8-1031] ifmap4 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:82]
+ERROR: [Synth 8-1031] ifmap5 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:82]
+ERROR: [Synth 8-1031] ifmap5 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:83]
+ERROR: [Synth 8-1031] ifmap4 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:89]
+ERROR: [Synth 8-1031] ifmap5 is not declared [D:/study_tools/FPGA/final_project/srcs/pe_group.v:89]
+Failed to read verilog 'D:/study_tools/FPGA/final_project/srcs/pe_group.v'
+INFO: [Common 17-83] Releasing license: Synthesis
+2 Infos, 1 Warnings, 0 Critical Warnings and 20 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 19:16:32 2020...
