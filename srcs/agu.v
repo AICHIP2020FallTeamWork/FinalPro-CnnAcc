@@ -4,11 +4,8 @@ module agu(
     addr_in1,
     addr_in2,
     addr_in3,
-    addr_in4,
-    addr_in5,
-    addr_in6,
-    addr_in7,  
-    addr_wt
+    addr_wt,
+    addr_out
 );
 
 input                           clk;
@@ -26,21 +23,20 @@ parameter      [7:0]            Sample_area;    // address area for one image sa
 reg            [7:0]            addrk;  // the kernel working on
 reg            [7:0]            addrwcha;   // the channel working on
 reg            [7:0]            addrrow;    // the row working on
-reg            [7:0]            waitcol;    // we need to wait for PE dealing with columns
 reg            [3:0]            i;
+reg            [3:0]            waitinput;
+
+output  reg                     initialing;
 
 output  reg    [19:0]           addr_in0;
 output  reg    [19:0]           addr_in1;
 output  reg    [19:0]           addr_in2;
 output  reg    [19:0]           addr_in3;
-output  reg    [19:0]           addr_in4;     
-output  reg    [19:0]           addr_in5;
-output  reg    [19:0]           addr_in6;
-output  reg    [19:0]           addr_in7;
+
 // each denote the address of a ifmap row needed by a PE set
 output  reg    [15:0]           addr_wt;
 // the address of the weight channel needed by PE sets (shared by all PE sets)
-
+output  reg    [15:0]           addr_out;
 
 
 initial begin
@@ -65,8 +61,21 @@ always @(posedge clk) begin
             end
         end
     end
+end
+
+
+always @(posedge clk) begin
+    if (layer == 1) begin
+        if (initialing == 1) begin
+            addr_in0 <= addr_in0 + 
+        end
+    end
 
 end
+
+
+
+
 
 always @* begin
     addr_in0 = Row * Col * Wcha * addrk + Row * Col * addrwcha + Col * addrrow;
