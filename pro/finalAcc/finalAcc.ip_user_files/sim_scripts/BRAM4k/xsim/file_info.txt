@@ -1,2 +1,0 @@
-BRAM4k.v,verilog,xil_defaultlib,../../../../finalAcc.srcs/sources_1/ip/BRAM4k/sim/BRAM4k.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
