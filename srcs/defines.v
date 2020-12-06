@@ -12,14 +12,13 @@
 `define Layer5 3'd5
 
 
-`define Init 
-`define Start
-`define CalPool //for l
-`define
-`define
-`define
-`define
-`define
+`define Init  3'd0
+`define Start 3'd1
+`define CalPool  3'd2
+
+
+`define Byte 7:0
+
 
 
 
