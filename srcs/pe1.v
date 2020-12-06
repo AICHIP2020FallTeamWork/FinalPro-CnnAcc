@@ -441,7 +441,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]这是数据�??????
+        //ifbuf5[31]这是数据�??????
         `Start:begin
             
             regPad1[0]   <=      regPad1[1];
@@ -650,7 +650,6 @@ end else begin
             end
             6'd34 :begin
                 ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
-                
                 ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
                 ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
                 ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
@@ -659,9 +658,14 @@ end else begin
                 ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
                 ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
                 Counter <= Counter + 1;
-                Trashdata <= 1; //signal for disable
+                Trashdata <= 0; //signal for disable
+                if(Row == 5'd31) begin
+                    Row <= 0;
+                end else begin
+                    Row <= Row + 1;                    
+                end
             end
-            6'd37 : begin
+            6'd31 : begin
                 ifbuf5[24]   <=      ifbuf5[25];
                 ifbuf5[25]   <=      ifbuf5[26];
                 ifbuf5[26]   <=      ifbuf5[27];
@@ -671,12 +675,7 @@ end else begin
                 ifbuf5[30]   <=      ifbuf5[31];
                 ifbuf5[31]   <=      ifbuf1[0];
                 Counter <= 0;          
-                if(Row == 5'd31) begin
-                    Row <= 0;
-                end else begin
-                    Row <= Row + 1;                    
-                end
-                Trashdata <= 0;
+                Trashdata <= 1;
             end
             default :begin
                 ifbuf5[24]   <=      ifbuf5[25];
@@ -763,7 +762,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�?????? //1位即�??????
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�?????? //1位即�??????
 //---------
     end
 // -----------
