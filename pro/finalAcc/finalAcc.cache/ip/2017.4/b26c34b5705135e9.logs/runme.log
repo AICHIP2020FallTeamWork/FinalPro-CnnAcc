@@ -1,14 +1,13 @@
-#-----------------------------------------------------------
-# Vivado v2017.4 (64-bit)
-# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
-# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sun Dec  6 19:39:37 2020
-# Process ID: 15792
-# Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1
-# Command line: vivado.exe -log weightROM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source weightROM.tcl
-# Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.vds
-# Journal file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1\vivado.jou
-#-----------------------------------------------------------
+
+*** Running vivado
+    with args -log weightROM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source weightROM.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
 source weightROM.tcl -notrace
 Command: synth_design -top weightROM -part xc7z035ffg676-2 -mode out_of_context
 Starting synth_design
@@ -522,9 +521,3 @@ INFO: [Common 17-83] Releasing license: Synthesis
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:02:48 ; elapsed = 00:02:51 . Memory (MB): peak = 917.477 ; gain = 623.910
 INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/weightROM.xci
-INFO: [Coretcl 2-1174] Renamed 64 cell refs.
-INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file weightROM_utilization_synth.rpt -pb weightROM_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 917.477 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 19:42:36 2020...
