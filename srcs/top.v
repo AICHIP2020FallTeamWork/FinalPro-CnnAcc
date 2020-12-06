@@ -19,10 +19,10 @@ clk_wiz_0 clk0(
     .locked(locked)
 );
 //-------------------------------------------
-wire [16:0] addr_weight_1;
-wire [16:0] addr_weight_2;
-wire [7:0] dout_weight_1;
-wire [7:0] dout_weight_2;
+wire [13:0] addr_weight_1;
+wire [13:0] addr_weight_2;
+wire [71:0] dout_weight_1;
+wire [71:0] dout_weight_2;
 
 weightROM weightRom(
     .addra(addr_weight_1),
