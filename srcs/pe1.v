@@ -2,6 +2,7 @@
 
 module pe_set(
     // enable updates of ifmap rows and weights
+    rst,
     layer,
     weight_en,
     shift_en,
@@ -159,216 +160,446 @@ reg                    [287:0]   ifbuf5;
 // end
 
 
+//---------------------
+reg                             Trashdata;
+reg     [4:0]                   Row;
 
 
-always @(posedge clk) begin
-    case ( Layer )
-     
-        
-    
-     
+always @(posedge clk or negedge rst) begin
+if ( rst == `RstEnable ) begin    
+    Process         <=          `Init;
+    State <= `LIdle;
+    Counter <= 0;
+end else begin
+    //pipeline
+    case ( State )
     `Layer1: begin
-        ifbuf1[15:8] <= ifbuf1[23:16];
-        ifbuf1[23:16] <= ifbuf1[31:24];
-        ifbuf1[31:24] <= ifbuf1[39:32];
-        ifbuf1[39:32] <= ifbuf1[47:40];
-        ifbuf1[47:40] <= ifbuf1[55:48];
-        ifbuf1[55:48] <= ifbuf1[63:56];
-        ifbuf1[63:56] <= ifbuf1[71:64];
-        ifbuf1[71:64] <= ifbuf1[79:72];
-        ifbuf1[79:72] <= ifbuf1[87:80];
-        ifbuf1[87:80] <= ifbuf1[95:88];
-        ifbuf1[95:88] <= ifbuf1[103:96];
-        ifbuf1[103:96] <= ifbuf1[111:104];
-        ifbuf1[111:104] <= ifbuf1[119:112];
-        ifbuf1[119:112] <= ifbuf1[127:120];
-        ifbuf1[127:120] <= ifbuf1[135:128];
-        ifbuf1[135:128] <= ifbuf1[143:136];
-        ifbuf1[143:136] <= ifbuf1[151:144];
-        ifbuf1[151:144] <= ifbuf1[159:152];
-        ifbuf1[159:152] <= ifbuf1[167:160];
-        ifbuf1[167:160] <= ifbuf1[175:168];
-        ifbuf1[175:168] <= ifbuf1[183:176];
-        ifbuf1[183:176] <= ifbuf1[191:184];
-        ifbuf1[191:184] <= ifbuf1[199:192];
-        ifbuf1[199:192] <= ifbuf1[207:200];
-        ifbuf1[207:200] <= ifbuf1[215:208];
-        ifbuf1[215:208] <= ifbuf1[223:216];
-        ifbuf1[223:216] <= ifbuf1[231:224];
-        ifbuf1[231:224] <= ifbuf1[239:232];
-        ifbuf1[239:232] <= ifbuf1[247:240];
-        ifbuf1[247:240] <= ifbuf1[255:248];
-        ifbuf1[255:248] <= ifbuf1[263:256];
-        ifbuf1[263:256] <= ifbuf1[271:264];
-        ifbuf1[271:264] <= ifbuf1[279:272];
-        ifbuf1[279:272] <= ifbuf1[287:280];
-        
-        ifbuf2[15:8] <= ifbuf2[23:16];
-        ifbuf2[23:16] <= ifbuf2[31:24];
-        ifbuf2[31:24] <= ifbuf2[39:32];
-        ifbuf2[39:32] <= ifbuf2[47:40];
-        ifbuf2[47:40] <= ifbuf2[55:48];
-        ifbuf2[55:48] <= ifbuf2[63:56];
-        ifbuf2[63:56] <= ifbuf2[71:64];
-        ifbuf2[71:64] <= ifbuf2[79:72];
-        ifbuf2[79:72] <= ifbuf2[87:80];
-        ifbuf2[87:80] <= ifbuf2[95:88];
-        ifbuf2[95:88] <= ifbuf2[103:96];
-        ifbuf2[103:96] <= ifbuf2[111:104];
-        ifbuf2[111:104] <= ifbuf2[119:112];
-        ifbuf2[119:112] <= ifbuf2[127:120];
-        ifbuf2[127:120] <= ifbuf2[135:128];
-        ifbuf2[135:128] <= ifbuf2[143:136];
-        ifbuf2[143:136] <= ifbuf2[151:144];
-        ifbuf2[151:144] <= ifbuf2[159:152];
-        ifbuf2[159:152] <= ifbuf2[167:160];
-        ifbuf2[167:160] <= ifbuf2[175:168];
-        ifbuf2[175:168] <= ifbuf2[183:176];
-        ifbuf2[183:176] <= ifbuf2[191:184];
-        ifbuf2[191:184] <= ifbuf2[199:192];
-        ifbuf2[199:192] <= ifbuf2[207:200];
-        ifbuf2[207:200] <= ifbuf2[215:208];
-        ifbuf2[215:208] <= ifbuf2[223:216];
-        ifbuf2[223:216] <= ifbuf2[231:224];
-        ifbuf2[231:224] <= ifbuf2[239:232];
-        ifbuf2[239:232] <= ifbuf2[247:240];
-        ifbuf2[247:240] <= ifbuf2[255:248];
-        ifbuf2[255:248] <= ifbuf2[263:256];
-        ifbuf2[263:256] <= ifbuf2[271:264];
-        ifbuf2[271:264] <= ifbuf2[279:272];
-        ifbuf2[279:272] <= ifbuf2[287:280];
-        
-        ifbuf3[15:8] <= ifbuf3[23:16];
-        ifbuf3[23:16] <= ifbuf3[31:24];
-        ifbuf3[31:24] <= ifbuf3[39:32];
-        ifbuf3[39:32] <= ifbuf3[47:40];
-        ifbuf3[47:40] <= ifbuf3[55:48];
-        ifbuf3[55:48] <= ifbuf3[63:56];
-        ifbuf3[63:56] <= ifbuf3[71:64];
-        ifbuf3[71:64] <= ifbuf3[79:72];
-        ifbuf3[79:72] <= ifbuf3[87:80];
-        ifbuf3[87:80] <= ifbuf3[95:88];
-        ifbuf3[95:88] <= ifbuf3[103:96];
-        ifbuf3[103:96] <= ifbuf3[111:104];
-        ifbuf3[111:104] <= ifbuf3[119:112];
-        ifbuf3[119:112] <= ifbuf3[127:120];
-        ifbuf3[127:120] <= ifbuf3[135:128];
-        ifbuf3[135:128] <= ifbuf3[143:136];
-        ifbuf3[143:136] <= ifbuf3[151:144];
-        ifbuf3[151:144] <= ifbuf3[159:152];
-        ifbuf3[159:152] <= ifbuf3[167:160];
-        ifbuf3[167:160] <= ifbuf3[175:168];
-        ifbuf3[175:168] <= ifbuf3[183:176];
-        ifbuf3[183:176] <= ifbuf3[191:184];
-        ifbuf3[191:184] <= ifbuf3[199:192];
-        ifbuf3[199:192] <= ifbuf3[207:200];
-        ifbuf3[207:200] <= ifbuf3[215:208];
-        ifbuf3[215:208] <= ifbuf3[223:216];
-        ifbuf3[223:216] <= ifbuf3[231:224];
-        ifbuf3[231:224] <= ifbuf3[239:232];
-        ifbuf3[239:232] <= ifbuf3[247:240];
-        ifbuf3[247:240] <= ifbuf3[255:248];
-        ifbuf3[255:248] <= ifbuf3[263:256];
-        ifbuf3[263:256] <= ifbuf3[271:264];
-        ifbuf3[271:264] <= ifbuf3[279:272];
-        ifbuf3[279:272] <= ifbuf3[287:280];
-        
-        ifbuf4[15:8] <= ifbuf4[23:16];
-        ifbuf4[23:16] <= ifbuf4[31:24];
-        ifbuf4[31:24] <= ifbuf4[39:32];
-        ifbuf4[39:32] <= ifbuf4[47:40];
-        ifbuf4[47:40] <= ifbuf4[55:48];
-        ifbuf4[55:48] <= ifbuf4[63:56];
-        ifbuf4[63:56] <= ifbuf4[71:64];
-        ifbuf4[71:64] <= ifbuf4[79:72];
-        ifbuf4[79:72] <= ifbuf4[87:80];
-        ifbuf4[87:80] <= ifbuf4[95:88];
-        ifbuf4[95:88] <= ifbuf4[103:96];
-        ifbuf4[103:96] <= ifbuf4[111:104];
-        ifbuf4[111:104] <= ifbuf4[119:112];
-        ifbuf4[119:112] <= ifbuf4[127:120];
-        ifbuf4[127:120] <= ifbuf4[135:128];
-        ifbuf4[135:128] <= ifbuf4[143:136];
-        ifbuf4[143:136] <= ifbuf4[151:144];
-        ifbuf4[151:144] <= ifbuf4[159:152];
-        ifbuf4[159:152] <= ifbuf4[167:160];
-        ifbuf4[167:160] <= ifbuf4[175:168];
-        ifbuf4[175:168] <= ifbuf4[183:176];
-        ifbuf4[183:176] <= ifbuf4[191:184];
-        ifbuf4[191:184] <= ifbuf4[199:192];
-        ifbuf4[199:192] <= ifbuf4[207:200];
-        ifbuf4[207:200] <= ifbuf4[215:208];
-        ifbuf4[215:208] <= ifbuf4[223:216];
-        ifbuf4[223:216] <= ifbuf4[231:224];
-        ifbuf4[231:224] <= ifbuf4[239:232];
-        ifbuf4[239:232] <= ifbuf4[247:240];
-        ifbuf4[247:240] <= ifbuf4[255:248];
-        ifbuf4[255:248] <= ifbuf4[263:256];
-        ifbuf4[263:256] <= ifbuf4[271:264];
-        ifbuf4[271:264] <= ifbuf4[279:272];
-        ifbuf4[279:272] <= ifbuf4[287:280];
-
-        ifbuf5[15:8] <= ifbuf5[23:16];
-        ifbuf5[23:16] <= ifbuf5[31:24];
-        ifbuf5[31:24] <= ifbuf5[39:32];
-        ifbuf5[39:32] <= ifbuf5[47:40];
-        ifbuf5[47:40] <= ifbuf5[55:48];
-        ifbuf5[55:48] <= ifbuf5[63:56];
-        ifbuf5[63:56] <= ifbuf5[71:64];
-        ifbuf5[71:64] <= ifbuf5[79:72];
-        ifbuf5[79:72] <= ifbuf5[87:80];
-        ifbuf5[87:80] <= ifbuf5[95:88];
-        ifbuf5[95:88] <= ifbuf5[103:96];
-        ifbuf5[103:96] <= ifbuf5[111:104];
-        ifbuf5[111:104] <= ifbuf5[119:112];
-        ifbuf5[119:112] <= ifbuf5[127:120];
-        ifbuf5[127:120] <= ifbuf5[135:128];
-        ifbuf5[135:128] <= ifbuf5[143:136];
-        ifbuf5[143:136] <= ifbuf5[151:144];
-        ifbuf5[151:144] <= ifbuf5[159:152];
-        ifbuf5[159:152] <= ifbuf5[167:160];
-        ifbuf5[167:160] <= ifbuf5[175:168];
-        ifbuf5[175:168] <= ifbuf5[183:176];
-        ifbuf5[183:176] <= ifbuf5[191:184];
-        ifbuf5[191:184] <= ifbuf5[199:192];
-        ifbuf5[199:192] <= ifbuf5[207:200];
-        ifbuf5[207:200] <= ifbuf5[215:208];
-        ifbuf5[215:208] <= ifbuf5[223:216];
-        ifbuf5[223:216] <= ifbuf5[231:224];
-        ifbuf5[231:224] <= ifbuf5[239:232];
-        ifbuf5[239:232] <= ifbuf5[247:240];
-        ifbuf5[247:240] <= ifbuf5[255:248];
-        ifbuf5[255:248] <= ifbuf5[263:256];
-        ifbuf5[263:256] <= ifbuf5[271:264];
-        ifbuf5[271:264] <= ifbuf5[279:272];
-        ifbuf5[279:272] <= ifbuf5[287:280];
-        
-
-        if (initializing == 1) begin
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in1[31:24];
-            ifbuf5[7:0] <= ifmap_in1[39:32];
+        case ( Process )
+        `Init:begin
+            if (Counter != 5'd12)
+                Counter <= Counter + 1;
+                Process <= `Init;
+                ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];
+                ifbuf5[`Byte][23:16] <=      ifbuf5[`Byte][31:24];
+                ifbuf5[`Byte][15:8]  <=      ifbuf5[`Byte][23:16];
+                ifbuf5[`Byte][7:0]   <=      ifbuf5[`Byte][15:8];
+                ifbuf4[`Byte][31:24] <=      ifbuf5[`Byte][7:0];
+                ifbuf4[`Byte][23:16] <=      ifbuf4[`Byte][31:24];
+                ifbuf4[`Byte][15:8]  <=      ifbuf4[`Byte][23:16];
+                ifbuf4[`Byte][7:0]   <=      ifbuf4[`Byte][15:8];
+                ifbuf3[`Byte][31:24] <=      ifbuf4[`Byte][7:0];
+                ifbuf3[`Byte][23:16] <=      ifbuf3[`Byte][31:24];
+                ifbuf3[`Byte][15:8]  <=      ifbuf3[`Byte][23:16];
+                ifbuf3[`Byte][7:0]   <=      ifbuf3[`Byte][15:8];                            
+              else begin
+                ifbuf2[`Byte][0]    <=      0;
+                ifbuf2[`Byte][1]    <=      0;
+                ifbuf2[`Byte][2]    <=      0;
+                ifbuf2[`Byte][3]    <=      0;
+                ifbuf2[`Byte][4]    <=      0;
+                ifbuf2[`Byte][5]    <=      0;
+                ifbuf2[`Byte][6]    <=      0;
+                ifbuf2[`Byte][7]    <=      0;
+                ifbuf2[`Byte][8]    <=      0;
+                ifbuf2[`Byte][9]    <=      0;
+                ifbuf2[`Byte][10]   <=      0;
+                ifbuf2[`Byte][11]   <=      0;
+                ifbuf2[`Byte][12]   <=      0;
+                ifbuf2[`Byte][13]   <=      0;
+                ifbuf2[`Byte][14]   <=      0;
+                ifbuf2[`Byte][15]   <=      0;
+                ifbuf2[`Byte][16]   <=      0;
+                ifbuf2[`Byte][17]   <=      0;
+                ifbuf2[`Byte][18]   <=      0;
+                ifbuf2[`Byte][19]   <=      0;
+                ifbuf2[`Byte][20]   <=      0;
+                ifbuf2[`Byte][21]   <=      0;
+                ifbuf2[`Byte][22]   <=      0;
+                ifbuf2[`Byte][23]   <=      0;
+                ifbuf2[`Byte][24]   <=      0;
+                ifbuf2[`Byte][25]   <=      0;
+                ifbuf2[`Byte][26]   <=      0;
+                ifbuf2[`Byte][27]   <=      0;
+                ifbuf2[`Byte][28]   <=      0;
+                ifbuf2[`Byte][29]   <=      0;
+                ifbuf2[`Byte][30]   <=      0;
+                ifbuf1[`Byte][31]   <=      0;
+                ifbuf1[`Byte][0]    <=      0;
+                ifbuf1[`Byte][1]    <=      0;
+                ifbuf1[`Byte][2]    <=      0;
+                ifbuf1[`Byte][3]    <=      0;
+                ifbuf1[`Byte][4]    <=      0;
+                ifbuf1[`Byte][5]    <=      0;
+                ifbuf1[`Byte][6]    <=      0;
+                ifbuf1[`Byte][7]    <=      0;
+                ifbuf1[`Byte][8]    <=      0;
+                ifbuf1[`Byte][9]    <=      0;
+                ifbuf1[`Byte][10]   <=      0;
+                ifbuf1[`Byte][11]   <=      0;
+                ifbuf1[`Byte][12]   <=      0;
+                ifbuf1[`Byte][13]   <=      0;
+                ifbuf1[`Byte][14]   <=      0;
+                ifbuf1[`Byte][15]   <=      0;
+                ifbuf1[`Byte][16]   <=      0;
+                ifbuf1[`Byte][17]   <=      0;
+                ifbuf1[`Byte][18]   <=      0;
+                ifbuf1[`Byte][19]   <=      0;
+                ifbuf1[`Byte][20]   <=      0;
+                ifbuf1[`Byte][21]   <=      0;
+                ifbuf1[`Byte][22]   <=      0;
+                ifbuf1[`Byte][23]   <=      0;
+                ifbuf1[`Byte][24]   <=      0;
+                ifbuf1[`Byte][25]   <=      0;
+                ifbuf1[`Byte][26]   <=      0;
+                ifbuf1[`Byte][27]   <=      0;
+                ifbuf1[`Byte][28]   <=      0;
+                ifbuf1[`Byte][29]   <=      0;
+                ifbuf1[`Byte][30]   <=      0;
+                ifbuf1[`Byte][31]   <=      0;                
+                regPad1[`Byte][0]   <= 0;
+                regPad2[`Byte][0]   <= 0;
+                regPad3[`Byte][0]   <= 0;
+                regPad4[`Byte][0]   <= 0;
+                regPad5[`Byte][0]   <= 0;
+                regPad1[`Byte][1]   <= 0;
+                regPad2[`Byte][1]   <= 0;
+                regPad3[`Byte][1]   <= 0;
+                regPad4[`Byte][1]   <= 0;
+                regPad5[`Byte][1]   <= 0;
+                Process <= `Start;
+                Counter <= 0;
+              end
         end
-        else begin
-            ifbuf1[7:0] <= ifbuf1[15:8];
-            ifbuf2[7:0] <= ifbuf2[15:8];
-            ifbuf3[7:0] <= ifbuf3[15:8];
-            ifbuf4[7:0] <= ifbuf4[15:8];
-            ifbuf5[7:0] <= ifbuf5[15:8];
+        //ifbuf5[`Byte][31]这是数据尾
+        `Start:begin
+            
+            regPad1[`Byte][0]   <=      regPad1[`Byte][1];
+            regPad1[`Byte][1]   <=      ifbuf5[`Byte][0];
+            ifbuf5[`Byte][0]    <=      ifbuf5[`Byte][1];
+            ifbuf5[`Byte][1]    <=      ifbuf5[`Byte][2];
+            ifbuf5[`Byte][2]    <=      ifbuf5[`Byte][3];
+            ifbuf5[`Byte][3]    <=      ifbuf5[`Byte][4];
+            ifbuf5[`Byte][4]    <=      ifbuf5[`Byte][5];
+            ifbuf5[`Byte][5]    <=      ifbuf5[`Byte][6];
+            ifbuf5[`Byte][6]    <=      ifbuf5[`Byte][7];
+            ifbuf5[`Byte][7]    <=      ifbuf5[`Byte][8];
+            ifbuf5[`Byte][8]    <=      ifbuf5[`Byte][9];
+            ifbuf5[`Byte][9]    <=      ifbuf5[`Byte][10];
+            ifbuf5[`Byte][10]   <=      ifbuf5[`Byte][11];
+            ifbuf5[`Byte][11]   <=      ifbuf5[`Byte][12];
+            ifbuf5[`Byte][12]   <=      ifbuf5[`Byte][13];
+            ifbuf5[`Byte][13]   <=      ifbuf5[`Byte][14];
+            ifbuf5[`Byte][14]   <=      ifbuf5[`Byte][15];
+            ifbuf5[`Byte][15]   <=      ifbuf5[`Byte][16];
+            ifbuf5[`Byte][16]   <=      ifbuf5[`Byte][17];
+            ifbuf5[`Byte][17]   <=      ifbuf5[`Byte][18];
+            ifbuf5[`Byte][18]   <=      ifbuf5[`Byte][19];
+            ifbuf5[`Byte][19]   <=      ifbuf5[`Byte][20];
+            ifbuf5[`Byte][20]   <=      ifbuf5[`Byte][21];
+            ifbuf5[`Byte][21]   <=      ifbuf5[`Byte][22];
+            ifbuf5[`Byte][22]   <=      ifbuf5[`Byte][23];
+            ifbuf5[`Byte][23]   <=      ifbuf5[`Byte][24];
+
+            regPad2[`Byte][0]   <=      regPad2[`Byte][1];
+            regPad2[`Byte][1]   <=      ifbuf5[`Byte][0];
+            ifbuf4[`Byte][0]    <=      ifbuf4[`Byte][1];
+            ifbuf4[`Byte][1]    <=      ifbuf4[`Byte][2];
+            ifbuf4[`Byte][2]    <=      ifbuf4[`Byte][3];
+            ifbuf4[`Byte][3]    <=      ifbuf4[`Byte][4];
+            ifbuf4[`Byte][4]    <=      ifbuf4[`Byte][5];
+            ifbuf4[`Byte][5]    <=      ifbuf4[`Byte][6];
+            ifbuf4[`Byte][6]    <=      ifbuf4[`Byte][7];
+            ifbuf4[`Byte][7]    <=      ifbuf4[`Byte][8];
+            ifbuf4[`Byte][8]    <=      ifbuf4[`Byte][9];
+            ifbuf4[`Byte][9]    <=      ifbuf4[`Byte][10];
+            ifbuf4[`Byte][10]   <=      ifbuf4[`Byte][11];
+            ifbuf4[`Byte][11]   <=      ifbuf4[`Byte][12];
+            ifbuf4[`Byte][12]   <=      ifbuf4[`Byte][13];
+            ifbuf4[`Byte][13]   <=      ifbuf4[`Byte][14];
+            ifbuf4[`Byte][14]   <=      ifbuf4[`Byte][15];
+            ifbuf4[`Byte][15]   <=      ifbuf4[`Byte][16];
+            ifbuf4[`Byte][16]   <=      ifbuf4[`Byte][17];
+            ifbuf4[`Byte][17]   <=      ifbuf4[`Byte][18];
+            ifbuf4[`Byte][18]   <=      ifbuf4[`Byte][19];
+            ifbuf4[`Byte][19]   <=      ifbuf4[`Byte][20];
+            ifbuf4[`Byte][20]   <=      ifbuf4[`Byte][21];
+            ifbuf4[`Byte][21]   <=      ifbuf4[`Byte][22];
+            ifbuf4[`Byte][22]   <=      ifbuf4[`Byte][23];
+            ifbuf4[`Byte][23]   <=      ifbuf4[`Byte][24];
+            ifbuf4[`Byte][24]   <=      ifbuf4[`Byte][25];
+            ifbuf4[`Byte][25]   <=      ifbuf4[`Byte][26];
+            ifbuf4[`Byte][26]   <=      ifbuf4[`Byte][27];
+            ifbuf4[`Byte][27]   <=      ifbuf4[`Byte][28];
+            ifbuf4[`Byte][28]   <=      ifbuf4[`Byte][29];
+            ifbuf4[`Byte][29]   <=      ifbuf4[`Byte][30];
+            ifbuf4[`Byte][30]   <=      ifbuf4[`Byte][31];
+            ifbuf4[`Byte][31]   <=      regPad1[`Byte][0];
+
+            regPad3[`Byte][0]   <=      regPad3[`Byte][1];
+            regPad3[`Byte][1]   <=      ifbuf4[`Byte][0];
+            ifbuf3[`Byte][0]    <=      ifbuf3[`Byte][1];
+            ifbuf3[`Byte][1]    <=      ifbuf3[`Byte][2];
+            ifbuf3[`Byte][2]    <=      ifbuf3[`Byte][3];
+            ifbuf3[`Byte][3]    <=      ifbuf3[`Byte][4];
+            ifbuf3[`Byte][4]    <=      ifbuf3[`Byte][5];
+            ifbuf3[`Byte][5]    <=      ifbuf3[`Byte][6];
+            ifbuf3[`Byte][6]    <=      ifbuf3[`Byte][7];
+            ifbuf3[`Byte][7]    <=      ifbuf3[`Byte][8];
+            ifbuf3[`Byte][8]    <=      ifbuf3[`Byte][9];
+            ifbuf3[`Byte][9]    <=      ifbuf3[`Byte][10];
+            ifbuf3[`Byte][10]   <=      ifbuf3[`Byte][11];
+            ifbuf3[`Byte][11]   <=      ifbuf3[`Byte][12];
+            ifbuf3[`Byte][12]   <=      ifbuf3[`Byte][13];
+            ifbuf3[`Byte][13]   <=      ifbuf3[`Byte][14];
+            ifbuf3[`Byte][14]   <=      ifbuf3[`Byte][15];
+            ifbuf3[`Byte][15]   <=      ifbuf3[`Byte][16];
+            ifbuf3[`Byte][16]   <=      ifbuf3[`Byte][17];
+            ifbuf3[`Byte][17]   <=      ifbuf3[`Byte][18];
+            ifbuf3[`Byte][18]   <=      ifbuf3[`Byte][19];
+            ifbuf3[`Byte][19]   <=      ifbuf3[`Byte][20];
+            ifbuf3[`Byte][20]   <=      ifbuf3[`Byte][21];
+            ifbuf3[`Byte][21]   <=      ifbuf3[`Byte][22];
+            ifbuf3[`Byte][22]   <=      ifbuf3[`Byte][23];
+            ifbuf3[`Byte][23]   <=      ifbuf3[`Byte][24];
+            ifbuf3[`Byte][24]   <=      ifbuf3[`Byte][25];
+            ifbuf3[`Byte][25]   <=      ifbuf3[`Byte][26];
+            ifbuf3[`Byte][26]   <=      ifbuf3[`Byte][27];
+            ifbuf3[`Byte][27]   <=      ifbuf3[`Byte][28];
+            ifbuf3[`Byte][28]   <=      ifbuf3[`Byte][29];
+            ifbuf3[`Byte][29]   <=      ifbuf3[`Byte][30];
+            ifbuf3[`Byte][30]   <=      ifbuf3[`Byte][31];
+            ifbuf3[`Byte][31]   <=      regPad2[`Byte][0]
+
+            regPad4[`Byte][0]   <=      regPad4[`Byte][1];
+            regPad4[`Byte][1]   <=      ifbuf3[`Byte][0];
+            ifbuf2[`Byte][0]    <=      ifbuf2[`Byte][1];
+            ifbuf2[`Byte][1]    <=      ifbuf2[`Byte][2];
+            ifbuf2[`Byte][2]    <=      ifbuf2[`Byte][3];
+            ifbuf2[`Byte][3]    <=      ifbuf2[`Byte][4];
+            ifbuf2[`Byte][4]    <=      ifbuf2[`Byte][5];
+            ifbuf2[`Byte][5]    <=      ifbuf2[`Byte][6];
+            ifbuf2[`Byte][6]    <=      ifbuf2[`Byte][7];
+            ifbuf2[`Byte][7]    <=      ifbuf2[`Byte][8];
+            ifbuf2[`Byte][8]    <=      ifbuf2[`Byte][9];
+            ifbuf2[`Byte][9]    <=      ifbuf2[`Byte][10];
+            ifbuf2[`Byte][10]   <=      ifbuf2[`Byte][11];
+            ifbuf2[`Byte][11]   <=      ifbuf2[`Byte][12];
+            ifbuf2[`Byte][12]   <=      ifbuf2[`Byte][13];
+            ifbuf2[`Byte][13]   <=      ifbuf2[`Byte][14];
+            ifbuf2[`Byte][14]   <=      ifbuf2[`Byte][15];
+            ifbuf2[`Byte][15]   <=      ifbuf2[`Byte][16];
+            ifbuf2[`Byte][16]   <=      ifbuf2[`Byte][17];
+            ifbuf2[`Byte][17]   <=      ifbuf2[`Byte][18];
+            ifbuf2[`Byte][18]   <=      ifbuf2[`Byte][19];
+            ifbuf2[`Byte][19]   <=      ifbuf2[`Byte][20];
+            ifbuf2[`Byte][20]   <=      ifbuf2[`Byte][21];
+            ifbuf2[`Byte][21]   <=      ifbuf2[`Byte][22];
+            ifbuf2[`Byte][22]   <=      ifbuf2[`Byte][23];
+            ifbuf2[`Byte][23]   <=      ifbuf2[`Byte][24];
+            ifbuf2[`Byte][24]   <=      ifbuf2[`Byte][25];
+            ifbuf2[`Byte][25]   <=      ifbuf2[`Byte][26];
+            ifbuf2[`Byte][26]   <=      ifbuf2[`Byte][27];
+            ifbuf2[`Byte][27]   <=      ifbuf2[`Byte][28];
+            ifbuf2[`Byte][28]   <=      ifbuf2[`Byte][29];
+            ifbuf2[`Byte][29]   <=      ifbuf2[`Byte][30];
+            ifbuf2[`Byte][30]   <=      ifbuf2[`Byte][31];
+            ifbuf2[`Byte][31]   <=      regPad3[`Byte][0];
+
+            regPad5[`Byte][0]   <=      regPad5[`Byte][1];
+            regPad5[`Byte][1]   <=      ifbuf2[`Byte][0];
+            ifbuf1[`Byte][0]    <=      ifbuf1[`Byte][1];
+            ifbuf1[`Byte][1]    <=      ifbuf1[`Byte][2];
+            ifbuf1[`Byte][2]    <=      ifbuf1[`Byte][3];
+            ifbuf1[`Byte][3]    <=      ifbuf1[`Byte][4];
+            ifbuf1[`Byte][4]    <=      ifbuf1[`Byte][5];
+            ifbuf1[`Byte][5]    <=      ifbuf1[`Byte][6];
+            ifbuf1[`Byte][6]    <=      ifbuf1[`Byte][7];
+            ifbuf1[`Byte][7]    <=      ifbuf1[`Byte][8];
+            ifbuf1[`Byte][8]    <=      ifbuf1[`Byte][9];
+            ifbuf1[`Byte][9]    <=      ifbuf1[`Byte][10];
+            ifbuf1[`Byte][10]   <=      ifbuf1[`Byte][11];
+            ifbuf1[`Byte][11]   <=      ifbuf1[`Byte][12];
+            ifbuf1[`Byte][12]   <=      ifbuf1[`Byte][13];
+            ifbuf1[`Byte][13]   <=      ifbuf1[`Byte][14];
+            ifbuf1[`Byte][14]   <=      ifbuf1[`Byte][15];
+            ifbuf1[`Byte][15]   <=      ifbuf1[`Byte][16];
+            ifbuf1[`Byte][16]   <=      ifbuf1[`Byte][17];
+            ifbuf1[`Byte][17]   <=      ifbuf1[`Byte][18];
+            ifbuf1[`Byte][18]   <=      ifbuf1[`Byte][19];
+            ifbuf1[`Byte][19]   <=      ifbuf1[`Byte][20];
+            ifbuf1[`Byte][20]   <=      ifbuf1[`Byte][21];
+            ifbuf1[`Byte][21]   <=      ifbuf1[`Byte][22];
+            ifbuf1[`Byte][22]   <=      ifbuf1[`Byte][23];
+            ifbuf1[`Byte][23]   <=      ifbuf1[`Byte][24];
+            ifbuf1[`Byte][24]   <=      ifbuf1[`Byte][25];
+            ifbuf1[`Byte][25]   <=      ifbuf1[`Byte][26];
+            ifbuf1[`Byte][26]   <=      ifbuf1[`Byte][27];
+            ifbuf1[`Byte][27]   <=      ifbuf1[`Byte][28];
+            ifbuf1[`Byte][28]   <=      ifbuf1[`Byte][29];
+            ifbuf1[`Byte][29]   <=      ifbuf1[`Byte][30];
+            ifbuf1[`Byte][30]   <=      ifbuf1[`Byte][31];
+            ifbuf1[`Byte][31]   <=      regPad4[`Byte][0];
+
+            case ( Counter )
+            6'd10 : begin
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            6'd18 : begin
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            6'd26 :begin
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            6'd34 :
+                ifbuf5[`Byte][24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
+                ifbuf5[`Byte][25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
+                ifbuf5[`Byte][26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
+                ifbuf5[`Byte][27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
+                ifbuf5[`Byte][28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
+                ifbuf5[`Byte][29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
+                ifbuf5[`Byte][30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
+                ifbuf5[`Byte][31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                Counter <= Counter + 1;
+                Trashdata <= 1; //signal for disable
+            end
+            6'd37 : begin
+                ifbuf5[`Byte][24]   <=      ifbuf5[`Byte][25];
+                ifbuf5[`Byte][25]   <=      ifbuf5[`Byte][26];
+                ifbuf5[`Byte][26]   <=      ifbuf5[`Byte][27];
+                ifbuf5[`Byte][27]   <=      ifbuf5[`Byte][28];
+                ifbuf5[`Byte][28]   <=      ifbuf5[`Byte][29];
+                ifbuf5[`Byte][29]   <=      ifbuf5[`Byte][30];
+                ifbuf5[`Byte][30]   <=      ifbuf5[`Byte][31];
+                ifbuf5[`Byte][31]   <=      ifbuf1[`Byte][0];
+                Counter <= 0;          
+                if(Row == 5'd31) begin
+                    Row <= 0;
+                end else begin
+                    Row <= Row + 1;                    
+                end
+                Trashdata <= 0;
+            end
+            default :begin
+                ifbuf5[`Byte][24]   <=      ifbuf5[`Byte][25];
+                ifbuf5[`Byte][25]   <=      ifbuf5[`Byte][26];
+                ifbuf5[`Byte][26]   <=      ifbuf5[`Byte][27];
+                ifbuf5[`Byte][27]   <=      ifbuf5[`Byte][28];
+                ifbuf5[`Byte][28]   <=      ifbuf5[`Byte][29];
+                ifbuf5[`Byte][29]   <=      ifbuf5[`Byte][30];
+                ifbuf5[`Byte][30]   <=      ifbuf5[`Byte][31];
+                ifbuf5[`Byte][31]   <=      ifbuf1[`Byte][0];
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            endcase
+            
+        end
+    end 
+
+
+    `Layer2:begin
+    
+        //-------------------------------------------------
+        ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+        ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+        ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+        ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+        ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+        ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+        ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+        ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];
+        //-------------------------------------------------
+        if($signed(ifbuf5[`Byte][24]) >= $signed(ifbuf5[`Byte][25])) begin
+            ifbuf4[`Byte][25] <= ifbuf5[`Byte][24];
+        end else begin
+            ifbuf4[`Byte][25] <= ifbuf5[`Byte][25];
+        end
+
+        if($signed(ifbuf5[`Byte][26]) >= $signed(ifbuf5[`Byte][27])) begin
+            ifbuf4[`Byte][27] <= ifbuf5[`Byte][26];
+        end else begin
+            ifbuf4[`Byte][27] <= ifbuf5[`Byte][27];
         end
         
-        ifbuf1[287:280] <= ifbuf2[7:0];
-        ifbuf2[287:280] <= ifbuf3[7:0];
-        ifbuf3[287:280] <= ifbuf4[7:0];
-        ifbuf4[287:280] <= ifbuf5[7:0];
-        ifbuf5[287:280] <= ifmap_in1[7:0];
+        if($signed(ifbuf5[`Byte][28]) >= $signed(ifbuf5[`Byte][29])) begin
+            ifbuf4[`Byte][29] <= ifbuf5[`Byte][28];
+        end else begin
+            ifbuf4[`Byte][29] <= ifbuf5[`Byte][29];
+        end
+
+        if($signed(ifbuf5[`Byte][30]) >= $signed(ifbuf5[`Byte][31])) begin
+            ifbuf4[`Byte][31] <= ifbuf5[`Byte][30];
+        end else begin
+            ifbuf4[`Byte][31] <= ifbuf5[`Byte][31];
+        end
+//-------------------------------------------------
+        ifbuf3[`Byte][25] <= ifbuf4[`Byte][25];
+        ifbuf3[`Byte][27] <= ifbuf4[`Byte][27];
+        ifbuf3[`Byte][29] <= ifbuf4[`Byte][29];
+        ifbuf3[`Byte][31] <= ifbuf4[`Byte][31];
+//-------------------------------------------------        
+        if($signed(ifbuf3[`Byte][25]) >= $signed(ifbuf4[`Byte][25])) begin
+            ifbuf2[`Byte][25] <= ifbuf3[`Byte][25];
+        end else begin
+            ifbuf2[`Byte][25] <= ifbuf4[`Byte][25];
+        end
+
+        if($signed(ifbuf3[`Byte][27]) >= $signed(ifbuf4[`Byte][27])) begin
+            ifbuf2[`Byte][27] <= ifbuf3[`Byte][27];
+        end else begin
+            ifbuf2[`Byte][27] <= ifbuf4[`Byte][27];
+        end
         
+        if($signed(ifbuf3[`Byte][29]) >= $signed(ifbuf4[`Byte][29])) begin
+            ifbuf2[`Byte][29] <= ifbuf3[`Byte][29];
+        end else begin
+            ifbuf2[`Byte][29] <= ifbuf4[`Byte][29];
+        end
+
+        if($signed(ifbuf3[`Byte][31]) >= $signed(ifbuf4[`Byte][31])) begin
+            ifbuf2[`Byte][31] <= ifbuf3[`Byte][31];
+        end else begin
+            ifbuf2[`Byte][31] <= ifbuf4[`Byte][31];
+        end
+//----------------------------------------------------------
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数字 //1位即可
+//---------
     end
 
-    `Layer2:  
-    
     `Layer3: begin
         ifbuf1[15:8] <= ifbuf1[23:16];
         ifbuf1[23:16] <= ifbuf1[31:24];
@@ -881,13 +1112,229 @@ always @(posedge clk) begin
         
 
     end
-    `Layer5: begin
+    `Layer5: begin 
+        case ( State )     
+        `Init:begin
+            ifbuf6[`Byte][24]   <=   0;
+            ifbuf6[`Byte][25]   <=   0;
+            ifbuf6[`Byte][26]   <=   0;
+            ifbuf6[`Byte][27]   <=   0;
+            ifbuf6[`Byte][28]   <=   0;
+            ifbuf6[`Byte][29]   <=   0;
+            ifbuf6[`Byte][30]   <=   0;
+            ifbuf6[`Byte][31]   <=   0;
+                
+            ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+            ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+            ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+            ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+            ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+            ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+            ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+            ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];  
+
+            ifbuf4[`Byte][24]   <=   ifmap_in2[63:56];
+            ifbuf4[`Byte][25]   <=   ifmap_in2[55:48];
+            ifbuf4[`Byte][26]   <=   ifmap_in2[47:40];
+            ifbuf4[`Byte][27]   <=   ifmap_in2[39:32];
+            ifbuf4[`Byte][28]   <=   ifmap_in2[31:24];
+            ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
+            ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
+            ifbuf4[`Byte][31]   <=   ifmap_in2[7:0]; 
+            regPad4[`Byte][1]   <= 0;
+            regPad5[`Byte][1]   <= 0;
+            regPad6[`Byte][1]   <= 0;
+            StateBubble3 <= `Start;
+            StateBubble2 <= `Start;
+            StateBubble1 <= `Start;
+            State        <= `Start;  
+        end
+        `Start:begin
+//------------------------------------------------------
+            ifbuf6[`Byte][24]   <=   ifbuf4[`Byte][24];
+            ifbuf6[`Byte][25]   <=   ifbuf4[`Byte][25];
+            ifbuf6[`Byte][26]   <=   ifbuf4[`Byte][26];
+            ifbuf6[`Byte][27]   <=   ifbuf4[`Byte][27];
+            ifbuf6[`Byte][28]   <=   ifbuf4[`Byte][28];
+            ifbuf6[`Byte][29]   <=   ifbuf4[`Byte][29];
+            ifbuf6[`Byte][30]   <=   ifbuf4[`Byte][30];
+            ifbuf6[`Byte][31]   <=   ifbuf4[`Byte][31];
+                
+            ifbuf5[`Byte][24]   <=   ifmap_in1[63:56];
+            ifbuf5[`Byte][25]   <=   ifmap_in1[55:48];
+            ifbuf5[`Byte][26]   <=   ifmap_in1[47:40];
+            ifbuf5[`Byte][27]   <=   ifmap_in1[39:32];
+            ifbuf5[`Byte][28]   <=   ifmap_in1[31:24];
+            ifbuf5[`Byte][29]   <=   ifmap_in1[23:16];
+            ifbuf5[`Byte][30]   <=   ifmap_in1[15:8];
+            ifbuf5[`Byte][31]   <=   ifmap_in1[7:0];  
+
+            ifbuf4[`Byte][24]   <=   ifmap_in2[63:56];
+            ifbuf4[`Byte][25]   <=   ifmap_in2[55:48];
+            ifbuf4[`Byte][26]   <=   ifmap_in2[47:40];
+            ifbuf4[`Byte][27]   <=   ifmap_in2[39:32];
+            ifbuf4[`Byte][28]   <=   ifmap_in2[31:24];
+            ifbuf4[`Byte][29]   <=   ifmap_in2[23:16];
+            ifbuf4[`Byte][30]   <=   ifmap_in2[15:8];
+            ifbuf4[`Byte][31]   <=   ifmap_in2[7:0];
+//---------------------------------------------------------
+            multi111 <= weight11_in * ifbuf6[`Byte][25];
+            multi112 <= weight12_in * ifbuf6[`Byte][24]; 
+            multi113 <= weight13_in * regpad6[`Byte][1];
+            multi121 <= weight21_in * ifbuf5[`Byte][25]; 
+            multi122 <= weight22_in * ifbuf5[`Byte][24];
+            multi123 <= weight23_in * regpad5[`Byte][1];
+            multi131 <= weight31_in * ifbuf4[`Byte][25];
+            multi132 <= weight32_in * ifbuf4[`Byte][24];
+            multi133 <= weight33_in * regpad4[`Byte][1];
+
+            plusi11 <= multi111 + multi112 + multi113;
+            plusi12 <= multi121 + multi122 + multi123;
+            plusi13 <= multi131 + multi132 + multi133;
+            
+//----------------------------------------------------------
+            multi211 <= weight11_in * ifbuf6[`Byte][27];
+            multi212 <= weight12_in * ifbuf6[`Byte][26]; 
+            multi213 <= weight13_in * ifbuf6[`Byte][25];
+            multi221 <= weight21_in * ifbuf5[`Byte][27]; 
+            multi222 <= weight22_in * ifbuf5[`Byte][26];
+            multi223 <= weight23_in * ifbuf5[`Byte][25];
+            multi231 <= weight31_in * ifbuf4[`Byte][27];
+            multi232 <= weight32_in * ifbuf4[`Byte][26];
+            multi233 <= weight33_in * ifbuf4[`Byte][25];
+
+            plusi21 <= multi211 + multi212 + multi213;
+            plusi22 <= multi221 + multi222 + multi223;
+            plusi23 <= multi231 + multi232 + multi233;
+            
+//----------------------------------------------------------
+            multi311 <= weight11_in * ifbuf6[`Byte][29];
+            multi312 <= weight12_in * ifbuf6[`Byte][28]; 
+            multi313 <= weight13_in * ifbuf6[`Byte][27];
+            multi321 <= weight21_in * ifbuf5[`Byte][29]; 
+            multi322 <= weight22_in * ifbuf5[`Byte][28];
+            multi323 <= weight23_in * ifbuf5[`Byte][27];
+            multi331 <= weight31_in * ifbuf4[`Byte][29];
+            multi332 <= weight32_in * ifbuf4[`Byte][28];
+            multi333 <= weight33_in * ifbuf4[`Byte][27];
+
+            plusi31 <= multi311 + multi312 + multi313;
+            plusi32 <= multi321 + multi322 + multi323;
+            plusi33 <= multi331 + multi332 + multi333;
+            
+//----------------------------------------------------------
+            multi411 <= weight11_in * ifbuf6[`Byte][31];
+            multi412 <= weight12_in * ifbuf6[`Byte][30]; 
+            multi413 <= weight13_in * ifbuf6[`Byte][29];
+            multi421 <= weight21_in * ifbuf5[`Byte][31]; 
+            multi422 <= weight22_in * ifbuf5[`Byte][30];
+            multi423 <= weight23_in * ifbuf5[`Byte][29];
+            multi431 <= weight31_in * ifbuf4[`Byte][31];
+            multi432 <= weight32_in * ifbuf4[`Byte][30];
+            multi433 <= weight33_in * ifbuf4[`Byte][29];
+
+            plusi41 <= multi411 + multi412 + multi413;
+            plusi42 <= multi421 + multi422 + multi423;
+            plusi43 <= multi431 + multi432 + multi433;
+//----------------------------------------------------------
+            if(StateBubble2 == `Init) begin
+            ifbuf6[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf6[`Byte][23];
+            ifbuf6[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf6[`Byte][22];
+            ifbuf6[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf6[`Byte][21];
+            ifbuf6[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf6[`Byte][20];
+            end
+//----------------------------------------------------------
+            if(StateBubble3 == `Init) begin
+            ifbuf5[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf5[`Byte][23];
+            ifbuf5[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf5[`Byte][22];
+            ifbuf5[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf5[`Byte][21];
+            ifbuf5[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf5[`Byte][20];
+//----------------------------------------------------------
+            if(StateBubble4 == `Init) begin
+            ifbuf4[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf4[`Byte][23];
+            ifbuf4[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf4[`Byte][22];
+            ifbuf4[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf4[`Byte][21];
+            ifbuf4[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf4[`Byte][20];
+//----------------------------------------------------------
+            if(StateBubble5 == `Init) begin
+            ifbuf3[`Byte][23] <= plusi11  + plusi12  + plusi13 + ifbuf3[`Byte][23];
+            ifbuf3[`Byte][22] <= plusi21  + plusi22  + plusi23 + ifbuf3[`Byte][22];
+            ifbuf3[`Byte][21] <= plusi31  + plusi32  + plusi33 + ifbuf3[`Byte][21];
+            ifbuf3[`Byte][20] <= plusi41  + plusi42  + plusi43 + ifbuf3[`Byte][20];
+//----------------------------------------------------------
+            //6   31 30 29 28 27 26 25 24 pad0
+            //5   31 30 29 28 27 26 25 24 pad0
+            //4   31 30 29 28 27 26 25 24 pad0
+//----------------------------------------------------------
+            ifbuf6[`Byte][23] <= ifbuf6[`Byte][22];
+//----------------------------------------------------------
+            //6   23 22 21 20 
+            //5   23 22 21 20 
+            //4   23 22 21 20 
+            //3   23 22 21 20   
+//----------------------------------------------------------
+            StateBubble1 <= `Init;
+            StateBubble2 <= StateBubble1;
+            StateBubble3 <= StateBubble2;
+            StateBubble4 <= StateBubble3;
+            StateBubble5 <= StateBubble4;
+            if(kernCounter == 64 && StateBubble5 == `Init) begin
+                kernCounter <= 1 ; 
+                State <= `CalPool;
+            end else if(kernCounter != 64 && StateBubble5 == `Init) begin
+                State <= StateBubble5; 
+                kernCounter <= kernCounter + 1;
+            end
+                         
+        end
+    end
+    `CalPool: begin
+//-----------------------------------
+        ifbuf6[`Byte][19] <= ($signed(ifbuf6[`Byte][23]) + $signed(ifbuf6[`Byte][22])) >>>1;
+        ifbuf6[`Byte][18] <= ($signed(ifbuf6[`Byte][21]) + $signed(ifbuf6[`Byte][20])) >>>1;
+        ifbuf5[`Byte][19] <= ($signed(ifbuf5[`Byte][21]) + $signed(ifbuf5[`Byte][20])) >>>1;
+        ifbuf5[`Byte][18] <= ($signed(ifbuf5[`Byte][21]) + $signed(ifbuf5[`Byte][20])) >>>1;
+        ifbuf4[`Byte][19] <= ($signed(ifbuf4[`Byte][21]) + $signed(ifbuf4[`Byte][20])) >>>1;
+        ifbuf4[`Byte][18] <= ($signed(ifbuf4[`Byte][21]) + $signed(ifbuf4[`Byte][20])) >>>1;
+//-----------------------------------
+        ifbuf6[`Byte][17] <= ($signed(ifbuf6[`Byte][19]) + $signed(ifbuf6[`Byte][18])) >>>1;
+        ifbuf5[`Byte][17] <= ($signed(ifbuf5[`Byte][19]) + $signed(ifbuf5[`Byte][18])) >>>1;
+        ifbuf4[`Byte][17] <= ($signed(ifbuf4[`Byte][19]) + $signed(ifbuf4[`Byte][18])) >>>1;
+        ifbuf3[`Byte][17] <= ($signed(ifbuf3[`Byte][19]) + $signed(ifbuf3[`Byte][18])) >>>1;
+//-----------------------------------
+        ifbuf5[`Byte][16] <= ($signed(ifbuf6[`Byte][17]) + $signed(ifbuf4[`Byte][17])) >>>1;
+        ifbuf4[`Byte][16] <= ($signed(ifbuf5[`Byte][17]) + $signed(ifbuf3[`Byte][17])) >>>1;
+//-----------------------------------
+        ifbuf5[`Byte][15] <= ($signed(ifbuf5[`Byte][16]) + $signed(ifbuf4[`Byte][16])) >>>1;
+//-----------------------------------
+        ifbuf1[`Byte][1] <= ifbuf1[`Byte][1] + weight11_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][2] <= ifbuf1[`Byte][2] + weight12_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][3] <= ifbuf1[`Byte][3] + weight13_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][4] <= ifbuf1[`Byte][4] + weight21_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][5] <= ifbuf1[`Byte][5] + weight22_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][6] <= ifbuf1[`Byte][6] + weight23_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][7] <= ifbuf1[`Byte][7] + weight31_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][8] <= ifbuf1[`Byte][8] + weight32_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][9] <= ifbuf1[`Byte][9] + weight33_in * ifbuf5[`Byte][15];
+        ifbuf1[`Byte][10] <= ifbuf1[`Byte][10] + weight41_in * ifbuf5[`Byte][15];
+        StateBubble1 <= `Init;
+        StateBubble2 <= StateBubble1;
+        StateBubble3 <= StateBubble2;
+        StateBubble4 <= StateBubble3;
+        State <= StateBubble4;
+//-----------------------------------
+            //6   (19 18 ) 17
+            //5   (19 18 ) 17 16 15
+            //4   (19 18 ) 17 16 
+            //3   (19 18 ) 17  
+
+//-----------------------------------
 
     end
     endcase
 end
 
-pegroup pegroup1(
+pe_group pe_group1(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight11_in),
@@ -897,8 +1344,8 @@ pegroup pegroup1(
     .weight5_in(weight15_in),
     .weight6_in(weight16_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf1[151:0]),
-    .ifmap_in2(ifbuf1[144:0]),
+    .ifmap_in1(ifbuf1[7:0]),
+    .ifmap_in2(ifbuf1[151:144]),
     .ifmap_in3(ifbuf1[15:8]),
     .ifmap_in4(ifbuf1[159:152]),
     .groupsum_out1(psum11),
@@ -906,7 +1353,7 @@ pegroup pegroup1(
     .layer(layer)
 );
 
-pegroup pegroup2(
+pe_group pe_group2(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight21_in),
@@ -925,7 +1372,7 @@ pegroup pegroup2(
     .layer(layer)
 );
 
-pegroup pegroup3(
+pe_group pe_group3(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight31_in),
@@ -944,7 +1391,7 @@ pegroup pegroup3(
     .layer(layer)
 );
 
-pegroup pegroup4(
+pe_group pe_group4(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight41_in),
@@ -954,16 +1401,16 @@ pegroup pegroup4(
     .weight5_in(weight45_in),
     .weight6_in(weight46_in),
     .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf4[151:0]),
-    .ifmap_in2(ifbuf4[144:0]),
-    .ifmap_in3(ifbuf4[15:8]),
-    .ifmap_in4(ifbuf4[159:152]),
+    .ifmap_in1(ifbuf5[7:0]),
+    .ifmap_in2(ifbuf5[151:144]),
+    .ifmap_in3(ifbuf5[15:8]),
+    .ifmap_in4(ifbuf5[159:152]),
     .groupsum_out1(psum41),
     .groupsum_out2(psum42),
     .layer(layer)
 );
 
-pegroup pegroup5(
+pe_group pe_group5(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight51_in),
@@ -982,7 +1429,7 @@ pegroup pegroup5(
     .layer(layer)
 );
 
-pegroup pegroup6(
+pe_group pe_group6(
     .clk(clk),
     .weight_en(weight_en),
     .weight1_in(weight61_in),
