@@ -58,7 +58,6 @@ COMPONENT weightROM
     addra : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     clkb : IN STD_LOGIC;
-    enb : IN STD_LOGIC;
     addrb : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
     doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
@@ -75,7 +74,6 @@ your_instance_name : weightROM
     addra => addra,
     douta => douta,
     clkb => clkb,
-    enb => enb,
     addrb => addrb,
     doutb => doutb
   );
