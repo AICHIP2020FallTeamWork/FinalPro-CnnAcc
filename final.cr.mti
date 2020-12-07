@@ -1,1 +1,12 @@
+D:/study_tools/FPGA/final_project/srcs/pe1.v {0 {vlog -work work -novopt -stats=none D:/study_tools/FPGA/final_project/srcs/pe1.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+** Warning: ** while parsing file included at D:/study_tools/FPGA/final_project/srcs/pe1.v(1)
+** at D:\study_tools\FPGA\final_project\srcs\defines.v(18): (vlog-2962) D:\study_tools\FPGA\final_project\srcs\defines.v(19): A non-IEEE 1800-2012-compliant identifier was used to define a macro: '`'.
 
+** Warning: ** while parsing file included at D:/study_tools/FPGA/final_project/srcs/pe1.v(1)
+** at D:\study_tools\FPGA\final_project\srcs\defines.v(20): (vlog-2962) D:\study_tools\FPGA\final_project\srcs\defines.v(21): A non-IEEE 1800-2012-compliant identifier was used to define a macro: '`'.
+
+** Error: (vlog-13069) D:/study_tools/FPGA/final_project/srcs/pe1.v(5): near "rst": syntax error, unexpected IDENTIFIER, expecting class.
+
+
+} {9.0 10.0} {}}
