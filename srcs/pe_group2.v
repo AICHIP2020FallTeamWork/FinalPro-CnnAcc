@@ -1,14 +1,11 @@
 module pe_group(
-    // enable updates of ifmap rows and weights
     weight_en,
-    // load weight from BRAM
     weight1_in,
     weight2_in,
     weight3_in,
     weight4_in,
     weight5_in,
     weight6_in,
-    // load ifmap, 256-bit continuous, but BRAM has only 64-bit wide
     ifmap_in1,
     ifmap_in2,
     ifmap_in3,
@@ -131,12 +128,3 @@ always @(posedge clk) begin
 end
 
 endmodule
-
-
-
-
-
-
-
-
-

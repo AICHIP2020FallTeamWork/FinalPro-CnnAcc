@@ -6,12 +6,12 @@ module pe1(
     weight_en,
 
     calculate_en,
-    weight11_in,
-    weight12_in,
-    weight13_in,
-    weight21_in,
-    weight22_in,
-    weight23_in,
+    weight11_in,//11 12 13 14 15 16
+    weight12_in,//21 22 23 24 25 26
+    weight13_in,//31 32 33 34 35 36
+    weight21_in,//41 42 43 44 45 46
+    weight22_in,//51 52 53 54 55 56
+    weight23_in,//61 62 63 64 65 66
     weight31_in,
     weight32_in,
     weight33_in,
@@ -215,7 +215,7 @@ output  wire [7:0]  addr_wLayer1_1;  //发出Layer1weight地址
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
     Process         <=          `Init;
-    State <= `Layer1;
+    State           <= `Layer1;
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
     Channel <= 0;
@@ -698,7 +698,7 @@ end else begin
     end 
 
 
-
+//*********************************************************************************************************
     `Layer2:begin
     
         //-------------------------------------------------
@@ -2031,6 +2031,4 @@ pe_group pe_group6(
     .groupsum_out2(psum62),
     .layer(layer)
 );
-
-
 endmodule
