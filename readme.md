@@ -14,6 +14,6 @@ This includes to codes for AIchip in 2020 Autumn, written by Jiuru Song and Qiha
 TODO：
 1. add the function of pe_group.v into pe，making layer1 worked
 2. finished the basic data transfor function for MAXPOOL
-3. finished the basic data transfor function for Layer567
+3. finished the basic data transfor function for Layer567  
 DDL：   
 **tonight！**
