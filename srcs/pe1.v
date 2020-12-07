@@ -50,7 +50,8 @@ module pe1(
     clk,
     initializing,
     addr_BRAM4k_1,
-    addr_wLayer1_1
+    addr_wLayer1_1,
+    dout_wLayer1_1 //这是数据输入线（dout是相对于BRAM来说的）
 );
 //--------------------------------------
     input wire initializing;
@@ -104,8 +105,45 @@ module pe1(
     input        signed    [7:0]      weight66_in;
 
     output  reg  signed    [19:0]      ofmap_out;
-
-
+//-------------------input and output ----------------------------------------------
+//weight register
+    reg        signed    [7:0]      weight11;
+    reg        signed    [7:0]      weight12;
+    reg        signed    [7:0]      weight13;
+    reg        signed    [7:0]      weight21;
+    reg        signed    [7:0]      weight22;
+    reg        signed    [7:0]      weight23;
+    reg        signed    [7:0]      weight31;
+    reg        signed    [7:0]      weight32;
+    reg        signed    [7:0]      weight33;
+    reg        signed    [7:0]      weight41;
+    reg        signed    [7:0]      weight42;
+    reg        signed    [7:0]      weight43;
+    reg        signed    [7:0]      weight51;
+    reg        signed    [7:0]      weight52;
+    reg        signed    [7:0]      weight53;
+    reg        signed    [7:0]      weight61;
+    reg        signed    [7:0]      weight62;
+    reg        signed    [7:0]      weight63;
+    reg        signed    [7:0]      weight14;
+    reg        signed    [7:0]      weight15;
+    reg        signed    [7:0]      weight16;
+    reg        signed    [7:0]      weight24;
+    reg        signed    [7:0]      weight25;
+    reg        signed    [7:0]      weight26;
+    reg        signed    [7:0]      weight34;
+    reg        signed    [7:0]      weight35;
+    reg        signed    [7:0]      weight36;
+    reg        signed    [7:0]      weight44;
+    reg        signed    [7:0]      weight45;
+    reg        signed    [7:0]      weight46;
+    reg        signed    [7:0]      weight54;
+    reg        signed    [7:0]      weight55;
+    reg        signed    [7:0]      weight56;
+    reg        signed    [7:0]      weight64;
+    reg        signed    [7:0]      weight65;
+    reg        signed    [7:0]      weight66;
+//------
 
     reg          signed    [17:0]    psum11;
     reg          signed    [17:0]    psum21;
@@ -159,8 +197,8 @@ module pe1(
 //---------------------------------------------
     reg                             Trashdata;
     reg     [4:0]                   Row;
-    reg  [2:0]   Process;
-    reg  [2:0]   State;
+    reg  [3:0]   Layer;
+    reg  [2:0]   State;    
     reg  [2:0]   StateBubble1;
     reg  [2:0]   StateBubble2;
     reg  [2:0]   StateBubble3;
@@ -209,20 +247,21 @@ module pe1(
     reg [7:0] multi432;
     reg [7:0] multi433;
 //-------------声明地址相关-------------------------------
-output  wire [11:0] addr_BRAM4k_1;   //发出地址 BRAM4k
-output  wire [7:0]  addr_wLayer1_1;  //发出Layer1weight地址 
+output  reg  [11:0]  addr_BRAM4k_1;   //发出地址 BRAM4k
+output  reg  [7:0]   addr_wLayer1_1;  //发出Layer1weight地址 
+input   wire [39:0]  dout_wLayer1_1;
 //--------------结束-------------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
     Process         <=          `Init;
-    State           <= `Layer1;
+    Layer           <= `Layer1;
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
     Channel <= 0;
     addr_wLayer1_1 <= 1;
 end else begin
     //pipeline
-    case ( State )
+    case ( Layer )
     `Layer1: begin
         case ( Process ) //用于控制channel。
         `Idle:begin
@@ -232,7 +271,7 @@ end else begin
             end 
             else begin
                 Channel <= 0;
-                State <= `Layer2;
+                Layer <= `Layer2;
             end
         end
         `Init:begin
@@ -348,9 +387,48 @@ end else begin
                 ifbuf3[1] <=      ifbuf3[9];
                 ifbuf3[0] <=      ifbuf3[8];  
 //--------------------------------------------- 
-                if (Counter < 5'd5) begin
+// 15 14 13 12 11
+// 25 24 23 22 21
+// 35 .. ..  .  .
+// 45 .. .. ..  .
+// 55 .. .. .. .. 
+                if (Counter ==0) begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                end                      
+                    weight15 <= dout_wLayer1_1[`ByteFiv];
+                    weight14 <= dout_wLayer1_1[`ByteFor];
+                    weight13 <= dout_wLayer1_1[`ByteThr];
+                    weight12 <= dout_wLayer1_1[`ByteTwo];
+                    weight11 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 1)    begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weight25 <= dout_wLayer1_1[`ByteFiv];
+                    weight24 <= dout_wLayer1_1[`ByteFor];
+                    weight23 <= dout_wLayer1_1[`ByteThr];
+                    weight22 <= dout_wLayer1_1[`ByteTwo];
+                    weight21 <= dout_wLayer1_1[`ByteOne];            
+                end else if (Counter == 2)   begin                 
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weight35 <= dout_wLayer1_1[`ByteFiv];
+                    weight34 <= dout_wLayer1_1[`ByteFor];
+                    weight33 <= dout_wLayer1_1[`ByteThr];
+                    weight32 <= dout_wLayer1_1[`ByteTwo];
+                    weight31 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 3)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weight45 <= dout_wLayer1_1[`ByteFiv];
+                    weight44 <= dout_wLayer1_1[`ByteFor];
+                    weight43 <= dout_wLayer1_1[`ByteThr];
+                    weight42 <= dout_wLayer1_1[`ByteTwo];
+                    weight41 <= dout_wLayer1_1[`ByteOne];
+                                  
+                end else if (Counter == 4)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weight55 <= dout_wLayer1_1[`ByteFiv];
+                    weight54 <= dout_wLayer1_1[`ByteFor];
+                    weight53 <= dout_wLayer1_1[`ByteThr];
+                    weight52 <= dout_wLayer1_1[`ByteTwo];
+                    weight51 <= dout_wLayer1_1[`ByteOne];                    
+                end                   
             end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
@@ -2031,4 +2109,10 @@ pe_group pe_group6(
     .groupsum_out2(psum62),
     .layer(layer)
 );
+
+
+
+
+
+
 endmodule
