@@ -207,8 +207,8 @@ module pe1(
     reg [7:0] multi432;
     reg [7:0] multi433;
 //-------------声明地址相关-------------------------------
-output  wire [11:0] addr_BRAM4k_1;   //取数据 BRAM4k
-output  wire [13:0] addr_weight_1;   //取weight 
+output  wire [11:0] addr_BRAM4k_1;   //发出地址 BRAM4k
+output  wire [7:0]  addr_wLayer1_1;  //发出Layer1weight地址 
 //--------------结束-------------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
@@ -217,7 +217,7 @@ if ( rst == `RstEnable ) begin
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
     Channel <= 0;
-    addr_weight_1 <= 1;
+    addr_wLayer1_1 <= 1;
 end else begin
     //pipeline
     case ( State )
@@ -234,7 +234,7 @@ end else begin
             end
         end
         `Init:begin
-            if (Counter != 5'd11) begin
+            if (Counter < 5'd12) begin
                 addr_BRAM4k_1<=   addr_BRAM4k_1 + 1;
                 Counter      <=   Counter + 1;
                 Process      <=   `Init;
@@ -345,8 +345,11 @@ end else begin
                 ifbuf3[2] <=      ifbuf3[10];
                 ifbuf3[1] <=      ifbuf3[9];
                 ifbuf3[0] <=      ifbuf3[8];  
-//---------------------------------------------                       
-              end else begin
+//--------------------------------------------- 
+                if (Counter < 5'd5) begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                end                      
+            end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
                 ifbuf2[2]    <=      0;
