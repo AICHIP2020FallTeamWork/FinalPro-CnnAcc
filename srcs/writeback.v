@@ -34,7 +34,7 @@ module writeback(
     reg     [`Byte]  plusi1;
     reg     [`Byte]  plusi2;
 
-//------
+//======
 
 case(Layer)
     `Layer1: begin
