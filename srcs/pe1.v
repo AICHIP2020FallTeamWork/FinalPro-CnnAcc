@@ -1,13 +1,11 @@
 `include "defines.v"
 
 module pe1(
-    // enable updates of ifmap rows and weights
     rst,
 
     weight_en,
 
     calculate_en,
-    // load weight from BRAM
     weight11_in,
     weight12_in,
     weight13_in,
@@ -44,12 +42,6 @@ module pe1(
     weight46_in,
     weight56_in,
     weight66_in,
-
-    // load ifmap, 256-bit continuous, but BRAM has only 64-bit wide
-    // ifmap_in1,
-    // ifmap_in2,
-    // ifmap_in3,
-    // ifmap_in4,
     ifmap_in1,
     ifmap_in2,
     ifmap_in3,
@@ -57,204 +49,197 @@ module pe1(
     ofmap_out,
     clk,
     initializing,
+    addr_BRAM4k_1,
+    addr_wLayer1_1
 );
+//--------------------------------------
+    input wire initializing;
+    input   wire  rst;
+        
 
-input wire initializing;
-input   wire  rst;
-     
+    input                             weight_en;
+    input                             calculate_en;
 
-input                             weight_en;
-input                             calculate_en;
-// input        signed    [64:0]     ifmap_in1;
-// input        signed    [64:0]     ifmap_in2;
-// input        signed    [64:0]     ifmap_in3;
-// input        signed    [64:0]     ifmap_in4;
-input        signed    [47:0]     ifmap_in1;
-input        signed    [47:0]     ifmap_in2;
-input        signed    [47:0]     ifmap_in3;
-input        signed    [47:0]     ifmap_in4;
-input                             clk;
+    input        signed    [47:0]     ifmap_in1;
+    input        signed    [47:0]     ifmap_in2;
+    input        signed    [47:0]     ifmap_in3;
+    input        signed    [47:0]     ifmap_in4;
+    input                             clk;
 
-input        signed    [7:0]      weight11_in;
-input        signed    [7:0]      weight12_in;
-input        signed    [7:0]      weight13_in;
-input        signed    [7:0]      weight21_in;
-input        signed    [7:0]      weight22_in;
-input        signed    [7:0]      weight23_in;
-input        signed    [7:0]      weight31_in;
-input        signed    [7:0]      weight32_in;
-input        signed    [7:0]      weight33_in;
-input        signed    [7:0]      weight41_in;
-input        signed    [7:0]      weight42_in;
-input        signed    [7:0]      weight43_in;
-input        signed    [7:0]      weight51_in;
-input        signed    [7:0]      weight52_in;
-input        signed    [7:0]      weight53_in;
-input        signed    [7:0]      weight61_in;
-input        signed    [7:0]      weight62_in;
-input        signed    [7:0]      weight63_in;
-input        signed    [7:0]      weight14_in;
-input        signed    [7:0]      weight15_in;
-input        signed    [7:0]      weight16_in;
-input        signed    [7:0]      weight24_in;
-input        signed    [7:0]      weight25_in;
-input        signed    [7:0]      weight26_in;
-input        signed    [7:0]      weight34_in;
-input        signed    [7:0]      weight35_in;
-input        signed    [7:0]      weight36_in;
-input        signed    [7:0]      weight44_in;
-input        signed    [7:0]      weight45_in;
-input        signed    [7:0]      weight46_in;
-input        signed    [7:0]      weight54_in;
-input        signed    [7:0]      weight55_in;
-input        signed    [7:0]      weight56_in;
-input        signed    [7:0]      weight64_in;
-input        signed    [7:0]      weight65_in;
-input        signed    [7:0]      weight66_in;
+    input        signed    [7:0]      weight11_in;
+    input        signed    [7:0]      weight12_in;
+    input        signed    [7:0]      weight13_in;
+    input        signed    [7:0]      weight21_in;
+    input        signed    [7:0]      weight22_in;
+    input        signed    [7:0]      weight23_in;
+    input        signed    [7:0]      weight31_in;
+    input        signed    [7:0]      weight32_in;
+    input        signed    [7:0]      weight33_in;
+    input        signed    [7:0]      weight41_in;
+    input        signed    [7:0]      weight42_in;
+    input        signed    [7:0]      weight43_in;
+    input        signed    [7:0]      weight51_in;
+    input        signed    [7:0]      weight52_in;
+    input        signed    [7:0]      weight53_in;
+    input        signed    [7:0]      weight61_in;
+    input        signed    [7:0]      weight62_in;
+    input        signed    [7:0]      weight63_in;
+    input        signed    [7:0]      weight14_in;
+    input        signed    [7:0]      weight15_in;
+    input        signed    [7:0]      weight16_in;
+    input        signed    [7:0]      weight24_in;
+    input        signed    [7:0]      weight25_in;
+    input        signed    [7:0]      weight26_in;
+    input        signed    [7:0]      weight34_in;
+    input        signed    [7:0]      weight35_in;
+    input        signed    [7:0]      weight36_in;
+    input        signed    [7:0]      weight44_in;
+    input        signed    [7:0]      weight45_in;
+    input        signed    [7:0]      weight46_in;
+    input        signed    [7:0]      weight54_in;
+    input        signed    [7:0]      weight55_in;
+    input        signed    [7:0]      weight56_in;
+    input        signed    [7:0]      weight64_in;
+    input        signed    [7:0]      weight65_in;
+    input        signed    [7:0]      weight66_in;
 
-output  reg  signed    [19:0]      ofmap_out;
-
-
-// reg          signed    [7:0]     weight11;
-// reg          signed    [7:0]     weight12;
-// reg          signed    [7:0]     weight13;
-// reg          signed    [7:0]     weight21;
-// reg          signed    [7:0]     weight22;
-// reg          signed    [7:0]     weight23;
-// reg          signed    [7:0]     weight31;
-// reg          signed    [7:0]     weight32;
-// reg          signed    [7:0]     weight33;
- 
-
-reg          signed    [17:0]    psum11;
-reg          signed    [17:0]    psum21;
-reg          signed    [17:0]    psum31;
-reg          signed    [17:0]    psum12;
-reg          signed    [17:0]    psum22;
-reg          signed    [17:0]    psum32;
-reg          signed    [17:0]    psum41;
-reg          signed    [17:0]    psum51;
-reg          signed    [17:0]    psum61;
-reg          signed    [17:0]    psum42;
-reg          signed    [17:0]    psum52;
-reg          signed    [17:0]    psum62;
-
-reg                    [7:0]     num;
-reg                    [`Byte]   ifbuf1 [31:0];
-reg                    [`Byte]   ifbuf2 [31:0];
-reg                    [`Byte]   ifbuf3 [31:0];
-reg                    [`Byte]   ifbuf4 [31:0];
-reg                    [`Byte]   ifbuf5 [31:0];
-reg                    [`Byte]   ifbuf6 [31:0];
-reg                    [`Byte]   regPad1 [1:0];
-reg                    [`Byte]   regPad2 [1:0];
-reg                    [`Byte]   regPad3 [1:0];
-reg                    [`Byte]   regPad4 [1:0];
-reg                    [`Byte]   regPad5 [1:0];
-reg                    [`Byte]   regPad6 [1:0];
-
-
-reg     [7:0]       plusi11 ;
-reg     [7:0]       plusi12 ;
-reg     [7:0]       plusi13 ;
-
-
-reg     [7:0]       plusi21 ;
-reg     [7:0]       plusi22 ;
-reg     [7:0]       plusi23 ;
-
-
-reg     [7:0]       plusi31 ;
-reg     [7:0]       plusi32 ;
-reg     [7:0]       plusi33 ;
+    output  reg  signed    [19:0]      ofmap_out;
 
 
 
-reg     [7:0]       plusi41 ;
-reg     [7:0]       plusi42 ;
-reg     [7:0]       plusi43 ;
+    reg          signed    [17:0]    psum11;
+    reg          signed    [17:0]    psum21;
+    reg          signed    [17:0]    psum31;
+    reg          signed    [17:0]    psum12;
+    reg          signed    [17:0]    psum22;
+    reg          signed    [17:0]    psum32;
+    reg          signed    [17:0]    psum41;
+    reg          signed    [17:0]    psum51;
+    reg          signed    [17:0]    psum61;
+    reg          signed    [17:0]    psum42;
+    reg          signed    [17:0]    psum52;
+    reg          signed    [17:0]    psum62;
 
-// always @(posedge weight_en) begin
-//     weight11 <= weight11_in;
-//     weight12 <= weight12_in;
-//     weight13 <= weight13_in;
-//     weight21 <= weight21_in;
-//     weight22 <= weight22_in;
-//     weight23 <= weight23_in;
-//     weight31 <= weight31_in;
-//     weight32 <= weight32_in;
-//     weight33 <= weight33_in;
-// end
-
-
-//---------------------
-reg                             Trashdata;
-reg     [4:0]                   Row;
-reg  [2:0]   Process;
-reg  [2:0]   State;
-reg  [2:0]   StateBubble1;
-reg  [2:0]   StateBubble2;
-reg  [2:0]   StateBubble3;
-reg  [2:0]   StateBubble4;
-reg  [2:0]   StateBubble5;
-reg [4:0]  Counter;
-reg [4:0]  kernCounter;
-reg Selctrl;
-reg [7:0] multi111;
-reg [7:0] multi112;
-reg [7:0] multi113;
-reg [7:0] multi121;
-reg [7:0] multi122;
-reg [7:0] multi123;
-reg [7:0] multi131;
-reg [7:0] multi132;
-reg [7:0] multi133;
-
-reg [7:0] multi211;
-reg [7:0] multi212;
-reg [7:0] multi213;
-reg [7:0] multi221;
-reg [7:0] multi222;
-reg [7:0] multi223;
-reg [7:0] multi231;
-reg [7:0] multi232;
-reg [7:0] multi233;
-
-reg [7:0] multi311;
-reg [7:0] multi312;
-reg [7:0] multi313;
-reg [7:0] multi321;
-reg [7:0] multi322;
-reg [7:0] multi323;
-reg [7:0] multi331;
-reg [7:0] multi332;
-reg [7:0] multi333;
-
-reg [7:0] multi411;
-reg [7:0] multi412;
-reg [7:0] multi413;
-reg [7:0] multi421;
-reg [7:0] multi422;
-reg [7:0] multi423;
-reg [7:0] multi431;
-reg [7:0] multi432;
-reg [7:0] multi433;
+    reg                    [7:0]     num;
+    reg                    [`Byte]   ifbuf1 [31:0];
+    reg                    [`Byte]   ifbuf2 [31:0];
+    reg                    [`Byte]   ifbuf3 [31:0];
+    reg                    [`Byte]   ifbuf4 [31:0];
+    reg                    [`Byte]   ifbuf5 [31:0];
+    reg                    [`Byte]   ifbuf6 [31:0];
+    reg                    [`Byte]   regPad1 [1:0];
+    reg                    [`Byte]   regPad2 [1:0];
+    reg                    [`Byte]   regPad3 [1:0];
+    reg                    [`Byte]   regPad4 [1:0];
+    reg                    [`Byte]   regPad5 [1:0];
+    reg                    [`Byte]   regPad6 [1:0];
 
 
+    reg     [7:0]       plusi11 ;
+    reg     [7:0]       plusi12 ;
+    reg     [7:0]       plusi13 ;
+
+
+    reg     [7:0]       plusi21 ;
+    reg     [7:0]       plusi22 ;
+    reg     [7:0]       plusi23 ;
+
+
+    reg     [7:0]       plusi31 ;
+    reg     [7:0]       plusi32 ;
+    reg     [7:0]       plusi33 ;
+
+
+
+    reg     [7:0]       plusi41 ;
+    reg     [7:0]       plusi42 ;
+    reg     [7:0]       plusi43 ;
+
+
+//---------------------------------------------
+    reg                             Trashdata;
+    reg     [4:0]                   Row;
+    reg  [2:0]   Process;
+    reg  [2:0]   State;
+    reg  [2:0]   StateBubble1;
+    reg  [2:0]   StateBubble2;
+    reg  [2:0]   StateBubble3;
+    reg  [2:0]   StateBubble4;
+    reg  [2:0]   StateBubble5;
+    reg [4:0]  Counter;
+    reg [4:0]  kernCounter;
+    reg Selctrl;
+    reg [7:0] multi111;
+    reg [7:0] multi112;
+    reg [7:0] multi113;
+    reg [7:0] multi121;
+    reg [7:0] multi122;
+    reg [7:0] multi123;
+    reg [7:0] multi131;
+    reg [7:0] multi132;
+    reg [7:0] multi133;
+
+    reg [7:0] multi211;
+    reg [7:0] multi212;
+    reg [7:0] multi213;
+    reg [7:0] multi221;
+    reg [7:0] multi222;
+    reg [7:0] multi223;
+    reg [7:0] multi231;
+    reg [7:0] multi232;
+    reg [7:0] multi233;
+
+    reg [7:0] multi311;
+    reg [7:0] multi312;
+    reg [7:0] multi313;
+    reg [7:0] multi321;
+    reg [7:0] multi322;
+    reg [7:0] multi323;
+    reg [7:0] multi331;
+    reg [7:0] multi332;
+    reg [7:0] multi333;
+
+    reg [7:0] multi411;
+    reg [7:0] multi412;
+    reg [7:0] multi413;
+    reg [7:0] multi421;
+    reg [7:0] multi422;
+    reg [7:0] multi423;
+    reg [7:0] multi431;
+    reg [7:0] multi432;
+    reg [7:0] multi433;
+//-------------声明地址相关-------------------------------
+output  wire [11:0] addr_BRAM4k_1;   //发出地址 BRAM4k
+output  wire [7:0]  addr_wLayer1_1;  //发出Layer1weight地址 
+//--------------结束-------------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
     Process         <=          `Init;
-    State <= `LIdle;
+    State <= `Layer1;
+    addr_BRAM4k_1 <= 1;
     Counter <= 0;
+    Channel <= 0;
+    addr_wLayer1_1 <= 1;
 end else begin
     //pipeline
     case ( State )
     `Layer1: begin
-        case ( Process )
-        `Init:begin
-            if (Counter != 5'd12) begin
-                Counter <= Counter + 1;
+        case ( Process ) //用于控制channel。
+        `Idle:begin
+            if(Channel < 32)
+                Channel <= Channel + 1; 
                 Process <= `Init;
+            end 
+            else begin
+                Channel <= 0;
+                State <= `Layer2;
+            end
+        end
+        `Init:begin
+            if (Counter < 5'd12) begin
+                addr_BRAM4k_1<=   addr_BRAM4k_1 + 1;
+                Counter      <=   Counter + 1;
+                Process      <=   `Init;
                 ifbuf5[24]   <=   ifmap_in1[63:56];
                 ifbuf5[25]   <=   ifmap_in1[55:48];
                 ifbuf5[26]   <=   ifmap_in1[47:40];
@@ -263,7 +248,7 @@ end else begin
                 ifbuf5[29]   <=   ifmap_in1[23:16];
                 ifbuf5[30]   <=   ifmap_in1[15:8];
                 ifbuf5[31]   <=   ifmap_in1[7:0];
-//--------------------------------------------------                                
+                               
                 ifbuf5[23] <=      ifbuf5[31];
                 ifbuf5[22] <=      ifbuf5[30];
                 ifbuf5[21] <=      ifbuf5[29];
@@ -299,7 +284,7 @@ end else begin
                 ifbuf4[26] <=      ifbuf5[2];
                 ifbuf4[25] <=      ifbuf5[1];
                 ifbuf4[24] <=      ifbuf5[0];
-//--------------------------------------------
+
                 ifbuf4[23] <=      ifbuf4[31];
                 ifbuf4[22] <=      ifbuf4[30];
                 ifbuf4[21] <=      ifbuf4[29];
@@ -335,7 +320,7 @@ end else begin
                 ifbuf3[26] <=      ifbuf4[2];
                 ifbuf3[25] <=      ifbuf4[1];
                 ifbuf3[24] <=      ifbuf4[0];
-//-----------------------------------------------------
+
                 ifbuf3[23] <=      ifbuf3[31];
                 ifbuf3[22] <=      ifbuf3[30];
                 ifbuf3[21] <=      ifbuf3[29];
@@ -361,8 +346,12 @@ end else begin
                 ifbuf3[3] <=      ifbuf3[11];
                 ifbuf3[2] <=      ifbuf3[10];
                 ifbuf3[1] <=      ifbuf3[9];
-                ifbuf3[0] <=      ifbuf3[8];                         
-              end else begin
+                ifbuf3[0] <=      ifbuf3[8];  
+//--------------------------------------------- 
+                if (Counter < 5'd5) begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                end                      
+            end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
                 ifbuf2[2]    <=      0;
@@ -441,9 +430,9 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]这是数据�???????
+//------------
         `Start:begin
-            
+//----------基本数据流
             regPad5[0]   <=      regPad5[1];
             regPad5[1]   <=      ifbuf5[0];
             ifbuf5[0]    <=      ifbuf5[1];
@@ -618,7 +607,8 @@ end else begin
             ifbuf1[29]   <=      ifbuf1[30];
             ifbuf1[30]   <=      ifbuf1[31];
             ifbuf1[31]   <=      regPad1[0];
-
+//---------基本数据流结束---------------
+//---------控制流----------------------
             case ( Counter )
             6'd10 : begin
                 ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
@@ -656,7 +646,7 @@ end else begin
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
-            6'd34 :begin
+            6'd33 :begin
                 ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
                 ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
                 ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
@@ -665,11 +655,11 @@ end else begin
                 ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
                 ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
                 ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
-                // Counter <= 0; 
+                Counter <= 0; 
                 Trashdata <= 0; //signal for disable
-                Counter <= 1;
                 if(Row == 5'd31) begin
                     Row <= 0;
+                    Process <= `Idle; 
                 end else begin
                     Row <= Row + 1;                    
                 end
@@ -697,6 +687,9 @@ end else begin
                 ifbuf5[31]   <=      ifbuf1[0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
+                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 32 ) begin
+                    addr_BRAM4k_1 <= addr_BRAM4k_1 + 1;
+                end
             end
             endcase
             
@@ -771,7 +764,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�??????? //1位即�???????
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�??????? //1位即�???????
 //---------
     end
 // -----------
