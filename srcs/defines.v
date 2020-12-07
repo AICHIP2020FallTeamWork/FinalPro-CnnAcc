@@ -24,4 +24,10 @@
 `define ByteThr 23:16
 `define ByteFor 32:24
 `define Bytefiv 39:32
+`define ByteSix 47:40
+`define ByteSev 55:48
+`define ByteEig 63:56
+`define ByteNin 72:64
+
+
 
