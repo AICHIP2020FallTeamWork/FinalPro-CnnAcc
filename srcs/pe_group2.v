@@ -1,4 +1,5 @@
 module pe_group(
+    rst,
     weight_en,
     weight1_in,
     weight2_in,
@@ -19,6 +20,7 @@ module pe_group(
 );
 
 input                                    clk;
+input                                    rst;
 input                  [3:0]             layer;
 
 input        signed    [7:0]             weight1_in;

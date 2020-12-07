@@ -197,8 +197,8 @@ module pe1(
 //---------------------------------------------
     reg                             Trashdata;
     reg     [4:0]                   Row;
-    reg  [2:0]   Process;
-    reg  [2:0]   State;
+    reg  [3:0]   Layer;
+    reg  [2:0]   State;    
     reg  [2:0]   StateBubble1;
     reg  [2:0]   StateBubble2;
     reg  [2:0]   StateBubble3;
@@ -254,14 +254,14 @@ input   wire [39:0]  dout_wLayer1_1;
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
     Process         <=          `Init;
-    State           <= `Layer1;
+    Layer           <= `Layer1;
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
     Channel <= 0;
     addr_wLayer1_1 <= 1;
 end else begin
     //pipeline
-    case ( State )
+    case ( Layer )
     `Layer1: begin
         case ( Process ) //用于控制channel。
         `Idle:begin
@@ -271,7 +271,7 @@ end else begin
             end 
             else begin
                 Channel <= 0;
-                State <= `Layer2;
+                Layer <= `Layer2;
             end
         end
         `Init:begin
@@ -2109,4 +2109,10 @@ pe_group pe_group6(
     .groupsum_out2(psum62),
     .layer(layer)
 );
+
+
+
+
+
+
 endmodule
