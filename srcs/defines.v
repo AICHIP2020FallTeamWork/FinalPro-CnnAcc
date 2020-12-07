@@ -18,3 +18,10 @@
 
 
 `define Byte 7:0
+
+`define ByteOne 7:0
+`define ByteTwo 15:8
+`define ByteThr 23:16
+`define ByteFor 32:24
+`define Bytefiv 39:32
+
