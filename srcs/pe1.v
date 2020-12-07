@@ -49,6 +49,8 @@ module pe1(
     ofmap_out,
     clk,
     initializing,
+    addr_BRAM4k_1,
+    addr_wLayer1_1
 );
 //--------------------------------------
     input wire initializing;
