@@ -51,7 +51,13 @@ module pe1(
     initializing,
     addr_BRAM4k_1,
     addr_wLayer1_1,
-    dout_wLayer1_1 //这是数据输入线（dout是相对于BRAM来说的）
+    dout_wLayer1_1, //这是数据输入线（dout是相对于BRAM来说的）
+    
+    we_BRAM32k,
+    addr_BRAM32k_1,
+    addr_BRAM32k_2,
+    din_BRAM32k_1,
+    din_BRAM32k_2
 );
 //--------------------------------------
     input wire initializing;
@@ -2111,6 +2117,29 @@ pe_group pe_group6(
 );
 
 
+output wire we_BRAM32k;
+output wire [11:0] addr_BRAM32k_1;
+output wire [11:0] addr_BRAM32k_2;
+output wire [63:0] din_BRAM32k_1;
+output wire [63:0] din_BRAM32k_2;
+
+writeback   WB(
+    //in
+    .clk(clk),
+    .rst(rst),
+    .sum1(psum11),
+    .sum2(psum21),
+    .sum3(psum31),
+    .sum4(psum41),
+    .sum5(psum51),
+    .State(State),
+    //out
+    .we_BRAM32k(we_BRAM32k),
+    .addr_BRAM32k_1(addr_BRAM32k_1),
+    .addr_BRAM32k_2(addr_BRAM32k_2),
+    .din_BRAM32k_1(din_BRAM32k_1),
+    .din_BRAM32k_2(din_BRAM32k_2)
+    );
 
 
 

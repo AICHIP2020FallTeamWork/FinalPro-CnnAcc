@@ -42,38 +42,57 @@ case(Layer)
             //--
             plusi1 <= sum1 + sum2 + sum3;
             plusi2 <= sum4 + sum5;
+            addr_BRAM32k_1   <= addr_BRAM32k_1 + 1;
             //--
             case (Zuhe)
+            `Zero:begin
+                Zuhe<=`First;
+                we_BRAM32k              <= 0;
+            end
             `First:begin
                 din_BRAM32k_1[`ByteOne] <= plusi1 + plusi2;
+                Zuhe<=`Second;
+                we_BRAM32k              <= 0;
             end
             `Second:begin
                 din_BRAM32k_1[`ByteTwo] <= plusi1 + plusi2;
+                Zuhe<=`Third;
+                we_BRAM32k              <= 0;
+
             end
             `Third:begin
                 din_BRAM32k_1[`ByteThr] <= plusi1 + plusi2;
+                Zuhe<=`Forth;            
             end
             `Forth:begin
                 din_BRAM32k_1[`ByteFor] <= plusi1 + plusi2;
+                Zuhe<=`Fifth;
+                we_BRAM32k              <= 0;
             end
             `Fifth:begin
                 din_BRAM32k_1[`ByteFiv] <= plusi1 + plusi2;
+                Zuhe<=`Sixth;
+                we_BRAM32k              <= 0;
             end
             `Sixth:begin
                 din_BRAM32k_1[`ByteSix] <= plusi1 + plusi2;
+                Zuhe<=`Seventh; 
+                we_BRAM32k              <= 0;
             end
             `Seventh:begin
                 din_BRAM32k_1[`ByteSev] <= plusi1 + plusi2;
+                Zuhe<=`Eighth;
+                we_BRAM32k              <= 0;
             end
-            `Eight:begin
+            `Eighth:begin
                 din_BRAM32k_1[`ByteEig] <= plusi1 + plusi2;
+                Zuhe<=`Zero;
+                we_BRAM32k              <= 1;
             end
             endcase
-
-            addr_BRAM32k_1          <= addr_BRAM32k_1 + 1;
+            //--
+            //写完八个字之后才开始干活。
             //1个周期之后发出地址。 
-            we_BRAM32k              <= 0;
-            we_BRAM32k              <= 1;
             //两个周期写入使能
 
         end
