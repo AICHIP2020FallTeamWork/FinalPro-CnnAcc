@@ -260,9 +260,35 @@ output  reg  [11:0]  addr_BRAM4k_1;   //发出地址 BRAM4k
 output  reg  [7:0]   addr_wLayer1_1;  //发出Layer1weight地址 
 input   wire [39:0]  dout_wLayer1_1;
 //--------------结束-------------------------------
+//-------------重要的控制线-----------------------------
+reg        FinishFlag_Bub2 ;
+reg        FinishFlag_Bub1 ;
+reg        FinishFlag      ;
+
+always @(posedge clk or negedge Process[0] or negedge rst) begin 
+//当process[0]出现下降沿，意味着PE中的运算结束，
+//但是PEgroup流水线和WriteBack流水线仍然在工作
+//原先的使能信号如果立即置零则会终止流水，
+//因此，在process[0]出现下降沿的时候给出一个控制信号
+//负责在下一级流水完成之后终止流水。
+    if(rst == `RstEnable) begin
+        FinishFlag_Bub2 <= 0;
+        FinishFlag_Bub1 <= 0;
+        FinishFlag      <= 0;
+    end else if(Process[0] == 1)begin
+        FinishFlag <= 1;
+    end else begin
+        FinishFlag_Bub2 <= 0;
+        FinishFlag_Bub1 <= FinishFlag_Bub2;
+        FinishFlag      <= FinishFlag_Bub1; //先使用这个三拍的打拍，后期可以根据层数更改。
+    end
+end
+
+
+//------------------------结束--------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
-    Process         <=          `Init;
+    Process         <= `Idle;
     Layer           <= `Layer1;
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
@@ -271,10 +297,10 @@ if ( rst == `RstEnable ) begin
 end else begin
     //pipeline
     case ( Layer )
-    `Layer1: begin
+    `Layer1: begin 
         case ( Process ) //用于控制channel。
         `Idle:begin
-            if(Channel < 32)
+            if( Channel < 32)
                 Channel <= Channel + 1; 
                 Process <= `Init;
             end 
@@ -403,41 +429,77 @@ end else begin
 // 55 .. .. .. .. 
                 if (Counter ==0) begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weight15 <= dout_wLayer1_1[`ByteFiv];
-                    weight14 <= dout_wLayer1_1[`ByteFor];
-                    weight13 <= dout_wLayer1_1[`ByteThr];
-                    weight12 <= dout_wLayer1_1[`ByteTwo];
-                    weight11 <= dout_wLayer1_1[`ByteOne];
+                    weightA15 <= dout_wLayer1_1[`ByteFiv];
+                    weightA14 <= dout_wLayer1_1[`ByteFor];
+                    weightA13 <= dout_wLayer1_1[`ByteThr];
+                    weightA12 <= dout_wLayer1_1[`ByteTwo];
+                    weightA11 <= dout_wLayer1_1[`ByteOne];
                 end else if (Counter == 1)    begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weight25 <= dout_wLayer1_1[`ByteFiv];
-                    weight24 <= dout_wLayer1_1[`ByteFor];
-                    weight23 <= dout_wLayer1_1[`ByteThr];
-                    weight22 <= dout_wLayer1_1[`ByteTwo];
-                    weight21 <= dout_wLayer1_1[`ByteOne];            
+                    weightA25 <= dout_wLayer1_1[`ByteFiv];
+                    weightA24 <= dout_wLayer1_1[`ByteFor];
+                    weightA23 <= dout_wLayer1_1[`ByteThr];
+                    weightA22 <= dout_wLayer1_1[`ByteTwo];
+                    weightA21 <= dout_wLayer1_1[`ByteOne];            
                 end else if (Counter == 2)   begin                 
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weight35 <= dout_wLayer1_1[`ByteFiv];
-                    weight34 <= dout_wLayer1_1[`ByteFor];
-                    weight33 <= dout_wLayer1_1[`ByteThr];
-                    weight32 <= dout_wLayer1_1[`ByteTwo];
-                    weight31 <= dout_wLayer1_1[`ByteOne];
+                    weightA35 <= dout_wLayer1_1[`ByteFiv];
+                    weightA34 <= dout_wLayer1_1[`ByteFor];
+                    weightA33 <= dout_wLayer1_1[`ByteThr];
+                    weightA32 <= dout_wLayer1_1[`ByteTwo];
+                    weightA31 <= dout_wLayer1_1[`ByteOne];
                 end else if (Counter == 3)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weight45 <= dout_wLayer1_1[`ByteFiv];
-                    weight44 <= dout_wLayer1_1[`ByteFor];
-                    weight43 <= dout_wLayer1_1[`ByteThr];
-                    weight42 <= dout_wLayer1_1[`ByteTwo];
-                    weight41 <= dout_wLayer1_1[`ByteOne];
+                    weightA45 <= dout_wLayer1_1[`ByteFiv];
+                    weightA44 <= dout_wLayer1_1[`ByteFor];
+                    weightA43 <= dout_wLayer1_1[`ByteThr];
+                    weightA42 <= dout_wLayer1_1[`ByteTwo];
+                    weightA41 <= dout_wLayer1_1[`ByteOne];
                                   
                 end else if (Counter == 4)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weight55 <= dout_wLayer1_1[`ByteFiv];
-                    weight54 <= dout_wLayer1_1[`ByteFor];
-                    weight53 <= dout_wLayer1_1[`ByteThr];
-                    weight52 <= dout_wLayer1_1[`ByteTwo];
-                    weight51 <= dout_wLayer1_1[`ByteOne];                    
-                end                   
+                    weightA55 <= dout_wLayer1_1[`ByteFiv];
+                    weightA54 <= dout_wLayer1_1[`ByteFor];
+                    weightA53 <= dout_wLayer1_1[`ByteThr];
+                    weightA52 <= dout_wLayer1_1[`ByteTwo];
+                    weightA51 <= dout_wLayer1_1[`ByteOne];
+//----
+                end else if (Counter == 5)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB15 <= dout_wLayer1_1[`ByteFiv];
+                    weightB14 <= dout_wLayer1_1[`ByteFor];
+                    weightB13 <= dout_wLayer1_1[`ByteThr];
+                    weightB12 <= dout_wLayer1_1[`ByteTwo];
+                    weightB11 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 6)    begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB25 <= dout_wLayer1_1[`ByteFiv];
+                    weightB24 <= dout_wLayer1_1[`ByteFor];
+                    weightB23 <= dout_wLayer1_1[`ByteThr];
+                    weightB22 <= dout_wLayer1_1[`ByteTwo];
+                    weightB21 <= dout_wLayer1_1[`ByteOne];            
+                end else if (Counter == 7)   begin                 
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB35 <= dout_wLayer1_1[`ByteFiv];
+                    weightB34 <= dout_wLayer1_1[`ByteFor];
+                    weightB33 <= dout_wLayer1_1[`ByteThr];
+                    weightB32 <= dout_wLayer1_1[`ByteTwo];
+                    weightB31 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 8)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB45 <= dout_wLayer1_1[`ByteFiv];
+                    weightB44 <= dout_wLayer1_1[`ByteFor];
+                    weightB43 <= dout_wLayer1_1[`ByteThr];
+                    weightB42 <= dout_wLayer1_1[`ByteTwo];
+                    weightB41 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 9)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB55 <= dout_wLayer1_1[`ByteFiv];
+                    weightB54 <= dout_wLayer1_1[`ByteFor];
+                    weightB53 <= dout_wLayer1_1[`ByteThr];
+                    weightB52 <= dout_wLayer1_1[`ByteTwo];
+                    weightB51 <= dout_wLayer1_1[`ByteOne];           
+                end                 
             end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
@@ -518,7 +580,7 @@ end else begin
               end
         end
 //------------
-        `Start:begin
+        `Start:begin 
 //----------基本数据流
             regPad5[0]   <=      regPad5[1];
             regPad5[1]   <=      ifbuf5[0];
@@ -2557,228 +2619,228 @@ end
 pe_group pe_group11(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight11_in),
-    .weight2_in(weight12_in),
-    .weight3_in(weight13_in),
-    .weight4_in(weight14_in),
-    .weight5_in(weight15_in),
-    .weight6_in(weight16_in),
+    .weight1_in(weightA11_in),
+    .weight2_in(weightA12_in),
+    .weight3_in(weightA13_in),
+    .weight4_in(weightA14_in),
+    .weight5_in(weightA15_in),
+    .weight6_in(weightA16_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf1[7:0]),
     .ifmap_in2(ifbuf1[151:144]),
     .ifmap_in3(ifbuf1[15:8]),
     .ifmap_in4(ifbuf1[159:152]),
-    .groupsum_out1(psum11),
-    .groupsum_out2(psum12),
+    .groupsum_out1(psumA11),
+    .groupsum_out2(psumA12),
     .layer(layer)
 );
 
 pe_group pe_group21(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight21_in),
-    .weight2_in(weight22_in),
-    .weight3_in(weight23_in),
-    .weight4_in(weight24_in),
-    .weight5_in(weight25_in),
-    .weight6_in(weight26_in),
+    .weight1_in(weightA21_in),
+    .weight2_in(weightA22_in),
+    .weight3_in(weightA23_in),
+    .weight4_in(weightA24_in),
+    .weight5_in(weightA25_in),
+    .weight6_in(weightA26_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf2[7:0]),
     .ifmap_in2(ifbuf2[151:144]),
     .ifmap_in3(ifbuf2[15:8]),
     .ifmap_in4(ifbuf2[159:152]),
-    .groupsum_out1(psum21),
-    .groupsum_out2(psum22),
+    .groupsum_out1(psumA21),
+    .groupsum_out2(psumA22),
     .layer(layer)
 );
 
 pe_group pe_group31(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight31_in),
-    .weight2_in(weight32_in),
-    .weight3_in(weight33_in),
-    .weight4_in(weight34_in),
-    .weight5_in(weight35_in),
-    .weight6_in(weight36_in),
+    .weight1_in(weightA31_in),
+    .weight2_in(weightA32_in),
+    .weight3_in(weightA33_in),
+    .weight4_in(weightA34_in),
+    .weight5_in(weightA35_in),
+    .weight6_in(weightA36_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf3[7:0]),
     .ifmap_in2(ifbuf3[151:144]),
     .ifmap_in3(ifbuf3[15:8]),
     .ifmap_in4(ifbuf3[159:152]),
-    .groupsum_out1(psum31),
-    .groupsum_out2(psum32),
+    .groupsum_out1(psumA31),
+    .groupsum_out2(psumA32),
     .layer(layer)
 );
 
 pe_group pe_group41(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight41_in),
-    .weight2_in(weight42_in),
-    .weight3_in(weight43_in),
-    .weight4_in(weight44_in),
-    .weight5_in(weight45_in),
-    .weight6_in(weight46_in),
+    .weight1_in(weightA41_in),
+    .weight2_in(weightA42_in),
+    .weight3_in(weightA43_in),
+    .weight4_in(weightA44_in),
+    .weight5_in(weightA45_in),
+    .weight6_in(weightA46_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf5[7:0]),
     .ifmap_in2(ifbuf5[151:144]),
     .ifmap_in3(ifbuf5[15:8]),
     .ifmap_in4(ifbuf5[159:152]),
-    .groupsum_out1(psum41),
-    .groupsum_out2(psum42),
+    .groupsum_out1(psumA41),
+    .groupsum_out2(psumA42),
     .layer(layer)
 );
 
 pe_group pe_group51(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight51_in),
-    .weight2_in(weight52_in),
-    .weight3_in(weight53_in),
-    .weight4_in(weight54_in),
-    .weight5_in(weight55_in),
-    .weight6_in(weight56_in),
+    .weight1_in(weightA51_in),
+    .weight2_in(weightA52_in),
+    .weight3_in(weightA53_in),
+    .weight4_in(weightA54_in),
+    .weight5_in(weightA55_in),
+    .weight6_in(weightA56_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf5[7:0]),
     .ifmap_in2(ifbuf5[151:144]),
     .ifmap_in3(ifbuf5[15:8]),
     .ifmap_in4(ifbuf5[159:152]),
-    .groupsum_out1(psum51),
-    .groupsum_out2(psum52),
+    .groupsum_out1(psumA51),
+    .groupsum_out2(psumA52),
     .layer(layer)
 );
 
 pe_group pe_group61(
     .clk(clk),
     .weight_en(weight_en1),
-    .weight1_in(weight61_in),
-    .weight2_in(weight62_in),
-    .weight3_in(weight63_in),
-    .weight4_in(weight64_in),
-    .weight5_in(weight65_in),
-    .weight6_in(weight66_in),
+    .weight1_in(weightA61_in),
+    .weight2_in(weightA62_in),
+    .weight3_in(weightA63_in),
+    .weight4_in(weightA64_in),
+    .weight5_in(weightA65_in),
+    .weight6_in(weightA66_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf6[7:0]),
     .ifmap_in2(ifbuf6[151:144]),
     .ifmap_in3(ifbuf6[15:8]),
     .ifmap_in4(ifbuf6[159:152]),
-    .groupsum_out1(psum61),
-    .groupsum_out2(psum62),
+    .groupsum_out1(psumA61),
+    .groupsum_out2(psumA62),
     .layer(layer)
 );
 
 pe_group pe_group12(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight11_in),
-    .weight2_in(weight12_in),
-    .weight3_in(weight13_in),
-    .weight4_in(weight14_in),
-    .weight5_in(weight15_in),
-    .weight6_in(weight16_in),
+    .weight1_in(weightB11_in),
+    .weight2_in(weightB12_in),
+    .weight3_in(weightB13_in),
+    .weight4_in(weightB14_in),
+    .weight5_in(weightB15_in),
+    .weight6_in(weightB16_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf1[7:0]),
     .ifmap_in2(ifbuf1[151:144]),
     .ifmap_in3(ifbuf1[15:8]),
     .ifmap_in4(ifbuf1[159:152]),
-    .groupsum_out1(psum11),
-    .groupsum_out2(psum12),
+    .groupsum_out1(psumB11),
+    .groupsum_out2(psumB12),
     .layer(layer)
 );
 
 pe_group pe_group22(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight21_in),
-    .weight2_in(weight22_in),
-    .weight3_in(weight23_in),
-    .weight4_in(weight24_in),
-    .weight5_in(weight25_in),
-    .weight6_in(weight26_in),
+    .weight1_in(weightB21_in),
+    .weight2_in(weightB22_in),
+    .weight3_in(weightB23_in),
+    .weight4_in(weightB24_in),
+    .weight5_in(weightB25_in),
+    .weight6_in(weightB26_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf2[7:0]),
     .ifmap_in2(ifbuf2[151:144]),
     .ifmap_in3(ifbuf2[15:8]),
     .ifmap_in4(ifbuf2[159:152]),
-    .groupsum_out1(psum21),
-    .groupsum_out2(psum22),
+    .groupsum_out1(psumB21),
+    .groupsum_out2(psumB22),
     .layer(layer)
 );
 
 pe_group pe_group32(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight31_in),
-    .weight2_in(weight32_in),
-    .weight3_in(weight33_in),
-    .weight4_in(weight34_in),
-    .weight5_in(weight35_in),
-    .weight6_in(weight36_in),
+    .weight1_in(weightB31_in),
+    .weight2_in(weightB32_in),
+    .weight3_in(weightB33_in),
+    .weight4_in(weightB34_in),
+    .weight5_in(weightB35_in),
+    .weight6_in(weightB36_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf3[7:0]),
     .ifmap_in2(ifbuf3[151:144]),
     .ifmap_in3(ifbuf3[15:8]),
     .ifmap_in4(ifbuf3[159:152]),
-    .groupsum_out1(psum31),
-    .groupsum_out2(psum32),
+    .groupsum_out1(psumB31),
+    .groupsum_out2(psumB32),
     .layer(layer)
 );
 
 pe_group pe_group42(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight41_in),
-    .weight2_in(weight42_in),
-    .weight3_in(weight43_in),
-    .weight4_in(weight44_in),
-    .weight5_in(weight45_in),
-    .weight6_in(weight46_in),
+    .weight1_in(weightB41_in),
+    .weight2_in(weightB42_in),
+    .weight3_in(weightB43_in),
+    .weight4_in(weightB44_in),
+    .weight5_in(weightB45_in),
+    .weight6_in(weightB46_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf5[7:0]),
     .ifmap_in2(ifbuf5[151:144]),
     .ifmap_in3(ifbuf5[15:8]),
     .ifmap_in4(ifbuf5[159:152]),
-    .groupsum_out1(psum41),
-    .groupsum_out2(psum42),
+    .groupsum_out1(psumB41),
+    .groupsum_out2(psumB42),
     .layer(layer)
 );
 
 pe_group pe_group52(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight51_in),
-    .weight2_in(weight52_in),
-    .weight3_in(weight53_in),
-    .weight4_in(weight54_in),
-    .weight5_in(weight55_in),
-    .weight6_in(weight56_in),
+    .weight1_in(weightB51_in),
+    .weight2_in(weightB52_in),
+    .weight3_in(weightB53_in),
+    .weight4_in(weightB54_in),
+    .weight5_in(weightB55_in),
+    .weight6_in(weightB56_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf5[7:0]),
     .ifmap_in2(ifbuf5[151:144]),
     .ifmap_in3(ifbuf5[15:8]),
     .ifmap_in4(ifbuf5[159:152]),
-    .groupsum_out1(psum51),
-    .groupsum_out2(psum52),
+    .groupsum_out1(psumB51),
+    .groupsum_out2(psumB52),
     .layer(layer)
 );
 
 pe_group pe_group62(
     .clk(clk),
     .weight_en(weight_en2),
-    .weight1_in(weight61_in),
-    .weight2_in(weight62_in),
-    .weight3_in(weight63_in),
-    .weight4_in(weight64_in),
-    .weight5_in(weight65_in),
-    .weight6_in(weight66_in),
+    .weight1_in(weightB61_in),
+    .weight2_in(weightB62_in),
+    .weight3_in(weightB63_in),
+    .weight4_in(weightB64_in),
+    .weight5_in(weightB65_in),
+    .weight6_in(weightB66_in),
     .calculate_en(calculate_en),
     .ifmap_in1(ifbuf6[7:0]),
     .ifmap_in2(ifbuf6[151:144]),
     .ifmap_in3(ifbuf6[15:8]),
     .ifmap_in4(ifbuf6[159:152]),
-    .groupsum_out1(psum61),
-    .groupsum_out2(psum62),
+    .groupsum_out1(psumB61),
+    .groupsum_out2(psumB62),
     .layer(layer)
 );
 
@@ -2793,11 +2855,16 @@ writeback   WB(
     //in
     .clk(clk),
     .rst(rst),
-    .sum1(psum11),
-    .sum2(psum21),
-    .sum3(psum31),
-    .sum4(psum41),
-    .sum5(psum51),
+    .sumA1(psumA11),//A
+    .sumA2(psumA21),
+    .sumA3(psumA31),
+    .sumA4(psumA41),
+    .sumA5(psumA51),
+    .sumB1(psumB11),//B
+    .sumB2(psumB21),
+    .sumB3(psumB31),
+    .sumB4(psumB41),
+    .sumB5(psumB51),
     .State(State),
     //out
     .we_BRAM32k(we_BRAM32k),
