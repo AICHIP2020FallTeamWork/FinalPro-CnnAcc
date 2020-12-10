@@ -2,16 +2,15 @@
 
 module pe1(
     rst,
-
     weight_en,
 
     calculate_en,
-    weight11_in,//11 12 13 14 15 16
-    weight12_in,//21 22 23 24 25 26
-    weight13_in,//31 32 33 34 35 36
-    weight21_in,//41 42 43 44 45 46
-    weight22_in,//51 52 53 54 55 56
-    weight23_in,//61 62 63 64 65 66
+    weight11_in, //11 12 13 14 15 16
+    weight12_in, //21 22 23 24 25 26
+    weight13_in, //31 32 33 34 35 36
+    weight21_in, //41 42 43 44 45 46
+    weight22_in, //51 52 53 54 55 56
+    weight23_in, //61 62 63 64 65 66
     weight31_in,
     weight32_in,
     weight33_in,
@@ -46,6 +45,10 @@ module pe1(
     ifmap_in2,
     ifmap_in3,
     ifmap_in4,
+    ifmap_in01,
+    ifmap_in02,
+    ifmap_in03,
+    ifmap_in04,
     ofmap_out,
     clk,
     initializing,
@@ -173,10 +176,10 @@ module pe1(
     reg                    [`Byte]   ifbuf6 [31:0];
     reg                    [`Byte]   regPad1 [1:0];
     reg                    [`Byte]   regPad2 [1:0];
-    reg                    [`Byte]   regPad3 [1:0];
+    reg                    [`Byte]   regPad3 [3:0];
     reg                    [`Byte]   regPad4 [1:0];
     reg                    [`Byte]   regPad5 [1:0];
-    reg                    [`Byte]   regPad6 [1:0];
+    reg                    [`Byte]   regPad6 [3:0];
 
 
     reg     [7:0]       plusi11 ;
@@ -1309,81 +1312,81 @@ end else begin
 
             case ( Counter )
             6'd9 : begin
-                ifbuf6[8]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[63:56];
-                ifbuf6[9]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[55:48];
-                ifbuf6[10]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[47:40];
-                ifbuf6[11]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[39:32];
-                ifbuf6[12]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[31:24];
-                ifbuf6[13]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[23:16];
-                ifbuf6[14]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[15:8];
-                ifbuf6[15]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[7:0];
+                ifbuf6[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[63:56];
+                ifbuf6[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[55:48];
+                ifbuf6[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[47:40];
+                ifbuf6[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[39:32];
+                ifbuf6[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[31:24];
+                ifbuf6[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[23:16];
+                ifbuf6[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[15:8];
+                ifbuf6[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[7:0];
 
-                ifbuf6[24]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[63:56];
-                ifbuf6[25]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[55:48];
-                ifbuf6[26]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[47:40];
-                ifbuf6[27]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[39:32];
-                ifbuf6[28]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[31:24];
-                ifbuf6[29]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[23:16];
-                ifbuf6[30]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[15:8];
-                ifbuf6[31]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[7:0];
+                ifbuf6[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[63:56];
+                ifbuf6[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[55:48];
+                ifbuf6[26]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[47:40];
+                ifbuf6[27]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[39:32];
+                ifbuf6[28]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[31:24];
+                ifbuf6[29]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[23:16];
+                ifbuf6[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[15:8];
+                ifbuf6[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[63:56];
-                ifbuf3[9]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[55:48];
-                ifbuf3[10]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[47:40];
-                ifbuf3[11]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[39:32];
-                ifbuf3[12]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[31:24];
-                ifbuf3[13]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[23:16];
-                ifbuf3[14]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[15:8];
-                ifbuf3[15]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[7:0];
+                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[63:56];
+                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[55:48];
+                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[47:40];
+                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[39:32];
+                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[31:24];
+                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[23:16];
+                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[15:8];
+                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[7:0];
                 
-                ifbuf3[24]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[63:56];
-                ifbuf3[25]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[55:48];
-                ifbuf3[26]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[47:40];
-                ifbuf3[27]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[39:32];
-                ifbuf3[28]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[31:24];
-                ifbuf3[29]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[23:16];
-                ifbuf3[30]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[15:8];
-                ifbuf3[31]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[7:0];
+                ifbuf3[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[63:56];
+                ifbuf3[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[55:48];
+                ifbuf3[26]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[47:40];
+                ifbuf3[27]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[39:32];
+                ifbuf3[28]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[31:24];
+                ifbuf3[29]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[23:16];
+                ifbuf3[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[15:8];
+                ifbuf3[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[7:0];
 
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd17 : begin
-                ifbuf6[8]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[63:56];
-                ifbuf6[9]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[55:48];
-                ifbuf6[10]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[47:40];
-                ifbuf6[11]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[39:32];
-                ifbuf6[12]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[31:24];
-                ifbuf6[13]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[23:16];
-                ifbuf6[14]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[15:8];
-                ifbuf6[15]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in3[7:0];
+                ifbuf6[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[63:56];
+                ifbuf6[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[55:48];
+                ifbuf6[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[47:40];
+                ifbuf6[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[39:32];
+                ifbuf6[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[31:24];
+                ifbuf6[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[23:16];
+                ifbuf6[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[15:8];
+                ifbuf6[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in3[7:0];
 
-                ifbuf6[24]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[63:56];
-                ifbuf6[25]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[55:48];
-                ifbuf6[26]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[47:40];
-                ifbuf6[27]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[39:32];
-                ifbuf6[28]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[31:24];
-                ifbuf6[29]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[23:16];
-                ifbuf6[30]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[15:8];
-                ifbuf6[31]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in4[7:0];
+                ifbuf6[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[63:56];
+                ifbuf6[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[55:48];
+                ifbuf6[26]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[47:40];
+                ifbuf6[27]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[39:32];
+                ifbuf6[28]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[31:24];
+                ifbuf6[29]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[23:16];
+                ifbuf6[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[15:8];
+                ifbuf6[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[63:56];
-                ifbuf3[9]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[55:48];
-                ifbuf3[10]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[47:40];
-                ifbuf3[11]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[39:32];
-                ifbuf3[12]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[31:24];
-                ifbuf3[13]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[23:16];
-                ifbuf3[14]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[15:8];
-                ifbuf3[15]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in1[7:0];
+                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[63:56];
+                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[55:48];
+                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[47:40];
+                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[39:32];
+                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[31:24];
+                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[23:16];
+                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[15:8];
+                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[7:0];
                 
-                ifbuf3[24]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[63:56];
-                ifbuf3[25]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[55:48];
-                ifbuf3[26]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[47:40];
-                ifbuf3[27]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[39:32];
-                ifbuf3[28]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[31:24];
-                ifbuf3[29]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[23:16];
-                ifbuf3[30]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[15:8];
-                ifbuf3[31]   <=   (Row == 5'd14 || Row == 5'd15)? 8'd0:ifmap_in2[7:0];
+                ifbuf3[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[63:56];
+                ifbuf3[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[55:48];
+                ifbuf3[26]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[47:40];
+                ifbuf3[27]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[39:32];
+                ifbuf3[28]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[31:24];
+                ifbuf3[29]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[23:16];
+                ifbuf3[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[15:8];
+                ifbuf3[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[7:0];
 
                 Counter <= 6'd1;
                 Trashdata <= 0;
@@ -1512,266 +1515,815 @@ end else begin
         endcase
     end 
     `Layer4: begin
-        ifbuf1[23:16] <= ifbuf1[39:32];
-        ifbuf1[31:24] <= ifbuf1[47:40];
-        ifbuf1[39:32] <= ifbuf1[55:48];
-        ifbuf1[47:40] <= ifbuf1[63:56];
-        ifbuf1[55:48] <= ifbuf1[71:64];
-        ifbuf1[63:56] <= ifbuf1[79:72];
-        ifbuf1[71:64] <= ifbuf1[87:80];
-        ifbuf1[79:72] <= ifbuf1[95:88];
-        ifbuf1[87:80] <= ifbuf1[103:96];
-        ifbuf1[95:88] <= ifbuf1[111:104];
-        ifbuf1[103:96] <= ifbuf1[119:112];
-        ifbuf1[111:104] <= ifbuf1[127:120];
-        ifbuf1[119:112] <= ifbuf1[135:128];
-        ifbuf1[127:120] <= ifbuf1[143:136];
+        case ( Process )
+        `Init:begin
+            if (Counter != 5'd2) begin
+                Counter <= Counter + 1;
+                Process <= `Init;
+                ifbuf6[24]   <=   ifmap_in4[63:56];
+                ifbuf6[25]   <=   ifmap_in4[55:48];
+                ifbuf6[26]   <=   ifmap_in4[47:40];
+                ifbuf6[27]   <=   ifmap_in4[39:32];
+                ifbuf6[28]   <=   ifmap_in4[31:24];
+                ifbuf6[29]   <=   ifmap_in4[23:16];
+                ifbuf6[30]   <=   ifmap_in4[15:8];
+                ifbuf6[31]   <=   ifmap_in4[7:0];
+//--------------------------------------------------                                
+                ifbuf6[23] <=      ifbuf6[31];
+                ifbuf6[22] <=      ifbuf6[30];
+                ifbuf6[21] <=      ifbuf6[29];
+                ifbuf6[20] <=      ifbuf6[28];
+                ifbuf6[19] <=      ifbuf6[27];
+                ifbuf6[18] <=      ifbuf6[26];
+                ifbuf6[17] <=      ifbuf6[25];
+                ifbuf6[16] <=      ifbuf6[24];
 
-        ifbuf1[167:160] <= ifbuf1[183:176];
-        ifbuf1[175:168] <= ifbuf1[191:184];
-        ifbuf1[183:176] <= ifbuf1[199:192];
-        ifbuf1[191:184] <= ifbuf1[207:200];
-        ifbuf1[199:192] <= ifbuf1[215:208];
-        ifbuf1[207:200] <= ifbuf1[223:216];
-        ifbuf1[215:208] <= ifbuf1[231:224];
-        ifbuf1[223:216] <= ifbuf1[239:232];
-        ifbuf1[231:224] <= ifbuf1[247:240];
-        ifbuf1[239:232] <= ifbuf1[255:248];
-        ifbuf1[247:240] <= ifbuf1[263:256];
-        ifbuf1[255:248] <= ifbuf1[271:264];
-        ifbuf1[263:256] <= ifbuf1[279:272];
-        ifbuf1[271:264] <= ifbuf1[287:280];
+                ifbuf6[8]   <=    ifmap_in3[63:56];
+                ifbuf6[9]   <=    ifmap_in3[55:48];
+                ifbuf6[10]   <=   ifmap_in3[47:40];
+                ifbuf6[11]   <=   ifmap_in3[39:32];
+                ifbuf6[12]   <=   ifmap_in3[31:24];
+                ifbuf6[13]   <=   ifmap_in3[23:16];
+                ifbuf6[14]   <=   ifmap_in3[15:8];
+                ifbuf6[15]   <=   ifmap_in3[7:0];
 
-        ifbuf2[23:16] <= ifbuf2[39:32];
-        ifbuf2[31:24] <= ifbuf2[47:40];
-        ifbuf2[39:32] <= ifbuf2[55:48];
-        ifbuf2[47:40] <= ifbuf2[63:56];
-        ifbuf2[55:48] <= ifbuf2[71:64];
-        ifbuf2[63:56] <= ifbuf2[79:72];
-        ifbuf2[71:64] <= ifbuf2[87:80];
-        ifbuf2[79:72] <= ifbuf2[95:88];
-        ifbuf2[87:80] <= ifbuf2[103:96];
-        ifbuf2[95:88] <= ifbuf2[111:104];
-        ifbuf2[103:96] <= ifbuf2[119:112];
-        ifbuf2[111:104] <= ifbuf2[127:120];
-        ifbuf2[119:112] <= ifbuf2[135:128];
-        ifbuf2[127:120] <= ifbuf2[143:136];
+                ifbuf6[7] <=      ifbuf6[15];
+                ifbuf6[6] <=      ifbuf6[14];
+                ifbuf6[5] <=      ifbuf6[13];
+                ifbuf6[4] <=      ifbuf6[12];
+                ifbuf6[3] <=      ifbuf6[11];
+                ifbuf6[2] <=      ifbuf6[10];
+                ifbuf6[1] <=      ifbuf6[9];
+                ifbuf6[0] <=      ifbuf6[8];
 
-        ifbuf2[167:160] <= ifbuf2[183:176];
-        ifbuf2[175:168] <= ifbuf2[191:184];
-        ifbuf2[183:176] <= ifbuf2[199:192];
-        ifbuf2[191:184] <= ifbuf2[207:200];
-        ifbuf2[199:192] <= ifbuf2[215:208];
-        ifbuf2[207:200] <= ifbuf2[223:216];
-        ifbuf2[215:208] <= ifbuf2[231:224];
-        ifbuf2[223:216] <= ifbuf2[239:232];
-        ifbuf2[231:224] <= ifbuf2[247:240];
-        ifbuf2[239:232] <= ifbuf2[255:248];
-        ifbuf2[247:240] <= ifbuf2[263:256];
-        ifbuf2[255:248] <= ifbuf2[271:264];
-        ifbuf2[263:256] <= ifbuf2[279:272];
-        ifbuf2[271:264] <= ifbuf2[287:280];
+                ifbuf5[24]   <=   ifmap_in04[63:56];
+                ifbuf5[25]   <=   ifmap_in04[55:48];
+                ifbuf5[26]   <=   ifmap_in04[47:40];
+                ifbuf5[27]   <=   ifmap_in04[39:32];
+                ifbuf5[28]   <=   ifmap_in04[31:24];
+                ifbuf5[29]   <=   ifmap_in04[23:16];
+                ifbuf5[30]   <=   ifmap_in04[15:8];
+                ifbuf5[31]   <=   ifmap_in04[7:0];
+//--------------------------------------------------                                
+                ifbuf5[23] <=      ifbuf5[31];
+                ifbuf5[22] <=      ifbuf5[30];
+                ifbuf5[21] <=      ifbuf5[29];
+                ifbuf5[20] <=      ifbuf5[28];
+                ifbuf5[19] <=      ifbuf5[27];
+                ifbuf5[18] <=      ifbuf5[26];
+                ifbuf5[17] <=      ifbuf5[25];
+                ifbuf5[16] <=      ifbuf5[24];
 
-        ifbuf3[23:16] <= ifbuf3[39:32];
-        ifbuf3[31:24] <= ifbuf3[47:40];
-        ifbuf3[39:32] <= ifbuf3[55:48];
-        ifbuf3[47:40] <= ifbuf3[63:56];
-        ifbuf3[55:48] <= ifbuf3[71:64];
-        ifbuf3[63:56] <= ifbuf3[79:72];
-        ifbuf3[71:64] <= ifbuf3[87:80];
-        ifbuf3[79:72] <= ifbuf3[95:88];
-        ifbuf3[87:80] <= ifbuf3[103:96];
-        ifbuf3[95:88] <= ifbuf3[111:104];
-        ifbuf3[103:96] <= ifbuf3[119:112];
-        ifbuf3[111:104] <= ifbuf3[127:120];
-        ifbuf3[119:112] <= ifbuf3[135:128];
-        ifbuf3[127:120] <= ifbuf3[143:136];
+                ifbuf5[8]   <=    ifmap_in03[63:56];
+                ifbuf5[9]   <=    ifmap_in03[55:48];
+                ifbuf5[10]   <=   ifmap_in03[47:40];
+                ifbuf5[11]   <=   ifmap_in03[39:32];
+                ifbuf5[12]   <=   ifmap_in03[31:24];
+                ifbuf5[13]   <=   ifmap_in03[23:16];
+                ifbuf5[14]   <=   ifmap_in03[15:8];
+                ifbuf5[15]   <=   ifmap_in03[7:0];
 
-        ifbuf3[167:160] <= ifbuf3[183:176];
-        ifbuf3[175:168] <= ifbuf3[191:184];
-        ifbuf3[183:176] <= ifbuf3[199:192];
-        ifbuf3[191:184] <= ifbuf3[207:200];
-        ifbuf3[199:192] <= ifbuf3[215:208];
-        ifbuf3[207:200] <= ifbuf3[223:216];
-        ifbuf3[215:208] <= ifbuf3[231:224];
-        ifbuf3[223:216] <= ifbuf3[239:232];
-        ifbuf3[231:224] <= ifbuf3[247:240];
-        ifbuf3[239:232] <= ifbuf3[255:248];
-        ifbuf3[247:240] <= ifbuf3[263:256];
-        ifbuf3[255:248] <= ifbuf3[271:264];
-        ifbuf3[263:256] <= ifbuf3[279:272];
-        ifbuf3[271:264] <= ifbuf3[287:280];
+                ifbuf5[7] <=      ifbuf5[15];
+                ifbuf5[6] <=      ifbuf5[14];
+                ifbuf5[5] <=      ifbuf5[13];
+                ifbuf5[4] <=      ifbuf5[12];
+                ifbuf5[3] <=      ifbuf5[11];
+                ifbuf5[2] <=      ifbuf5[10];
+                ifbuf5[1] <=      ifbuf5[9];
+                ifbuf5[0] <=      ifbuf5[8];
 
-        ifbuf4[23:16] <= ifbuf4[39:32];
-        ifbuf4[31:24] <= ifbuf4[47:40];
-        ifbuf4[39:32] <= ifbuf4[55:48];
-        ifbuf4[47:40] <= ifbuf4[63:56];
-        ifbuf4[55:48] <= ifbuf4[71:64];
-        ifbuf4[63:56] <= ifbuf4[79:72];
-        ifbuf4[71:64] <= ifbuf4[87:80];
-        ifbuf4[79:72] <= ifbuf4[95:88];
-        ifbuf4[87:80] <= ifbuf4[103:96];
-        ifbuf4[95:88] <= ifbuf4[111:104];
-        ifbuf4[103:96] <= ifbuf4[119:112];
-        ifbuf4[111:104] <= ifbuf4[127:120];
-        ifbuf4[119:112] <= ifbuf4[135:128];
-        ifbuf4[127:120] <= ifbuf4[143:136];
 
-        ifbuf4[167:160] <= ifbuf4[183:176];
-        ifbuf4[175:168] <= ifbuf4[191:184];
-        ifbuf4[183:176] <= ifbuf4[199:192];
-        ifbuf4[191:184] <= ifbuf4[207:200];
-        ifbuf4[199:192] <= ifbuf4[215:208];
-        ifbuf4[207:200] <= ifbuf4[223:216];
-        ifbuf4[215:208] <= ifbuf4[231:224];
-        ifbuf4[223:216] <= ifbuf4[239:232];
-        ifbuf4[231:224] <= ifbuf4[247:240];
-        ifbuf4[239:232] <= ifbuf4[255:248];
-        ifbuf4[247:240] <= ifbuf4[263:256];
-        ifbuf4[255:248] <= ifbuf4[271:264];
-        ifbuf4[263:256] <= ifbuf4[279:272];
-        ifbuf4[271:264] <= ifbuf4[287:280];
 
-        ifbuf5[23:16] <= ifbuf5[39:32];
-        ifbuf5[31:24] <= ifbuf5[47:40];
-        ifbuf5[39:32] <= ifbuf5[55:48];
-        ifbuf5[47:40] <= ifbuf5[63:56];
-        ifbuf5[55:48] <= ifbuf5[71:64];
-        ifbuf5[63:56] <= ifbuf5[79:72];
-        ifbuf5[71:64] <= ifbuf5[87:80];
-        ifbuf5[79:72] <= ifbuf5[95:88];
-        ifbuf5[87:80] <= ifbuf5[103:96];
-        ifbuf5[95:88] <= ifbuf5[111:104];
-        ifbuf5[103:96] <= ifbuf5[119:112];
-        ifbuf5[111:104] <= ifbuf5[127:120];
-        ifbuf5[119:112] <= ifbuf5[135:128];
-        ifbuf5[127:120] <= ifbuf5[143:136];
+                ifbuf3[24]   <=   ifmap_in2[63:56];
+                ifbuf3[25]   <=   ifmap_in2[55:48];
+                ifbuf3[26]   <=   ifmap_in2[47:40];
+                ifbuf3[27]   <=   ifmap_in2[39:32];
+                ifbuf3[28]   <=   ifmap_in2[31:24];
+                ifbuf3[29]   <=   ifmap_in2[23:16];
+                ifbuf3[30]   <=   ifmap_in2[15:8];
+                ifbuf3[31]   <=   ifmap_in2[7:0];
+//--------------------------------------------------                                
+                ifbuf3[23] <=      ifbuf3[31];
+                ifbuf3[22] <=      ifbuf3[30];
+                ifbuf3[21] <=      ifbuf3[29];
+                ifbuf3[20] <=      ifbuf3[28];
+                ifbuf3[19] <=      ifbuf3[27];
+                ifbuf3[18] <=      ifbuf3[26];
+                ifbuf3[17] <=      ifbuf3[25];
+                ifbuf3[16] <=      ifbuf3[24];
 
-        ifbuf5[167:160] <= ifbuf5[183:176];
-        ifbuf5[175:168] <= ifbuf5[191:184];
-        ifbuf5[183:176] <= ifbuf5[199:192];
-        ifbuf5[191:184] <= ifbuf5[207:200];
-        ifbuf5[199:192] <= ifbuf5[215:208];
-        ifbuf5[207:200] <= ifbuf5[223:216];
-        ifbuf5[215:208] <= ifbuf5[231:224];
-        ifbuf5[223:216] <= ifbuf5[239:232];
-        ifbuf5[231:224] <= ifbuf5[247:240];
-        ifbuf5[239:232] <= ifbuf5[255:248];
-        ifbuf5[247:240] <= ifbuf5[263:256];
-        ifbuf5[255:248] <= ifbuf5[271:264];
-        ifbuf5[263:256] <= ifbuf5[279:272];
-        ifbuf5[271:264] <= ifbuf5[287:280];
+                ifbuf3[8]   <=    ifmap_in1[63:56];
+                ifbuf3[9]   <=    ifmap_in1[55:48];
+                ifbuf3[10]   <=   ifmap_in1[47:40];
+                ifbuf3[11]   <=   ifmap_in1[39:32];
+                ifbuf3[12]   <=   ifmap_in1[31:24];
+                ifbuf3[13]   <=   ifmap_in1[23:16];
+                ifbuf3[14]   <=   ifmap_in1[15:8];
+                ifbuf3[15]   <=   ifmap_in1[7:0];
 
-        ifbuf6[23:16] <= ifbuf6[39:32];
-        ifbuf6[31:24] <= ifbuf6[47:40];
-        ifbuf6[39:32] <= ifbuf6[55:48];
-        ifbuf6[47:40] <= ifbuf6[63:56];
-        ifbuf6[55:48] <= ifbuf6[71:64];
-        ifbuf6[63:56] <= ifbuf6[79:72];
-        ifbuf6[71:64] <= ifbuf6[87:80];
-        ifbuf6[79:72] <= ifbuf6[95:88];
-        ifbuf6[87:80] <= ifbuf6[103:96];
-        ifbuf6[95:88] <= ifbuf6[111:104];
-        ifbuf6[103:96] <= ifbuf6[119:112];
-        ifbuf6[111:104] <= ifbuf6[127:120];
-        ifbuf6[119:112] <= ifbuf6[135:128];
-        ifbuf6[127:120] <= ifbuf6[143:136];
-        
-        ifbuf6[167:160] <= ifbuf6[183:176];
-        ifbuf6[175:168] <= ifbuf6[191:184];
-        ifbuf6[183:176] <= ifbuf6[199:192];
-        ifbuf6[191:184] <= ifbuf6[207:200];
-        ifbuf6[199:192] <= ifbuf6[215:208];
-        ifbuf6[207:200] <= ifbuf6[223:216];
-        ifbuf6[215:208] <= ifbuf6[231:224];
-        ifbuf6[223:216] <= ifbuf6[239:232];
-        ifbuf6[231:224] <= ifbuf6[247:240];
-        ifbuf6[239:232] <= ifbuf6[255:248];
-        ifbuf6[247:240] <= ifbuf6[263:256];
-        ifbuf6[255:248] <= ifbuf6[271:264];
-        ifbuf6[263:256] <= ifbuf6[279:272];
-        ifbuf6[271:264] <= ifbuf6[287:280];
+                ifbuf3[7] <=      ifbuf3[15];
+                ifbuf3[6] <=      ifbuf3[14];
+                ifbuf3[5] <=      ifbuf3[13];
+                ifbuf3[4] <=      ifbuf3[12];
+                ifbuf3[3] <=      ifbuf3[11];
+                ifbuf3[2] <=      ifbuf3[10];
+                ifbuf3[1] <=      ifbuf3[9];
+                ifbuf3[0] <=      ifbuf3[8];
 
-        if (initializing == 1) begin
-            ifbuf1[159:152] <= ifmap_in4[7:0];
-            ifbuf2[159:152] <= ifmap_in4[15:8];
-            ifbuf3[159:152] <= ifmap_in4[23:16];
-            ifbuf4[159:152] <= ifmap_in4[31:24];
-            ifbuf5[159:152] <= ifmap_in4[39:32];
-            ifbuf6[159:152] <= ifmap_in4[47:40];
-            ifbuf1[15:8] <= ifmap_in3[7:0];
-            ifbuf2[15:8] <= ifmap_in3[15:8];
-            ifbuf3[15:8] <= ifmap_in3[23:16];
-            ifbuf4[15:8] <= ifmap_in3[31:24];
-            ifbuf5[15:8] <= ifmap_in3[39:32];
-            ifbuf6[15:8] <= ifmap_in3[47:40];
-            ifbuf1[151:144] <= ifmap_in2[7:0];
-            ifbuf2[151:144] <= ifmap_in2[15:8];
-            ifbuf3[151:144] <= ifmap_in2[23:16];
-            ifbuf4[151:144] <= ifmap_in2[31:24];
-            ifbuf5[151:144] <= ifmap_in2[39:32];
-            ifbuf6[151:144] <= ifmap_in2[47:40];
-            ifbuf1[7:0] <= ifmap_in1[7:0];
-            ifbuf2[7:0] <= ifmap_in1[15:8];
-            ifbuf3[7:0] <= ifmap_in1[23:16];
-            ifbuf4[7:0] <= ifmap_in1[31:24];
-            ifbuf5[7:0] <= ifmap_in1[39:32];
-            ifbuf6[7:0] <= ifmap_in1[47:40];
+                ifbuf2[24]   <=   ifmap_in02[63:56];
+                ifbuf2[25]   <=   ifmap_in02[55:48];
+                ifbuf2[26]   <=   ifmap_in02[47:40];
+                ifbuf2[27]   <=   ifmap_in02[39:32];
+                ifbuf2[28]   <=   ifmap_in02[31:24];
+                ifbuf2[29]   <=   ifmap_in02[23:16];
+                ifbuf2[30]   <=   ifmap_in02[15:8];
+                ifbuf2[31]   <=   ifmap_in02[7:0];
+//--------------------------------------------------                                
+                ifbuf2[23] <=      ifbuf2[31];
+                ifbuf2[22] <=      ifbuf2[30];
+                ifbuf2[21] <=      ifbuf2[29];
+                ifbuf2[20] <=      ifbuf2[28];
+                ifbuf2[19] <=      ifbuf2[27];
+                ifbuf2[18] <=      ifbuf2[26];
+                ifbuf2[17] <=      ifbuf2[25];
+                ifbuf2[16] <=      ifbuf2[24];
+
+                ifbuf2[8]   <=    ifmap_in01[63:56];
+                ifbuf2[9]   <=    ifmap_in01[55:48];
+                ifbuf2[10]   <=   ifmap_in01[47:40];
+                ifbuf2[11]   <=   ifmap_in01[39:32];
+                ifbuf2[12]   <=   ifmap_in01[31:24];
+                ifbuf2[13]   <=   ifmap_in01[23:16];
+                ifbuf2[14]   <=   ifmap_in01[15:8];
+                ifbuf2[15]   <=   ifmap_in01[7:0];
+
+                ifbuf2[7] <=      ifbuf2[15];
+                ifbuf2[6] <=      ifbuf2[14];
+                ifbuf2[5] <=      ifbuf2[13];
+                ifbuf2[4] <=      ifbuf2[12];
+                ifbuf2[3] <=      ifbuf2[11];
+                ifbuf2[2] <=      ifbuf2[10];
+                ifbuf2[1] <=      ifbuf2[9];
+                ifbuf2[0] <=      ifbuf2[8];
+
+                  
+              end else begin
+                ifbuf4[0]    <=      0;
+                ifbuf4[1]    <=      0;
+                ifbuf4[2]    <=      0;
+                ifbuf4[3]    <=      0;
+                ifbuf4[4]    <=      0;
+                ifbuf4[5]    <=      0;
+                ifbuf4[6]    <=      0;
+                ifbuf4[7]    <=      0;
+                ifbuf4[8]    <=      0;
+                ifbuf4[9]    <=      0;
+                ifbuf4[10]   <=      0;
+                ifbuf4[11]   <=      0;
+                ifbuf4[12]   <=      0;
+                ifbuf4[13]   <=      0;
+                ifbuf4[14]   <=      0;
+                ifbuf4[15]   <=      0;
+                ifbuf4[16]   <=      0;
+                ifbuf4[17]   <=      0;
+                ifbuf4[18]   <=      0;
+                ifbuf4[19]   <=      0;
+                ifbuf4[20]   <=      0;
+                ifbuf4[21]   <=      0;
+                ifbuf4[22]   <=      0;
+                ifbuf4[23]   <=      0;
+                ifbuf4[24]   <=      0;
+                ifbuf4[25]   <=      0;
+                ifbuf4[26]   <=      0;
+                ifbuf4[27]   <=      0;
+                ifbuf4[28]   <=      0;
+                ifbuf4[29]   <=      0;
+                ifbuf4[30]   <=      0;
+                ifbuf1[31]   <=      0;
+                ifbuf1[0]    <=      0;
+                ifbuf1[1]    <=      0;
+                ifbuf1[2]    <=      0;
+                ifbuf1[3]    <=      0;
+                ifbuf1[4]    <=      0;
+                ifbuf1[5]    <=      0;
+                ifbuf1[6]    <=      0;
+                ifbuf1[7]    <=      0;
+                ifbuf1[8]    <=      0;
+                ifbuf1[9]    <=      0;
+                ifbuf1[10]   <=      0;
+                ifbuf1[11]   <=      0;
+                ifbuf1[12]   <=      0;
+                ifbuf1[13]   <=      0;
+                ifbuf1[14]   <=      0;
+                ifbuf1[15]   <=      0;
+                ifbuf1[16]   <=      0;
+                ifbuf1[17]   <=      0;
+                ifbuf1[18]   <=      0;
+                ifbuf1[19]   <=      0;
+                ifbuf1[20]   <=      0;
+                ifbuf1[21]   <=      0;
+                ifbuf1[22]   <=      0;
+                ifbuf1[23]   <=      0;
+                ifbuf1[24]   <=      0;
+                ifbuf1[25]   <=      0;
+                ifbuf1[26]   <=      0;
+                ifbuf1[27]   <=      0;
+                ifbuf1[28]   <=      0;
+                ifbuf1[29]   <=      0;
+                ifbuf1[30]   <=      0;
+                ifbuf1[31]   <=      0;                
+                regPad1[0]   <= 0;
+                regPad2[0]   <= 0;
+                regPad3[0]   <= 0;
+                regPad4[0]   <= 0;
+                regPad5[0]   <= 0;
+                regPad1[1]   <= 0;
+                regPad6[0]   <= 0;
+                regPad6[1]   <= 0;
+                regPad2[1]   <= 0;
+                regPad3[1]   <= 0;
+                regPad4[1]   <= 0;
+                regPad5[1]   <= 0;
+                Process <= `Start;
+                Counter <= 0;
+              end
         end
-        else begin
-            ifbuf1[7:0] <= ifbuf1[23:16];
-            ifbuf1[15:8] <= ifbuf1[31:24];
-            ifbuf1[151:144] <= ifbuf1[167:160];
-            ifbuf1[159:152] <= ifbuf1[175:168];
-            ifbuf2[7:0] <= ifbuf2[23:16];
-            ifbuf2[15:8] <= ifbuf2[31:24];
-            ifbuf2[151:144] <= ifbuf2[167:160];
-            ifbuf2[159:152] <= ifbuf2[175:168];
-            ifbuf3[7:0] <= ifbuf3[23:16];
-            ifbuf3[15:8] <= ifbuf3[31:24];
-            ifbuf3[151:144] <= ifbuf3[167:160];
-            ifbuf3[159:152] <= ifbuf3[175:168];
-            ifbuf4[7:0] <= ifbuf4[23:16];
-            ifbuf4[15:8] <= ifbuf4[31:24];
-            ifbuf4[151:144] <= ifbuf4[167:160];
-            ifbuf4[159:152] <= ifbuf4[175:168];
-            ifbuf5[7:0] <= ifbuf5[23:16];
-            ifbuf5[15:8] <= ifbuf5[31:24];
-            ifbuf5[151:144] <= ifbuf5[167:160];
-            ifbuf5[159:152] <= ifbuf5[175:168];
-            ifbuf6[7:0] <= ifbuf6[23:16];
-            ifbuf6[15:8] <= ifbuf6[31:24];
-            ifbuf6[151:144] <= ifbuf6[167:160];
-            ifbuf6[159:152] <= ifbuf6[175:168];
-        end
-        
-        ifbuf1[287:280] <= ifbuf3[159:152];
-        ifbuf2[287:280] <= ifmap_in4[7:0];
-        ifbuf3[287:280] <= ifmap_in4[15:8];
-        ifbuf4[287:280] <= ifbuf6[159:152];
-        ifbuf5[287:280] <= ifmap_in4[23:16];
-        ifbuf6[287:280] <= ifmap_in4[31:24];
-        ifbuf1[143:136] <= ifbuf3[15:8];
-        ifbuf2[143:136] <= ifmap_in3[7:0];
-        ifbuf3[143:136] <= ifmap_in3[15:8];
-        ifbuf4[143:136] <= ifbuf6[15:8];
-        ifbuf5[143:136] <= ifmap_in3[23:16];
-        ifbuf6[143:136] <= ifmap_in3[31:24];
-        ifbuf1[279:272] <= ifbuf3[151:144];
-        ifbuf2[279:272] <= ifmap_in2[7:0];
-        ifbuf3[279:272] <= ifmap_in2[15:8];
-        ifbuf4[279:272] <= ifbuf6[151:144];
-        ifbuf5[279:272] <= ifmap_in2[23:16];
-        ifbuf6[279:272] <= ifmap_in2[31:24];
-        ifbuf1[135:128] <= ifbuf3[7:0];
-        ifbuf2[135:128] <= ifmap_in1[7:0];
-        ifbuf3[135:128] <= ifmap_in1[15:8];
-        ifbuf4[135:128] <= ifbuf6[7:0];
-        ifbuf5[135:128] <= ifmap_in1[23:16];
-        ifbuf6[135:128] <= ifmap_in1[31:24];
-//-------------       
+        //ifbuf5[31]è¿æ¯æ°æ®ï¿??????
+        `Start:begin
+            
+            regPad6[0]   <=      ifbuf6[1];
+            ifbuf6[0]    <=      ifbuf6[2];
+            ifbuf6[1]    <=      ifbuf6[3];
+            ifbuf6[2]    <=      ifbuf6[4];
+            ifbuf6[3]    <=      ifbuf6[5];
+            ifbuf6[4]    <=      ifbuf6[6];
+            ifbuf6[5]    <=      ifbuf6[7];
+            ifbuf6[6]    <=      ifbuf6[8];
+            ifbuf6[7]    <=      ifbuf6[9];
+            ifbuf6[8]    <=      ifbuf6[10];
+            ifbuf6[9]    <=      ifbuf6[11];
+            ifbuf6[10]   <=      ifbuf6[12];
+            ifbuf6[11]   <=      ifbuf6[13];
+            ifbuf6[12]   <=      ifbuf6[14];
+            ifbuf6[13]   <=      ifbuf6[15];
 
-     end
+            regPad6[1]   <=      ifbuf6[17];
+            ifbuf6[16]   <=      ifbuf6[18];
+            ifbuf6[17]   <=      ifbuf6[19];
+            ifbuf6[18]   <=      ifbuf6[20];
+            ifbuf6[19]   <=      ifbuf6[21];
+            ifbuf6[20]   <=      ifbuf6[22];
+            ifbuf6[21]   <=      ifbuf6[23];
+            ifbuf6[22]   <=      ifbuf6[24];
+            ifbuf6[23]   <=      ifbuf6[25];
+            ifbuf6[24]   <=      ifbuf6[26];
+            ifbuf6[25]   <=      ifbuf6[27];
+            ifbuf6[26]   <=      ifbuf6[28];
+            ifbuf6[27]   <=      ifbuf6[29];
+            ifbuf6[28]   <=      ifbuf6[30];
+            ifbuf6[29]   <=      ifbuf6[31];
+
+            
+            regPad5[0]   <=      ifbuf5[1];
+            ifbuf5[0]    <=      ifbuf5[2];
+            ifbuf5[1]    <=      ifbuf5[3];
+            ifbuf5[2]    <=      ifbuf5[4];
+            ifbuf5[3]    <=      ifbuf5[5];
+            ifbuf5[4]    <=      ifbuf5[6];
+            ifbuf5[5]    <=      ifbuf5[7];
+            ifbuf5[6]    <=      ifbuf5[8];
+            ifbuf5[7]    <=      ifbuf5[9];
+            ifbuf5[8]    <=      ifbuf5[10];
+            ifbuf5[9]    <=      ifbuf5[11];
+            ifbuf5[10]   <=      ifbuf5[12];
+            ifbuf5[11]   <=      ifbuf5[13];
+            ifbuf5[12]   <=      ifbuf5[14];
+            ifbuf5[13]   <=      ifbuf5[15];
+
+            regPad5[1]   <=      ifbuf5[17];
+            ifbuf5[16]   <=      ifbuf5[18];
+            ifbuf5[17]   <=      ifbuf5[19];
+            ifbuf5[18]   <=      ifbuf5[20];
+            ifbuf5[19]   <=      ifbuf5[21];
+            ifbuf5[20]   <=      ifbuf5[22];
+            ifbuf5[21]   <=      ifbuf5[23];
+            ifbuf5[22]   <=      ifbuf5[24];
+            ifbuf5[23]   <=      ifbuf5[25];
+            ifbuf5[24]   <=      ifbuf5[26];
+            ifbuf5[25]   <=      ifbuf5[27];
+            ifbuf5[26]   <=      ifbuf5[28];
+            ifbuf5[27]   <=      ifbuf5[29];
+            ifbuf5[28]   <=      ifbuf5[30];
+            ifbuf5[29]   <=      ifbuf5[31];
+
+
+            regPad4[0]   <=      ifbuf4[1];
+            ifbuf4[0]    <=      ifbuf4[2];
+            ifbuf4[1]    <=      ifbuf4[3];
+            ifbuf4[2]    <=      ifbuf4[4];
+            ifbuf4[3]    <=      ifbuf4[5];
+            ifbuf4[4]    <=      ifbuf4[6];
+            ifbuf4[5]    <=      ifbuf4[7];
+            ifbuf4[6]    <=      ifbuf4[8];
+            ifbuf4[7]    <=      ifbuf4[9];
+            ifbuf4[8]    <=      ifbuf4[10];
+            ifbuf4[9]    <=      ifbuf4[11];
+            ifbuf4[10]   <=      ifbuf4[12];
+            ifbuf4[11]   <=      ifbuf4[13];
+            ifbuf4[12]   <=      ifbuf4[14];
+            ifbuf4[13]   <=      ifbuf1[15];
+            ifbuf4[14]   <=      regPad6[2];
+            ifbuf4[15]   <=      regpad6[0];
+            regPad6[2]   <=      ifbuf6[0];
+
+
+
+            regPad4[1]   <=      ifbuf4[17];
+            ifbuf4[16]   <=      ifbuf4[18];
+            ifbuf4[17]   <=      ifbuf4[19];
+            ifbuf4[18]   <=      ifbuf4[20];
+            ifbuf4[19]   <=      ifbuf4[21];
+            ifbuf4[20]   <=      ifbuf4[22];
+            ifbuf4[21]   <=      ifbuf4[23];
+            ifbuf4[22]   <=      ifbuf4[24];
+            ifbuf4[23]   <=      ifbuf4[25];
+            ifbuf4[24]   <=      ifbuf4[26];
+            ifbuf4[25]   <=      ifbuf4[27];
+            ifbuf4[26]   <=      ifbuf4[28];
+            ifbuf4[27]   <=      ifbuf4[29];
+            ifbuf4[28]   <=      ifbuf4[30];
+            ifbuf4[29]   <=      ifbuf4[31];
+            ifbuf4[30]   <=      regPad6[3];
+            ifbuf4[31]   <=      regpad6[1];
+            regPad6[3]   <=      ifbuf6[16];
+
+            regPad3[0]   <=      ifbuf3[1];
+            ifbuf3[0]    <=      ifbuf3[2];
+            ifbuf3[1]    <=      ifbuf3[3];
+            ifbuf3[2]    <=      ifbuf3[4];
+            ifbuf3[3]    <=      ifbuf3[5];
+            ifbuf3[4]    <=      ifbuf3[6];
+            ifbuf3[5]    <=      ifbuf3[7];
+            ifbuf3[6]    <=      ifbuf3[8];
+            ifbuf3[7]    <=      ifbuf3[9];
+            ifbuf3[8]    <=      ifbuf3[10];
+            ifbuf3[9]    <=      ifbuf3[11];
+            ifbuf3[10]   <=      ifbuf3[12];
+            ifbuf3[11]   <=      ifbuf3[13];
+            ifbuf3[12]   <=      ifbuf3[14];
+            ifbuf3[13]   <=      ifbuf3[15];
+
+            regPad3[1]   <=      ifbuf3[17];
+            ifbuf3[16]   <=      ifbuf3[18];
+            ifbuf3[17]   <=      ifbuf3[19];
+            ifbuf3[18]   <=      ifbuf3[20];
+            ifbuf3[19]   <=      ifbuf3[21];
+            ifbuf3[20]   <=      ifbuf3[22];
+            ifbuf3[21]   <=      ifbuf3[23];
+            ifbuf3[22]   <=      ifbuf3[24];
+            ifbuf3[23]   <=      ifbuf3[25];
+            ifbuf3[24]   <=      ifbuf3[26];
+            ifbuf3[25]   <=      ifbuf3[27];
+            ifbuf3[26]   <=      ifbuf3[28];
+            ifbuf3[27]   <=      ifbuf3[29];
+            ifbuf3[28]   <=      ifbuf3[30];
+            ifbuf3[29]   <=      ifbuf3[31];
+
+
+            regPad2[0]   <=      ifbuf2[1];
+            ifbuf2[0]    <=      ifbuf2[2];
+            ifbuf2[1]    <=      ifbuf2[3];
+            ifbuf2[2]    <=      ifbuf2[4];
+            ifbuf2[3]    <=      ifbuf2[5];
+            ifbuf2[4]    <=      ifbuf2[6];
+            ifbuf2[5]    <=      ifbuf2[7];
+            ifbuf2[6]    <=      ifbuf2[8];
+            ifbuf2[7]    <=      ifbuf2[9];
+            ifbuf2[8]    <=      ifbuf2[10];
+            ifbuf2[9]    <=      ifbuf2[11];
+            ifbuf2[10]   <=      ifbuf2[12];
+            ifbuf2[11]   <=      ifbuf2[13];
+            ifbuf2[12]   <=      ifbuf2[14];
+            ifbuf2[13]   <=      ifbuf2[15];
+
+            regPad2[1]   <=      ifbuf2[17];
+            ifbuf2[16]   <=      ifbuf2[18];
+            ifbuf2[17]   <=      ifbuf2[19];
+            ifbuf2[18]   <=      ifbuf2[20];
+            ifbuf2[19]   <=      ifbuf2[21];
+            ifbuf2[20]   <=      ifbuf2[22];
+            ifbuf2[21]   <=      ifbuf2[23];
+            ifbuf2[22]   <=      ifbuf2[24];
+            ifbuf2[23]   <=      ifbuf2[25];
+            ifbuf2[24]   <=      ifbuf2[26];
+            ifbuf2[25]   <=      ifbuf2[27];
+            ifbuf2[26]   <=      ifbuf2[28];
+            ifbuf2[27]   <=      ifbuf2[29];
+            ifbuf2[28]   <=      ifbuf2[30];
+            ifbuf2[29]   <=      ifbuf2[31];
+
+
+            regPad1[0]   <=      ifbuf1[1];
+            ifbuf1[0]    <=      ifbuf1[2];
+            ifbuf1[1]    <=      ifbuf1[3];
+            ifbuf1[2]    <=      ifbuf1[4];
+            ifbuf1[3]    <=      ifbuf1[5];
+            ifbuf1[4]    <=      ifbuf1[6];
+            ifbuf1[5]    <=      ifbuf1[7];
+            ifbuf1[6]    <=      ifbuf1[8];
+            ifbuf1[7]    <=      ifbuf1[9];
+            ifbuf1[8]    <=      ifbuf1[10];
+            ifbuf1[9]    <=      ifbuf1[11];
+            ifbuf1[10]   <=      ifbuf1[12];
+            ifbuf1[11]   <=      ifbuf1[13];
+            ifbuf1[12]   <=      ifbuf1[14];
+            ifbuf1[13]   <=      ifbuf1[15];
+            ifbuf1[14]   <=      regpad3[2];
+            ifbuf1[15]   <=      regpad3[0];
+            regPad3[2]   <=      ifbuf3[0];
+
+            regPad1[1]   <=      ifbuf1[17];
+            ifbuf1[16]   <=      ifbuf1[18];
+            ifbuf1[17]   <=      ifbuf1[19];
+            ifbuf1[18]   <=      ifbuf1[20];
+            ifbuf1[19]   <=      ifbuf1[21];
+            ifbuf1[20]   <=      ifbuf1[22];
+            ifbuf1[21]   <=      ifbuf1[23];
+            ifbuf1[22]   <=      ifbuf1[24];
+            ifbuf1[23]   <=      ifbuf1[25];
+            ifbuf1[24]   <=      ifbuf1[26];
+            ifbuf1[25]   <=      ifbuf1[27];
+            ifbuf1[26]   <=      ifbuf1[28];
+            ifbuf1[27]   <=      ifbuf1[29];
+            ifbuf1[28]   <=      ifbuf1[30];
+            ifbuf1[29]   <=      ifbuf1[31];
+            ifbuf1[30]   <=      regPad3[3];
+            ifbuf1[31]   <=      regpad3[1];
+            regPad3[3]   <=      ifbuf3[16];
+
+
+// need further change
+            case ( Counter )
+            6'd5 : begin
+                ifbuf6[8]   <=   ifmap_in3[63:56];
+                ifbuf6[9]   <=   ifmap_in3[55:48];
+                ifbuf6[10]   <=   ifmap_in3[47:40];
+                ifbuf6[11]   <=   ifmap_in3[39:32];
+                ifbuf6[12]   <=   ifmap_in3[31:24];
+                ifbuf6[13]   <=   ifmap_in3[23:16];
+                ifbuf6[14]   <=   ifmap_in3[15:8];
+                ifbuf6[15]   <=   ifmap_in3[7:0];
+
+                ifbuf6[24]   <=   ifmap_in4[63:56];
+                ifbuf6[25]   <=   ifmap_in4[55:48];
+                ifbuf6[26]   <=   ifmap_in4[47:40];
+                ifbuf6[27]   <=   ifmap_in4[39:32];
+                ifbuf6[28]   <=   ifmap_in4[31:24];
+                ifbuf6[29]   <=   ifmap_in4[23:16];
+                ifbuf6[30]   <=   ifmap_in4[15:8];
+                ifbuf6[31]   <=   ifmap_in4[7:0];
+
+                ifbuf3[8]   <=   ifmap_in1[63:56];
+                ifbuf3[9]   <=   ifmap_in1[55:48];
+                ifbuf3[10]   <=   ifmap_in1[47:40];
+                ifbuf3[11]   <=   ifmap_in1[39:32];
+                ifbuf3[12]   <=   ifmap_in1[31:24];
+                ifbuf3[13]   <=   ifmap_in1[23:16];
+                ifbuf3[14]   <=   ifmap_in1[15:8];
+                ifbuf3[15]   <=   ifmap_in1[7:0];
+                
+                ifbuf3[24]   <=   ifmap_in2[63:56];
+                ifbuf3[25]   <=   ifmap_in2[55:48];
+                ifbuf3[26]   <=   ifmap_in2[47:40];
+                ifbuf3[27]   <=   ifmap_in2[39:32];
+                ifbuf3[28]   <=   ifmap_in2[31:24];
+                ifbuf3[29]   <=   ifmap_in2[23:16];
+                ifbuf3[30]   <=   ifmap_in2[15:8];
+                ifbuf3[31]   <=   ifmap_in2[7:0];
+
+                ifbuf5[8]   <=   ifmap_in03[63:56];
+                ifbuf5[9]   <=   ifmap_in03[55:48];
+                ifbuf5[10]   <=   ifmap_in03[47:40];
+                ifbuf5[11]   <=   ifmap_in03[39:32];
+                ifbuf5[12]   <=   ifmap_in03[31:24];
+                ifbuf5[13]   <=   ifmap_in03[23:16];
+                ifbuf5[14]   <=   ifmap_in03[15:8];
+                ifbuf5[15]   <=   ifmap_in03[7:0];
+
+                ifbuf5[24]   <=   ifmap_in04[63:56];
+                ifbuf5[25]   <=   ifmap_in04[55:48];
+                ifbuf5[26]   <=   ifmap_in04[47:40];
+                ifbuf5[27]   <=   ifmap_in04[39:32];
+                ifbuf5[28]   <=   ifmap_in04[31:24];
+                ifbuf5[29]   <=   ifmap_in04[23:16];
+                ifbuf5[30]   <=   ifmap_in04[15:8];
+                ifbuf5[31]   <=   ifmap_in04[7:0];
+
+                ifbuf2[8]   <=   ifmap_in01[63:56];
+                ifbuf2[9]   <=   ifmap_in01[55:48];
+                ifbuf2[10]   <=   ifmap_in01[47:40];
+                ifbuf2[11]   <=   ifmap_in01[39:32];
+                ifbuf2[12]   <=   ifmap_in01[31:24];
+                ifbuf2[13]   <=   ifmap_in01[23:16];
+                ifbuf2[14]   <=   ifmap_in01[15:8];
+                ifbuf2[15]   <=   ifmap_in01[7:0];
+                
+                ifbuf2[24]   <=   ifmap_in02[63:56];
+                ifbuf2[25]   <=   ifmap_in02[55:48];
+                ifbuf2[26]   <=   ifmap_in02[47:40];
+                ifbuf2[27]   <=   ifmap_in02[39:32];
+                ifbuf2[28]   <=   ifmap_in02[31:24];
+                ifbuf2[29]   <=   ifmap_in02[23:16];
+                ifbuf2[30]   <=   ifmap_in02[15:8];
+                ifbuf2[31]   <=   ifmap_in02[7:0];
+
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            6'd9 : begin
+                ifbuf6[8]   <=   ifmap_in3[63:56];
+                ifbuf6[9]   <=   ifmap_in3[55:48];
+                ifbuf6[10]   <=   ifmap_in3[47:40];
+                ifbuf6[11]   <=   ifmap_in3[39:32];
+                ifbuf6[12]   <=   ifmap_in3[31:24];
+                ifbuf6[13]   <=   ifmap_in3[23:16];
+                ifbuf6[14]   <=   ifmap_in3[15:8];
+                ifbuf6[15]   <=   ifmap_in3[7:0];
+
+                ifbuf6[24]   <=   ifmap_in4[63:56];
+                ifbuf6[25]   <=   ifmap_in4[55:48];
+                ifbuf6[26]   <=   ifmap_in4[47:40];
+                ifbuf6[27]   <=   ifmap_in4[39:32];
+                ifbuf6[28]   <=   ifmap_in4[31:24];
+                ifbuf6[29]   <=   ifmap_in4[23:16];
+                ifbuf6[30]   <=   ifmap_in4[15:8];
+                ifbuf6[31]   <=   ifmap_in4[7:0];
+
+                ifbuf3[8]   <=   ifmap_in1[63:56];
+                ifbuf3[9]   <=   ifmap_in1[55:48];
+                ifbuf3[10]   <=   ifmap_in1[47:40];
+                ifbuf3[11]   <=   ifmap_in1[39:32];
+                ifbuf3[12]   <=   ifmap_in1[31:24];
+                ifbuf3[13]   <=   ifmap_in1[23:16];
+                ifbuf3[14]   <=   ifmap_in1[15:8];
+                ifbuf3[15]   <=   ifmap_in1[7:0];
+                
+                ifbuf3[24]   <=   ifmap_in2[63:56];
+                ifbuf3[25]   <=   ifmap_in2[55:48];
+                ifbuf3[26]   <=   ifmap_in2[47:40];
+                ifbuf3[27]   <=   ifmap_in2[39:32];
+                ifbuf3[28]   <=   ifmap_in2[31:24];
+                ifbuf3[29]   <=   ifmap_in2[23:16];
+                ifbuf3[30]   <=   ifmap_in2[15:8];
+                ifbuf3[31]   <=   ifmap_in2[7:0];
+
+                ifbuf5[8]   <=   ifmap_in03[63:56];
+                ifbuf5[9]   <=   ifmap_in03[55:48];
+                ifbuf5[10]   <=   ifmap_in03[47:40];
+                ifbuf5[11]   <=   ifmap_in03[39:32];
+                ifbuf5[12]   <=   ifmap_in03[31:24];
+                ifbuf5[13]   <=   ifmap_in03[23:16];
+                ifbuf5[14]   <=   ifmap_in03[15:8];
+                ifbuf5[15]   <=   ifmap_in03[7:0];
+
+                ifbuf5[24]   <=   ifmap_in04[63:56];
+                ifbuf5[25]   <=   ifmap_in04[55:48];
+                ifbuf5[26]   <=   ifmap_in04[47:40];
+                ifbuf5[27]   <=   ifmap_in04[39:32];
+                ifbuf5[28]   <=   ifmap_in04[31:24];
+                ifbuf5[29]   <=   ifmap_in04[23:16];
+                ifbuf5[30]   <=   ifmap_in04[15:8];
+                ifbuf5[31]   <=   ifmap_in04[7:0];
+
+                ifbuf2[8]   <=   ifmap_in01[63:56];
+                ifbuf2[9]   <=   ifmap_in01[55:48];
+                ifbuf2[10]   <=   ifmap_in01[47:40];
+                ifbuf2[11]   <=   ifmap_in01[39:32];
+                ifbuf2[12]   <=   ifmap_in01[31:24];
+                ifbuf2[13]   <=   ifmap_in01[23:16];
+                ifbuf2[14]   <=   ifmap_in01[15:8];
+                ifbuf2[15]   <=   ifmap_in01[7:0];
+                
+                ifbuf2[24]   <=   ifmap_in02[63:56];
+                ifbuf2[25]   <=   ifmap_in02[55:48];
+                ifbuf2[26]   <=   ifmap_in02[47:40];
+                ifbuf2[27]   <=   ifmap_in02[39:32];
+                ifbuf2[28]   <=   ifmap_in02[31:24];
+                ifbuf2[29]   <=   ifmap_in02[23:16];
+                ifbuf2[30]   <=   ifmap_in02[15:8];
+                ifbuf2[31]   <=   ifmap_in02[7:0];
+
+                Counter <= 6'd1;
+                Trashdata <= 0;
+                if(Row == 5'd15) begin
+                    Row <= 0;
+                end else begin
+                    Row <= Row + 1;                    
+                end
+            end
+
+            6'd1 : begin
+                ifbuf6[8]   <=      ifbuf6[10];
+                ifbuf6[9]   <=      ifbuf6[11];
+                ifbuf6[10]   <=      ifbuf6[12];
+                ifbuf6[11]   <=      ifbuf6[13];
+                ifbuf6[12]   <=      ifbuf6[14];
+                ifbuf6[13]   <=      ifbuf6[15];
+                ifbuf6[14]   <=      0;
+                ifbuf6[15]   <=      0;
+
+                ifbuf6[24]   <=      ifbuf6[26];
+                ifbuf6[25]   <=      ifbuf6[27];
+                ifbuf6[26]   <=      ifbuf6[28];
+                ifbuf6[27]   <=      ifbuf6[29];
+                ifbuf6[28]   <=      ifbuf6[30];
+                ifbuf6[29]   <=      ifbuf6[31];
+                ifbuf6[30]   <=      0;
+                ifbuf6[31]   <=      0;
+
+                ifbuf5[8]   <=      ifbuf5[10];
+                ifbuf5[9]   <=      ifbuf5[11];
+                ifbuf5[10]   <=      ifbuf5[12];
+                ifbuf5[11]   <=      ifbuf5[13];
+                ifbuf5[12]   <=      ifbuf5[14];
+                ifbuf5[13]   <=      ifbuf5[15];
+                ifbuf5[14]   <=      0;
+                ifbuf5[15]   <=      0;
+
+                ifbuf5[24]   <=      ifbuf5[26];
+                ifbuf5[25]   <=      ifbuf5[27];
+                ifbuf5[26]   <=      ifbuf5[28];
+                ifbuf5[27]   <=      ifbuf5[29];
+                ifbuf5[28]   <=      ifbuf5[30];
+                ifbuf5[29]   <=      ifbuf5[31];
+                ifbuf5[30]   <=      0;
+                ifbuf5[31]   <=      0;
+
+                ifbuf3[8]   <=      ifbuf3[10];
+                ifbuf3[9]   <=      ifbuf3[11];
+                ifbuf3[10]   <=      ifbuf3[12];
+                ifbuf3[11]   <=      ifbuf3[13];
+                ifbuf3[12]   <=      ifbuf3[14];
+                ifbuf3[13]   <=      ifbuf3[15];
+                ifbuf3[14]   <=      0;
+                ifbuf3[15]   <=      0;
+
+                ifbuf3[24]   <=      ifbuf3[26];
+                ifbuf3[25]   <=      ifbuf3[27];
+                ifbuf3[26]   <=      ifbuf3[28];
+                ifbuf3[27]   <=      ifbuf3[29];
+                ifbuf3[28]   <=      ifbuf3[30];
+                ifbuf3[29]   <=      ifbuf3[31];
+                ifbuf3[30]   <=      0;
+                ifbuf3[31]   <=      0;
+
+                ifbuf2[8]   <=      ifbuf2[10];
+                ifbuf2[9]   <=      ifbuf2[11];
+                ifbuf2[10]   <=      ifbuf2[12];
+                ifbuf2[11]   <=      ifbuf2[13];
+                ifbuf2[12]   <=      ifbuf2[14];
+                ifbuf2[13]   <=      ifbuf2[15];
+                ifbuf2[14]   <=      0;
+                ifbuf2[15]   <=      0;
+
+                ifbuf2[24]   <=      ifbuf2[26];
+                ifbuf2[25]   <=      ifbuf2[27];
+                ifbuf2[26]   <=      ifbuf2[28];
+                ifbuf2[27]   <=      ifbuf2[29];
+                ifbuf2[28]   <=      ifbuf2[30];
+                ifbuf2[29]   <=      ifbuf2[31];
+                ifbuf2[30]   <=      0;
+                ifbuf2[31]   <=      0;
+
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            6'd8 : begin
+                ifbuf6[8]   <=      ifbuf6[10];
+                ifbuf6[9]   <=      ifbuf6[11];
+                ifbuf6[10]   <=      ifbuf6[12];
+                ifbuf6[11]   <=      ifbuf6[13];
+                ifbuf6[12]   <=      ifbuf6[14];
+                ifbuf6[13]   <=      ifbuf6[15];
+
+                ifbuf6[24]   <=      ifbuf6[26];
+                ifbuf6[25]   <=      ifbuf6[27];
+                ifbuf6[26]   <=      ifbuf6[28];
+                ifbuf6[27]   <=      ifbuf6[29];
+                ifbuf6[28]   <=      ifbuf6[30];
+                ifbuf6[29]   <=      ifbuf6[31];
+
+                ifbuf5[8]   <=      ifbuf5[10];
+                ifbuf5[9]   <=      ifbuf5[11];
+                ifbuf5[10]   <=      ifbuf5[12];
+                ifbuf5[11]   <=      ifbuf5[13];
+                ifbuf5[12]   <=      ifbuf5[14];
+                ifbuf5[13]   <=      ifbuf5[15];
+
+                ifbuf5[24]   <=      ifbuf5[26];
+                ifbuf5[25]   <=      ifbuf5[27];
+                ifbuf5[26]   <=      ifbuf5[28];
+                ifbuf5[27]   <=      ifbuf5[29];
+                ifbuf5[28]   <=      ifbuf5[30];
+                ifbuf5[29]   <=      ifbuf5[31];
+
+                ifbuf3[8]   <=      ifbuf3[10];
+                ifbuf3[9]   <=      ifbuf3[11];
+                ifbuf3[10]   <=      ifbuf3[12];
+                ifbuf3[11]   <=      ifbuf3[13];
+                ifbuf3[12]   <=      ifbuf3[14];
+                ifbuf3[13]   <=      ifbuf3[15];
+
+                ifbuf3[24]   <=      ifbuf3[26];
+                ifbuf3[25]   <=      ifbuf3[27];
+                ifbuf3[26]   <=      ifbuf3[28];
+                ifbuf3[27]   <=      ifbuf3[29];
+                ifbuf3[28]   <=      ifbuf3[30];
+                ifbuf3[29]   <=      ifbuf3[31];
+
+                ifbuf2[8]   <=      ifbuf2[10];
+                ifbuf2[9]   <=      ifbuf2[11];
+                ifbuf2[10]   <=      ifbuf2[12];
+                ifbuf2[11]   <=      ifbuf2[13];
+                ifbuf2[12]   <=      ifbuf2[14];
+                ifbuf2[13]   <=      ifbuf2[15];
+
+                ifbuf2[24]   <=      ifbuf2[26];
+                ifbuf2[25]   <=      ifbuf2[27];
+                ifbuf2[26]   <=      ifbuf2[28];
+                ifbuf2[27]   <=      ifbuf2[29];
+                ifbuf2[28]   <=      ifbuf2[30];
+                ifbuf2[29]   <=      ifbuf2[31];
+
+                
+                Counter <= Counter + 1;
+                Trashdata <= 1;
+            end
+            default :begin
+                ifbuf6[8]   <=      ifbuf6[10];
+                ifbuf6[9]   <=      ifbuf6[11];
+                ifbuf6[10]   <=      ifbuf6[12];
+                ifbuf6[11]   <=      ifbuf6[13];
+                ifbuf6[12]   <=      ifbuf6[14];
+                ifbuf6[13]   <=      ifbuf6[15];
+
+                ifbuf6[24]   <=      ifbuf6[26];
+                ifbuf6[25]   <=      ifbuf6[27];
+                ifbuf6[26]   <=      ifbuf6[28];
+                ifbuf6[27]   <=      ifbuf6[29];
+                ifbuf6[28]   <=      ifbuf6[30];
+                ifbuf6[29]   <=      ifbuf6[31];
+
+                ifbuf5[8]   <=      ifbuf5[10];
+                ifbuf5[9]   <=      ifbuf5[11];
+                ifbuf5[10]   <=      ifbuf5[12];
+                ifbuf5[11]   <=      ifbuf5[13];
+                ifbuf5[12]   <=      ifbuf5[14];
+                ifbuf5[13]   <=      ifbuf5[15];
+
+                ifbuf5[24]   <=      ifbuf5[26];
+                ifbuf5[25]   <=      ifbuf5[27];
+                ifbuf5[26]   <=      ifbuf5[28];
+                ifbuf5[27]   <=      ifbuf5[29];
+                ifbuf5[28]   <=      ifbuf5[30];
+                ifbuf5[29]   <=      ifbuf5[31];
+
+                ifbuf3[8]   <=      ifbuf3[10];
+                ifbuf3[9]   <=      ifbuf3[11];
+                ifbuf3[10]   <=      ifbuf3[12];
+                ifbuf3[11]   <=      ifbuf3[13];
+                ifbuf3[12]   <=      ifbuf3[14];
+                ifbuf3[13]   <=      ifbuf3[15];
+
+                ifbuf3[24]   <=      ifbuf3[26];
+                ifbuf3[25]   <=      ifbuf3[27];
+                ifbuf3[26]   <=      ifbuf3[28];
+                ifbuf3[27]   <=      ifbuf3[29];
+                ifbuf3[28]   <=      ifbuf3[30];
+                ifbuf3[29]   <=      ifbuf3[31];
+
+                ifbuf2[8]   <=      ifbuf2[10];
+                ifbuf2[9]   <=      ifbuf2[11];
+                ifbuf2[10]   <=      ifbuf2[12];
+                ifbuf2[11]   <=      ifbuf2[13];
+                ifbuf2[12]   <=      ifbuf2[14];
+                ifbuf2[13]   <=      ifbuf2[15];
+
+                ifbuf2[24]   <=      ifbuf2[26];
+                ifbuf2[25]   <=      ifbuf2[27];
+                ifbuf2[26]   <=      ifbuf2[28];
+                ifbuf2[27]   <=      ifbuf2[29];
+                ifbuf2[28]   <=      ifbuf2[30];
+                ifbuf2[29]   <=      ifbuf2[31];
+                
+                Counter <= Counter + 1;
+                Trashdata <= 0;
+            end
+            endcase
+            
+        end
+        endcase
+    end 
     `Layer5: begin 
         case ( State )     
         `Init:begin
@@ -2002,9 +2554,9 @@ end else begin
 end
 
 
-pe_group pe_group1(
+pe_group pe_group11(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
     .weight1_in(weight11_in),
     .weight2_in(weight12_in),
     .weight3_in(weight13_in),
@@ -2021,9 +2573,9 @@ pe_group pe_group1(
     .layer(layer)
 );
 
-pe_group pe_group2(
+pe_group pe_group21(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
     .weight1_in(weight21_in),
     .weight2_in(weight22_in),
     .weight3_in(weight23_in),
@@ -2040,9 +2592,9 @@ pe_group pe_group2(
     .layer(layer)
 );
 
-pe_group pe_group3(
+pe_group pe_group31(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
     .weight1_in(weight31_in),
     .weight2_in(weight32_in),
     .weight3_in(weight33_in),
@@ -2059,9 +2611,9 @@ pe_group pe_group3(
     .layer(layer)
 );
 
-pe_group pe_group4(
+pe_group pe_group41(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
     .weight1_in(weight41_in),
     .weight2_in(weight42_in),
     .weight3_in(weight43_in),
@@ -2078,9 +2630,9 @@ pe_group pe_group4(
     .layer(layer)
 );
 
-pe_group pe_group5(
+pe_group pe_group51(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
     .weight1_in(weight51_in),
     .weight2_in(weight52_in),
     .weight3_in(weight53_in),
@@ -2097,9 +2649,123 @@ pe_group pe_group5(
     .layer(layer)
 );
 
-pe_group pe_group6(
+pe_group pe_group61(
     .clk(clk),
-    .weight_en(weight_en),
+    .weight_en(weight_en1),
+    .weight1_in(weight61_in),
+    .weight2_in(weight62_in),
+    .weight3_in(weight63_in),
+    .weight4_in(weight64_in),
+    .weight5_in(weight65_in),
+    .weight6_in(weight66_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf6[7:0]),
+    .ifmap_in2(ifbuf6[151:144]),
+    .ifmap_in3(ifbuf6[15:8]),
+    .ifmap_in4(ifbuf6[159:152]),
+    .groupsum_out1(psum61),
+    .groupsum_out2(psum62),
+    .layer(layer)
+);
+
+pe_group pe_group12(
+    .clk(clk),
+    .weight_en(weight_en2),
+    .weight1_in(weight11_in),
+    .weight2_in(weight12_in),
+    .weight3_in(weight13_in),
+    .weight4_in(weight14_in),
+    .weight5_in(weight15_in),
+    .weight6_in(weight16_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf1[7:0]),
+    .ifmap_in2(ifbuf1[151:144]),
+    .ifmap_in3(ifbuf1[15:8]),
+    .ifmap_in4(ifbuf1[159:152]),
+    .groupsum_out1(psum11),
+    .groupsum_out2(psum12),
+    .layer(layer)
+);
+
+pe_group pe_group22(
+    .clk(clk),
+    .weight_en(weight_en2),
+    .weight1_in(weight21_in),
+    .weight2_in(weight22_in),
+    .weight3_in(weight23_in),
+    .weight4_in(weight24_in),
+    .weight5_in(weight25_in),
+    .weight6_in(weight26_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf2[7:0]),
+    .ifmap_in2(ifbuf2[151:144]),
+    .ifmap_in3(ifbuf2[15:8]),
+    .ifmap_in4(ifbuf2[159:152]),
+    .groupsum_out1(psum21),
+    .groupsum_out2(psum22),
+    .layer(layer)
+);
+
+pe_group pe_group32(
+    .clk(clk),
+    .weight_en(weight_en2),
+    .weight1_in(weight31_in),
+    .weight2_in(weight32_in),
+    .weight3_in(weight33_in),
+    .weight4_in(weight34_in),
+    .weight5_in(weight35_in),
+    .weight6_in(weight36_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf3[7:0]),
+    .ifmap_in2(ifbuf3[151:144]),
+    .ifmap_in3(ifbuf3[15:8]),
+    .ifmap_in4(ifbuf3[159:152]),
+    .groupsum_out1(psum31),
+    .groupsum_out2(psum32),
+    .layer(layer)
+);
+
+pe_group pe_group42(
+    .clk(clk),
+    .weight_en(weight_en2),
+    .weight1_in(weight41_in),
+    .weight2_in(weight42_in),
+    .weight3_in(weight43_in),
+    .weight4_in(weight44_in),
+    .weight5_in(weight45_in),
+    .weight6_in(weight46_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf5[7:0]),
+    .ifmap_in2(ifbuf5[151:144]),
+    .ifmap_in3(ifbuf5[15:8]),
+    .ifmap_in4(ifbuf5[159:152]),
+    .groupsum_out1(psum41),
+    .groupsum_out2(psum42),
+    .layer(layer)
+);
+
+pe_group pe_group52(
+    .clk(clk),
+    .weight_en(weight_en2),
+    .weight1_in(weight51_in),
+    .weight2_in(weight52_in),
+    .weight3_in(weight53_in),
+    .weight4_in(weight54_in),
+    .weight5_in(weight55_in),
+    .weight6_in(weight56_in),
+    .calculate_en(calculate_en),
+    .ifmap_in1(ifbuf5[7:0]),
+    .ifmap_in2(ifbuf5[151:144]),
+    .ifmap_in3(ifbuf5[15:8]),
+    .ifmap_in4(ifbuf5[159:152]),
+    .groupsum_out1(psum51),
+    .groupsum_out2(psum52),
+    .layer(layer)
+);
+
+pe_group pe_group62(
+    .clk(clk),
+    .weight_en(weight_en2),
     .weight1_in(weight61_in),
     .weight2_in(weight62_in),
     .weight3_in(weight63_in),
