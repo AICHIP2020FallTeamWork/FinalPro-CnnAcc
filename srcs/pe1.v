@@ -5,50 +5,50 @@ module pe1(
     weight_en,
 
     calculate_en,
-    weight11_in, //11 12 13 14 15 16
-    weight12_in, //21 22 23 24 25 26
-    weight13_in, //31 32 33 34 35 36
-    weight21_in, //41 42 43 44 45 46
-    weight22_in, //51 52 53 54 55 56
-    weight23_in, //61 62 63 64 65 66
-    weight31_in,
-    weight32_in,
-    weight33_in,
-    weight41_in,
-    weight42_in,
-    weight43_in,
-    weight51_in,
-    weight52_in,
-    weight53_in,
-    weight61_in,
-    weight62_in,
-    weight63_in,
-    weight14_in,
-    weight15_in,
-    weight24_in,
-    weight25_in,
-    weight34_in,
-    weight35_in,
-    weight44_in,
-    weight45_in,
-    weight54_in,
-    weight55_in,
-    weight64_in,
-    weight65_in,
-    weight16_in,
-    weight26_in,
-    weight36_in,
-    weight46_in,
-    weight56_in,
-    weight66_in,
+    // weight11_in, //11 12 13 14 15 16
+    // weight12_in, //21 22 23 24 25 26
+    // weight13_in, //31 32 33 34 35 36
+    // weight21_in, //41 42 43 44 45 46
+    // weight22_in, //51 52 53 54 55 56
+    // weight23_in, //61 62 63 64 65 66
+    // weight31_in,
+    // weight32_in,
+    // weight33_in,
+    // weight41_in,
+    // weight42_in,
+    // weight43_in,
+    // weight51_in,
+    // weight52_in,
+    // weight53_in,
+    // weight61_in,
+    // weight62_in,
+    // weight63_in,
+    // weight14_in,
+    // weight15_in,
+    // weight24_in,
+    // weight25_in,
+    // weight34_in,
+    // weight35_in,
+    // weight44_in,
+    // weight45_in,
+    // weight54_in,
+    // weight55_in,
+    // weight64_in,
+    // weight65_in,
+    // weight16_in,
+    // weight26_in,
+    // weight36_in,
+    // weight46_in,
+    // weight56_in,
+    // weight66_in,
     ifmap_in1,
     ifmap_in2,
     ifmap_in3,
     ifmap_in4,
-    ifmap_in01,
-    ifmap_in02,
-    ifmap_in03,
-    ifmap_in04,
+    // ifmap_in01,
+    // ifmap_in02,
+    // ifmap_in03,
+    // ifmap_in04,
     ofmap_out,
     clk,
     initializing,
@@ -76,82 +76,121 @@ module pe1(
     input        signed    [47:0]     ifmap_in4;
     input                             clk;
 
-    input        signed    [7:0]      weight11_in;
-    input        signed    [7:0]      weight12_in;
-    input        signed    [7:0]      weight13_in;
-    input        signed    [7:0]      weight21_in;
-    input        signed    [7:0]      weight22_in;
-    input        signed    [7:0]      weight23_in;
-    input        signed    [7:0]      weight31_in;
-    input        signed    [7:0]      weight32_in;
-    input        signed    [7:0]      weight33_in;
-    input        signed    [7:0]      weight41_in;
-    input        signed    [7:0]      weight42_in;
-    input        signed    [7:0]      weight43_in;
-    input        signed    [7:0]      weight51_in;
-    input        signed    [7:0]      weight52_in;
-    input        signed    [7:0]      weight53_in;
-    input        signed    [7:0]      weight61_in;
-    input        signed    [7:0]      weight62_in;
-    input        signed    [7:0]      weight63_in;
-    input        signed    [7:0]      weight14_in;
-    input        signed    [7:0]      weight15_in;
-    input        signed    [7:0]      weight16_in;
-    input        signed    [7:0]      weight24_in;
-    input        signed    [7:0]      weight25_in;
-    input        signed    [7:0]      weight26_in;
-    input        signed    [7:0]      weight34_in;
-    input        signed    [7:0]      weight35_in;
-    input        signed    [7:0]      weight36_in;
-    input        signed    [7:0]      weight44_in;
-    input        signed    [7:0]      weight45_in;
-    input        signed    [7:0]      weight46_in;
-    input        signed    [7:0]      weight54_in;
-    input        signed    [7:0]      weight55_in;
-    input        signed    [7:0]      weight56_in;
-    input        signed    [7:0]      weight64_in;
-    input        signed    [7:0]      weight65_in;
-    input        signed    [7:0]      weight66_in;
+    // input        signed    [7:0]      weight11_in;
+    // input        signed    [7:0]      weight12_in;
+    // input        signed    [7:0]      weight13_in;
+    // input        signed    [7:0]      weight21_in;
+    // input        signed    [7:0]      weight22_in;
+    // input        signed    [7:0]      weight23_in;
+    // input        signed    [7:0]      weight31_in;
+    // input        signed    [7:0]      weight32_in;
+    // input        signed    [7:0]      weight33_in;
+    // input        signed    [7:0]      weight41_in;
+    // input        signed    [7:0]      weight42_in;
+    // input        signed    [7:0]      weight43_in;
+    // input        signed    [7:0]      weight51_in;
+    // input        signed    [7:0]      weight52_in;
+    // input        signed    [7:0]      weight53_in;
+    // input        signed    [7:0]      weight61_in;
+    // input        signed    [7:0]      weight62_in;
+    // input        signed    [7:0]      weight63_in;
+    // input        signed    [7:0]      weight14_in;
+    // input        signed    [7:0]      weight15_in;
+    // input        signed    [7:0]      weight16_in;
+    // input        signed    [7:0]      weight24_in;
+    // input        signed    [7:0]      weight25_in;
+    // input        signed    [7:0]      weight26_in;
+    // input        signed    [7:0]      weight34_in;
+    // input        signed    [7:0]      weight35_in;
+    // input        signed    [7:0]      weight36_in;
+    // input        signed    [7:0]      weight44_in;
+    // input        signed    [7:0]      weight45_in;
+    // input        signed    [7:0]      weight46_in;
+    // input        signed    [7:0]      weight54_in;
+    // input        signed    [7:0]      weight55_in;
+    // input        signed    [7:0]      weight56_in;
+    // input        signed    [7:0]      weight64_in;
+    // input        signed    [7:0]      weight65_in;
+    // input        signed    [7:0]      weight66_in;
 
     output  reg  signed    [19:0]      ofmap_out;
 //-------------------input and output ----------------------------------------------
 //weight register
-    reg        signed    [7:0]      weight11;
-    reg        signed    [7:0]      weight12;
-    reg        signed    [7:0]      weight13;
-    reg        signed    [7:0]      weight21;
-    reg        signed    [7:0]      weight22;
-    reg        signed    [7:0]      weight23;
-    reg        signed    [7:0]      weight31;
-    reg        signed    [7:0]      weight32;
-    reg        signed    [7:0]      weight33;
-    reg        signed    [7:0]      weight41;
-    reg        signed    [7:0]      weight42;
-    reg        signed    [7:0]      weight43;
-    reg        signed    [7:0]      weight51;
-    reg        signed    [7:0]      weight52;
-    reg        signed    [7:0]      weight53;
-    reg        signed    [7:0]      weight61;
-    reg        signed    [7:0]      weight62;
-    reg        signed    [7:0]      weight63;
-    reg        signed    [7:0]      weight14;
-    reg        signed    [7:0]      weight15;
-    reg        signed    [7:0]      weight16;
-    reg        signed    [7:0]      weight24;
-    reg        signed    [7:0]      weight25;
-    reg        signed    [7:0]      weight26;
-    reg        signed    [7:0]      weight34;
-    reg        signed    [7:0]      weight35;
-    reg        signed    [7:0]      weight36;
-    reg        signed    [7:0]      weight44;
-    reg        signed    [7:0]      weight45;
-    reg        signed    [7:0]      weight46;
-    reg        signed    [7:0]      weight54;
-    reg        signed    [7:0]      weight55;
-    reg        signed    [7:0]      weight56;
-    reg        signed    [7:0]      weight64;
-    reg        signed    [7:0]      weight65;
-    reg        signed    [7:0]      weight66;
+    reg        signed    [7:0]      weightA11;
+    reg        signed    [7:0]      weightA12;
+    reg        signed    [7:0]      weightA13;
+    reg        signed    [7:0]      weightA21;
+    reg        signed    [7:0]      weightA22;
+    reg        signed    [7:0]      weightA23;
+    reg        signed    [7:0]      weightA31;
+    reg        signed    [7:0]      weightA32;
+    reg        signed    [7:0]      weightA33;
+    reg        signed    [7:0]      weightA41;
+    reg        signed    [7:0]      weightA42;
+    reg        signed    [7:0]      weightA43;
+    reg        signed    [7:0]      weightA51;
+    reg        signed    [7:0]      weightA52;
+    reg        signed    [7:0]      weightA53;
+    reg        signed    [7:0]      weightA61;
+    reg        signed    [7:0]      weightA62;
+    reg        signed    [7:0]      weightA63;
+    reg        signed    [7:0]      weightA14;
+    reg        signed    [7:0]      weightA15;
+    reg        signed    [7:0]      weightA16;
+    reg        signed    [7:0]      weightA24;
+    reg        signed    [7:0]      weightA25;
+    reg        signed    [7:0]      weightA26;
+    reg        signed    [7:0]      weightA34;
+    reg        signed    [7:0]      weightA35;
+    reg        signed    [7:0]      weightA36;
+    reg        signed    [7:0]      weightA44;
+    reg        signed    [7:0]      weightA45;
+    reg        signed    [7:0]      weightA46;
+    reg        signed    [7:0]      weightA54;
+    reg        signed    [7:0]      weightA55;
+    reg        signed    [7:0]      weightA56;
+    reg        signed    [7:0]      weightA64;
+    reg        signed    [7:0]      weightA65;
+    reg        signed    [7:0]      weightA66;
+//------
+
+    reg        signed    [7:0]      weightB11;
+    reg        signed    [7:0]      weightB12;
+    reg        signed    [7:0]      weightB13;
+    reg        signed    [7:0]      weightB21;
+    reg        signed    [7:0]      weightB22;
+    reg        signed    [7:0]      weightB23;
+    reg        signed    [7:0]      weightB31;
+    reg        signed    [7:0]      weightB32;
+    reg        signed    [7:0]      weightB33;
+    reg        signed    [7:0]      weightB41;
+    reg        signed    [7:0]      weightB42;
+    reg        signed    [7:0]      weightB43;
+    reg        signed    [7:0]      weightB51;
+    reg        signed    [7:0]      weightB52;
+    reg        signed    [7:0]      weightB53;
+    reg        signed    [7:0]      weightB61;
+    reg        signed    [7:0]      weightB62;
+    reg        signed    [7:0]      weightB63;
+    reg        signed    [7:0]      weightB14;
+    reg        signed    [7:0]      weightB15;
+    reg        signed    [7:0]      weightB16;
+    reg        signed    [7:0]      weightB24;
+    reg        signed    [7:0]      weightB25;
+    reg        signed    [7:0]      weightB26;
+    reg        signed    [7:0]      weightB34;
+    reg        signed    [7:0]      weightB35;
+    reg        signed    [7:0]      weightB36;
+    reg        signed    [7:0]      weightB44;
+    reg        signed    [7:0]      weightB45;
+    reg        signed    [7:0]      weightB46;
+    reg        signed    [7:0]      weightB54;
+    reg        signed    [7:0]      weightB55;
+    reg        signed    [7:0]      weightB56;
+    reg        signed    [7:0]      weightB64;
+    reg        signed    [7:0]      weightB65;
+    reg        signed    [7:0]      weightB66;
+//------
 //------
 
     reg          signed    [17:0]    psum11;
@@ -286,6 +325,9 @@ end
 
 
 //------------------------结束--------------------------
+reg [4:0] Channel;
+reg [2:0] Process;
+//------------------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable ) begin    
     Process         <= `Idle;
@@ -300,11 +342,10 @@ end else begin
     `Layer1: begin 
         case ( Process ) //用于控制channel。
         `Idle:begin
-            if( Channel < 32)
+            if( Channel < 32) begin
                 Channel <= Channel + 1; 
                 Process <= `Init;
-            end 
-            else begin
+            end  else begin
                 Channel <= 0;
                 Layer <= `Layer2;
             end
@@ -912,7 +953,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数�??????? //1位即�???????
+        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数???????? //1位即????????
 //---------
     end
 // -----------
@@ -1150,7 +1191,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]è¿æ¯æ°æ®ï¿??????
+        //ifbuf5[31]è???????°???????????
         `Start:begin
             
             regPad6[0]   <=      ifbuf6[0];
@@ -1809,7 +1850,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]è¿æ¯æ°æ®ï¿??????
+        //ifbuf5[31]è???????°???????????
         `Start:begin
             
             regPad6[0]   <=      ifbuf6[1];
