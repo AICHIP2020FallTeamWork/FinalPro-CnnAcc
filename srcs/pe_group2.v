@@ -45,11 +45,11 @@ reg          signed    [15:0]            prod3;
 reg          signed    [15:0]            prod4;
 reg          signed    [15:0]            prod5;
 reg          signed    [15:0]            prod6;
-reg          signed    [17:0]            half1;
-reg          signed    [17:0]            half2;
+reg          signed    [10:0]            half1; //[10:0]是为了量化
+reg          signed    [10:0]            half2;
 
-output  reg  signed    [17:0]            groupsum_out1;
-output  reg  signed    [17:0]            groupsum_out2;
+output  reg  signed    [10:0]            groupsum_out1;
+output  reg  signed    [10:0]            groupsum_out2;
 output  reg       wb_en;
 
 reg  wb_en_bub2;
@@ -69,19 +69,19 @@ always @(posedge clk or negedge rst) begin
         wb_en_bub1      <= 0;
         wb_en           <= 0;
     end else if ( Process == `Start or FinishFlag == 1 ) begin
-        prod1 <= ifmap1 * weight1_in;
-        prod2 <= ifmap2 * weight2_in;
-        prod3 <= ifmap3 * weight3_in;
-        prod4 <= ifmap4 * weight4_in;
-        prod5 <= ifmap5 * weight5_in;
+        prod1 <= $signed(ifmap1) * $signed(weight1_in);
+        prod2 <= $signed(ifmap2) * $signed(weight2_in);
+        prod3 <= $signed(ifmap3) * $signed(weight3_in);
+        prod4 <= $signed(ifmap4) * $signed(weight4_in);
+        prod5 <= $signed(ifmap5) * $signed(weight5_in);
         wb_en_bub2 <= 1; //冒泡
 
-        half1 <= prod1 + prod2 + prod3;
-        half2 <= prod4 + prod5 + prod6;
+        half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;
+        half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6))>>>7;
         wb_en_bub1 <= wb_en_bub2; //冒泡
         wb_en           <=  wb_en_bub1; //冒泡
     if (layer == 1) begin
-        groupsum_out1   <=  half1 + half2;
+        groupsum_out1   <=  ($signed(half1) + $signed(half2))>>>1;
     end
     end else  begin
         prod1 <= 0;
