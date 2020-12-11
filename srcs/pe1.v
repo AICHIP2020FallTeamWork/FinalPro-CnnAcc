@@ -2926,7 +2926,7 @@ writeback   WB(
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
     .FinishWB(FinishWB)
-    );
+);
 
 
 
