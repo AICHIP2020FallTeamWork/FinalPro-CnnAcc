@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=F:/Xilinx/SDK/2017.4/bin;F:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2017.4/bin
+  PATH=D:/vivado_ise_2017/SDK/2017.4/bin;D:/vivado_ise_2017/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/vivado_ise_2017/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/vivado_ise_2017/Vivado/2017.4/bin
 else
-  PATH=F:/Xilinx/SDK/2017.4/bin;F:/Xilinx/Vivado/2017.4/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2017.4/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2017.4/bin:$PATH
+  PATH=D:/vivado_ise_2017/SDK/2017.4/bin;D:/vivado_ise_2017/Vivado/2017.4/ids_lite/ISE/bin/nt64;D:/vivado_ise_2017/Vivado/2017.4/ids_lite/ISE/lib/nt64:D:/vivado_ise_2017/Vivado/2017.4/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.runs/synth_1'
+HD_PWD='D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log pe1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pe1.tcl
+EAStep vivado -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl

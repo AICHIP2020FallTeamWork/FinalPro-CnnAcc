@@ -1,21 +1,21 @@
 module pe_group2(
     clk,
     rst,
-    weight1_in,
-    weight2_in,
-    weight3_in,
-    weight4_in,
-    weight5_in,
-    ifmap_in1,
-    ifmap_in2,
-    ifmap_in3,
-    ifmap_in4,
-    ifmap_in5,
+    weight1,
+    weight2,
+    weight3,
+    weight4,
+    weight5,
+    ifmap1,
+    ifmap2,
+    ifmap3,
+    ifmap4,
+    ifmap5,
     groupsum_out1,
     groupsum_out2,
     layer,
     Process,
-    we_en,
+    wb_en,
     FinishFlag,
     FinishWB
 );
@@ -24,18 +24,20 @@ input                                    clk;
 input                                    rst;
 input                  [3:0]             layer;
 
-input        signed    [7:0]             weight1_in;
-input        signed    [7:0]             weight2_in;
-input        signed    [7:0]             weight3_in;
-input        signed    [7:0]             weight4_in;
-input        signed    [7:0]             weight5_in;
+input        signed    [7:0]             weight1;
+input        signed    [7:0]             weight2;
+input        signed    [7:0]             weight3;
+input        signed    [7:0]             weight4;
+input        signed    [7:0]             weight5;
 
-input        signed    [7:0]             ifmap_in1;
-input        signed    [7:0]             ifmap_in2;
-input        signed    [7:0]             ifmap_in3;
-input        signed    [7:0]             ifmap_in4;
-input        signed    [7:0]             ifmap_in5;
+input        signed    [7:0]             ifmap1;
+input        signed    [7:0]             ifmap2;
+input        signed    [7:0]             ifmap3;
+input        signed    [7:0]             ifmap4;
+input        signed    [7:0]             ifmap5;
 input                  [2:0]             Process  ;
+
+input                            FinishFlag;
 
 reg          signed    [7:0]             storeeven1;
 reg          signed    [7:0]             storeeven2;
@@ -68,12 +70,12 @@ always @(posedge clk or negedge rst) begin
         wb_en_bub2      <= 0;
         wb_en_bub1      <= 0;
         wb_en           <= 0;
-    end else if ( Process == `Start or FinishFlag == 1 ) begin
-        prod1 <= $signed(ifmap1) * $signed(weight1_in);
-        prod2 <= $signed(ifmap2) * $signed(weight2_in);
-        prod3 <= $signed(ifmap3) * $signed(weight3_in);
-        prod4 <= $signed(ifmap4) * $signed(weight4_in);
-        prod5 <= $signed(ifmap5) * $signed(weight5_in);
+    end else if ( Process == `Start  ||  FinishFlag == 1 ) begin
+        prod1 <= $signed(ifmap1) * $signed(weight1);
+        prod2 <= $signed(ifmap2) * $signed(weight2);
+        prod3 <= $signed(ifmap3) * $signed(weight3);
+        prod4 <= $signed(ifmap4) * $signed(weight4);
+        prod5 <= $signed(ifmap5) * $signed(weight5);
         wb_en_bub2 <= 1; //冒泡
 
         half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;
@@ -103,7 +105,7 @@ end
 reg        FinishWB_Bub2 ;
 reg        FinishWB_Bub1 ;
  output    reg        FinishWB      ;
-always @(posedge clk or negedge wb_en or negedge rst) begin 
+always @(posedge clk or negedge rst) begin 
 //当wb_en出现下降沿，意味着WB中的运算结束，
 //WriteBack流水线仍然在工作,原先的使能信号如果立即置零则会终止流水，
 //因此，在wb_en出现下降沿的时候给出一个控制信号
@@ -112,7 +114,7 @@ always @(posedge clk or negedge wb_en or negedge rst) begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= 0;
         FinishWB      <= 0;
-    end else if(Process[0] == 1)begin
+    end else if(wb_en == 1)begin
         FinishWB <= 1;
     end else begin
         FinishWB_Bub2 <= 0;

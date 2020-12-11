@@ -3,7 +3,7 @@
 module pe1(
     rst,
     weight_en,
-
+    locked,
     calculate_en,
     // weight11_in, //11 12 13 14 15 16
     // weight12_in, //21 22 23 24 25 26
@@ -41,20 +41,20 @@ module pe1(
     // weight46_in,
     // weight56_in,
     // weight66_in,
-    ifmap_in1,
-    ifmap_in2,
-    ifmap_in3,
-    ifmap_in4,
+    // ifmap_in2,
+    // ifmap_in3,
+    // ifmap_in4,
     // ifmap_in01,
     // ifmap_in02,
     // ifmap_in03,
     // ifmap_in04,
+    dout_BRAM4k_1,
     ofmap_out,
     clk,
     initializing,
     addr_BRAM4k_1,
     addr_wLayer1_1,
-    dout_wLayer1_1, //这是数据输入线（dout是相对于BRAM来说的）
+    dout_wLayer1_1, 
     
     we_BRAM32k,
     addr_BRAM32k_1,
@@ -63,6 +63,7 @@ module pe1(
     din_BRAM32k_2
 );
 //--------------------------------------
+    input locked;
     input wire initializing;
     input   wire  rst;
         
@@ -70,10 +71,10 @@ module pe1(
     input                             weight_en;
     input                             calculate_en;
 
-    input        signed    [47:0]     ifmap_in1;
-    input        signed    [47:0]     ifmap_in2;
-    input        signed    [47:0]     ifmap_in3;
-    input        signed    [47:0]     ifmap_in4;
+    // input        signed    [47:0]     dout_BRAM4k_1;
+    // input        signed    [47:0]     ifmap_in2;
+    // input        signed    [47:0]     ifmap_in3;
+    // input        signed    [47:0]     ifmap_in4;
     input                             clk;
 
     // input        signed    [7:0]      weight11_in;
@@ -294,22 +295,18 @@ module pe1(
     reg [7:0] multi431;
     reg [7:0] multi432;
     reg [7:0] multi433;
-//-------------声明地址相关-------------------------------
-output  reg  [11:0]  addr_BRAM4k_1;   //发出地址 BRAM4k
-output  reg  [7:0]   addr_wLayer1_1;  //发出Layer1weight地址 
+//--------------------------------------------
+output  reg  [11:0]  addr_BRAM4k_1;  
+output  reg  [7:0]   addr_wLayer1_1; 
 input   wire [39:0]  dout_wLayer1_1;
-//--------------结束-------------------------------
-//-------------重要的控制线-----------------------------
+output  reg  [63:0]  dout_BRAM4k_1;  
+
 reg        FinishFlag_Bub2 ;
 reg        FinishFlag_Bub1 ;
 reg        FinishFlag      ;
 
 always @(posedge clk or negedge Process[0] or negedge rst) begin 
-//当process[0]出现下降沿，意味着PE中的运算结束，
-//但是PEgroup流水线和WriteBack流水线仍然在工作
-//原先的使能信号如果立即置零则会终止流水，
-//因此，在process[0]出现下降沿的时候给出一个控制信号
-//负责在下一级流水完成之后终止流水。
+
     if(rst == `RstEnable) begin
         FinishFlag_Bub2 <= 0;
         FinishFlag_Bub1 <= 0;
@@ -319,12 +316,12 @@ always @(posedge clk or negedge Process[0] or negedge rst) begin
     end else begin
         FinishFlag_Bub2 <= 0;
         FinishFlag_Bub1 <= FinishFlag_Bub2;
-        FinishFlag      <= FinishFlag_Bub1; //先使用这个三拍的打拍，后期可以根据层数更改。
+        FinishFlag      <= FinishFlag_Bub1; 
     end
 end
 
 
-//------------------------结束--------------------------
+
 reg [4:0] Channel;
 reg [2:0] Process;
 //------------------------------------
@@ -336,11 +333,11 @@ if ( rst == `RstEnable ) begin
     Counter <= 0;
     Channel <= 0;
     addr_wLayer1_1 <= 1;
-end else begin
+end else if( locked == 1 )begin
     //pipeline
     case ( Layer )
     `Layer1: begin 
-        case ( Process ) //用于控制channel。
+        case ( Process ) 
         `Idle:begin
             if( Channel < 32) begin
                 Channel <= Channel + 1; 
@@ -355,14 +352,14 @@ end else begin
                 addr_BRAM4k_1<=   addr_BRAM4k_1 + 1;
                 Counter      <=   Counter + 1;
                 Process      <=   `Init;
-                ifbuf5[24]   <=   ifmap_in1[63:56];
-                ifbuf5[25]   <=   ifmap_in1[55:48];
-                ifbuf5[26]   <=   ifmap_in1[47:40];
-                ifbuf5[27]   <=   ifmap_in1[39:32];
-                ifbuf5[28]   <=   ifmap_in1[31:24];
-                ifbuf5[29]   <=   ifmap_in1[23:16];
-                ifbuf5[30]   <=   ifmap_in1[15:8];
-                ifbuf5[31]   <=   ifmap_in1[7:0];
+                ifbuf5[24]   <=   dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   dout_BRAM4k_1[7:0];
                                
                 ifbuf5[23] <=      ifbuf5[31];
                 ifbuf5[22] <=      ifbuf5[30];
@@ -622,7 +619,6 @@ end else begin
         end
 //------------
         `Start:begin 
-//----------基本数据流
             regPad5[0]   <=      regPad5[1];
             regPad5[1]   <=      ifbuf5[0];
             ifbuf5[0]    <=      ifbuf5[1];
@@ -797,54 +793,53 @@ end else begin
             ifbuf1[29]   <=      ifbuf1[30];
             ifbuf1[30]   <=      ifbuf1[31];
             ifbuf1[31]   <=      regPad1[0];
-//---------基本数据流结束---------------
-//---------控制流----------------------
+
             case ( Counter )
             6'd10 : begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd18 : begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd26 :begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd33 :begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:ifmap_in1[7:0];
+                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= 0; 
                 Trashdata <= 0; //signal for disable
                 if(Row == 5'd31) begin
@@ -890,14 +885,14 @@ end else begin
     `Layer2:begin
     
         //-------------------------------------------------
-        ifbuf5[24]   <=   ifmap_in1[63:56];
-        ifbuf5[25]   <=   ifmap_in1[55:48];
-        ifbuf5[26]   <=   ifmap_in1[47:40];
-        ifbuf5[27]   <=   ifmap_in1[39:32];
-        ifbuf5[28]   <=   ifmap_in1[31:24];
-        ifbuf5[29]   <=   ifmap_in1[23:16];
-        ifbuf5[30]   <=   ifmap_in1[15:8];
-        ifbuf5[31]   <=   ifmap_in1[7:0];
+        ifbuf5[24]   <=   dout_BRAM4k_1[63:56];
+        ifbuf5[25]   <=   dout_BRAM4k_1[55:48];
+        ifbuf5[26]   <=   dout_BRAM4k_1[47:40];
+        ifbuf5[27]   <=   dout_BRAM4k_1[39:32];
+        ifbuf5[28]   <=   dout_BRAM4k_1[31:24];
+        ifbuf5[29]   <=   dout_BRAM4k_1[23:16];
+        ifbuf5[30]   <=   dout_BRAM4k_1[15:8];
+        ifbuf5[31]   <=   dout_BRAM4k_1[7:0];
         //-------------------------------------------------
         if($signed(ifbuf5[24]) >= $signed(ifbuf5[25])) begin
             ifbuf4[25] <= ifbuf5[24];
@@ -952,7 +947,7 @@ end else begin
             ifbuf2[31] <= ifbuf4[31];
         end
 //----------------------------------------------------------
-        Selctrl <= Selctrl + 1;//二分打拍，用以告诉Bram是否选择该数???????? //1位即????????
+        Selctrl <= Selctrl + 1;
 //---------
     end
 // -----------
@@ -1054,14 +1049,14 @@ end else begin
                 ifbuf3[17] <=      ifbuf3[25];
                 ifbuf3[16] <=      ifbuf3[24];
 
-                ifbuf3[8]   <=    ifmap_in1[63:56];
-                ifbuf3[9]   <=    ifmap_in1[55:48];
-                ifbuf3[10]   <=   ifmap_in1[47:40];
-                ifbuf3[11]   <=   ifmap_in1[39:32];
-                ifbuf3[12]   <=   ifmap_in1[31:24];
-                ifbuf3[13]   <=   ifmap_in1[23:16];
-                ifbuf3[14]   <=   ifmap_in1[15:8];
-                ifbuf3[15]   <=   ifmap_in1[7:0];
+                ifbuf3[8]   <=    dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=    dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
 
                 ifbuf3[7] <=      ifbuf3[15];
                 ifbuf3[6] <=      ifbuf3[14];
@@ -1190,7 +1185,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]è???????°???????????
+    
         `Start:begin
             
             regPad6[0]   <=      ifbuf6[0];
@@ -1431,14 +1426,14 @@ end else begin
                 ifbuf6[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[15:8];
                 ifbuf6[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[63:56];
-                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[55:48];
-                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[47:40];
-                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[39:32];
-                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[31:24];
-                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[23:16];
-                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[15:8];
-                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[7:0];
+                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[7:0];
                 
                 ifbuf3[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[63:56];
                 ifbuf3[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[55:48];
@@ -1471,14 +1466,14 @@ end else begin
                 ifbuf6[30]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[15:8];
                 ifbuf6[31]   <=   (Row == 5'd15)? 8'd0:ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[63:56];
-                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[55:48];
-                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[47:40];
-                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[39:32];
-                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[31:24];
-                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[23:16];
-                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[15:8];
-                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:ifmap_in1[7:0];
+                ifbuf3[8]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   (Row == 5'd15)? 8'd0:dout_BRAM4k_1[7:0];
                 
                 ifbuf3[24]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[63:56];
                 ifbuf3[25]   <=   (Row == 5'd15)? 8'd0:ifmap_in2[55:48];
@@ -1713,14 +1708,14 @@ end else begin
                 ifbuf3[17] <=      ifbuf3[25];
                 ifbuf3[16] <=      ifbuf3[24];
 
-                ifbuf3[8]   <=    ifmap_in1[63:56];
-                ifbuf3[9]   <=    ifmap_in1[55:48];
-                ifbuf3[10]   <=   ifmap_in1[47:40];
-                ifbuf3[11]   <=   ifmap_in1[39:32];
-                ifbuf3[12]   <=   ifmap_in1[31:24];
-                ifbuf3[13]   <=   ifmap_in1[23:16];
-                ifbuf3[14]   <=   ifmap_in1[15:8];
-                ifbuf3[15]   <=   ifmap_in1[7:0];
+                ifbuf3[8]   <=    dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=    dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
 
                 ifbuf3[7] <=      ifbuf3[15];
                 ifbuf3[6] <=      ifbuf3[14];
@@ -1849,7 +1844,7 @@ end else begin
                 Counter <= 0;
               end
         end
-        //ifbuf5[31]è???????°???????????
+        //ifbuf5[31]
         `Start:begin
             
             regPad6[0]   <=      ifbuf6[1];
@@ -2084,14 +2079,14 @@ end else begin
                 ifbuf6[30]   <=   ifmap_in4[15:8];
                 ifbuf6[31]   <=   ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   ifmap_in1[63:56];
-                ifbuf3[9]   <=   ifmap_in1[55:48];
-                ifbuf3[10]   <=   ifmap_in1[47:40];
-                ifbuf3[11]   <=   ifmap_in1[39:32];
-                ifbuf3[12]   <=   ifmap_in1[31:24];
-                ifbuf3[13]   <=   ifmap_in1[23:16];
-                ifbuf3[14]   <=   ifmap_in1[15:8];
-                ifbuf3[15]   <=   ifmap_in1[7:0];
+                ifbuf3[8]   <=   dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=   dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
                 
                 ifbuf3[24]   <=   ifmap_in2[63:56];
                 ifbuf3[25]   <=   ifmap_in2[55:48];
@@ -2160,14 +2155,14 @@ end else begin
                 ifbuf6[30]   <=   ifmap_in4[15:8];
                 ifbuf6[31]   <=   ifmap_in4[7:0];
 
-                ifbuf3[8]   <=   ifmap_in1[63:56];
-                ifbuf3[9]   <=   ifmap_in1[55:48];
-                ifbuf3[10]   <=   ifmap_in1[47:40];
-                ifbuf3[11]   <=   ifmap_in1[39:32];
-                ifbuf3[12]   <=   ifmap_in1[31:24];
-                ifbuf3[13]   <=   ifmap_in1[23:16];
-                ifbuf3[14]   <=   ifmap_in1[15:8];
-                ifbuf3[15]   <=   ifmap_in1[7:0];
+                ifbuf3[8]   <=   dout_BRAM4k_1[63:56];
+                ifbuf3[9]   <=   dout_BRAM4k_1[55:48];
+                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
+                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
+                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
+                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
+                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
+                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
                 
                 ifbuf3[24]   <=   ifmap_in2[63:56];
                 ifbuf3[25]   <=   ifmap_in2[55:48];
@@ -2437,14 +2432,14 @@ end else begin
             ifbuf6[30]   <=   0;
             ifbuf6[31]   <=   0;
                 
-            ifbuf5[24]   <=   ifmap_in1[63:56];
-            ifbuf5[25]   <=   ifmap_in1[55:48];
-            ifbuf5[26]   <=   ifmap_in1[47:40];
-            ifbuf5[27]   <=   ifmap_in1[39:32];
-            ifbuf5[28]   <=   ifmap_in1[31:24];
-            ifbuf5[29]   <=   ifmap_in1[23:16];
-            ifbuf5[30]   <=   ifmap_in1[15:8];
-            ifbuf5[31]   <=   ifmap_in1[7:0];  
+            ifbuf5[24]   <=   dout_BRAM4k_1[63:56];
+            ifbuf5[25]   <=   dout_BRAM4k_1[55:48];
+            ifbuf5[26]   <=   dout_BRAM4k_1[47:40];
+            ifbuf5[27]   <=   dout_BRAM4k_1[39:32];
+            ifbuf5[28]   <=   dout_BRAM4k_1[31:24];
+            ifbuf5[29]   <=   dout_BRAM4k_1[23:16];
+            ifbuf5[30]   <=   dout_BRAM4k_1[15:8];
+            ifbuf5[31]   <=   dout_BRAM4k_1[7:0];  
 
             ifbuf4[24]   <=   ifmap_in2[63:56];
             ifbuf4[25]   <=   ifmap_in2[55:48];
@@ -2474,14 +2469,14 @@ end else begin
             ifbuf6[30]   <=   ifbuf4[30];
             ifbuf6[31]   <=   ifbuf4[31];
                 
-            ifbuf5[24]   <=   ifmap_in1[63:56];
-            ifbuf5[25]   <=   ifmap_in1[55:48];
-            ifbuf5[26]   <=   ifmap_in1[47:40];
-            ifbuf5[27]   <=   ifmap_in1[39:32];
-            ifbuf5[28]   <=   ifmap_in1[31:24];
-            ifbuf5[29]   <=   ifmap_in1[23:16];
-            ifbuf5[30]   <=   ifmap_in1[15:8];
-            ifbuf5[31]   <=   ifmap_in1[7:0];  
+            ifbuf5[24]   <=   dout_BRAM4k_1[63:56];
+            ifbuf5[25]   <=   dout_BRAM4k_1[55:48];
+            ifbuf5[26]   <=   dout_BRAM4k_1[47:40];
+            ifbuf5[27]   <=   dout_BRAM4k_1[39:32];
+            ifbuf5[28]   <=   dout_BRAM4k_1[31:24];
+            ifbuf5[29]   <=   dout_BRAM4k_1[23:16];
+            ifbuf5[30]   <=   dout_BRAM4k_1[15:8];
+            ifbuf5[31]   <=   dout_BRAM4k_1[7:0];  
 
             ifbuf4[24]   <=   ifmap_in2[63:56];
             ifbuf4[25]   <=   ifmap_in2[55:48];
@@ -2657,245 +2652,264 @@ end
 
 //-------------------------------
 
-wire we_en;
+wire wb_en;
 wire FinishWB;
-
+wire [10:0] psumA11;
+wire [10:0] psumA12;
 pe_group2 pe_group11(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightA11),
-    .weight2_in(weightA12),
-    .weight3_in(weightA13),
-    .weight4_in(weightA14),
-    .weight5_in(weightA15),
+    .weight1(weightA11),
+    .weight2(weightA12),
+    .weight3(weightA13),
+    .weight4(weightA14),
+    .weight5(weightA15),
 
-    .ifmap_in1(regPad1[0]),
-    .ifmap_in2(regPad1[1]),
-    .ifmap_in3(ifbuf1[1]),
-    .ifmap_in4(ifbuf1[2]),
-    .ifmap_in5(ifbuf1[3]),
+    .ifmap1(regPad1[0]),
+    .ifmap2(regPad1[1]),
+    .ifmap3(ifbuf1[1]),
+    .ifmap4(ifbuf1[2]),
+    .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumA11),
     .groupsum_out2(psumA12),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enA1),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 //----------------------------------------
-
-pe_group2 pe_group11(
+wire [10:0] psumA21;
+wire [10:0] psumA22;
+pe_group2 pe_group12(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightA21),
-    .weight2_in(weightA22),
-    .weight3_in(weightA23),
-    .weight4_in(weightA24),
-    .weight5_in(weightA25),
+    .weight1(weightA21),
+    .weight2(weightA22),
+    .weight3(weightA23),
+    .weight4(weightA24),
+    .weight5(weightA25),
 
-    .ifmap_in1(regPad2[0]),
-    .ifmap_in2(regPad2[1]),
-    .ifmap_in3(ifbuf2[1]),
-    .ifmap_in4(ifbuf2[2]),
-    .ifmap_in5(ifbuf2[3]),
+    .ifmap1(regPad2[0]),
+    .ifmap2(regPad2[1]),
+    .ifmap3(ifbuf2[1]),
+    .ifmap4(ifbuf2[2]),
+    .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumA21),
     .groupsum_out2(psumA22),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enA2),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
 //-------------------------------
-
-pe_group2 pe_group11(
+wire [10:0] psumA31;
+wire [10:0] psumA32;
+pe_group2 pe_group13(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightA31),
-    .weight2_in(weightA32),
-    .weight3_in(weightA33),
-    .weight4_in(weightA34),
-    .weight5_in(weightA35),
+    .weight1(weightA31),
+    .weight2(weightA32),
+    .weight3(weightA33),
+    .weight4(weightA34),
+    .weight5(weightA35),
 
-    .ifmap_in1(regPad3[0]),
-    .ifmap_in2(regPad3[1]),
-    .ifmap_in3(ifbuf3[1]),
-    .ifmap_in4(ifbuf3[2]),
-    .ifmap_in5(ifbuf3[3]),
+    .ifmap1(regPad3[0]),
+    .ifmap2(regPad3[1]),
+    .ifmap3(ifbuf3[1]),
+    .ifmap4(ifbuf3[2]),
+    .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumA31),
     .groupsum_out2(psumA32),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enA3),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
-pe_group2 pe_group11(
+wire [10:0] psumA41;
+wire [10:0] psumA42;
+pe_group2 pe_group14(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightA41),
-    .weight2_in(weightA42),
-    .weight3_in(weightA43),
-    .weight4_in(weightA44),
-    .weight5_in(weightA45),
+    .weight1(weightA41),
+    .weight2(weightA42),
+    .weight3(weightA43),
+    .weight4(weightA44),
+    .weight5(weightA45),
 
-    .ifmap_in1(regPad4[0]),
-    .ifmap_in2(regPad4[1]),
-    .ifmap_in3(ifbuf4[1]),
-    .ifmap_in4(ifbuf4[2]),
-    .ifmap_in5(ifbuf4[3]),
+    .ifmap1(regPad4[0]),
+    .ifmap2(regPad4[1]),
+    .ifmap3(ifbuf4[1]),
+    .ifmap4(ifbuf4[2]),
+    .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumA41),
     .groupsum_out2(psumA42),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enA4),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
-pe_group2 pe_group11(
+wire [10:0] psumA51;
+wire [10:0] psumA52;
+pe_group2 pe_group15(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightA51),
-    .weight2_in(weightA52),
-    .weight3_in(weightA53),
-    .weight4_in(weightA54),
-    .weight5_in(weightA55),
+    .weight1(weightA51),
+    .weight2(weightA52),
+    .weight3(weightA53),
+    .weight4(weightA54),
+    .weight5(weightA55),
 
-    .ifmap_in1(regPad5[0]),
-    .ifmap_in2(regPad5[1]),
-    .ifmap_in3(ifbuf5[1]),
-    .ifmap_in4(ifbuf5[2]),
-    .ifmap_in5(ifbuf5[3]),
+    .ifmap1(regPad5[0]),
+    .ifmap2(regPad5[1]),
+    .ifmap3(ifbuf5[1]),
+    .ifmap4(ifbuf5[2]),
+    .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumA51),
     .groupsum_out2(psumA52),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enA5),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
 //*****************************************************
-pe_group2 pe_group11(
+
+wire [10:0] psumB11;
+wire [10:0] psumB12;
+pe_group2 pe_group21(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightB11),
-    .weight2_in(weightB12),
-    .weight3_in(weightB13),
-    .weight4_in(weightB14),
-    .weight5_in(weightB15),
+    .weight1(weightB11),
+    .weight2(weightB12),
+    .weight3(weightB13),
+    .weight4(weightB14),
+    .weight5(weightB15),
 
-    .ifmap_in1(regPad1[0]),
-    .ifmap_in2(regPad1[1]),
-    .ifmap_in3(ifbuf1[1]),
-    .ifmap_in4(ifbuf1[2]),
-    .ifmap_in5(ifbuf1[3]),
+    .ifmap1(regPad1[0]),
+    .ifmap2(regPad1[1]),
+    .ifmap3(ifbuf1[1]),
+    .ifmap4(ifbuf1[2]),
+    .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumB11),
     .groupsum_out2(psumB12),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enB1),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 //----------------------------------------
 
-pe_group2 pe_group11(
+
+wire [10:0] psumB21;
+wire [10:0] psumB22;
+pe_group2 pe_group22(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightB21),
-    .weight2_in(weightB22),
-    .weight3_in(weightB23),
-    .weight4_in(weightB24),
-    .weight5_in(weightB25),
+    .weight1(weightB21),
+    .weight2(weightB22),
+    .weight3(weightB23),
+    .weight4(weightB24),
+    .weight5(weightB25),
 
-    .ifmap_in1(regPad2[0]),
-    .ifmap_in2(regPad2[1]),
-    .ifmap_in3(ifbuf2[1]),
-    .ifmap_in4(ifbuf2[2]),
-    .ifmap_in5(ifbuf2[3]),
+    .ifmap1(regPad2[0]),
+    .ifmap2(regPad2[1]),
+    .ifmap3(ifbuf2[1]),
+    .ifmap4(ifbuf2[2]),
+    .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumB21),
     .groupsum_out2(psumB22),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enB2),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
 //-------------------------------
-
-pe_group2 pe_group11(
+wire [10:0] psumB31;
+wire [10:0] psumB32;
+pe_group2 pe_group23(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightB31),
-    .weight2_in(weightB32),
-    .weight3_in(weightB33),
-    .weight4_in(weightB34),
-    .weight5_in(weightB35),
+    .weight1(weightB31),
+    .weight2(weightB32),
+    .weight3(weightB33),
+    .weight4(weightB34),
+    .weight5(weightB35),
 
-    .ifmap_in1(regPad3[0]),
-    .ifmap_in2(regPad3[1]),
-    .ifmap_in3(ifbuf3[1]),
-    .ifmap_in4(ifbuf3[2]),
-    .ifmap_in5(ifbuf3[3]),
+    .ifmap1(regPad3[0]),
+    .ifmap2(regPad3[1]),
+    .ifmap3(ifbuf3[1]),
+    .ifmap4(ifbuf3[2]),
+    .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumB31),
     .groupsum_out2(psumB32),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enB3),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
-pe_group2 pe_group11(
+wire [10:0] psumB41;
+wire [10:0] psumB42;
+pe_group2 pe_group24(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightB41),
-    .weight2_in(weightB42),
-    .weight3_in(weightB43),
-    .weight4_in(weightB44),
-    .weight5_in(weightB45),
+    .weight1(weightB41),
+    .weight2(weightB42),
+    .weight3(weightB43),
+    .weight4(weightB44),
+    .weight5(weightB45),
 
-    .ifmap_in1(regPad4[0]),
-    .ifmap_in2(regPad4[1]),
-    .ifmap_in3(ifbuf4[1]),
-    .ifmap_in4(ifbuf4[2]),
-    .ifmap_in5(ifbuf4[3]),
+    .ifmap1(regPad4[0]),
+    .ifmap2(regPad4[1]),
+    .ifmap3(ifbuf4[1]),
+    .ifmap4(ifbuf4[2]),
+    .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumB41),
     .groupsum_out2(psumB42),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enB4),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
 
-pe_group2 pe_group11(
+wire [10:0] psumB51;
+wire [10:0] psumB52;
+pe_group2 pe_group25(
     .clk(clk),
     .rst(rst),
-    .weight1_in(weightB51),
-    .weight2_in(weightB52),
-    .weight3_in(weightB53),
-    .weight4_in(weightB54),
-    .weight5_in(weightB55),
+    .weight1(weightB51),
+    .weight2(weightB52),
+    .weight3(weightB53),
+    .weight4(weightB54),
+    .weight5(weightB55),
 
-    .ifmap_in1(regPad5[0]),
-    .ifmap_in2(regPad5[1]),
-    .ifmap_in3(ifbuf5[1]),
-    .ifmap_in4(ifbuf5[2]),
-    .ifmap_in5(ifbuf5[3]),
+    .ifmap1(regPad5[0]),
+    .ifmap2(regPad5[1]),
+    .ifmap3(ifbuf5[1]),
+    .ifmap4(ifbuf5[2]),
+    .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumB51),
     .groupsum_out2(psumB52),
     .layer(State),
     .Process(Process),
-    .we_en(we_en),
+    .wb_en(wb_enB5),
     .FinishFlag(FinishFlag),
     .FinishWB(FinishWB)
 );
+
 
 
 output wire we_BRAM32k;
@@ -2919,6 +2933,7 @@ writeback   WB(
     .sumB4(psumB41),
     .sumB5(psumB51),
     .State(State),
+    .wb_en(wb_enA1),
     //out
     .we_BRAM32k(we_BRAM32k),
     .addr_BRAM32k_1(addr_BRAM32k_1),

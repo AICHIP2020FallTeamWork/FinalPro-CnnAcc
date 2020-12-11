@@ -29,14 +29,14 @@
 `define ByteEig 63:56
 `define ByteNin 72:64
 
-`define Zero  4'd0; 
-`define First  4'd1; 
-`define Second  4'd2; 
-`define Third  4'd3; 
-`define Forth  4'd4; 
-`define Fifth  4'd5; 
-`define Sixth  4'd6; 
-`define Seventh  4'd7; 
-`define Eighth  4'd8; 
-`define Ninth  4'd9; 
-`define Tenth  4'd10; 
+`define Zero  4'd0 
+`define First  4'd1
+`define Second  4'd2
+`define Third  4'd3
+`define Forth  4'd4 
+`define Fifth  4'd5 
+`define Sixth  4'd6 
+`define Seventh  4'd7 
+`define Eighth  4'd8 
+`define Ninth  4'd9 
+`define Tenth  4'd10 
