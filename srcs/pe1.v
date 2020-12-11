@@ -885,9 +885,8 @@ end else begin
         end
         endcase
     end 
-
-
 //*********************************************************************************************************
+/*
     `Layer2:begin
     
         //-------------------------------------------------
@@ -1935,7 +1934,7 @@ end else begin
             ifbuf4[12]   <=      ifbuf4[14];
             ifbuf4[13]   <=      ifbuf1[15];
             ifbuf4[14]   <=      regPad6[2];
-            ifbuf4[15]   <=      regpad6[0];
+            ifbuf4[15]   <=      regPad6[0];
             regPad6[2]   <=      ifbuf6[0];
 
 
@@ -1956,7 +1955,7 @@ end else begin
             ifbuf4[28]   <=      ifbuf4[30];
             ifbuf4[29]   <=      ifbuf4[31];
             ifbuf4[30]   <=      regPad6[3];
-            ifbuf4[31]   <=      regpad6[1];
+            ifbuf4[31]   <=      regPad6[1];
             regPad6[3]   <=      ifbuf6[16];
 
             regPad3[0]   <=      ifbuf3[1];
@@ -2040,8 +2039,8 @@ end else begin
             ifbuf1[11]   <=      ifbuf1[13];
             ifbuf1[12]   <=      ifbuf1[14];
             ifbuf1[13]   <=      ifbuf1[15];
-            ifbuf1[14]   <=      regpad3[2];
-            ifbuf1[15]   <=      regpad3[0];
+            ifbuf1[14]   <=      regPad3[2];
+            ifbuf1[15]   <=      regPad3[0];
             regPad3[2]   <=      ifbuf3[0];
 
             regPad1[1]   <=      ifbuf1[17];
@@ -2060,7 +2059,7 @@ end else begin
             ifbuf1[28]   <=      ifbuf1[30];
             ifbuf1[29]   <=      ifbuf1[31];
             ifbuf1[30]   <=      regPad3[3];
-            ifbuf1[31]   <=      regpad3[1];
+            ifbuf1[31]   <=      regPad3[1];
             regPad3[3]   <=      ifbuf3[16];
 
 
@@ -2651,237 +2650,251 @@ end else begin
     end
     endcase
             end
+*/
             endcase
     end
 end
 
+//-------------------------------
 
-pe_group pe_group11(
+wire we_en;
+wire FinishWB;
+
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA11_in),
-    .weight2_in(weightA12_in),
-    .weight3_in(weightA13_in),
-    .weight4_in(weightA14_in),
-    .weight5_in(weightA15_in),
-    .weight6_in(weightA16_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf1[7:0]),
-    .ifmap_in2(ifbuf1[151:144]),
-    .ifmap_in3(ifbuf1[15:8]),
-    .ifmap_in4(ifbuf1[159:152]),
+    .rst(rst),
+    .weight1_in(weightA11),
+    .weight2_in(weightA12),
+    .weight3_in(weightA13),
+    .weight4_in(weightA14),
+    .weight5_in(weightA15),
+
+    .ifmap_in1(regPad1[0]),
+    .ifmap_in2(regPad1[1]),
+    .ifmap_in3(ifbuf1[1]),
+    .ifmap_in4(ifbuf1[2]),
+    .ifmap_in5(ifbuf1[3]),
     .groupsum_out1(psumA11),
     .groupsum_out2(psumA12),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
+//----------------------------------------
 
-pe_group pe_group21(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA21_in),
-    .weight2_in(weightA22_in),
-    .weight3_in(weightA23_in),
-    .weight4_in(weightA24_in),
-    .weight5_in(weightA25_in),
-    .weight6_in(weightA26_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf2[7:0]),
-    .ifmap_in2(ifbuf2[151:144]),
-    .ifmap_in3(ifbuf2[15:8]),
-    .ifmap_in4(ifbuf2[159:152]),
+    .rst(rst),
+    .weight1_in(weightA21),
+    .weight2_in(weightA22),
+    .weight3_in(weightA23),
+    .weight4_in(weightA24),
+    .weight5_in(weightA25),
+
+    .ifmap_in1(regPad2[0]),
+    .ifmap_in2(regPad2[1]),
+    .ifmap_in3(ifbuf2[1]),
+    .ifmap_in4(ifbuf2[2]),
+    .ifmap_in5(ifbuf2[3]),
     .groupsum_out1(psumA21),
     .groupsum_out2(psumA22),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group31(
+//-------------------------------
+
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA31_in),
-    .weight2_in(weightA32_in),
-    .weight3_in(weightA33_in),
-    .weight4_in(weightA34_in),
-    .weight5_in(weightA35_in),
-    .weight6_in(weightA36_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf3[7:0]),
-    .ifmap_in2(ifbuf3[151:144]),
-    .ifmap_in3(ifbuf3[15:8]),
-    .ifmap_in4(ifbuf3[159:152]),
+    .rst(rst),
+    .weight1_in(weightA31),
+    .weight2_in(weightA32),
+    .weight3_in(weightA33),
+    .weight4_in(weightA34),
+    .weight5_in(weightA35),
+
+    .ifmap_in1(regPad3[0]),
+    .ifmap_in2(regPad3[1]),
+    .ifmap_in3(ifbuf3[1]),
+    .ifmap_in4(ifbuf3[2]),
+    .ifmap_in5(ifbuf3[3]),
     .groupsum_out1(psumA31),
     .groupsum_out2(psumA32),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group41(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA41_in),
-    .weight2_in(weightA42_in),
-    .weight3_in(weightA43_in),
-    .weight4_in(weightA44_in),
-    .weight5_in(weightA45_in),
-    .weight6_in(weightA46_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf5[7:0]),
-    .ifmap_in2(ifbuf5[151:144]),
-    .ifmap_in3(ifbuf5[15:8]),
-    .ifmap_in4(ifbuf5[159:152]),
+    .rst(rst),
+    .weight1_in(weightA41),
+    .weight2_in(weightA42),
+    .weight3_in(weightA43),
+    .weight4_in(weightA44),
+    .weight5_in(weightA45),
+
+    .ifmap_in1(regPad4[0]),
+    .ifmap_in2(regPad4[1]),
+    .ifmap_in3(ifbuf4[1]),
+    .ifmap_in4(ifbuf4[2]),
+    .ifmap_in5(ifbuf4[3]),
     .groupsum_out1(psumA41),
     .groupsum_out2(psumA42),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group51(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA51_in),
-    .weight2_in(weightA52_in),
-    .weight3_in(weightA53_in),
-    .weight4_in(weightA54_in),
-    .weight5_in(weightA55_in),
-    .weight6_in(weightA56_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf5[7:0]),
-    .ifmap_in2(ifbuf5[151:144]),
-    .ifmap_in3(ifbuf5[15:8]),
-    .ifmap_in4(ifbuf5[159:152]),
+    .rst(rst),
+    .weight1_in(weightA51),
+    .weight2_in(weightA52),
+    .weight3_in(weightA53),
+    .weight4_in(weightA54),
+    .weight5_in(weightA55),
+
+    .ifmap_in1(regPad5[0]),
+    .ifmap_in2(regPad5[1]),
+    .ifmap_in3(ifbuf5[1]),
+    .ifmap_in4(ifbuf5[2]),
+    .ifmap_in5(ifbuf5[3]),
     .groupsum_out1(psumA51),
     .groupsum_out2(psumA52),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group61(
+//*****************************************************
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en1),
-    .weight1_in(weightA61_in),
-    .weight2_in(weightA62_in),
-    .weight3_in(weightA63_in),
-    .weight4_in(weightA64_in),
-    .weight5_in(weightA65_in),
-    .weight6_in(weightA66_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf6[7:0]),
-    .ifmap_in2(ifbuf6[151:144]),
-    .ifmap_in3(ifbuf6[15:8]),
-    .ifmap_in4(ifbuf6[159:152]),
-    .groupsum_out1(psumA61),
-    .groupsum_out2(psumA62),
-    .layer(layer)
-);
+    .rst(rst),
+    .weight1_in(weightB11),
+    .weight2_in(weightB12),
+    .weight3_in(weightB13),
+    .weight4_in(weightB14),
+    .weight5_in(weightB15),
 
-pe_group pe_group12(
-    .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB11_in),
-    .weight2_in(weightB12_in),
-    .weight3_in(weightB13_in),
-    .weight4_in(weightB14_in),
-    .weight5_in(weightB15_in),
-    .weight6_in(weightB16_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf1[7:0]),
-    .ifmap_in2(ifbuf1[151:144]),
-    .ifmap_in3(ifbuf1[15:8]),
-    .ifmap_in4(ifbuf1[159:152]),
+    .ifmap_in1(regPad1[0]),
+    .ifmap_in2(regPad1[1]),
+    .ifmap_in3(ifbuf1[1]),
+    .ifmap_in4(ifbuf1[2]),
+    .ifmap_in5(ifbuf1[3]),
     .groupsum_out1(psumB11),
     .groupsum_out2(psumB12),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
+//----------------------------------------
 
-pe_group pe_group22(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB21_in),
-    .weight2_in(weightB22_in),
-    .weight3_in(weightB23_in),
-    .weight4_in(weightB24_in),
-    .weight5_in(weightB25_in),
-    .weight6_in(weightB26_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf2[7:0]),
-    .ifmap_in2(ifbuf2[151:144]),
-    .ifmap_in3(ifbuf2[15:8]),
-    .ifmap_in4(ifbuf2[159:152]),
+    .rst(rst),
+    .weight1_in(weightB21),
+    .weight2_in(weightB22),
+    .weight3_in(weightB23),
+    .weight4_in(weightB24),
+    .weight5_in(weightB25),
+
+    .ifmap_in1(regPad2[0]),
+    .ifmap_in2(regPad2[1]),
+    .ifmap_in3(ifbuf2[1]),
+    .ifmap_in4(ifbuf2[2]),
+    .ifmap_in5(ifbuf2[3]),
     .groupsum_out1(psumB21),
     .groupsum_out2(psumB22),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group32(
+//-------------------------------
+
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB31_in),
-    .weight2_in(weightB32_in),
-    .weight3_in(weightB33_in),
-    .weight4_in(weightB34_in),
-    .weight5_in(weightB35_in),
-    .weight6_in(weightB36_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf3[7:0]),
-    .ifmap_in2(ifbuf3[151:144]),
-    .ifmap_in3(ifbuf3[15:8]),
-    .ifmap_in4(ifbuf3[159:152]),
+    .rst(rst),
+    .weight1_in(weightB31),
+    .weight2_in(weightB32),
+    .weight3_in(weightB33),
+    .weight4_in(weightB34),
+    .weight5_in(weightB35),
+
+    .ifmap_in1(regPad3[0]),
+    .ifmap_in2(regPad3[1]),
+    .ifmap_in3(ifbuf3[1]),
+    .ifmap_in4(ifbuf3[2]),
+    .ifmap_in5(ifbuf3[3]),
     .groupsum_out1(psumB31),
     .groupsum_out2(psumB32),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group42(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB41_in),
-    .weight2_in(weightB42_in),
-    .weight3_in(weightB43_in),
-    .weight4_in(weightB44_in),
-    .weight5_in(weightB45_in),
-    .weight6_in(weightB46_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf5[7:0]),
-    .ifmap_in2(ifbuf5[151:144]),
-    .ifmap_in3(ifbuf5[15:8]),
-    .ifmap_in4(ifbuf5[159:152]),
+    .rst(rst),
+    .weight1_in(weightB41),
+    .weight2_in(weightB42),
+    .weight3_in(weightB43),
+    .weight4_in(weightB44),
+    .weight5_in(weightB45),
+
+    .ifmap_in1(regPad4[0]),
+    .ifmap_in2(regPad4[1]),
+    .ifmap_in3(ifbuf4[1]),
+    .ifmap_in4(ifbuf4[2]),
+    .ifmap_in5(ifbuf4[3]),
     .groupsum_out1(psumB41),
     .groupsum_out2(psumB42),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
-pe_group pe_group52(
+pe_group2 pe_group11(
     .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB51_in),
-    .weight2_in(weightB52_in),
-    .weight3_in(weightB53_in),
-    .weight4_in(weightB54_in),
-    .weight5_in(weightB55_in),
-    .weight6_in(weightB56_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf5[7:0]),
-    .ifmap_in2(ifbuf5[151:144]),
-    .ifmap_in3(ifbuf5[15:8]),
-    .ifmap_in4(ifbuf5[159:152]),
+    .rst(rst),
+    .weight1_in(weightB51),
+    .weight2_in(weightB52),
+    .weight3_in(weightB53),
+    .weight4_in(weightB54),
+    .weight5_in(weightB55),
+
+    .ifmap_in1(regPad5[0]),
+    .ifmap_in2(regPad5[1]),
+    .ifmap_in3(ifbuf5[1]),
+    .ifmap_in4(ifbuf5[2]),
+    .ifmap_in5(ifbuf5[3]),
     .groupsum_out1(psumB51),
     .groupsum_out2(psumB52),
-    .layer(layer)
-);
-
-pe_group pe_group62(
-    .clk(clk),
-    .weight_en(weight_en2),
-    .weight1_in(weightB61_in),
-    .weight2_in(weightB62_in),
-    .weight3_in(weightB63_in),
-    .weight4_in(weightB64_in),
-    .weight5_in(weightB65_in),
-    .weight6_in(weightB66_in),
-    .calculate_en(calculate_en),
-    .ifmap_in1(ifbuf6[7:0]),
-    .ifmap_in2(ifbuf6[151:144]),
-    .ifmap_in3(ifbuf6[15:8]),
-    .ifmap_in4(ifbuf6[159:152]),
-    .groupsum_out1(psumB61),
-    .groupsum_out2(psumB62),
-    .layer(layer)
+    .layer(State),
+    .Process(Process),
+    .we_en(we_en),
+    .FinishFlag(FinishFlag),
+    .FinishWB(FinishWB)
 );
 
 
@@ -2911,7 +2924,8 @@ writeback   WB(
     .addr_BRAM32k_1(addr_BRAM32k_1),
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
-    .din_BRAM32k_2(din_BRAM32k_2)
+    .din_BRAM32k_2(din_BRAM32k_2),
+    .FinishWB(FinishWB)
     );
 
 

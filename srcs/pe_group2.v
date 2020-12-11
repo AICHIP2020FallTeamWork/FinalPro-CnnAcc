@@ -1,12 +1,11 @@
-module pe_group(
+module pe_group2(
+    clk,
     rst,
-    weight_en,
     weight1_in,
     weight2_in,
     weight3_in,
     weight4_in,
     weight5_in,
-    weight6_in,
     ifmap_in1,
     ifmap_in2,
     ifmap_in3,
@@ -14,8 +13,6 @@ module pe_group(
     ifmap_in5,
     groupsum_out1,
     groupsum_out2,
-    clk,
-    calculate_en,
     layer,
     Process,
     we_en,
