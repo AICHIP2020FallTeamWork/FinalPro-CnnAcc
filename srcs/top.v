@@ -215,7 +215,7 @@ pe1 PE(
     .initializing(initializing),
     .addr_BRAM4k_1(addr_BRAM4k_1),
     .addr_wLayer1_1(addr_wLayer1_1),
-    .dout_wLayer1_1(dout_wLayer1_1), //杩欐槸鏁版嵁杈撳叆绾匡紙dout鏄浉瀵逛簬BRAM鏉ヨ鐨勶級
+    .dout_wLayer1_1(dout_wLayer1_1), //这是数据输入线（dout是相对于BRAM来说的）
     
     .we_BRAM32k(we_BRAM32k),
     .addr_BRAM32k_1(addr_BRAM32k_1),

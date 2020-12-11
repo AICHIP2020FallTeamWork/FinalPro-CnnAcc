@@ -67,7 +67,7 @@ always @(posedge clk or negedge rst) begin
         plusiB2 <= 0;
         din_1 <= 0;
         din_2 <= 0;
-        Zuhe <=  `Tenth; //éœ€è¦ç­‰å¾…ä¸€ä¸ªå‘¨æœŸè®¡ç®—plusi
+        Zuhe <=  `Tenth; //ÐèÒªµÈ´ýÒ»¸öÖÜÆÚ¼ÆËãplusi
     end else begin
         case(Layer) 
             `Layer1: begin
@@ -135,22 +135,22 @@ always @(posedge clk or negedge rst) begin
                             end
                             we_BRAM32k              <= 0;
                         end
-                        `Ninth:begin //ä¸ºæ•°æ®æµæ‰“ç©ºæ‹ï¼ˆtrashdataï¼‰
+                        `Ninth:begin //ÎªÊý¾ÝÁ÷´ò¿ÕÅÄ£¨trashdata£©
                             din_BRAM32k_1 <= din_1;
                             din_BRAM32k_2 <= din_2;
                             Zuhe<=`Zero;
                             we_BRAM32k              <= 1;
                         end
-                        `Tenth:begin //ä¸ºæ•°æ®æµæ‰“ç©ºæ‹ï¼ˆtrashdataï¼‰
+                        `Tenth:begin //ÎªÊý¾ÝÁ÷´ò¿ÕÅÄ£¨trashdata£©
                             Zuhe<=`Zero;
                             we_BRAM32k              <= 0;
                         end
                     endcase
                     
                     //--
-                    //å†™å®Œå…«ä¸ªå­—ä¹‹åŽæ‰å¼€å§‹å¹²æ´»ã€‚
-                    //1ä¸ªå‘¨æœŸä¹‹åŽå‘å‡ºåœ°å€ã€‚ 
-                    //ä¸¤ä¸ªå‘¨æœŸå†™å…¥ä½¿èƒ½
+                    //Ð´Íê°Ë¸ö×ÖÖ®ºó²Å¿ªÊ¼¸É»î¡£
+                    //1¸öÖÜÆÚÖ®ºó·¢³öµØÖ·¡£ 
+                    //Á½¸öÖÜÆÚÐ´ÈëÊ¹ÄÜ
 
                 end else begin
                 plusiA1 <= 0;

@@ -47,7 +47,7 @@ reg          signed    [15:0]            prod3;
 reg          signed    [15:0]            prod4;
 reg          signed    [15:0]            prod5;
 reg          signed    [15:0]            prod6;
-reg          signed    [10:0]            half1; //[10:0]æ˜¯ä¸ºäº†é‡åŒ–
+reg          signed    [10:0]            half1; //[10:0]ÊÇÎªÁËÁ¿»¯
 reg          signed    [10:0]            half2;
 
 output  reg  signed    [10:0]            groupsum_out1;
@@ -76,12 +76,12 @@ always @(posedge clk or negedge rst) begin
         prod3 <= $signed(ifmap3) * $signed(weight3);
         prod4 <= $signed(ifmap4) * $signed(weight4);
         prod5 <= $signed(ifmap5) * $signed(weight5);
-        wb_en_bub2 <= 1; //å†’æ³¡
+        wb_en_bub2 <= 1; //Ã°Åİ
 
         half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;
         half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6))>>>7;
-        wb_en_bub1 <= wb_en_bub2; //å†’æ³¡
-        wb_en           <=  wb_en_bub1; //å†’æ³¡
+        wb_en_bub1 <= wb_en_bub2; //Ã°Åİ
+        wb_en           <=  wb_en_bub1; //Ã°Åİ
     if (layer == 1) begin
         groupsum_out1   <=  ($signed(half1) + $signed(half2))>>>1;
     end
@@ -106,10 +106,10 @@ reg        FinishWB_Bub2 ;
 reg        FinishWB_Bub1 ;
  output    reg        FinishWB      ;
 always @(posedge clk or negedge rst) begin 
-//å½“wb_enå‡ºç°ä¸‹é™æ²¿ï¼Œæ„å‘³ç€WBä¸­çš„è¿ç®—ç»“æŸï¼Œ
-//WriteBackæµæ°´çº¿ä»ç„¶åœ¨å·¥ä½œ,åŸå…ˆçš„ä½¿èƒ½ä¿¡å·å¦‚æœç«‹å³ç½®é›¶åˆ™ä¼šç»ˆæ­¢æµæ°´ï¼Œ
-//å› æ­¤ï¼Œåœ¨wb_enå‡ºç°ä¸‹é™æ²¿çš„æ—¶å€™ç»™å‡ºä¸€ä¸ªæ§åˆ¶ä¿¡å·
-//è´Ÿè´£åœ¨ä¸‹ä¸€çº§æµæ°´å®Œæˆä¹‹åç»ˆæ­¢æµæ°´ã€‚
+//µ±wb_en³öÏÖÏÂ½µÑØ£¬ÒâÎ¶×ÅWBÖĞµÄÔËËã½áÊø£¬
+//WriteBackÁ÷Ë®ÏßÈÔÈ»ÔÚ¹¤×÷,Ô­ÏÈµÄÊ¹ÄÜĞÅºÅÈç¹ûÁ¢¼´ÖÃÁãÔò»áÖÕÖ¹Á÷Ë®£¬
+//Òò´Ë£¬ÔÚwb_en³öÏÖÏÂ½µÑØµÄÊ±ºò¸ø³öÒ»¸ö¿ØÖÆĞÅºÅ
+//¸ºÔğÔÚÏÂÒ»¼¶Á÷Ë®Íê³ÉÖ®ºóÖÕÖ¹Á÷Ë®¡£
     if(rst == `RstEnable) begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= 0;
@@ -119,7 +119,7 @@ always @(posedge clk or negedge rst) begin
     end else begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= FinishWB_Bub2;
-        FinishWB      <= FinishWB_Bub1; //å…ˆä½¿ç”¨è¿™ä¸ªä¸‰æ‹çš„æ‰“æ‹ï¼ŒåæœŸå¯ä»¥æ ¹æ®å±‚æ•°æ›´æ”¹ã€‚
+        FinishWB      <= FinishWB_Bub1; //ÏÈÊ¹ÓÃÕâ¸öÈıÅÄµÄ´òÅÄ£¬ºóÆÚ¿ÉÒÔ¸ù¾İ²ãÊı¸ü¸Ä¡£
     end
 end
 
