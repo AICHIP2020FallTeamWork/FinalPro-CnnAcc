@@ -17,3 +17,9 @@ TODO：
 3. finished the basic data transfor function for Layer567  
 DDL：   
 **tonight！**
+
+
+### debug note
+12.13   
+目前使用10MHz进行运算   
+在111.6us时候进入第二个卷积核   

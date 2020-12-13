@@ -5,50 +5,16 @@ Using 2 slave threads.
 Starting static elaboration
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:75]
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addrb [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:76]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2686]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2711]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2737]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2762]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2787]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2814]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2841]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2867]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2892]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2917]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2693]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2718]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2744]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2769]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2794]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2821]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2848]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2874]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2899]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2924]
 WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=17,CLKIN...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
-Compiling module xil_defaultlib.clk_wiz_0
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
-Compiling module xil_defaultlib.weightROM
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
-Compiling module xil_defaultlib.WLay1ROM
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
-Compiling module xil_defaultlib.BRAM32k
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
-Compiling module xil_defaultlib.BRAM4k
-Compiling module xil_defaultlib.pe_group2
-Compiling module xil_defaultlib.writeback
-Compiling module xil_defaultlib.pe1
-Compiling module xil_defaultlib.top
-Compiling module xil_defaultlib.top_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot top_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

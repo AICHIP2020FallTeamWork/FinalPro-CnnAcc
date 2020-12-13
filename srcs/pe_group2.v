@@ -116,6 +116,8 @@ always @(posedge clk or negedge rst) begin
         FinishWB      <= 0;
     end else if(wb_en == 1)begin
         FinishWB <= 1;
+        FinishWB_Bub1 <= 1;
+        FinishWB_Bub2 <= 1;
     end else begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= FinishWB_Bub2;

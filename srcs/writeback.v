@@ -165,7 +165,7 @@ always @(posedge clk or negedge rst) begin
                 plusiB2 <= 0;
                 din_1 <= 0;
                 din_2 <= 0;
-                Zuhe <=  `First;
+                Zuhe <=  `Zero;
                 end
             end
 //             `Layer3:
