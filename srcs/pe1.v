@@ -340,6 +340,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
     `Layer1: begin 
         case ( Process ) 
         `Idle:begin
+            Counter <= 0;
             if( Channel < 16) begin
                 Channel <= Channel + 1; 
                 Process <= `Init;
@@ -466,7 +467,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
 // 35 .. ..  .  .
 // 45 .. .. ..  .
 // 55 .. .. .. .. 
-                if (Counter ==0) begin
+                if (Counter == 0) begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA15 <= dout_wLayer1_1[`ByteFiv];
                     weightA14 <= dout_wLayer1_1[`ByteFor];
@@ -615,7 +616,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 regPad4[1]   <= 0;
                 regPad5[1]   <= 0;
                 Process <= `Start;
-                Counter <= 0;
+                Counter <= 1;
               end
         end
 //------------
@@ -832,7 +833,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
-            6'd33 :begin
+            6'd34 :begin
                 ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
                 ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
                 ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
@@ -841,13 +842,13 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
                 ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
                 ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
-                Counter <= 0; 
+                Counter <= 1;
                 Trashdata <= 0; //signal for disable
                 if(Row == 5'd31) begin
                     Row <= 0;
-                    Process <= `Idle; 
+                    Process <= `Idle;  
                 end else begin  
-                    Row <= Row + 1;                    
+                    Row <= Row + 1;                 
                 end
             end
             6'd31 : begin
@@ -873,7 +874,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 ifbuf5[31]   <=      ifbuf1[0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
-                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 32 ) begin
+                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 33 ) begin
                     addr_BRAM4k_1 <= addr_BRAM4k_1 + 1;
                 end
             end

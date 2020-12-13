@@ -1,20 +1,20 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/vivado_ise_2017/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 018feefae29b4c6eb1949bdcb041afb8 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Running: F:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 018feefae29b4c6eb1949bdcb041afb8 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:75]
-WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addrb [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:76]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2686]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2711]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2737]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2762]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2787]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2814]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2841]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2867]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2892]
-WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2917]
+WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/study_tools/FPGA/final_project/srcs/top.v:75]
+WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addrb [D:/study_tools/FPGA/final_project/srcs/top.v:76]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2687]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2712]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2738]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2763]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2788]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2815]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2842]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2868]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2893]
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port layer [D:/study_tools/FPGA/final_project/srcs/pe1.v:2918]
 WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
 Completed static elaboration
 Starting simulation data flow analysis

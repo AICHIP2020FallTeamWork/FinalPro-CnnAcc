@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="862500000fs"></ZoomStartTime>
+      <ZoomEndTime time="1723500001fs"></ZoomEndTime>
+      <Cursor1Time time="1537500000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="217"></NameColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/top_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/Row" type="array">
+      <obj_property name="ElementShortName">Row[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Row[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/Layer" type="array">
+      <obj_property name="ElementShortName">Layer[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Layer[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/State" type="array">
+      <obj_property name="ElementShortName">State[2:0]</obj_property>
+      <obj_property name="ObjectShortName">State[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/Counter" type="array">
+      <obj_property name="ElementShortName">Counter[5:0]</obj_property>
+      <obj_property name="ObjectShortName">Counter[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/Channel" type="array">
+      <obj_property name="ElementShortName">Channel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Channel[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/Process" type="array">
+      <obj_property name="ElementShortName">Process[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Process[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM32k_1" type="array">
+      <obj_property name="ElementShortName">addr_BRAM32k_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM32k_1[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM32k_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAM32k_2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM32k_2[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_wLayer1_1" type="array">
+      <obj_property name="ElementShortName">addr_wLayer1_1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_wLayer1_1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM4k_1" type="array">
+      <obj_property name="ElementShortName">addr_BRAM4k_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM4k_1[11:0]</obj_property>
+   </wvobject>
+</wave_config>
