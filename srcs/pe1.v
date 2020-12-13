@@ -2,9 +2,9 @@
 
 module pe1(
     rst,
-    weight_en,
+    // weight_en,
     locked,
-    calculate_en,
+    // calculate_en,
     // weight11_in, //11 12 13 14 15 16
     // weight12_in, //21 22 23 24 25 26
     // weight13_in, //31 32 33 34 35 36
@@ -49,9 +49,9 @@ module pe1(
     // ifmap_in03,
     // ifmap_in04,
     dout_BRAM4k_1,
-    ofmap_out,
+    // ofmap_out,
     clk,
-    initializing,
+    // initializing,
     addr_BRAM4k_1,
     addr_wLayer1_1,
     dout_wLayer1_1, 
@@ -64,12 +64,12 @@ module pe1(
 );
 //--------------------------------------
     input locked;
-    input wire initializing;
+    // input wire initializing;
     input   wire  rst;
         
 
-    input                             weight_en;
-    input                             calculate_en;
+    // input                             weight_en;
+    // input                             calculate_en;
 
     // input        signed    [47:0]     dout_BRAM4k_1;
     // input        signed    [47:0]     ifmap_in2;
@@ -114,7 +114,7 @@ module pe1(
     // input        signed    [7:0]      weight65_in;
     // input        signed    [7:0]      weight66_in;
 
-    output  reg  signed    [19:0]      ofmap_out;
+    // output  reg  signed    [19:0]      ofmap_out;
 //-------------------input and output ----------------------------------------------
 //weight register
     reg        signed    [7:0]      weightA11;
@@ -253,7 +253,7 @@ module pe1(
     reg  [2:0]   StateBubble3;
     reg  [2:0]   StateBubble4;
     reg  [2:0]   StateBubble5;
-    reg [4:0]  Counter;
+    reg [5:0]  Counter;
     reg [4:0]  kernCounter;
     reg Selctrl;
     reg [7:0] multi111;
@@ -299,7 +299,7 @@ module pe1(
 output  reg  [11:0]  addr_BRAM4k_1;  
 output  reg  [7:0]   addr_wLayer1_1; 
 input   wire [39:0]  dout_wLayer1_1;
-output  reg  [63:0]  dout_BRAM4k_1;  
+input   wire  [63:0]  dout_BRAM4k_1;  
 
 reg        FinishFlag_Bub2 ;
 reg        FinishFlag_Bub1 ;
@@ -326,14 +326,15 @@ reg [4:0] Channel;
 reg [2:0] Process;
 //------------------------------------
 always @(posedge clk or negedge rst) begin
-if ( rst == `RstEnable ) begin    
+if ( rst == `RstEnable) begin    
     Process         <= `Idle;
     Layer           <= `Layer1;
     addr_BRAM4k_1 <= 1;
     Counter <= 0;
+    Row <= 0;
     Channel <= 0;
     addr_wLayer1_1 <= 1;
-end else if( locked == 1 )begin
+end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
     case ( Layer )
     `Layer1: begin 
@@ -348,7 +349,7 @@ end else if( locked == 1 )begin
             end
         end
         `Init:begin
-            if (Counter < 5'd12) begin
+            if (Counter < 12) begin
                 addr_BRAM4k_1<=   addr_BRAM4k_1 + 1;
                 Counter      <=   Counter + 1;
                 Process      <=   `Init;
@@ -845,8 +846,10 @@ end else if( locked == 1 )begin
                 if(Row == 5'd31) begin
                     Row <= 0;
                     Process <= `Idle; 
-                end else begin
-                    Row <= Row + 1;                    
+                end else begin  
+                
+                    Row <= Row + 1;  
+                    Process <= `Idle;                   
                 end
             end
             6'd31 : begin
@@ -954,7 +957,7 @@ end else if( locked == 1 )begin
     `Layer3: begin
         case ( Process )
         `Init:begin
-            if (Counter != 5'd3) begin
+            if (Counter != 3) begin
                 Counter <= Counter + 1;
                 Process <= `Init;
                 ifbuf6[24]   <=   ifmap_in4[63:56];

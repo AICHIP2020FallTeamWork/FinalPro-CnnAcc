@@ -12,8 +12,9 @@ input clk50MHz;
 //-------------------------------------------
 wire        clk;
 wire        locked;
+wire        rst_n = ~rst;
 clk_wiz_0 clk0(
-    .reset(rst),
+    .reset(rst_n),
     .clk_in1(clk50MHz),
     .clk_out1(clk),
     .locked(locked)
@@ -206,16 +207,16 @@ clk_wiz_0 clk0(
 //-------------------------------------------//--------
 pe1 PE(
     .rst(rst),
-    .weight_en(weight_en),
+    // .weight_en(weight_en),
     .locked(locked),
-    .calculate_en(calculate_en),
+    // .calculate_en(calculate_en),
     .dout_BRAM4k_1(dout_BRAM4k_1),
-    .ofmap_out(ofmap_out),
+    // .ofmap_out(ofmap_out),
     .clk(clk),
-    .initializing(initializing),
+    // .initializing(initializing),
     .addr_BRAM4k_1(addr_BRAM4k_1),
     .addr_wLayer1_1(addr_wLayer1_1),
-    .dout_wLayer1_1(dout_wLayer1_1), //ÕâÊÇÊý¾ÝÊäÈëÏß£¨doutÊÇÏà¶ÔÓÚBRAMÀ´ËµµÄ£©
+    .dout_wLayer1_1(dout_wLayer1_1), //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½doutï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½BRAMï¿½ï¿½Ëµï¿½Ä£ï¿½
     
     .we_BRAM32k(we_BRAM32k),
     .addr_BRAM32k_1(addr_BRAM32k_1),

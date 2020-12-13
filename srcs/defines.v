@@ -1,11 +1,7 @@
 `define RstEnable 1'b0
 `define RstDisable 1'b1
 
-// `define ZeroWord 32'h0
-
-
-
-`define Layer1 4'd1
+`define Layer1 4'b0001
 `define Layer2 4'd2
 `define Layer3 4'd3
 `define Layer4 4'd4
