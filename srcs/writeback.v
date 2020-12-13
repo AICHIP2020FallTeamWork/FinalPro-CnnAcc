@@ -15,7 +15,7 @@ module writeback(
     sumB3,
     sumB4,
     sumB5,
-    State,
+    // State,
     Layer,
     wb_en,
     
@@ -41,7 +41,7 @@ module writeback(
     input   [10:0]  sumB4;
     input   [10:0]  sumB5;
     input   [3:0]       Layer;
-    input   [4:0]       State;
+    // input   [4:0]       State;
     input wb_en;
     input FinishWB;
     output      reg       we_BRAM32k;
@@ -67,7 +67,9 @@ always @(posedge clk or negedge rst) begin
         plusiB2 <= 0;
         din_1 <= 0;
         din_2 <= 0;
-        Zuhe <=  `Tenth; //需要等待一个周期计算plusi
+        Zuhe <=  `Zero; //需要等待一个周期计算plusi
+        addr_BRAM32k_1   <= 0;
+        addr_BRAM32k_2   <= 32;
     end else begin
         case(Layer) 
             `Layer1: begin
@@ -78,6 +80,10 @@ always @(posedge clk or negedge rst) begin
                     plusiB2 <= ($signed(sumB4) + $signed(sumB5))>>>2;
 
                     case(Zuhe)
+                        `Zero:begin
+                            Zuhe<=`First;
+                            we_BRAM32k              <= 0;
+                        end
                         `First:begin
                             din_BRAM32k_1 <= din_1;
                             din_BRAM32k_2 <= din_2;
@@ -138,11 +144,11 @@ always @(posedge clk or negedge rst) begin
                         `Ninth:begin //为数据流打空拍（trashdata）
                             din_BRAM32k_1 <= din_1;
                             din_BRAM32k_2 <= din_2;
-                            Zuhe<=`Zero;
+                            Zuhe<=`Tenth;
                             we_BRAM32k              <= 1;
                         end
                         `Tenth:begin //为数据流打空拍（trashdata）
-                            Zuhe<=`Zero;
+                            Zuhe<=`First;
                             we_BRAM32k              <= 0;
                         end
                     endcase

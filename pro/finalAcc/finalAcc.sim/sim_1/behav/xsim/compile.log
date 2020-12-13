@@ -12,16 +12,6 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/rep
 INFO: [VRFC 10-311] analyzing module clk_wiz_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe1
-INFO: [VRFC 10-2458] undeclared symbol wb_enA1, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2680]
-INFO: [VRFC 10-2458] undeclared symbol wb_enA2, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2705]
-INFO: [VRFC 10-2458] undeclared symbol wb_enA3, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2731]
-INFO: [VRFC 10-2458] undeclared symbol wb_enA4, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2756]
-INFO: [VRFC 10-2458] undeclared symbol wb_enA5, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2781]
-INFO: [VRFC 10-2458] undeclared symbol wb_enB1, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2808]
-INFO: [VRFC 10-2458] undeclared symbol wb_enB2, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2835]
-INFO: [VRFC 10-2458] undeclared symbol wb_enB3, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2861]
-INFO: [VRFC 10-2458] undeclared symbol wb_enB4, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2886]
-INFO: [VRFC 10-2458] undeclared symbol wb_enB5, assumed default net type wire [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2911]
 WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:308]
 WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:314]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v" into library xil_defaultlib

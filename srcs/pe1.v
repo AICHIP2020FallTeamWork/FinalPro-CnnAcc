@@ -254,7 +254,7 @@ module pe1(
     reg  [2:0]   StateBubble4;
     reg  [2:0]   StateBubble5;
     reg [5:0]  Counter;
-    reg [4:0]  kernCounter;
+    reg [6:0]  kernCounter;
     reg Selctrl;
     reg [7:0] multi111;
     reg [7:0] multi112;
@@ -340,7 +340,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
     `Layer1: begin 
         case ( Process ) 
         `Idle:begin
-            if( Channel < 32) begin
+            if( Channel < 16) begin
                 Channel <= Channel + 1; 
                 Process <= `Init;
             end  else begin
@@ -847,9 +847,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                     Row <= 0;
                     Process <= `Idle; 
                 end else begin  
-                
-                    Row <= Row + 1;  
-                    Process <= `Idle;                   
+                    Row <= Row + 1;                    
                 end
             end
             6'd31 : begin
@@ -2655,7 +2653,17 @@ end
 
 //-------------------------------
 
-wire wb_en;
+wire wb_enA1;
+wire wb_enA2;
+wire wb_enA3;
+wire wb_enA4;
+wire wb_enA5;
+wire wb_enB1;
+wire wb_enB2;
+wire wb_enB3;
+wire wb_enB4;
+wire wb_enB5;
+
 wire FinishWB;
 wire [10:0] psumA11;
 wire [10:0] psumA12;
@@ -2935,7 +2943,7 @@ writeback   WB(
     .sumB3(psumB31),
     .sumB4(psumB41),
     .sumB5(psumB51),
-    .State(State),
+    .Layer(Layer),
     .wb_en(wb_enA1),
     //out
     .we_BRAM32k(we_BRAM32k),
