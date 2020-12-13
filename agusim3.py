@@ -113,6 +113,3 @@ print(false)
 # for a in range(64):
 #     for b in range(18):
 #             print(memout[a][b]-memout0[a][b])
-
-
-
