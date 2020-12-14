@@ -47,7 +47,7 @@ reg          signed    [15:0]            prod3;
 reg          signed    [15:0]            prod4;
 reg          signed    [15:0]            prod5;
 reg          signed    [15:0]            prod6;
-reg          signed    [10:0]            half1; //[10:0]ÊÇÎªÁËÁ¿»¯
+reg          signed    [10:0]            half1; //[10:0]ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 reg          signed    [10:0]            half2;
 
 output  reg  signed    [10:0]            groupsum_out1;
@@ -64,6 +64,7 @@ always @(posedge clk or negedge rst) begin
         prod3 <= 0;
         prod4 <= 0;
         prod5 <= 0;
+        prod6 <= 0;
         half1 <= 0;
         half2 <= 0;
         groupsum_out1 <= 0;
@@ -76,15 +77,15 @@ always @(posedge clk or negedge rst) begin
         prod3 <= $signed(ifmap3) * $signed(weight3);
         prod4 <= $signed(ifmap4) * $signed(weight4);
         prod5 <= $signed(ifmap5) * $signed(weight5);
-        wb_en_bub2 <= 1; //Ã°ÅÝ
+        wb_en_bub2 <= 1; //Ã°ï¿½ï¿½
 
         half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;
         half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6))>>>7;
-        wb_en_bub1 <= wb_en_bub2; //Ã°ÅÝ
-        wb_en           <=  wb_en_bub1; //Ã°ÅÝ
-    if (layer == 1) begin
+        wb_en_bub1 <= wb_en_bub2; //Ã°ï¿½ï¿½
+        wb_en           <=  wb_en_bub1; //Ã°ï¿½ï¿½
+    // if (layer == 1) begin
         groupsum_out1   <=  ($signed(half1) + $signed(half2))>>>1;
-    end
+    // end
     end else  begin
         prod1 <= 0;
         prod2 <= 0;
@@ -106,10 +107,10 @@ reg        FinishWB_Bub2 ;
 reg        FinishWB_Bub1 ;
  output    reg        FinishWB      ;
 always @(posedge clk or negedge rst) begin 
-//µ±wb_en³öÏÖÏÂ½µÑØ£¬ÒâÎ¶×ÅWBÖÐµÄÔËËã½áÊø£¬
-//WriteBackÁ÷Ë®ÏßÈÔÈ»ÔÚ¹¤×÷,Ô­ÏÈµÄÊ¹ÄÜÐÅºÅÈç¹ûÁ¢¼´ÖÃÁãÔò»áÖÕÖ¹Á÷Ë®£¬
-//Òò´Ë£¬ÔÚwb_en³öÏÖÏÂ½µÑØµÄÊ±ºò¸ø³öÒ»¸ö¿ØÖÆÐÅºÅ
-//¸ºÔðÔÚÏÂÒ»¼¶Á÷Ë®Íê³ÉÖ®ºóÖÕÖ¹Á÷Ë®¡£
+//ï¿½ï¿½wb_enï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Î¶ï¿½ï¿½WBï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//WriteBackï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½È»ï¿½Ú¹ï¿½ï¿½ï¿½,Ô­ï¿½Èµï¿½Ê¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ë®ï¿½ï¿½
+//ï¿½ï¿½Ë£ï¿½ï¿½ï¿½wb_enï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½Øµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ë®ï¿½ï¿½
     if(rst == `RstEnable) begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= 0;
@@ -121,7 +122,7 @@ always @(posedge clk or negedge rst) begin
     end else begin
         FinishWB_Bub2 <= 0;
         FinishWB_Bub1 <= FinishWB_Bub2;
-        FinishWB      <= FinishWB_Bub1; //ÏÈÊ¹ÓÃÕâ¸öÈýÅÄµÄ´òÅÄ£¬ºóÆÚ¿ÉÒÔ¸ù¾Ý²ãÊý¸ü¸Ä¡£
+        FinishWB      <= FinishWB_Bub1; //ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÄ´ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½Ô¸ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
     end
 end
 
