@@ -331,11 +331,11 @@ always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable) begin    
     Process         <= `Idle;
     Layer           <= `Layer1;
-    addr_BRAM4k_1 <= 1;
+    addr_BRAM4k_1 <= 0;
     Counter <= 0;
     Row <= 0;
     Channel <= 0;
-    addr_wLayer1_1 <= 1;
+    addr_wLayer1_1 <= 0;
 end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
     case ( Layer )
@@ -541,9 +541,10 @@ end else if( rst == `RstDisable && locked == 1 )begin
                     weightB53 <= dout_wLayer1_1[`ByteThr];
                     weightB52 <= dout_wLayer1_1[`ByteTwo];
                     weightB51 <= dout_wLayer1_1[`ByteOne];           
-                end else if (Counter == 0)  begin
+                end else if(Counter == 0)begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;           
-                end                 
+                    
+                end          
             end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
@@ -2673,9 +2674,19 @@ wire wb_enB3;
 wire wb_enB4;
 wire wb_enB5;
 
-wire FinishWB;
-wire [10:0] psumA11;
-wire [10:0] psumA12;
+wire FinishWBA1;
+wire FinishWBA2;
+wire FinishWBA3;
+wire FinishWBA4;
+wire FinishWBA5;
+wire FinishWBB1;
+wire FinishWBB2;
+wire FinishWBB3;
+wire FinishWBB4;
+wire FinishWBB5;
+
+wire [9:0] psumAA11;
+wire [9:0] psumAA12;
 pe_group2 pe_group11(
     .clk(clk),
     .rst(rst),
@@ -2692,15 +2703,15 @@ pe_group2 pe_group11(
     .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumA11),
     .groupsum_out2(psumA12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 //----------------------------------------
-wire [10:0] psumA21;
-wire [10:0] psumA22;
+wire [9:0] psumAA21;
+wire [9:0] psumAA22;
 pe_group2 pe_group12(
     .clk(clk),
     .rst(rst),
@@ -2717,16 +2728,16 @@ pe_group2 pe_group12(
     .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumA21),
     .groupsum_out2(psumA22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA2)
 );
 
 //-------------------------------
-wire [10:0] psumA31;
-wire [10:0] psumA32;
+wire [9:0] psumAA31;
+wire [9:0] psumAA32;
 pe_group2 pe_group13(
     .clk(clk),
     .rst(rst),
@@ -2743,15 +2754,15 @@ pe_group2 pe_group13(
     .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumA31),
     .groupsum_out2(psumA32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA3)
 );
 
-wire [10:0] psumA41;
-wire [10:0] psumA42;
+wire [9:0] psumAA41;
+wire [9:0] psumAA42;
 pe_group2 pe_group14(
     .clk(clk),
     .rst(rst),
@@ -2768,15 +2779,15 @@ pe_group2 pe_group14(
     .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumA41),
     .groupsum_out2(psumA42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA4)
 );
 
-wire [10:0] psumA51;
-wire [10:0] psumA52;
+wire [9:0] psumAA51;
+wire [9:0] psumAA52;
 pe_group2 pe_group15(
     .clk(clk),
     .rst(rst),
@@ -2793,17 +2804,17 @@ pe_group2 pe_group15(
     .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumA51),
     .groupsum_out2(psumA52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA5)
 );
 
 //*****************************************************
 
-wire [10:0] psumB11;
-wire [10:0] psumB12;
+wire [9:0] psumAB11;
+wire [9:0] psumAB12;
 pe_group2 pe_group21(
     .clk(clk),
     .rst(rst),
@@ -2820,17 +2831,17 @@ pe_group2 pe_group21(
     .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumB11),
     .groupsum_out2(psumB12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB1)
 );
 //----------------------------------------
 
 
-wire [10:0] psumB21;
-wire [10:0] psumB22;
+wire [9:0] psumAB21;
+wire [9:0] psumAB22;
 pe_group2 pe_group22(
     .clk(clk),
     .rst(rst),
@@ -2847,16 +2858,16 @@ pe_group2 pe_group22(
     .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumB21),
     .groupsum_out2(psumB22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB2)
 );
 
 //-------------------------------
-wire [10:0] psumB31;
-wire [10:0] psumB32;
+wire [9:0] psumAB31;
+wire [9:0] psumAB32;
 pe_group2 pe_group23(
     .clk(clk),
     .rst(rst),
@@ -2873,15 +2884,15 @@ pe_group2 pe_group23(
     .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumB31),
     .groupsum_out2(psumB32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB3)
 );
 
-wire [10:0] psumB41;
-wire [10:0] psumB42;
+wire [9:0] psumAB41;
+wire [9:0] psumAB42;
 pe_group2 pe_group24(
     .clk(clk),
     .rst(rst),
@@ -2898,15 +2909,15 @@ pe_group2 pe_group24(
     .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumB41),
     .groupsum_out2(psumB42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB4)
 );
 
-wire [10:0] psumB51;
-wire [10:0] psumB52;
+wire [9:0] psumAB51;
+wire [9:0] psumAB52;
 pe_group2 pe_group25(
     .clk(clk),
     .rst(rst),
@@ -2923,11 +2934,11 @@ pe_group2 pe_group25(
     .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumB51),
     .groupsum_out2(psumB52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB5)
 );
 
 
@@ -2960,7 +2971,7 @@ writeback   WB(
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 
 
