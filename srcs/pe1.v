@@ -577,7 +577,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 ifbuf2[28]   <=      0;
                 ifbuf2[29]   <=      0;
                 ifbuf2[30]   <=      0;
-                ifbuf1[31]   <=      0;
+                ifbuf2[31]   <=      0;
                 ifbuf1[0]    <=      0;
                 ifbuf1[1]    <=      0;
                 ifbuf1[2]    <=      0;

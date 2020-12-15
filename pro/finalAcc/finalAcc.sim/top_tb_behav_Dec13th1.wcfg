@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2344219891fs"></ZoomStartTime>
-      <ZoomEndTime time="4233330254fs"></ZoomEndTime>
-      <Cursor1Time time="3080000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2680073194fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="183"></NameColumnWidth>
-      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+      <ValueColumnWidth column_width="124"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -103,10 +103,6 @@
       <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/plusiA" type="array">
-      <obj_property name="ElementShortName">plusiA[14:0]</obj_property>
-      <obj_property name="ObjectShortName">plusiA[14:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/WB/din_1" type="array">
       <obj_property name="ElementShortName">din_1[63:0]</obj_property>
       <obj_property name="ObjectShortName">din_1[63:0]</obj_property>
@@ -122,5 +118,23 @@
    <wvobject fp_name="/top_tb/top_/PE/WB/Counter" type="array">
       <obj_property name="ElementShortName">Counter[3:0]</obj_property>
       <obj_property name="ObjectShortName">Counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/addr_BRAM32k_1" type="array">
+      <obj_property name="ElementShortName">addr_BRAM32k_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM32k_1[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/addr_BRAM32k_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAM32k_2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM32k_2[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group11/wb_en" type="logic">
+      <obj_property name="ElementShortName">wb_en</obj_property>
+      <obj_property name="ObjectShortName">wb_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group11/FinishWB" type="logic">
+      <obj_property name="ElementShortName">FinishWB</obj_property>
+      <obj_property name="ObjectShortName">FinishWB</obj_property>
    </wvobject>
 </wave_config>

@@ -100,30 +100,37 @@ always @(posedge clk or negedge rst) begin
     end
 end
 
-
-//--------------------------------
 reg        FinishWB_Bub2 ;
 reg        FinishWB_Bub1 ;
  output    reg        FinishWB      ;
 always @(posedge clk or negedge rst) begin 
-//��wb_en��������?���?��WB�?����������?
-//WriteBack��?����?�?���,?�?�?���?�����������������?��?��
-//��?���wb_en��������?�?�����?�������?�?
-//��������?����?����?����?��?��
     if(rst == `RstEnable) begin
-        FinishWB_Bub2 <= 0;
-        FinishWB_Bub1 <= 0;
         FinishWB      <= 0;
     end else if(rst == `RstDisable && wb_en == 1)begin
-        FinishWB <= 1;
-        FinishWB_Bub1 <= 1;
-        FinishWB_Bub2 <= 1;
+        FinishWB      <= 1;
     end else begin
-        FinishWB_Bub2 <= 0;
-        FinishWB_Bub1 <= FinishWB_Bub2;
-        FinishWB      <= FinishWB_Bub1; //��?��������??��?����?��?��?������?�?
+        FinishWB      <= 0; 
     end
 end
+//--------------------------------
+// reg        FinishWB_Bub2 ;
+// reg        FinishWB_Bub1 ;
+//  output    reg        FinishWB      ;
+// always @(posedge clk or negedge rst) begin 
+//     if(rst == `RstEnable) begin
+//         FinishWB_Bub2 <= 0;
+//         FinishWB_Bub1 <= 0;
+//         FinishWB      <= 0;
+//     end else if(rst == `RstDisable && wb_en == 1)begin
+//         FinishWB <= 1;
+//         FinishWB_Bub1 <= 1;
+//         FinishWB_Bub2 <= 1;
+//     end else begin
+//         FinishWB_Bub2 <= 0;
+//         FinishWB_Bub1 <= FinishWB_Bub2;
+//         FinishWB      <= FinishWB_Bub1; //��?��������??��?����?��?��?������?�?
+//     end
+// end
 
 
 endmodule

@@ -72,6 +72,10 @@ always @(posedge clk or negedge rst) begin
         case(Layer) 
             `Layer1: begin
                  if(wb_en == 1 || FinishWB == 1) begin
+                    if(wb_en == 0)begin
+                        addr_BRAM32k_1 <= addr_BRAM32k_1 + 128;
+                        addr_BRAM32k_2 <= addr_BRAM32k_2 + 128;
+                    end 
                     plusiA <= ($signed(sumA1) + $signed(sumA2) + $signed(sumA3) + $signed(sumA4) + $signed(sumA5))>>>9;
                     plusiB <= ($signed(sumB1) + $signed(sumB2) + $signed(sumB3) + $signed(sumB4) + $signed(sumB5))>>>9;
                     case(Zuhe)
@@ -97,7 +101,11 @@ always @(posedge clk or negedge rst) begin
                                 din_2[`ByteEig] <= plusiB;
                             end
                             Zuhe    <=  `Second;
-                            we_BRAM32k              <= 1;
+                            if(Counter != 1) begin
+                                we_BRAM32k              <= 1;
+                            end else begin
+                                we_BRAM32k              <= 0;                                
+                            end
                             end
                         `Second:begin
                             if($signed(plusiA)>$signed(`PosiFull15) ) begin
@@ -244,7 +252,7 @@ always @(posedge clk or negedge rst) begin
                         end
                     endcase
 
-                end else begin
+                end else  begin
                 plusiA <= 0;
                 plusiB <= 0;
                 din_1 <= 0;
