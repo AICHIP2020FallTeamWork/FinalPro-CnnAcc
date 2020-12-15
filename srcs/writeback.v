@@ -64,17 +64,15 @@ always @(posedge clk or negedge rst) begin
         plusiB <= 0;
         din_1 <= 0;
         din_2 <= 0;
-        Zuhe <=  `Zero; //��Ҫ�ȴ�һ�����ڼ���plusi
+        Zuhe <=  `Zero; 
         addr_BRAM32k_1   <= 0;
-        addr_BRAM32k_2   <= 32;
+        addr_BRAM32k_2   <= 128;
     end else begin
         case(Layer) 
             `Layer1: begin
                  if(wb_en == 1 || FinishWB == 1) begin
                     plusiA <= ($signed(sumA1) + $signed(sumA2) + $signed(sumA3) + $signed(sumA4) + $signed(sumA5));
                     plusiB <= ($signed(sumB1) + $signed(sumB2) + $signed(sumB3) + $signed(sumB4) + $signed(sumB5));
-
-
                     case(Zuhe)
                         `Zero:begin
                             Zuhe<=`First;
@@ -83,133 +81,6 @@ always @(posedge clk or negedge rst) begin
                         `First:begin
                             din_BRAM32k_1 <= din_1;
                             din_BRAM32k_2 <= din_2;
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteOne] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteOne] <= `NegFull;
-                            else begin
-                                din_1[`ByteOne] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteOne] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteOne] <= `NegFull;
-                            else begin
-                                din_2[`ByteOne] <= plusiA;
-                            end
-                            Zuhe    <=  `Second;
-                            we_BRAM32k              <= 1;
-                            end
-                        `Second:begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteTwo] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteTwo] <= `NegFull;
-                            else begin
-                                din_1[`ByteTwo] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteTwo] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteTwo] <= `NegFull;
-                            else begin
-                                din_2[`ByteTwo] <= plusiA;
-                            end                            
-                            Zuhe<=`Third;
-                            we_BRAM32k              <= 0;
-                            end
-                        `Third:begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteThr] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteThr] <= `NegFull;
-                            else begin
-                                din_1[`ByteThr] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteThr] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteThr] <= `NegFull;
-                            else begin
-                                din_2[`ByteThr] <= plusiA;
-                            end    
-                            Zuhe<=`Forth;            
-                        end
-                        `Forth: begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteFor] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteFor] <= `NegFull;
-                            else begin
-                                din_1[`ByteFor] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteFor] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteFor] <= `NegFull;
-                            else begin
-                                din_2[`ByteFor] <= plusiA;
-                            end
-                            Zuhe<=`Fifth;
-                            we_BRAM32k              <= 0;
-                        end
-                        `Fifth:begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteFiv] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteFiv] <= `NegFull;
-                            else begin
-                                din_1[`ByteFiv] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteFiv] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteFiv] <= `NegFull;
-                            else begin
-                                din_2[`ByteFiv] <= plusiA;
-                            end                            
-                            Zuhe<=`Sixth;
-                            we_BRAM32k              <= 0;
-                        end
-                        `Sixth:begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteSix] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteSix] <= `NegFull;
-                            else begin
-                                din_1[`ByteSix] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteSix] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteSix] <= `NegFull;
-                            else begin
-                                din_2[`ByteSix] <= plusiA;
-                            end                            
-                            Zuhe<=`Seventh; 
-                            we_BRAM32k              <= 0;
-                        end
-                        `Seventh:begin
-                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
-                                din_1[`ByteSev] <= `PosiFull;
-                            end else if($signed(plusiA)<$signed(`NegFull15))
-                                din_1[`ByteSev] <= `NegFull;
-                            else begin
-                                din_1[`ByteSev] <= plusiA;
-                            end
-                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
-                                din_2[`ByteSev] <= `PosiFull;
-                            end else if($signed(plusiB)<$signed(`NegFull15))
-                                din_2[`ByteSev] <= `NegFull;
-                            else begin
-                                din_2[`ByteSev] <= plusiA;
-                            end                            
-                            Zuhe<=`Eighth;
-                            we_BRAM32k              <= 0;
-                            addr_BRAM32k_1   <= addr_BRAM32k_1 + 1;
-                            addr_BRAM32k_2   <= addr_BRAM32k_2 + 1;
-                        end
-                        `Eighth:begin
                             if($signed(plusiA)>$signed(`PosiFull15) ) begin
                                 din_1[`ByteEig] <= `PosiFull;
                             end else if($signed(plusiA)<$signed(`NegFull15))
@@ -222,7 +93,134 @@ always @(posedge clk or negedge rst) begin
                             end else if($signed(plusiB)<$signed(`NegFull15))
                                 din_2[`ByteEig] <= `NegFull;
                             else begin
-                                din_2[`ByteEig] <= plusiA;
+                                din_2[`ByteEig] <= plusiB;
+                            end
+                            Zuhe    <=  `Second;
+                            we_BRAM32k              <= 1;
+                            end
+                        `Second:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteSev] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteSev] <= `NegFull;
+                            else begin
+                                din_1[`ByteSev] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteSev] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteSev] <= `NegFull;
+                            else begin
+                                din_2[`ByteSev] <= plusiB;
+                            end                            
+                            Zuhe<=`Third;
+                            we_BRAM32k              <= 0;
+                            end
+                        `Third:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteSix] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteSix] <= `NegFull;
+                            else begin
+                                din_1[`ByteSix] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteSix] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteSix] <= `NegFull;
+                            else begin
+                                din_2[`ByteSix] <= plusiB;
+                            end    
+                            Zuhe<=`Forth;            
+                        end
+                        `Forth: begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteFiv] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteFiv] <= `NegFull;
+                            else begin
+                                din_1[`ByteFiv] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteFiv] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteFiv] <= `NegFull;
+                            else begin
+                                din_2[`ByteFiv] <= plusiB;
+                            end
+                            Zuhe<=`Fifth;
+                            we_BRAM32k              <= 0;
+                        end
+                        `Fifth:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteFor] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteFor] <= `NegFull;
+                            else begin
+                                din_1[`ByteFor] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteFor] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteFor] <= `NegFull;
+                            else begin
+                                din_2[`ByteFor] <= plusiB;
+                            end                            
+                            Zuhe<=`Sixth;
+                            we_BRAM32k              <= 0;
+                        end
+                        `Sixth:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteThr] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteThr] <= `NegFull;
+                            else begin
+                                din_1[`ByteThr] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteThr] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteThr] <= `NegFull;
+                            else begin
+                                din_2[`ByteThr] <= plusiB;
+                            end                            
+                            Zuhe<=`Seventh; 
+                            we_BRAM32k              <= 0;
+                        end
+                        `Seventh:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteTwo] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteTwo] <= `NegFull;
+                            else begin
+                                din_1[`ByteTwo] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteTwo] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteTwo] <= `NegFull;
+                            else begin
+                                din_2[`ByteTwo] <= plusiB;
+                            end                            
+                            Zuhe<=`Eighth;
+                            we_BRAM32k              <= 0;
+                            addr_BRAM32k_1   <= addr_BRAM32k_1 + 1;
+                            addr_BRAM32k_2   <= addr_BRAM32k_2 + 1;
+                        end
+                        `Eighth:begin
+                            if($signed(plusiA)>$signed(`PosiFull15) ) begin
+                                din_1[`ByteOne] <= `PosiFull;
+                            end else if($signed(plusiA)<$signed(`NegFull15))
+                                din_1[`ByteOne] <= `NegFull;
+                            else begin
+                                din_1[`ByteOne] <= plusiA;
+                            end
+                            if($signed(plusiB)>$signed(`PosiFull15) ) begin
+                                din_2[`ByteOne] <= `PosiFull;
+                            end else if($signed(plusiB)<$signed(`NegFull15))
+                                din_2[`ByteOne] <= `NegFull;
+                            else begin
+                                din_2[`ByteOne] <= plusiB;
                             end                            
                             if(Counter < 4) begin
                                 Zuhe<=`First;
@@ -233,22 +231,17 @@ always @(posedge clk or negedge rst) begin
                             end
                             we_BRAM32k              <= 0;
                         end
-                        `Ninth:begin //Ϊ����������ģ�trashdata��
+                        `Ninth:begin 
                             din_BRAM32k_1 <= din_1;
                             din_BRAM32k_2 <= din_2;
                             Zuhe<=`Tenth;
                             we_BRAM32k              <= 1;
                         end
-                        `Tenth:begin //Ϊ����������ģ�trashdata��
+                        `Tenth:begin 
                             Zuhe<=`First;
                             we_BRAM32k              <= 0;
                         end
                     endcase
-                    
-                    //--
-                    //д��˸���֮��ſ�ʼ�ɻ
-                    //1������֮�󷢳���ַ�� 
-                    //��������д��ʹ��
 
                 end else begin
                 plusiA <= 0;
