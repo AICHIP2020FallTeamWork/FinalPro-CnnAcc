@@ -332,7 +332,7 @@ if ( rst == `RstEnable) begin
     Process         <= `Idle;
     Layer           <= `Layer1;
     addr_BRAM4k_1 <= 1;
-    Counter <= 1;
+    Counter <= 0;
     Row <= 0;
     Channel <= 0;
     addr_wLayer1_1 <= 1;
@@ -342,6 +342,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
     `Layer1: begin 
         case ( Process ) 
         `Idle:begin
+            Counter <= 0;
             addr_BRAM4k_1 <=   0;
             if( Channel < 16) begin
                 Channel <= Channel + 1; 
@@ -469,28 +470,28 @@ end else if( rst == `RstDisable && locked == 1 )begin
 // 35 .. ..  .  .
 // 45 .. .. ..  .
 // 55 .. .. .. .. 
-                if (Counter ==0) begin
+                if (Counter ==1) begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA15 <= dout_wLayer1_1[`ByteFiv];
                     weightA14 <= dout_wLayer1_1[`ByteFor];
                     weightA13 <= dout_wLayer1_1[`ByteThr];
                     weightA12 <= dout_wLayer1_1[`ByteTwo];
                     weightA11 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 1)    begin
+                end else if (Counter == 2)    begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA25 <= dout_wLayer1_1[`ByteFiv];
                     weightA24 <= dout_wLayer1_1[`ByteFor];
                     weightA23 <= dout_wLayer1_1[`ByteThr];
                     weightA22 <= dout_wLayer1_1[`ByteTwo];
                     weightA21 <= dout_wLayer1_1[`ByteOne];            
-                end else if (Counter == 2)   begin                 
+                end else if (Counter == 3)   begin                 
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA35 <= dout_wLayer1_1[`ByteFiv];
                     weightA34 <= dout_wLayer1_1[`ByteFor];
                     weightA33 <= dout_wLayer1_1[`ByteThr];
                     weightA32 <= dout_wLayer1_1[`ByteTwo];
                     weightA31 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 3)  begin
+                end else if (Counter == 4)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA45 <= dout_wLayer1_1[`ByteFiv];
                     weightA44 <= dout_wLayer1_1[`ByteFor];
@@ -498,7 +499,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                     weightA42 <= dout_wLayer1_1[`ByteTwo];
                     weightA41 <= dout_wLayer1_1[`ByteOne];
                                   
-                end else if (Counter == 4)  begin
+                end else if (Counter == 5)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightA55 <= dout_wLayer1_1[`ByteFiv];
                     weightA54 <= dout_wLayer1_1[`ByteFor];
@@ -506,41 +507,42 @@ end else if( rst == `RstDisable && locked == 1 )begin
                     weightA52 <= dout_wLayer1_1[`ByteTwo];
                     weightA51 <= dout_wLayer1_1[`ByteOne];
 //----
-                end else if (Counter == 5)  begin
+                end else if (Counter == 6)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightB15 <= dout_wLayer1_1[`ByteFiv];
                     weightB14 <= dout_wLayer1_1[`ByteFor];
                     weightB13 <= dout_wLayer1_1[`ByteThr];
                     weightB12 <= dout_wLayer1_1[`ByteTwo];
                     weightB11 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 6)    begin
+                end else if (Counter == 7)    begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightB25 <= dout_wLayer1_1[`ByteFiv];
                     weightB24 <= dout_wLayer1_1[`ByteFor];
                     weightB23 <= dout_wLayer1_1[`ByteThr];
                     weightB22 <= dout_wLayer1_1[`ByteTwo];
                     weightB21 <= dout_wLayer1_1[`ByteOne];            
-                end else if (Counter == 7)   begin                 
+                end else if (Counter == 8)   begin                 
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightB35 <= dout_wLayer1_1[`ByteFiv];
                     weightB34 <= dout_wLayer1_1[`ByteFor];
                     weightB33 <= dout_wLayer1_1[`ByteThr];
                     weightB32 <= dout_wLayer1_1[`ByteTwo];
                     weightB31 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 8)  begin
+                end else if (Counter == 9)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
                     weightB45 <= dout_wLayer1_1[`ByteFiv];
                     weightB44 <= dout_wLayer1_1[`ByteFor];
                     weightB43 <= dout_wLayer1_1[`ByteThr];
                     weightB42 <= dout_wLayer1_1[`ByteTwo];
                     weightB41 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 9)  begin
-                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                end else if (Counter == 10)  begin
                     weightB55 <= dout_wLayer1_1[`ByteFiv];
                     weightB54 <= dout_wLayer1_1[`ByteFor];
                     weightB53 <= dout_wLayer1_1[`ByteThr];
                     weightB52 <= dout_wLayer1_1[`ByteTwo];
                     weightB51 <= dout_wLayer1_1[`ByteOne];           
+                end else if (Counter == 0)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;           
                 end                 
             end else begin
                 ifbuf2[0]    <=      0;
@@ -796,7 +798,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf1[28]   <=      ifbuf1[29];
             ifbuf1[29]   <=      ifbuf1[30];
             ifbuf1[30]   <=      ifbuf1[31];
-            ifbuf1[31]   <=      regPad1[0];
+            ifbuf1[31]   <=      regPad2[0];
 
             case ( Counter )
             6'd10 : begin
@@ -876,7 +878,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 ifbuf5[31]   <=      ifbuf1[0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
-                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 32 ) begin
+                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 33 ) begin
                     if(Row != 5'd30 && Row != 5'd31) begin
                         addr_BRAM4k_1 <= addr_BRAM4k_1 + 1;
                     end else begin
