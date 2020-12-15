@@ -72,11 +72,11 @@ always @(posedge clk or negedge rst) begin
         wb_en_bub1      <= 0;
         wb_en           <= 0;
     end else if ( Process == `Start  ||  FinishFlag == 1 ) begin
-        prod1 <= $signed(ifmap1) * $signed(weight1);
-        prod2 <= $signed(ifmap2) * $signed(weight2);
-        prod3 <= $signed(ifmap3) * $signed(weight3);
-        prod4 <= $signed(ifmap4) * $signed(weight4);
-        prod5 <= $signed(ifmap5) * $signed(weight5);
+        prod1 <= ifmap1 * $signed(weight1);
+        prod2 <= ifmap2 * $signed(weight2);
+        prod3 <= ifmap3 * $signed(weight3);
+        prod4 <= ifmap4 * $signed(weight4);
+        prod5 <= ifmap5 * $signed(weight5);
         wb_en_bub2 <= 1; //ð��
 
         half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;

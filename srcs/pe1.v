@@ -331,11 +331,11 @@ always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable) begin    
     Process         <= `Idle;
     Layer           <= `Layer1;
-    addr_BRAM4k_1 <= 1;
+    addr_BRAM4k_1 <= 0;
     Counter <= 0;
     Row <= 0;
     Channel <= 0;
-    addr_wLayer1_1 <= 1;
+    addr_wLayer1_1 <= 0;
 end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
     case ( Layer )
@@ -2673,7 +2673,17 @@ wire wb_enB3;
 wire wb_enB4;
 wire wb_enB5;
 
-wire FinishWB;
+wire FinishWBA1;
+wire FinishWBA2;
+wire FinishWBA3;
+wire FinishWBA4;
+wire FinishWBA5;
+wire FinishWBB1;
+wire FinishWBB2;
+wire FinishWBB3;
+wire FinishWBB4;
+wire FinishWBB5;
+
 wire [10:0] psumA11;
 wire [10:0] psumA12;
 pe_group2 pe_group11(
@@ -2692,11 +2702,11 @@ pe_group2 pe_group11(
     .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumA11),
     .groupsum_out2(psumA12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 //----------------------------------------
 wire [10:0] psumA21;
@@ -2717,11 +2727,11 @@ pe_group2 pe_group12(
     .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumA21),
     .groupsum_out2(psumA22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA2)
 );
 
 //-------------------------------
@@ -2743,11 +2753,11 @@ pe_group2 pe_group13(
     .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumA31),
     .groupsum_out2(psumA32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA3)
 );
 
 wire [10:0] psumA41;
@@ -2768,11 +2778,11 @@ pe_group2 pe_group14(
     .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumA41),
     .groupsum_out2(psumA42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA4)
 );
 
 wire [10:0] psumA51;
@@ -2793,11 +2803,11 @@ pe_group2 pe_group15(
     .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumA51),
     .groupsum_out2(psumA52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA5)
 );
 
 //*****************************************************
@@ -2820,11 +2830,11 @@ pe_group2 pe_group21(
     .ifmap5(ifbuf1[3]),
     .groupsum_out1(psumB11),
     .groupsum_out2(psumB12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB1)
 );
 //----------------------------------------
 
@@ -2847,11 +2857,11 @@ pe_group2 pe_group22(
     .ifmap5(ifbuf2[3]),
     .groupsum_out1(psumB21),
     .groupsum_out2(psumB22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB2)
 );
 
 //-------------------------------
@@ -2873,11 +2883,11 @@ pe_group2 pe_group23(
     .ifmap5(ifbuf3[3]),
     .groupsum_out1(psumB31),
     .groupsum_out2(psumB32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB3)
 );
 
 wire [10:0] psumB41;
@@ -2898,11 +2908,11 @@ pe_group2 pe_group24(
     .ifmap5(ifbuf4[3]),
     .groupsum_out1(psumB41),
     .groupsum_out2(psumB42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB4)
 );
 
 wire [10:0] psumB51;
@@ -2923,11 +2933,11 @@ pe_group2 pe_group25(
     .ifmap5(ifbuf5[3]),
     .groupsum_out1(psumB51),
     .groupsum_out2(psumB52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB5)
 );
 
 
@@ -2960,7 +2970,7 @@ writeback   WB(
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 
 

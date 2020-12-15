@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="195303333333fs"></ZoomStartTime>
-      <ZoomEndTime time="196475333334fs"></ZoomEndTime>
-      <Cursor1Time time="196280000000fs"></Cursor1Time>
+      <ZoomStartTime time="291566970000fs"></ZoomStartTime>
+      <ZoomEndTime time="294270970001fs"></ZoomEndTime>
+      <Cursor1Time time="293142970000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="161"></ValueColumnWidth>
+      <ValueColumnWidth column_width="158"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="42" />
+   <WVObjectSize size="37" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -187,30 +187,6 @@
       <obj_property name="ElementShortName">groupsum_out1[10:0]</obj_property>
       <obj_property name="ObjectShortName">groupsum_out1[10:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/groupsum_out2" type="array">
-      <obj_property name="ElementShortName">groupsum_out2[10:0]</obj_property>
-      <obj_property name="ObjectShortName">groupsum_out2[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/prod1" type="array">
-      <obj_property name="ElementShortName">prod1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">prod1[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/prod2" type="array">
-      <obj_property name="ElementShortName">prod2[15:0]</obj_property>
-      <obj_property name="ObjectShortName">prod2[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/prod3" type="array">
-      <obj_property name="ElementShortName">prod3[15:0]</obj_property>
-      <obj_property name="ObjectShortName">prod3[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/prod4" type="array">
-      <obj_property name="ElementShortName">prod4[15:0]</obj_property>
-      <obj_property name="ObjectShortName">prod4[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/prod5" type="array">
-      <obj_property name="ElementShortName">prod5[15:0]</obj_property>
-      <obj_property name="ObjectShortName">prod5[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/pe_group11/half1" type="array">
       <obj_property name="ElementShortName">half1[10:0]</obj_property>
       <obj_property name="ObjectShortName">half1[10:0]</obj_property>
@@ -218,5 +194,9 @@
    <wvobject fp_name="/top_tb/top_/PE/pe_group11/half2" type="array">
       <obj_property name="ElementShortName">half2[10:0]</obj_property>
       <obj_property name="ObjectShortName">half2[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group11/groupsum_out2" type="array">
+      <obj_property name="ElementShortName">groupsum_out2[10:0]</obj_property>
+      <obj_property name="ObjectShortName">groupsum_out2[10:0]</obj_property>
    </wvobject>
 </wave_config>

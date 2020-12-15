@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Mon Dec 14 21:46:52 2020" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue Dec 15 13:03:08 2020" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2017.4 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2086221" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "50762b0f-6e26-4227-867a-3311d207e3ad" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "018feefae29b4c6eb1949bdcb041afb8" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "122" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "131" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz" -context "user_environment"
@@ -26,7 +26,7 @@ webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "501 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "5" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "18.05_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "17824_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3491312277 -regid "" -xml D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "8.34_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "17932_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3608977571 -regid "" -xml D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate
