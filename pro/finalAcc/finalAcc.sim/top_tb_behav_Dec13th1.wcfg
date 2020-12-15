@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="291566970000fs"></ZoomStartTime>
-      <ZoomEndTime time="294270970001fs"></ZoomEndTime>
-      <Cursor1Time time="293142970000fs"></Cursor1Time>
+      <ZoomStartTime time="484316033994fs"></ZoomStartTime>
+      <ZoomEndTime time="484630096318fs"></ZoomEndTime>
+      <Cursor1Time time="486480000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
-      <ValueColumnWidth column_width="158"></ValueColumnWidth>
+      <ValueColumnWidth column_width="154"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="37" />
    <wvobject fp_name="/top_tb/clk" type="logic">
@@ -95,16 +95,16 @@
       <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/addr_BRAM32k_2" type="array">
-      <obj_property name="ElementShortName">addr_BRAM32k_2[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_BRAM32k_2[11:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/din_BRAM32k_1" type="array">
       <obj_property name="ElementShortName">din_BRAM32k_1[63:0]</obj_property>
       <obj_property name="ObjectShortName">din_BRAM32k_1[63:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/addr_BRAM32k_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAM32k_2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM32k_2[11:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/pe_group11/Process" type="array">

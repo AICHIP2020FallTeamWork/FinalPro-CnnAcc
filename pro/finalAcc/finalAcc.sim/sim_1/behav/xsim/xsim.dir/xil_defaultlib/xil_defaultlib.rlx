@@ -10,7 +10,7 @@ D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wi
 D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,1607943873,verilog,,D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v,,clk_wiz_0_clk_wiz,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
 D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/sim/weightROM.v,1607943873,verilog,,D:/study_tools/FPGA/final_project/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,,weightROM,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
 D:/study_tools/FPGA/final_project/srcs/defines.v,1607943873,verilog,,,,,,,,,,,,
-D:/study_tools/FPGA/final_project/srcs/pe1.v,1608006438,verilog,,D:/study_tools/FPGA/final_project/srcs/pe_group2.v,D:/study_tools/FPGA/final_project/srcs/defines.v,pe1,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
+D:/study_tools/FPGA/final_project/srcs/pe1.v,1608023487,verilog,,D:/study_tools/FPGA/final_project/srcs/pe_group2.v,D:/study_tools/FPGA/final_project/srcs/defines.v,pe1,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
 D:/study_tools/FPGA/final_project/srcs/pe_group2.v,1608006310,verilog,,D:/study_tools/FPGA/final_project/srcs/top.v,,pe_group2,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
 D:/study_tools/FPGA/final_project/srcs/top.v,1607943873,verilog,,D:/study_tools/FPGA/final_project/srcs/writeback.v,,top,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
 D:/study_tools/FPGA/final_project/srcs/top_tb.v,1607943873,verilog,,,,top_tb,,,../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0,,,,,
