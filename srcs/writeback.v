@@ -30,16 +30,16 @@ module writeback(
 //-----------
     input   clk;
     input   rst;
-    input   [9:0]  sumA1;
-    input   [9:0]  sumA2;
-    input   [9:0]  sumA3;
-    input   [9:0]  sumA4;
-    input   [9:0]  sumA5;
-    input   [9:0]  sumB1;
-    input   [9:0]  sumB2;
-    input   [9:0]  sumB3;
-    input   [9:0]  sumB4;
-    input   [9:0]  sumB5;
+    input   [18:0] sumA1;
+    input   [18:0] sumA2;
+    input   [18:0] sumA3;
+    input   [18:0] sumA4;
+    input   [18:0] sumA5;
+    input   [18:0] sumB1;
+    input   [18:0] sumB2;
+    input   [18:0] sumB3;
+    input   [18:0] sumB4;
+    input   [18:0] sumB5;
     input   [3:0]       Layer;
     // input   [4:0]       State;
     input wb_en;
@@ -65,14 +65,15 @@ always @(posedge clk or negedge rst) begin
         din_1 <= 0;
         din_2 <= 0;
         Zuhe <=  `Zero; 
+        Counter <= 1;
         addr_BRAM32k_1   <= 0;
         addr_BRAM32k_2   <= 128;
     end else begin
         case(Layer) 
             `Layer1: begin
                  if(wb_en == 1 || FinishWB == 1) begin
-                    plusiA <= ($signed(sumA1) + $signed(sumA2) + $signed(sumA3) + $signed(sumA4) + $signed(sumA5));
-                    plusiB <= ($signed(sumB1) + $signed(sumB2) + $signed(sumB3) + $signed(sumB4) + $signed(sumB5));
+                    plusiA <= ($signed(sumA1) + $signed(sumA2) + $signed(sumA3) + $signed(sumA4) + $signed(sumA5))>>>9;
+                    plusiB <= ($signed(sumB1) + $signed(sumB2) + $signed(sumB3) + $signed(sumB4) + $signed(sumB5))>>>9;
                     case(Zuhe)
                         `Zero:begin
                             Zuhe<=`First;

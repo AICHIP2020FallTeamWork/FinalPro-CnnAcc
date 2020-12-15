@@ -2685,8 +2685,8 @@ wire FinishWBB3;
 wire FinishWBB4;
 wire FinishWBB5;
 
-wire [9:0] psumA11;
-wire [9:0] psumA12;
+wire [18:0] psumA11;
+wire [18:0] psumA12;
 pe_group2 pe_group11(
     .clk(clk),
     .rst(rst),
@@ -2710,8 +2710,8 @@ pe_group2 pe_group11(
     .FinishWB(FinishWBA1)
 );
 //----------------------------------------
-wire [9:0] psumA21;
-wire [9:0] psumA22;
+wire [18:0] psumA21;
+wire [18:0] psumA22;
 pe_group2 pe_group12(
     .clk(clk),
     .rst(rst),
@@ -2736,8 +2736,8 @@ pe_group2 pe_group12(
 );
 
 //-------------------------------
-wire [9:0] psumA31;
-wire [9:0] psumA32;
+wire [18:0] psumA31;
+wire [18:0] psumA32;
 pe_group2 pe_group13(
     .clk(clk),
     .rst(rst),
@@ -2761,8 +2761,8 @@ pe_group2 pe_group13(
     .FinishWB(FinishWBA3)
 );
 
-wire [9:0] psumA41;
-wire [9:0] psumA42;
+wire [18:0] psumA41;
+wire [18:0] psumA42;
 pe_group2 pe_group14(
     .clk(clk),
     .rst(rst),
@@ -2786,8 +2786,8 @@ pe_group2 pe_group14(
     .FinishWB(FinishWBA4)
 );
 
-wire [9:0] psumA51;
-wire [9:0] psumA52;
+wire [18:0] psumA51;
+wire [18:0] psumA52;
 pe_group2 pe_group15(
     .clk(clk),
     .rst(rst),
@@ -2813,8 +2813,8 @@ pe_group2 pe_group15(
 
 //*****************************************************
 
-wire [9:0] psumB11;
-wire [9:0] psumB12;
+wire [18:0] psumB11;
+wire [18:0] psumB12;
 pe_group2 pe_group21(
     .clk(clk),
     .rst(rst),
@@ -2840,8 +2840,8 @@ pe_group2 pe_group21(
 //----------------------------------------
 
 
-wire [9:0] psumB21;
-wire [9:0] psumB22;
+wire [18:0] psumB21;
+wire [18:0] psumB22;
 pe_group2 pe_group22(
     .clk(clk),
     .rst(rst),
@@ -2866,8 +2866,8 @@ pe_group2 pe_group22(
 );
 
 //-------------------------------
-wire [9:0] psumB31;
-wire [9:0] psumB32;
+wire [18:0] psumB31;
+wire [18:0] psumB32;
 pe_group2 pe_group23(
     .clk(clk),
     .rst(rst),
@@ -2891,8 +2891,8 @@ pe_group2 pe_group23(
     .FinishWB(FinishWBB3)
 );
 
-wire [9:0] psumB41;
-wire [9:0] psumB42;
+wire [18:0] psumB41;
+wire [18:0] psumB42;
 pe_group2 pe_group24(
     .clk(clk),
     .rst(rst),
@@ -2916,8 +2916,8 @@ pe_group2 pe_group24(
     .FinishWB(FinishWBB4)
 );
 
-wire [9:0] psumB51;
-wire [9:0] psumB52;
+wire [18:0] psumB51;
+wire [18:0] psumB52;
 pe_group2 pe_group25(
     .clk(clk),
     .rst(rst),
