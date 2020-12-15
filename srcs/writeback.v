@@ -251,10 +251,8 @@ always @(posedge clk or negedge rst) begin
                     //��������д��ʹ��
 
                 end else begin
-                plusiA1 <= 0;
-                plusiA2 <= 0;
-                plusiB1 <= 0;
-                plusiB2 <= 0;
+                plusiA <= 0;
+                plusiB <= 0;
                 din_1 <= 0;
                 din_2 <= 0;
                 Zuhe <=  `Zero;
