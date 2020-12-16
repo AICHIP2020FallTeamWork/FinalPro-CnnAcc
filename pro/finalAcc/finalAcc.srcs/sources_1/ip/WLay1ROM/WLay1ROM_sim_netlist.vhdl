@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
 -- Date        : Sun Dec 13 13:29:32 2020
 -- Host        : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top WLay1ROM -prefix
+--               WLay1ROM_ WLay1ROM_sim_netlist.vhdl
 -- Design      : WLay1ROM
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,6 @@ entity WLay1ROM_blk_mem_gen_prim_wrapper_init is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end WLay1ROM_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of WLay1ROM_blk_mem_gen_prim_wrapper_init is
@@ -329,8 +327,6 @@ entity WLay1ROM_blk_mem_gen_prim_width is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end WLay1ROM_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of WLay1ROM_blk_mem_gen_prim_width is
@@ -352,8 +348,6 @@ entity WLay1ROM_blk_mem_gen_generic_cstr is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end WLay1ROM_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of WLay1ROM_blk_mem_gen_generic_cstr is
@@ -375,8 +369,6 @@ entity WLay1ROM_blk_mem_gen_top is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end WLay1ROM_blk_mem_gen_top;
 
 architecture STRUCTURE of WLay1ROM_blk_mem_gen_top is
@@ -398,8 +390,6 @@ entity WLay1ROM_blk_mem_gen_v8_4_1_synth is
     clka : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
 end WLay1ROM_blk_mem_gen_v8_4_1_synth;
 
 architecture STRUCTURE of WLay1ROM_blk_mem_gen_v8_4_1_synth is
@@ -627,8 +617,6 @@ entity WLay1ROM_blk_mem_gen_v8_4_1 is
   attribute C_WRITE_WIDTH_B of WLay1ROM_blk_mem_gen_v8_4_1 : entity is 40;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of WLay1ROM_blk_mem_gen_v8_4_1 : entity is "zynq";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of WLay1ROM_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of WLay1ROM_blk_mem_gen_v8_4_1 : entity is "yes";
 end WLay1ROM_blk_mem_gen_v8_4_1;

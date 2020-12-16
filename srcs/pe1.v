@@ -48,11 +48,11 @@ module pe1(
     // ifmap_in02,
     // ifmap_in03,
     // ifmap_in04,
-    dout_BRAM4k_1,
+    
     // ofmap_out,
     clk,
     // initializing,
-    addr_BRAM4k_1,
+
     addr_wLayer1_1,
     dout_wLayer1_1, 
     
@@ -61,6 +61,14 @@ module pe1(
     addr_BRAM32k_2,
     din_BRAM32k_1,
     din_BRAM32k_2,
+
+    din_BRAM4k_1,
+    din_BRAM4k_2,
+    dout_BRAM4k_1,
+    dout_BRAM4k_2,
+    addr_BRAM4k_1,
+    addr_BRAM4k_2
+  
     we_BRAMConv2Arr1,
     addr_BRAMConv2Arr1_1,
     addr_BRAMConv2Arr1_2,
@@ -76,6 +84,7 @@ module pe1(
     din_BRAMConv2Arr2_2,
     dout_BRAMConv2Arr2_1,
     dout_BRAMConv2Arr2_2,
+
 );
 //------------------------
 
@@ -328,10 +337,14 @@ input    [63:0] dout_BRAMConv2Arr2_2;
     reg [7:0] multi432;
     reg [7:0] multi433;
 //--------------------------------------------
-output  reg  [11:0]  addr_BRAM4k_1;  
+output  reg  [8:0]  addr_BRAM4k_1;  
+output  reg  [8:0]  addr_BRAM4k_2;  
 output  reg  [7:0]   addr_wLayer1_1; 
 input   wire [39:0]  dout_wLayer1_1;
 input   wire  [63:0]  dout_BRAM4k_1;  
+input   wire  [63:0]  dout_BRAM4k_2;  
+output reg  [63:0]  din_BRAM4k_1;  
+output reg  [63:0]  din_BRAM4k_2;  
 
 reg        FinishFlag_Bub2 ;
 reg        FinishFlag_Bub1 ;

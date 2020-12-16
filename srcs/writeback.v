@@ -68,6 +68,7 @@ always @(posedge clk or negedge rst) begin
         Counter <= 1;
         addr_BRAM32k_1   <= 0;
         addr_BRAM32k_2   <= 128;
+        we_BRAM32k              <= 0;
     end else begin
         case(Layer) 
             `Layer1: begin

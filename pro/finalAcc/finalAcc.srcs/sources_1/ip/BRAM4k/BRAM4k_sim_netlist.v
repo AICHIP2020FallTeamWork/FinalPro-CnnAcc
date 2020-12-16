@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sun Dec 13 13:29:37 2020
+// Date        : Sun Dec 13 13:29:36 2020
 // Host        : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM4k/BRAM4k_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top BRAM4k -prefix
+//               BRAM4k_ BRAM4k_sim_netlist.v
 // Design      : BRAM4k
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -206,7 +206,6 @@ module BRAM4k
         .web(web));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module BRAM4k_blk_mem_gen_generic_cstr
    (douta,
     doutb,
@@ -264,7 +263,6 @@ module BRAM4k_blk_mem_gen_generic_cstr
         .web(web));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module BRAM4k_blk_mem_gen_prim_width
    (douta,
     doutb,
@@ -358,7 +356,6 @@ module BRAM4k_blk_mem_gen_prim_width__parameterized0
         .web(web));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module BRAM4k_blk_mem_gen_prim_wrapper_init
    (douta,
     doutb,
@@ -878,7 +875,6 @@ module BRAM4k_blk_mem_gen_prim_wrapper_init__parameterized0
         .WEBWE({1'b0,1'b0,1'b0,1'b0,web,web,web,web}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module BRAM4k_blk_mem_gen_top
    (douta,
     doutb,
@@ -949,7 +945,7 @@ endmodule
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) 
 (* C_WRITE_DEPTH_A = "512" *) (* C_WRITE_DEPTH_B = "512" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "64" *) (* C_WRITE_WIDTH_B = "64" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module BRAM4k_blk_mem_gen_v8_4_1
    (clka,
     rsta,
@@ -1211,7 +1207,6 @@ module BRAM4k_blk_mem_gen_v8_4_1
         .web(web));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module BRAM4k_blk_mem_gen_v8_4_1_synth
    (douta,
     doutb,
