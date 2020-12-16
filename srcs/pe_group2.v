@@ -41,17 +41,17 @@ input                            FinishFlag;
 
 reg          signed    [7:0]             storeeven1;
 reg          signed    [7:0]             storeeven2;
-reg          signed    [15:0]            prod1;
-reg          signed    [15:0]            prod2;
-reg          signed    [15:0]            prod3;
-reg          signed    [15:0]            prod4;
-reg          signed    [15:0]            prod5;
-reg          signed    [15:0]            prod6;
-reg          signed    [10:0]            half1; //[10:0]ÊÇÎªÁËÁ¿»¯
-reg          signed    [10:0]            half2;
+reg          signed    [14:0]            prod1;
+reg          signed    [14:0]            prod2;
+reg          signed    [14:0]            prod3;
+reg          signed    [14:0]            prod4;
+reg          signed    [14:0]            prod5;
+reg          signed    [14:0]            prod6;
+reg          signed    [17:0]            half1; //[10:0]ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+reg          signed    [17:0]            half2;
 
-output  reg  signed    [10:0]            groupsum_out1;
-output  reg  signed    [10:0]            groupsum_out2;
+output  reg  signed    [18:0]            groupsum_out1;
+output  reg  signed    [18:0]            groupsum_out2;
 output  reg       wb_en;
 
 reg  wb_en_bub2;
@@ -64,6 +64,7 @@ always @(posedge clk or negedge rst) begin
         prod3 <= 0;
         prod4 <= 0;
         prod5 <= 0;
+        prod6 <= 0;
         half1 <= 0;
         half2 <= 0;
         groupsum_out1 <= 0;
@@ -76,15 +77,14 @@ always @(posedge clk or negedge rst) begin
         prod3 <= $signed(ifmap3) * $signed(weight3);
         prod4 <= $signed(ifmap4) * $signed(weight4);
         prod5 <= $signed(ifmap5) * $signed(weight5);
-        wb_en_bub2 <= 1; //Ã°ÅÝ
-
-        half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3))>>>7;
-        half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6))>>>7;
-        wb_en_bub1 <= wb_en_bub2; //Ã°ÅÝ
-        wb_en           <=  wb_en_bub1; //Ã°ÅÝ
-    if (layer == 1) begin
-        groupsum_out1   <=  ($signed(half1) + $signed(half2))>>>1;
-    end
+        wb_en_bub2 <= 1; //ï¿½
+        half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3));
+        half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6));
+        wb_en_bub1 <= wb_en_bub2; //ï¿½
+        wb_en           <=  wb_en_bub1; //ï¿½
+    // if (layer == 1) begin
+        groupsum_out1   <=  ($signed(half1) + $signed(half2));
+    // end
     end else  begin
         prod1 <= 0;
         prod2 <= 0;
@@ -100,28 +100,37 @@ always @(posedge clk or negedge rst) begin
     end
 end
 
-
-//--------------------------------
 reg        FinishWB_Bub2 ;
 reg        FinishWB_Bub1 ;
  output    reg        FinishWB      ;
 always @(posedge clk or negedge rst) begin 
-//µ±wb_en³öÏÖÏÂ½µÑØ£¬ÒâÎ¶×ÅWBÖÐµÄÔËËã½áÊø£¬
-//WriteBackÁ÷Ë®ÏßÈÔÈ»ÔÚ¹¤×÷,Ô­ÏÈµÄÊ¹ÄÜÐÅºÅÈç¹ûÁ¢¼´ÖÃÁãÔò»áÖÕÖ¹Á÷Ë®£¬
-//Òò´Ë£¬ÔÚwb_en³öÏÖÏÂ½µÑØµÄÊ±ºò¸ø³öÒ»¸ö¿ØÖÆÐÅºÅ
-//¸ºÔðÔÚÏÂÒ»¼¶Á÷Ë®Íê³ÉÖ®ºóÖÕÖ¹Á÷Ë®¡£
     if(rst == `RstEnable) begin
-        FinishWB_Bub2 <= 0;
-        FinishWB_Bub1 <= 0;
         FinishWB      <= 0;
-    end else if(wb_en == 1)begin
-        FinishWB <= 1;
+    end else if(rst == `RstDisable && wb_en == 1)begin
+        FinishWB      <= 1;
     end else begin
-        FinishWB_Bub2 <= 0;
-        FinishWB_Bub1 <= FinishWB_Bub2;
-        FinishWB      <= FinishWB_Bub1; //ÏÈÊ¹ÓÃÕâ¸öÈýÅÄµÄ´òÅÄ£¬ºóÆÚ¿ÉÒÔ¸ù¾Ý²ãÊý¸ü¸Ä¡£
+        FinishWB      <= 0; 
     end
 end
+//--------------------------------
+// reg        FinishWB_Bub2 ;
+// reg        FinishWB_Bub1 ;
+//  output    reg        FinishWB      ;
+// always @(posedge clk or negedge rst) begin 
+//     if(rst == `RstEnable) begin
+//         FinishWB_Bub2 <= 0;
+//         FinishWB_Bub1 <= 0;
+//         FinishWB      <= 0;
+//     end else if(rst == `RstDisable && wb_en == 1)begin
+//         FinishWB <= 1;
+//         FinishWB_Bub1 <= 1;
+//         FinishWB_Bub2 <= 1;
+//     end else begin
+//         FinishWB_Bub2 <= 0;
+//         FinishWB_Bub1 <= FinishWB_Bub2;
+//         FinishWB      <= FinishWB_Bub1; //ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½?
+//     end
+// end
 
 
 endmodule
