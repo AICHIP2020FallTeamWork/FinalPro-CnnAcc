@@ -84,45 +84,45 @@ clk_wiz_0 clk0(
         .web(we_BRAM4k)
     );
 //-------------------------------------------//--------
-//    reg we_BRAMConv2Arr1;
-//    wire [11:0] addr_BRAMConv2Arr1_1;
-//    wire [11:0] addr_BRAMConv2Arr1_2;
-//    wire [63:0] din_BRAMConv2Arr1_1;
-//    wire [63:0] din_BRAMConv2Arr1_2;
-//    wire [63:0] dout_BRAMConv2Arr1_1;
-//    wire [63:0] dout_BRAMConv2Arr1_2;
-//    BRAM4k BRAMConv2Arr1(
-//        .addra(addr_BRAMConv2Arr1_1),
-//        .addrb(addr_BRAMConv2Arr1_2),
-//        .clka(clk),
-//        .clkb(clk),
-//        .dina(din_BRAMConv2Arr1_1),
-//        .dinb(din_BRAMConv2Arr1_2),
-//        .douta(dout_BRAMConv2Arr1_1),
-//        .doutb(dout_BRAMConv2Arr1_2),
-//        .wea(we_BRAMConv2Arr1),
-//        .web(we_BRAMConv2Arr1)
-//    );
-////-------------------------------------------//--------
-//    reg we_BRAMConv2Arr2;
-//    wire [11:0] addr_BRAMConv2Arr2_1;
-//    wire [11:0] addr_BRAMConv2Arr2_2;
-//    wire [63:0] din_BRAMConv2Arr2_1;
-//    wire [63:0] din_BRAMConv2Arr2_2;
-//    wire [63:0] dout_BRAMConv2Arr2_1;
-//    wire [63:0] dout_BRAMConv2Arr2_2;
-//    BRAM4k BRAMConv2Arr2(
-//        .addra(addr_BRAMConv2Arr2_1),
-//        .addrb(addr_BRAMConv2Arr2_2),
-//        .clka(clk),
-//        .clkb(clk),
-//        .dina(din_BRAMConv2Arr2_1),
-//        .dinb(din_BRAMConv2Arr2_2),
-//        .douta(dout_BRAMConv2Arr2_1),
-//        .doutb(dout_BRAMConv2Arr2_2),
-//        .wea(we_BRAMConv2Arr2),
-//        .web(we_BRAMConv2Arr2)
-//    );
+   wire we_BRAMConv2Arr1;
+   wire [11:0] addr_BRAMConv2Arr1_1;
+   wire [11:0] addr_BRAMConv2Arr1_2;
+   wire [63:0] din_BRAMConv2Arr1_1;
+   wire [63:0] din_BRAMConv2Arr1_2;
+   wire [63:0] dout_BRAMConv2Arr1_1;
+   wire [63:0] dout_BRAMConv2Arr1_2;
+   BRAM4k BRAMConv2Arr1(
+       .addra(addr_BRAMConv2Arr1_1),
+       .addrb(addr_BRAMConv2Arr1_2),
+       .clka(clk),
+       .clkb(clk),
+       .dina(din_BRAMConv2Arr1_1),
+       .dinb(din_BRAMConv2Arr1_2),
+       .douta(dout_BRAMConv2Arr1_1),
+       .doutb(dout_BRAMConv2Arr1_2),
+       .wea(we_BRAMConv2Arr1),
+       .web(we_BRAMConv2Arr1)
+   );
+//-------------------------------------------//--------
+   wire we_BRAMConv2Arr2;
+   wire [11:0] addr_BRAMConv2Arr2_1;
+   wire [11:0] addr_BRAMConv2Arr2_2;
+   wire [63:0] din_BRAMConv2Arr2_1;
+   wire [63:0] din_BRAMConv2Arr2_2;
+   wire [63:0] dout_BRAMConv2Arr2_1;
+   wire [63:0] dout_BRAMConv2Arr2_2;
+   BRAM4k BRAMConv2Arr2(
+       .addra(addr_BRAMConv2Arr2_1),
+       .addrb(addr_BRAMConv2Arr2_2),
+       .clka(clk),
+       .clkb(clk),
+       .dina(din_BRAMConv2Arr2_1),
+       .dinb(din_BRAMConv2Arr2_2),
+       .douta(dout_BRAMConv2Arr2_1),
+       .doutb(dout_BRAMConv2Arr2_2),
+       .wea(we_BRAMConv2Arr2),
+       .web(we_BRAMConv2Arr2)
+   );
 ////-------------------------------------------//--------
 //    reg we_BRAMConv3Arr1;
 //    wire [11:0] addr_BRAMConv3Arr1_1;
@@ -222,7 +222,24 @@ pe1 PE(
     .addr_BRAM32k_1(addr_BRAM32k_1),
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
-    .din_BRAM32k_2(din_BRAM32k_2)
+    .din_BRAM32k_2(din_BRAM32k_2),
+
+    //----the double baseram 
+    .we_BRAMConv2Arr1(we_BRAMConv2Arr1),
+    .addr_BRAMConv2Arr1_1(addr_BRAMConv2Arr1_1),
+    .addr_BRAMConv2Arr1_2(addr_BRAMConv2Arr1_2),
+    .din_BRAMConv2Arr1_1(din_BRAMConv2Arr1_1),
+    .din_BRAMConv2Arr1_2(din_BRAMConv2Arr1_2),
+    .dout_BRAMConv2Arr1_1(dout_BRAMConv2Arr1_1),
+    .dout_BRAMConv2Arr1_2(dout_BRAMConv2Arr1_2),
+//-------------------------------------------//--------
+    .we_BRAMConv2Arr2(we_BRAMConv2Arr2),
+    .addr_BRAMConv2Arr2_1(addr_BRAMConv2Arr2_1),
+    .addr_BRAMConv2Arr2_2(addr_BRAMConv2Arr2_2),
+    .din_BRAMConv2Arr2_1(din_BRAMConv2Arr2_1),
+    .din_BRAMConv2Arr2_2(din_BRAMConv2Arr2_2),
+    .dout_BRAMConv2Arr2_1(dout_BRAMConv2Arr2_1),
+    .dout_BRAMConv2Arr2_2(dout_BRAMConv2Arr2_2)
     
 );
 
