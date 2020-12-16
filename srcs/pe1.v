@@ -2,9 +2,9 @@
 
 module pe1(
     rst,
-    weight_en,
+    // weight_en,
     locked,
-    calculate_en,
+    // calculate_en,
     // weight11_in, //11 12 13 14 15 16
     // weight12_in, //21 22 23 24 25 26
     // weight13_in, //31 32 33 34 35 36
@@ -49,9 +49,9 @@ module pe1(
     // ifmap_in03,
     // ifmap_in04,
     dout_BRAM4k_1,
-    ofmap_out,
+    // ofmap_out,
     clk,
-    initializing,
+    // initializing,
     addr_BRAM4k_1,
     addr_wLayer1_1,
     dout_wLayer1_1, 
@@ -64,12 +64,12 @@ module pe1(
 );
 //--------------------------------------
     input locked;
-    input wire initializing;
+    // input wire initializing;
     input   wire  rst;
         
 
-    input                             weight_en;
-    input                             calculate_en;
+    // input                             weight_en;
+    // input                             calculate_en;
 
     // input        signed    [47:0]     dout_BRAM4k_1;
     // input        signed    [47:0]     ifmap_in2;
@@ -114,7 +114,7 @@ module pe1(
     // input        signed    [7:0]      weight65_in;
     // input        signed    [7:0]      weight66_in;
 
-    output  reg  signed    [19:0]      ofmap_out;
+    // output  reg  signed    [19:0]      ofmap_out;
 //-------------------input and output ----------------------------------------------
 //weight register
     reg        signed    [7:0]      weightA11;
@@ -253,8 +253,8 @@ module pe1(
     reg  [2:0]   StateBubble3;
     reg  [2:0]   StateBubble4;
     reg  [2:0]   StateBubble5;
-    reg [4:0]  Counter;
-    reg [4:0]  kernCounter;
+    reg [5:0]  Counter;
+    reg [6:0]  kernCounter;
     reg Selctrl;
     reg [7:0] multi111;
     reg [7:0] multi112;
@@ -299,7 +299,7 @@ module pe1(
 output  reg  [11:0]  addr_BRAM4k_1;  
 output  reg  [7:0]   addr_wLayer1_1; 
 input   wire [39:0]  dout_wLayer1_1;
-output  reg  [63:0]  dout_BRAM4k_1;  
+input   wire  [63:0]  dout_BRAM4k_1;  
 
 reg        FinishFlag_Bub2 ;
 reg        FinishFlag_Bub1 ;
@@ -313,6 +313,8 @@ always @(posedge clk or negedge Process[0] or negedge rst) begin
         FinishFlag      <= 0;
     end else if(Process[0] == 1)begin
         FinishFlag <= 1;
+        FinishFlag_Bub1 <= 1;
+        FinishFlag_Bub2 <= 1;
     end else begin
         FinishFlag_Bub2 <= 0;
         FinishFlag_Bub1 <= FinishFlag_Bub2;
@@ -326,20 +328,23 @@ reg [4:0] Channel;
 reg [2:0] Process;
 //------------------------------------
 always @(posedge clk or negedge rst) begin
-if ( rst == `RstEnable ) begin    
+if ( rst == `RstEnable) begin    
     Process         <= `Idle;
     Layer           <= `Layer1;
-    addr_BRAM4k_1 <= 1;
+    addr_BRAM4k_1 <= 0;
     Counter <= 0;
+    Row <= 0;
     Channel <= 0;
-    addr_wLayer1_1 <= 1;
-end else if( locked == 1 )begin
+    addr_wLayer1_1 <= 0;
+end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
     case ( Layer )
     `Layer1: begin 
         case ( Process ) 
         `Idle:begin
-            if( Channel < 32) begin
+            Counter <= 0;
+            addr_BRAM4k_1 <=   0;
+            if( Channel < 16) begin
                 Channel <= Channel + 1; 
                 Process <= `Init;
             end  else begin
@@ -348,7 +353,7 @@ end else if( locked == 1 )begin
             end
         end
         `Init:begin
-            if (Counter < 5'd12) begin
+            if (Counter < 12) begin
                 addr_BRAM4k_1<=   addr_BRAM4k_1 + 1;
                 Counter      <=   Counter + 1;
                 Process      <=   `Init;
@@ -465,79 +470,81 @@ end else if( locked == 1 )begin
 // 35 .. ..  .  .
 // 45 .. .. ..  .
 // 55 .. .. .. .. 
-                if (Counter ==0) begin
+                if (Counter ==1) begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightA15 <= dout_wLayer1_1[`ByteFiv];
-                    weightA14 <= dout_wLayer1_1[`ByteFor];
+                    weightA11 <= dout_wLayer1_1[`ByteFiv];
+                    weightA12 <= dout_wLayer1_1[`ByteFor];
                     weightA13 <= dout_wLayer1_1[`ByteThr];
-                    weightA12 <= dout_wLayer1_1[`ByteTwo];
-                    weightA11 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 1)    begin
+                    weightA14 <= dout_wLayer1_1[`ByteTwo];
+                    weightA15 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 2)    begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightA25 <= dout_wLayer1_1[`ByteFiv];
-                    weightA24 <= dout_wLayer1_1[`ByteFor];
+                    weightA21 <= dout_wLayer1_1[`ByteFiv];
+                    weightA22 <= dout_wLayer1_1[`ByteFor];
                     weightA23 <= dout_wLayer1_1[`ByteThr];
-                    weightA22 <= dout_wLayer1_1[`ByteTwo];
-                    weightA21 <= dout_wLayer1_1[`ByteOne];            
-                end else if (Counter == 2)   begin                 
+                    weightA24 <= dout_wLayer1_1[`ByteTwo];
+                    weightA25 <= dout_wLayer1_1[`ByteOne];            
+                end else if (Counter == 3)   begin                 
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightA35 <= dout_wLayer1_1[`ByteFiv];
-                    weightA34 <= dout_wLayer1_1[`ByteFor];
+                    weightA31 <= dout_wLayer1_1[`ByteFiv];
+                    weightA32 <= dout_wLayer1_1[`ByteFor];
                     weightA33 <= dout_wLayer1_1[`ByteThr];
-                    weightA32 <= dout_wLayer1_1[`ByteTwo];
-                    weightA31 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 3)  begin
-                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightA45 <= dout_wLayer1_1[`ByteFiv];
-                    weightA44 <= dout_wLayer1_1[`ByteFor];
-                    weightA43 <= dout_wLayer1_1[`ByteThr];
-                    weightA42 <= dout_wLayer1_1[`ByteTwo];
-                    weightA41 <= dout_wLayer1_1[`ByteOne];
-                                  
+                    weightA34 <= dout_wLayer1_1[`ByteTwo];
+                    weightA35 <= dout_wLayer1_1[`ByteOne];
                 end else if (Counter == 4)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightA55 <= dout_wLayer1_1[`ByteFiv];
-                    weightA54 <= dout_wLayer1_1[`ByteFor];
-                    weightA53 <= dout_wLayer1_1[`ByteThr];
-                    weightA52 <= dout_wLayer1_1[`ByteTwo];
-                    weightA51 <= dout_wLayer1_1[`ByteOne];
-//----
+                    weightA41 <= dout_wLayer1_1[`ByteFiv];
+                    weightA42 <= dout_wLayer1_1[`ByteFor];
+                    weightA43 <= dout_wLayer1_1[`ByteThr];
+                    weightA44 <= dout_wLayer1_1[`ByteTwo];
+                    weightA45 <= dout_wLayer1_1[`ByteOne];
+                                 
                 end else if (Counter == 5)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightB15 <= dout_wLayer1_1[`ByteFiv];
-                    weightB14 <= dout_wLayer1_1[`ByteFor];
+                    weightA51 <= dout_wLayer1_1[`ByteFiv];
+                    weightA52 <= dout_wLayer1_1[`ByteFor];
+                    weightA53 <= dout_wLayer1_1[`ByteThr];
+                    weightA54 <= dout_wLayer1_1[`ByteTwo];
+                    weightA55 <= dout_wLayer1_1[`ByteOne];
+//----
+                end else if (Counter == 6)  begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
+                    weightB11 <= dout_wLayer1_1[`ByteFiv];
+                    weightB12 <= dout_wLayer1_1[`ByteFor];
                     weightB13 <= dout_wLayer1_1[`ByteThr];
-                    weightB12 <= dout_wLayer1_1[`ByteTwo];
-                    weightB11 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 6)    begin
+                    weightB14 <= dout_wLayer1_1[`ByteTwo];
+                    weightB15 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 7)    begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightB25 <= dout_wLayer1_1[`ByteFiv];
-                    weightB24 <= dout_wLayer1_1[`ByteFor];
+                    weightB21 <= dout_wLayer1_1[`ByteFiv];
+                    weightB22 <= dout_wLayer1_1[`ByteFor];
                     weightB23 <= dout_wLayer1_1[`ByteThr];
-                    weightB22 <= dout_wLayer1_1[`ByteTwo];
-                    weightB21 <= dout_wLayer1_1[`ByteOne];            
-                end else if (Counter == 7)   begin                 
+                    weightB24 <= dout_wLayer1_1[`ByteTwo];
+                    weightB25 <= dout_wLayer1_1[`ByteOne];            
+                end else if (Counter == 8)   begin                 
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightB35 <= dout_wLayer1_1[`ByteFiv];
-                    weightB34 <= dout_wLayer1_1[`ByteFor];
+                    weightB31 <= dout_wLayer1_1[`ByteFiv];
+                    weightB32 <= dout_wLayer1_1[`ByteFor];
                     weightB33 <= dout_wLayer1_1[`ByteThr];
-                    weightB32 <= dout_wLayer1_1[`ByteTwo];
-                    weightB31 <= dout_wLayer1_1[`ByteOne];
-                end else if (Counter == 8)  begin
-                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightB45 <= dout_wLayer1_1[`ByteFiv];
-                    weightB44 <= dout_wLayer1_1[`ByteFor];
-                    weightB43 <= dout_wLayer1_1[`ByteThr];
-                    weightB42 <= dout_wLayer1_1[`ByteTwo];
-                    weightB41 <= dout_wLayer1_1[`ByteOne];
+                    weightB34 <= dout_wLayer1_1[`ByteTwo];
+                    weightB35 <= dout_wLayer1_1[`ByteOne];
                 end else if (Counter == 9)  begin
                     addr_wLayer1_1 <= addr_wLayer1_1 + 1;
-                    weightB55 <= dout_wLayer1_1[`ByteFiv];
-                    weightB54 <= dout_wLayer1_1[`ByteFor];
+                    weightB41 <= dout_wLayer1_1[`ByteFiv];
+                    weightB42 <= dout_wLayer1_1[`ByteFor];
+                    weightB43 <= dout_wLayer1_1[`ByteThr];
+                    weightB44 <= dout_wLayer1_1[`ByteTwo];
+                    weightB45 <= dout_wLayer1_1[`ByteOne];
+                end else if (Counter == 10)  begin
+                    weightB51 <= dout_wLayer1_1[`ByteFiv];
+                    weightB52 <= dout_wLayer1_1[`ByteFor];
                     weightB53 <= dout_wLayer1_1[`ByteThr];
-                    weightB52 <= dout_wLayer1_1[`ByteTwo];
-                    weightB51 <= dout_wLayer1_1[`ByteOne];           
-                end                 
+                    weightB54 <= dout_wLayer1_1[`ByteTwo];
+                    weightB55 <= dout_wLayer1_1[`ByteOne];           
+                end else if(Counter == 0)begin
+                    addr_wLayer1_1 <= addr_wLayer1_1 + 1;           
+                    
+                end          
             end else begin
                 ifbuf2[0]    <=      0;
                 ifbuf2[1]    <=      0;
@@ -570,7 +577,7 @@ end else if( locked == 1 )begin
                 ifbuf2[28]   <=      0;
                 ifbuf2[29]   <=      0;
                 ifbuf2[30]   <=      0;
-                ifbuf1[31]   <=      0;
+                ifbuf2[31]   <=      0;
                 ifbuf1[0]    <=      0;
                 ifbuf1[1]    <=      0;
                 ifbuf1[2]    <=      0;
@@ -614,7 +621,7 @@ end else if( locked == 1 )begin
                 regPad4[1]   <= 0;
                 regPad5[1]   <= 0;
                 Process <= `Start;
-                Counter <= 0;
+                Counter <= 1;
               end
         end
 //------------
@@ -792,60 +799,60 @@ end else if( locked == 1 )begin
             ifbuf1[28]   <=      ifbuf1[29];
             ifbuf1[29]   <=      ifbuf1[30];
             ifbuf1[30]   <=      ifbuf1[31];
-            ifbuf1[31]   <=      regPad1[0];
+            ifbuf1[31]   <=      regPad2[0];
 
             case ( Counter )
             6'd10 : begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
+                ifbuf5[24]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd18 : begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
+                ifbuf5[24]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
             6'd26 :begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
+                ifbuf5[24]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[7:0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
             end
-            6'd33 :begin
-                ifbuf5[24]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[63:56];
-                ifbuf5[25]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[55:48];
-                ifbuf5[26]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[47:40];
-                ifbuf5[27]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[39:32];
-                ifbuf5[28]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[31:24];
-                ifbuf5[29]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[23:16];
-                ifbuf5[30]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[15:8];
-                ifbuf5[31]   <=   (Row == 5'd30 || Row == 5'd31)? 8'd0:dout_BRAM4k_1[7:0];
-                Counter <= 0; 
+            6'd34 :begin
+                ifbuf5[24]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[63:56];
+                ifbuf5[25]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[55:48];
+                ifbuf5[26]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[47:40];
+                ifbuf5[27]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[39:32];
+                ifbuf5[28]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[31:24];
+                ifbuf5[29]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[23:16];
+                ifbuf5[30]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[15:8];
+                ifbuf5[31]   <=   (5'd29 <= Row && Row<=5'd31)? 8'd0:dout_BRAM4k_1[7:0];
+                Counter <= 1; 
                 Trashdata <= 0; //signal for disable
                 if(Row == 5'd31) begin
                     Row <= 0;
                     Process <= `Idle; 
-                end else begin
+                end else begin  
                     Row <= Row + 1;                    
                 end
             end
@@ -872,8 +879,12 @@ end else if( locked == 1 )begin
                 ifbuf5[31]   <=      ifbuf1[0];
                 Counter <= Counter + 1;
                 Trashdata <= 0;
-                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 32 ) begin
-                    addr_BRAM4k_1 <= addr_BRAM4k_1 + 1;
+                if(Counter == 9 ||Counter == 17 ||Counter == 25 ||Counter == 33 ) begin
+                    if(Row <5'd29) begin
+                        addr_BRAM4k_1 <= addr_BRAM4k_1 + 1;
+                    end else begin
+                        addr_BRAM4k_1 <= addr_BRAM4k_1;                        
+                    end
                 end
             end
             endcase
@@ -954,7 +965,7 @@ end else if( locked == 1 )begin
     `Layer3: begin
         case ( Process )
         `Init:begin
-            if (Counter != 5'd3) begin
+            if (Counter != 3) begin
                 Counter <= Counter + 1;
                 Process <= `Init;
                 ifbuf6[24]   <=   ifmap_in4[63:56];
@@ -2652,10 +2663,30 @@ end
 
 //-------------------------------
 
-wire wb_en;
-wire FinishWB;
-wire [10:0] psumA11;
-wire [10:0] psumA12;
+wire wb_enA1;
+wire wb_enA2;
+wire wb_enA3;
+wire wb_enA4;
+wire wb_enA5;
+wire wb_enB1;
+wire wb_enB2;
+wire wb_enB3;
+wire wb_enB4;
+wire wb_enB5;
+
+wire FinishWBA1;
+wire FinishWBA2;
+wire FinishWBA3;
+wire FinishWBA4;
+wire FinishWBA5;
+wire FinishWBB1;
+wire FinishWBB2;
+wire FinishWBB3;
+wire FinishWBB4;
+wire FinishWBB5;
+
+wire [18:0] psumA11;
+wire [18:0] psumA12;
 pe_group2 pe_group11(
     .clk(clk),
     .rst(rst),
@@ -2667,20 +2698,20 @@ pe_group2 pe_group11(
 
     .ifmap1(regPad1[0]),
     .ifmap2(regPad1[1]),
-    .ifmap3(ifbuf1[1]),
-    .ifmap4(ifbuf1[2]),
-    .ifmap5(ifbuf1[3]),
+    .ifmap3(ifbuf1[0]),
+    .ifmap4(ifbuf1[1]),
+    .ifmap5(ifbuf1[2]),
     .groupsum_out1(psumA11),
     .groupsum_out2(psumA12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 //----------------------------------------
-wire [10:0] psumA21;
-wire [10:0] psumA22;
+wire [18:0] psumA21;
+wire [18:0] psumA22;
 pe_group2 pe_group12(
     .clk(clk),
     .rst(rst),
@@ -2692,21 +2723,21 @@ pe_group2 pe_group12(
 
     .ifmap1(regPad2[0]),
     .ifmap2(regPad2[1]),
-    .ifmap3(ifbuf2[1]),
-    .ifmap4(ifbuf2[2]),
-    .ifmap5(ifbuf2[3]),
+    .ifmap3(ifbuf2[0]),
+    .ifmap4(ifbuf2[1]),
+    .ifmap5(ifbuf2[2]),
     .groupsum_out1(psumA21),
     .groupsum_out2(psumA22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA2)
 );
 
 //-------------------------------
-wire [10:0] psumA31;
-wire [10:0] psumA32;
+wire [18:0] psumA31;
+wire [18:0] psumA32;
 pe_group2 pe_group13(
     .clk(clk),
     .rst(rst),
@@ -2718,20 +2749,20 @@ pe_group2 pe_group13(
 
     .ifmap1(regPad3[0]),
     .ifmap2(regPad3[1]),
-    .ifmap3(ifbuf3[1]),
-    .ifmap4(ifbuf3[2]),
-    .ifmap5(ifbuf3[3]),
+    .ifmap3(ifbuf3[0]),
+    .ifmap4(ifbuf3[1]),
+    .ifmap5(ifbuf3[2]),
     .groupsum_out1(psumA31),
     .groupsum_out2(psumA32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA3)
 );
 
-wire [10:0] psumA41;
-wire [10:0] psumA42;
+wire [18:0] psumA41;
+wire [18:0] psumA42;
 pe_group2 pe_group14(
     .clk(clk),
     .rst(rst),
@@ -2743,20 +2774,20 @@ pe_group2 pe_group14(
 
     .ifmap1(regPad4[0]),
     .ifmap2(regPad4[1]),
-    .ifmap3(ifbuf4[1]),
-    .ifmap4(ifbuf4[2]),
-    .ifmap5(ifbuf4[3]),
+    .ifmap3(ifbuf4[0]),
+    .ifmap4(ifbuf4[1]),
+    .ifmap5(ifbuf4[2]),
     .groupsum_out1(psumA41),
     .groupsum_out2(psumA42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA4)
 );
 
-wire [10:0] psumA51;
-wire [10:0] psumA52;
+wire [18:0] psumA51;
+wire [18:0] psumA52;
 pe_group2 pe_group15(
     .clk(clk),
     .rst(rst),
@@ -2768,22 +2799,22 @@ pe_group2 pe_group15(
 
     .ifmap1(regPad5[0]),
     .ifmap2(regPad5[1]),
-    .ifmap3(ifbuf5[1]),
-    .ifmap4(ifbuf5[2]),
-    .ifmap5(ifbuf5[3]),
+    .ifmap3(ifbuf5[0]),
+    .ifmap4(ifbuf5[1]),
+    .ifmap5(ifbuf5[2]),
     .groupsum_out1(psumA51),
     .groupsum_out2(psumA52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enA5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA5)
 );
 
 //*****************************************************
 
-wire [10:0] psumB11;
-wire [10:0] psumB12;
+wire [18:0] psumB11;
+wire [18:0] psumB12;
 pe_group2 pe_group21(
     .clk(clk),
     .rst(rst),
@@ -2795,22 +2826,22 @@ pe_group2 pe_group21(
 
     .ifmap1(regPad1[0]),
     .ifmap2(regPad1[1]),
-    .ifmap3(ifbuf1[1]),
-    .ifmap4(ifbuf1[2]),
-    .ifmap5(ifbuf1[3]),
+    .ifmap3(ifbuf1[0]),
+    .ifmap4(ifbuf1[1]),
+    .ifmap5(ifbuf1[2]),
     .groupsum_out1(psumB11),
     .groupsum_out2(psumB12),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB1),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB1)
 );
 //----------------------------------------
 
 
-wire [10:0] psumB21;
-wire [10:0] psumB22;
+wire [18:0] psumB21;
+wire [18:0] psumB22;
 pe_group2 pe_group22(
     .clk(clk),
     .rst(rst),
@@ -2822,21 +2853,21 @@ pe_group2 pe_group22(
 
     .ifmap1(regPad2[0]),
     .ifmap2(regPad2[1]),
-    .ifmap3(ifbuf2[1]),
-    .ifmap4(ifbuf2[2]),
-    .ifmap5(ifbuf2[3]),
+    .ifmap3(ifbuf2[0]),
+    .ifmap4(ifbuf2[1]),
+    .ifmap5(ifbuf2[2]),
     .groupsum_out1(psumB21),
     .groupsum_out2(psumB22),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB2),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB2)
 );
 
 //-------------------------------
-wire [10:0] psumB31;
-wire [10:0] psumB32;
+wire [18:0] psumB31;
+wire [18:0] psumB32;
 pe_group2 pe_group23(
     .clk(clk),
     .rst(rst),
@@ -2848,20 +2879,20 @@ pe_group2 pe_group23(
 
     .ifmap1(regPad3[0]),
     .ifmap2(regPad3[1]),
-    .ifmap3(ifbuf3[1]),
-    .ifmap4(ifbuf3[2]),
-    .ifmap5(ifbuf3[3]),
+    .ifmap3(ifbuf3[0]),
+    .ifmap4(ifbuf3[1]),
+    .ifmap5(ifbuf3[2]),
     .groupsum_out1(psumB31),
     .groupsum_out2(psumB32),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB3),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB3)
 );
 
-wire [10:0] psumB41;
-wire [10:0] psumB42;
+wire [18:0] psumB41;
+wire [18:0] psumB42;
 pe_group2 pe_group24(
     .clk(clk),
     .rst(rst),
@@ -2873,20 +2904,20 @@ pe_group2 pe_group24(
 
     .ifmap1(regPad4[0]),
     .ifmap2(regPad4[1]),
-    .ifmap3(ifbuf4[1]),
-    .ifmap4(ifbuf4[2]),
-    .ifmap5(ifbuf4[3]),
+    .ifmap3(ifbuf4[0]),
+    .ifmap4(ifbuf4[1]),
+    .ifmap5(ifbuf4[2]),
     .groupsum_out1(psumB41),
     .groupsum_out2(psumB42),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB4),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB4)
 );
 
-wire [10:0] psumB51;
-wire [10:0] psumB52;
+wire [18:0] psumB51;
+wire [18:0] psumB52;
 pe_group2 pe_group25(
     .clk(clk),
     .rst(rst),
@@ -2898,16 +2929,16 @@ pe_group2 pe_group25(
 
     .ifmap1(regPad5[0]),
     .ifmap2(regPad5[1]),
-    .ifmap3(ifbuf5[1]),
-    .ifmap4(ifbuf5[2]),
-    .ifmap5(ifbuf5[3]),
+    .ifmap3(ifbuf5[0]),
+    .ifmap4(ifbuf5[1]),
+    .ifmap5(ifbuf5[2]),
     .groupsum_out1(psumB51),
     .groupsum_out2(psumB52),
-    .layer(State),
+    .layer(Layer),
     .Process(Process),
     .wb_en(wb_enB5),
     .FinishFlag(FinishFlag),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBB5)
 );
 
 
@@ -2932,7 +2963,7 @@ writeback   WB(
     .sumB3(psumB31),
     .sumB4(psumB41),
     .sumB5(psumB51),
-    .State(State),
+    .Layer(Layer),
     .wb_en(wb_enA1),
     //out
     .we_BRAM32k(we_BRAM32k),
@@ -2940,7 +2971,7 @@ writeback   WB(
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
-    .FinishWB(FinishWB)
+    .FinishWB(FinishWBA1)
 );
 
 
