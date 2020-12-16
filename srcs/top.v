@@ -1,13 +1,17 @@
 module top(
     rst,
-    clk50MHz
+    clk50MHz,
+    led
 );
 
-
+output reg led;
 input rst;
 input clk50MHz;
 
 //-------------------------------------------
+always @ * begin
+    led = 1;
+end
 
 //-------------------------------------------
 wire        clk;
@@ -20,19 +24,19 @@ clk_wiz_0 clk0(
     .locked(locked)
 );
 //------------------------------------------------------
-    wire [13:0] addr_weight_1;
-    wire [13:0] addr_weight_2;
-    wire [71:0] dout_weight_1;
-    wire [71:0] dout_weight_2;
+//    wire [13:0] addr_weight_1;
+//    wire [13:0] addr_weight_2;
+//    wire [71:0] dout_weight_1;
+//    wire [71:0] dout_weight_2;
 
-    weightROM weightRom(
-        .addra(addr_weight_1),
-        .addrb(addr_weight_2),
-        .clka(clk),
-        .clkb(clk),
-        .douta(dout_weight_1),
-        .doutb(dout_weight_2)
-    );
+//    weightROM weightRom(
+//        .addra(addr_weight_1),
+//        .addrb(addr_weight_2),
+//        .clka(clk),
+//        .clkb(clk),
+//        .douta(dout_weight_1),
+//        .doutb(dout_weight_2)
+//    );
 //-------------------------------------------
 //------------------------------------------------------
     wire [7:0] addr_wLayer1_1;
@@ -65,8 +69,8 @@ clk_wiz_0 clk0(
     );
 //-------------------------------------------
     reg we_BRAM4k;
-    wire [11:0] addr_BRAM4k_1;
-    wire [11:0] addr_BRAM4k_2;
+    wire [8:0] addr_BRAM4k_1;
+    wire [8:0] addr_BRAM4k_2;
     wire [63:0] din_BRAM4k_1;
     wire [63:0] din_BRAM4k_2;
     wire [63:0] dout_BRAM4k_1;
@@ -210,11 +214,10 @@ pe1 PE(
     // .weight_en(weight_en),
     .locked(locked),
     // .calculate_en(calculate_en),
-    .dout_BRAM4k_1(dout_BRAM4k_1),
     // .ofmap_out(ofmap_out),
     .clk(clk),
     // .initializing(initializing),
-    .addr_BRAM4k_1(addr_BRAM4k_1),
+    
     .addr_wLayer1_1(addr_wLayer1_1),
     .dout_wLayer1_1(dout_wLayer1_1), //�������������ߣ�dout�������BRAM��˵�ģ�
     
@@ -222,8 +225,14 @@ pe1 PE(
     .addr_BRAM32k_1(addr_BRAM32k_1),
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
-    .din_BRAM32k_2(din_BRAM32k_2)
+    .din_BRAM32k_2(din_BRAM32k_2),
     
+    .din_BRAM4k_1(din_BRAM4k_1),
+    .din_BRAM4k_2(din_BRAM4k_2),
+    .dout_BRAM4k_1(dout_BRAM4k_1),
+    .dout_BRAM4k_2(dout_BRAM4k_2),
+    .addr_BRAM4k_1(addr_BRAM4k_1),
+    .addr_BRAM4k_2(addr_BRAM4k_2)   
 );
 
 

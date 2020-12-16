@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
 // Date        : Sun Dec 13 13:29:32 2020
 // Host        : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top WLay1ROM -prefix
+//               WLay1ROM_ WLay1ROM_sim_netlist.v
 // Design      : WLay1ROM
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -186,7 +186,6 @@ module WLay1ROM
         .web(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module WLay1ROM_blk_mem_gen_generic_cstr
    (douta,
     clka,
@@ -205,7 +204,6 @@ module WLay1ROM_blk_mem_gen_generic_cstr
         .douta(douta));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module WLay1ROM_blk_mem_gen_prim_width
    (douta,
     clka,
@@ -224,7 +222,6 @@ module WLay1ROM_blk_mem_gen_prim_width
         .douta(douta));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module WLay1ROM_blk_mem_gen_prim_wrapper_init
    (douta,
     clka,
@@ -487,7 +484,6 @@ module WLay1ROM_blk_mem_gen_prim_wrapper_init
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module WLay1ROM_blk_mem_gen_top
    (douta,
     clka,
@@ -530,7 +526,7 @@ endmodule
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) 
 (* C_WRITE_DEPTH_A = "160" *) (* C_WRITE_DEPTH_B = "160" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "40" *) (* C_WRITE_WIDTH_B = "40" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module WLay1ROM_blk_mem_gen_v8_4_1
    (clka,
     rsta,
@@ -792,7 +788,6 @@ module WLay1ROM_blk_mem_gen_v8_4_1
         .douta(douta));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module WLay1ROM_blk_mem_gen_v8_4_1_synth
    (douta,
     clka,

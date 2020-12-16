@@ -14,146 +14,149 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16952 
+INFO: Helper process launched with PID 10820 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 409.555 ; gain = 104.020
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 409.449 ; gain = 103.723
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:1]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-638] synthesizing module 'weightROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'weightROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:75]
-WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:76]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'pe1' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:343]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:341]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:353]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:351]
 INFO: [Synth 8-638] synthesizing module 'pe_group2' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:1]
 WARNING: [Synth 8-3848] Net groupsum_out2 in module/entity pe_group2 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:54]
-INFO: [Synth 8-256] done synthesizing module 'pe_group2' (6#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:1]
+INFO: [Synth 8-256] done synthesizing module 'pe_group2' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:1]
 INFO: [Synth 8-638] synthesizing module 'writeback' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:5]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:82]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:74]
-WARNING: [Synth 8-5788] Register we_BRAM32k_reg in module writeback is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:85]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:73]
 WARNING: [Synth 8-5788] Register din_BRAM32k_1_reg in module writeback is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:88]
 WARNING: [Synth 8-5788] Register din_BRAM32k_2_reg in module writeback is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:89]
-WARNING: [Synth 8-5788] Register Counter_reg in module writeback is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:135]
-INFO: [Synth 8-256] done synthesizing module 'writeback' (7#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:5]
-WARNING: [Synth 8-6014] Unused sequential element Trashdata_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:814]
-INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_Bub2_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:311]
-INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_Bub1_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:312]
-INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:313]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf5_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:360]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf4_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:396]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
-WARNING: [Synth 8-5788] Register ifbuf3_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:432]
+INFO: [Synth 8-256] done synthesizing module 'writeback' (6#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:5]
+WARNING: [Synth 8-6014] Unused sequential element Trashdata_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:825]
+INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_Bub2_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:321]
+INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_Bub1_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:322]
+INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register FinishFlag_reg in module pe1. This is not a recommended register style for Xilinx devices  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:323]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf5_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:370]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf4_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:406]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[31] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[30] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[29] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[28] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[27] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[26] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[25] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[24] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[23] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[22] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[21] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[20] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[19] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[18] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[17] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[16] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[15] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[14] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[13] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[12] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[11] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[10] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[9] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[8] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[7] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[6] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[5] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[4] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[3] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[2] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[1] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register ifbuf3_reg[0] in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:442]
+WARNING: [Synth 8-5788] Register weightA11_reg in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:485]
+WARNING: [Synth 8-5788] Register weightA12_reg in module pe1 is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:486]
 INFO: [Common 17-14] Message 'Synth 8-5788' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-256] done synthesizing module 'pe1' (8#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
-WARNING: [Synth 8-3848] Net addr_weight_1 in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:23]
-WARNING: [Synth 8-3848] Net addr_weight_2 in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:24]
-WARNING: [Synth 8-3848] Net we_BRAM4k in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:67]
-WARNING: [Synth 8-3848] Net addr_BRAM4k_2 in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:69]
-WARNING: [Synth 8-3848] Net din_BRAM4k_1 in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:70]
-WARNING: [Synth 8-3848] Net din_BRAM4k_2 in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:71]
-INFO: [Synth 8-256] done synthesizing module 'top' (9#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:1]
+WARNING: [Synth 8-3848] Net din_BRAM4k_1 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:311]
+WARNING: [Synth 8-3848] Net din_BRAM4k_2 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:312]
+WARNING: [Synth 8-3848] Net addr_BRAM4k_2 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:306]
+INFO: [Synth 8-256] done synthesizing module 'pe1' (7#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
+WARNING: [Synth 8-3848] Net we_BRAM4k in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:71]
+INFO: [Synth 8-256] done synthesizing module 'top' (8#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:1]
+WARNING: [Synth 8-3917] design top has port led driven by constant 1
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[18]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[17]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[16]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[15]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[14]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[13]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[12]
+WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[11]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[10]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[9]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[8]
@@ -169,8 +172,86 @@ WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[3]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[2]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[1]
 WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[0]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[63]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[62]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[61]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[60]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[59]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[58]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[57]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[56]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[55]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[54]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[53]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[52]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[51]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[50]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[49]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[48]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[47]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[46]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[45]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[44]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[43]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[42]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[41]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[40]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[39]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[38]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[37]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[36]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[35]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[34]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[33]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[32]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[31]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[30]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[29]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[28]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[27]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[26]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[25]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[24]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[23]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[22]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[21]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[20]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[19]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[18]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[17]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[16]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[15]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[14]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[13]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[12]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[11]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[10]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[9]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[8]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[7]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[6]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[5]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[4]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[3]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[2]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[1]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_1[0]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[63]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[62]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[61]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[60]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[59]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[58]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[57]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[56]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[55]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[54]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[53]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[52]
+WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[51]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 497.848 ; gain = 192.313
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 498.383 ; gain = 192.656
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -180,70 +261,67 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 497.848 ; gain = 192.313
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 498.383 ; gain = 192.656
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z035ffg676-2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'weightRom'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'weightRom'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp4/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp4/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp5/BRAM4k_in_context.xdc] for cell 'bram4k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp5/BRAM4k_in_context.xdc] for cell 'bram4k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp6/BRAM32k_in_context.xdc] for cell 'bram32k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp6/BRAM32k_in_context.xdc] for cell 'bram32k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp7/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp7/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 931.785 ; gain = 0.969
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 934.988 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 931.785 ; gain = 626.250
+Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 934.988 ; gain = 629.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z035ffg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 931.785 ; gain = 626.250
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 934.988 ; gain = 629.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-11640-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp4/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-21064-LAPTOP-PD9C7IFG/dcp4/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for bram32k. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for bram4k. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clk0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for wLayer1Rom. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for weightRom. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 931.785 ; gain = 626.250
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 934.988 ; gain = 629.262
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'Zuhe_reg' in module 'writeback'
-INFO: [Synth 8-5544] ROM "plusiA1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "plusiA" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "din_1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Zuhe" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "addr_BRAM32k_1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "we_BRAM32k" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "din_BRAM32k_1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Zuhe" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element addr_BRAM32k_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:71]
-WARNING: [Synth 8-6014] Unused sequential element addr_BRAM32k_2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:72]
-INFO: [Synth 8-5544] ROM "ifbuf2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "Process" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "Counter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "Row" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "Channel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "weightA15" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:337]
-WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:338]
+INFO: [Synth 8-5546] ROM "weightA11" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:347]
+WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:348]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -261,7 +339,7 @@ WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'Zuhe_reg' using encoding 'sequential' in module 'writeback'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 931.785 ; gain = 626.250
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:42 ; elapsed = 00:00:46 . Memory (MB): peak = 934.988 ; gain = 629.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -274,47 +352,52 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     16 Bit       Adders := 20    
-	   2 Input     12 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 14    
-	   3 Input     11 Bit       Adders := 2     
+	   5 Input     19 Bit       Adders := 2     
+	   3 Input     18 Bit       Adders := 20    
+	   2 Input     12 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	               64 Bit    Registers := 4     
-	               16 Bit    Registers := 60    
-	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 34    
+	               19 Bit    Registers := 10    
+	               18 Bit    Registers := 20    
+	               15 Bit    Registers := 62    
+	               12 Bit    Registers := 2     
+	                9 Bit    Registers := 1     
 	                8 Bit    Registers := 221   
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 2     
 	                4 Bit    Registers := 2     
-	                1 Bit    Registers := 64    
+	                1 Bit    Registers := 44    
 +---Muxes : 
 	  11 Input     64 Bit        Muxes := 3     
 	   2 Input     64 Bit        Muxes := 4     
-	   2 Input     16 Bit        Muxes := 50    
-	   4 Input     12 Bit        Muxes := 1     
-	   2 Input     11 Bit        Muxes := 34    
-	   4 Input      8 Bit        Muxes := 169   
+	   2 Input     18 Bit        Muxes := 20    
+	   2 Input     15 Bit        Muxes := 52    
+	  11 Input     12 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 4     
+	   4 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 4     
+	   4 Input      8 Bit        Muxes := 170   
 	   6 Input      6 Bit        Muxes := 1     
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 7     
+	   2 Input      4 Bit        Muxes := 3     
 	  11 Input      4 Bit        Muxes := 1     
 	  14 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 58    
+	   2 Input      1 Bit        Muxes := 38    
 	  11 Input      1 Bit        Muxes := 8     
-	   5 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 3     
 	   4 Input      1 Bit        Muxes := 17    
+	  12 Input      1 Bit        Muxes := 1     
 	  10 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 3     
-	  12 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 	   7 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 1     
@@ -329,32 +412,35 @@ Hierarchical RTL Component report
 Module pe_group2 
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     16 Bit       Adders := 2     
-	   2 Input     11 Bit       Adders := 1     
+	   3 Input     18 Bit       Adders := 2     
 +---Registers : 
-	               16 Bit    Registers := 6     
-	               11 Bit    Registers := 3     
-	                1 Bit    Registers := 6     
+	               19 Bit    Registers := 1     
+	               18 Bit    Registers := 2     
+	               15 Bit    Registers := 6     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 5     
-	   2 Input     11 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     18 Bit        Muxes := 2     
+	   2 Input     15 Bit        Muxes := 5     
 Module writeback 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     11 Bit       Adders := 4     
-	   3 Input     11 Bit       Adders := 2     
+	   5 Input     19 Bit       Adders := 2     
+	   2 Input     12 Bit       Adders := 4     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	               64 Bit    Registers := 4     
-	               11 Bit    Registers := 4     
+	               15 Bit    Registers := 2     
+	               12 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	  11 Input     64 Bit        Muxes := 3     
 	   2 Input     64 Bit        Muxes := 4     
-	   2 Input     11 Bit        Muxes := 4     
-	   2 Input      4 Bit        Muxes := 7     
+	   2 Input     15 Bit        Muxes := 2     
+	  11 Input     12 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 3     
 	  11 Input      4 Bit        Muxes := 1     
 	  14 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 10    
@@ -362,32 +448,32 @@ Detailed RTL Component Info :
 Module pe1 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     12 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 2     
 +---Registers : 
-	               12 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
 	                8 Bit    Registers := 221   
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
-	   4 Input     12 Bit        Muxes := 1     
-	   4 Input      8 Bit        Muxes := 169   
+	   4 Input      9 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 170   
 	   6 Input      6 Bit        Muxes := 1     
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
 	   6 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 28    
 	   4 Input      1 Bit        Muxes := 17    
+	  12 Input      1 Bit        Muxes := 1     
 	  10 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 3     
-	  12 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 	   7 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 1     
@@ -408,84 +494,47 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element addr_BRAM32k_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:71]
-WARNING: [Synth 8-6014] Unused sequential element addr_BRAM32k_2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:72]
-WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:337]
-WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:338]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[10]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[9]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[8]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[7]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[6]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[5]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[4]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[3]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[2]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[1]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port groupsum_out2[0]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[3]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[2]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[1]
-WARNING: [Synth 8-3331] design pe_group2 has unconnected port layer[0]
-WARNING: [Synth 8-3332] Sequential element (addr_BRAM4k_1_reg[11]) is unused and will be removed from module pe1.
-WARNING: [Synth 8-3332] Sequential element (addr_BRAM4k_1_reg[10]) is unused and will be removed from module pe1.
-WARNING: [Synth 8-3332] Sequential element (addr_BRAM4k_1_reg[9]) is unused and will be removed from module pe1.
+WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:347]
+WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:348]
+WARNING: [Synth 8-3917] design top has port led driven by constant 1
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__2.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__2.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__2.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__2.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__3.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__3.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__3.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__3.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__3.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__3.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__4.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__4.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__4.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__4.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__4.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__4.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__5.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__5.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__5.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__5.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__5.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__5.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__6.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__6.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__6.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__6.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__6.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__6.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__7.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__7.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__7.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__7.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__7.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__7.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__8.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__8.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__8.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__8.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__8.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__8.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__9.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__9.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__9.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2__9.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2__9.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__9.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2.
 WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2.
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub2_reg) is unused and will be removed from module pe_group2.
-WARNING: [Synth 8-3332] Sequential element (FinishWB_Bub1_reg) is unused and will be removed from module pe_group2.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 931.785 ; gain = 626.250
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 934.988 ; gain = 629.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -499,13 +548,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk0/clk_out1' to pin 'clk0/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 971.844 ; gain = 666.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:18 ; elapsed = 00:01:23 . Memory (MB): peak = 971.793 ; gain = 666.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1028.789 ; gain = 723.254
+Finished Timing Optimization : Time (s): cpu = 00:01:21 ; elapsed = 00:01:27 . Memory (MB): peak = 1011.809 ; gain = 706.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -516,7 +565,6 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[15]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[14]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[13]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[12]) is unused and will be removed from module top.
@@ -532,7 +580,6 @@ WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[3]) is unuse
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[2]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[1]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group11/prod6_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[15]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[14]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[13]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[12]) is unused and will be removed from module top.
@@ -548,7 +595,6 @@ WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[3]) is unuse
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[2]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[1]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group12/prod6_reg[0]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[15]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[14]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[13]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[12]) is unused and will be removed from module top.
@@ -559,9 +605,33 @@ WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[8]) is unuse
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[7]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[6]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group13/prod6_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[11]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[10]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[9]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[8]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[7]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[6]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[5]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[4]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group14/prod6_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group15/prod6_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group15/prod6_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group15/prod6_reg[12]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (PE/pe_group15/prod6_reg[11]) is unused and will be removed from module top.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Technology Mapping : Time (s): cpu = 00:01:29 ; elapsed = 00:01:35 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -584,109 +654,8 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[13]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[12]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[11]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[10]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[9]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addra[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[13]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[12]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[11]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[10]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[9]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module weightRom has unconnected pin addrb[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[63]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[62]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[61]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[60]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[59]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[58]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[57]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[56]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[55]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[54]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[53]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[52]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[51]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[50]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[49]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[48]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[47]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[46]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[45]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[44]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[43]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[42]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[41]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[40]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[39]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[38]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[37]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[36]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[35]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[34]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[33]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[32]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[31]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[30]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[29]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[28]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[27]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[26]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[25]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[24]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[23]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[22]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[21]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[20]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[19]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[18]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[17]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[16]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[15]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[14]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[13]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[12]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[11]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[10]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[9]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[1]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin dina[0]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[8]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[7]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[6]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[5]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[4]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[3]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[2]
-CRITICAL WARNING: [Synth 8-4442] BlackBox module bram4k has unconnected pin addrb[1]
-INFO: [Common 17-14] Message 'Synth 8-4442' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished IO Insertion : Time (s): cpu = 00:01:32 ; elapsed = 00:01:38 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -699,7 +668,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:32 ; elapsed = 00:01:38 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -711,25 +680,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:34 ; elapsed = 00:01:40 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:34 ; elapsed = 00:01:40 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -739,8 +708,8 @@ Static Shift Register Report:
 +------------+---------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name | RTL Name            | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +------------+---------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|top         | PE/ifbuf2_reg[3][7] | 28     | 8     | YES          | NO                 | YES               | 0      | 8       | 
-|top         | PE/ifbuf1_reg[3][7] | 29     | 8     | YES          | NO                 | YES               | 0      | 8       | 
+|top         | PE/ifbuf2_reg[2][7] | 30     | 8     | YES          | NO                 | YES               | 0      | 8       | 
+|top         | PE/ifbuf1_reg[2][7] | 30     | 8     | YES          | NO                 | YES               | 0      | 8       | 
 +------------+---------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
@@ -755,10 +724,9 @@ Report BlackBoxes:
 |      |BlackBox name |Instances |
 +------+--------------+----------+
 |1     |clk_wiz_0     |         1|
-|2     |weightROM     |         1|
-|3     |WLay1ROM      |         1|
-|4     |BRAM32k       |         1|
-|5     |BRAM4k        |         1|
+|2     |WLay1ROM      |         1|
+|3     |BRAM32k       |         1|
+|4     |BRAM4k        |         1|
 +------+--------------+----------+
 
 Report Cell Usage: 
@@ -769,50 +737,50 @@ Report Cell Usage:
 |2     |BRAM4k    |     1|
 |3     |WLay1ROM  |     1|
 |4     |clk_wiz_0 |     1|
-|5     |weightROM |     1|
-|6     |BUFG      |     1|
-|7     |CARRY4    |   787|
-|8     |LUT1      |    18|
-|9     |LUT2      |  2714|
-|10    |LUT3      |  1688|
-|11    |LUT4      |  1371|
-|12    |LUT5      |   368|
-|13    |LUT6      |  1531|
-|14    |SRLC32E   |    16|
-|15    |FDCE      |  1372|
-|16    |FDPE      |     7|
-|17    |FDRE      |  1497|
-|18    |LDC       |     3|
-|19    |IBUF      |     1|
+|5     |BUFG      |     1|
+|6     |CARRY4    |   838|
+|7     |LUT1      |    27|
+|8     |LUT2      |  2755|
+|9     |LUT3      |  1799|
+|10    |LUT4      |  1443|
+|11    |LUT5      |   418|
+|12    |LUT6      |  1553|
+|13    |SRLC32E   |    16|
+|14    |FDCE      |  1530|
+|15    |FDPE      |     8|
+|16    |FDRE      |  1469|
+|17    |LDC       |     3|
+|18    |IBUF      |     1|
+|19    |OBUF      |     1|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+---------------+------------+------+
 |      |Instance       |Module      |Cells |
 +------+---------------+------------+------+
-|1     |top            |            | 11816|
-|2     |  PE           |pe1         | 11222|
-|3     |    WB         |writeback   |   696|
+|1     |top            |            | 12160|
+|2     |  PE           |pe1         | 11759|
+|3     |    WB         |writeback   |   754|
 |4     |    pe_group11 |pe_group2   |   479|
-|5     |    pe_group12 |pe_group2_0 |   415|
-|6     |    pe_group13 |pe_group2_1 |   424|
-|7     |    pe_group14 |pe_group2_2 |   428|
-|8     |    pe_group15 |pe_group2_3 |   415|
-|9     |    pe_group21 |pe_group2_4 |   429|
-|10    |    pe_group22 |pe_group2_5 |   415|
-|11    |    pe_group23 |pe_group2_6 |   424|
-|12    |    pe_group24 |pe_group2_7 |   429|
-|13    |    pe_group25 |pe_group2_8 |   415|
+|5     |    pe_group12 |pe_group2_0 |   468|
+|6     |    pe_group13 |pe_group2_1 |   518|
+|7     |    pe_group14 |pe_group2_2 |   508|
+|8     |    pe_group15 |pe_group2_3 |   468|
+|9     |    pe_group21 |pe_group2_4 |   467|
+|10    |    pe_group22 |pe_group2_5 |   468|
+|11    |    pe_group23 |pe_group2_6 |   518|
+|12    |    pe_group24 |pe_group2_7 |   509|
+|13    |    pe_group25 |pe_group2_8 |   468|
 +------+---------------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 1093.785 ; gain = 788.059
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 165 critical warnings and 251 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:00:55 . Memory (MB): peak = 1097.270 ; gain = 357.797
-Synthesis Optimization Complete : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 1097.270 ; gain = 791.734
+Synthesis finished with 0 errors, 0 critical warnings and 418 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:23 . Memory (MB): peak = 1093.785 ; gain = 351.453
+Synthesis Optimization Complete : Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 1093.785 ; gain = 788.059
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 791 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-17] Analyzing 842 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -820,10 +788,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LDC => LDCE: 3 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-56 Infos, 248 Warnings, 100 Critical Warnings and 0 Errors encountered.
+53 Infos, 312 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:09 ; elapsed = 00:01:12 . Memory (MB): peak = 1097.270 ; gain = 803.207
+synth_design: Time (s): cpu = 00:01:44 ; elapsed = 00:01:53 . Memory (MB): peak = 1093.785 ; gain = 799.527
 INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.261 . Memory (MB): peak = 1097.270 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 15 12:17:29 2020...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.387 . Memory (MB): peak = 1093.785 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 16 17:15:15 2020...
