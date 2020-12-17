@@ -67,7 +67,7 @@ module pe1(
     dout_BRAM4k_1,
     dout_BRAM4k_2,
     addr_BRAM4k_1,
-    addr_BRAM4k_2
+    addr_BRAM4k_2,
   
     we_BRAMConv2Arr1,
     addr_BRAMConv2Arr1_1,

@@ -242,7 +242,7 @@ pe1 PE(
     .din_BRAMConv2Arr2_1(din_BRAMConv2Arr2_1),
     .din_BRAMConv2Arr2_2(din_BRAMConv2Arr2_2),
     .dout_BRAMConv2Arr2_1(dout_BRAMConv2Arr2_1),
-    .dout_BRAMConv2Arr2_2(dout_BRAMConv2Arr2_2)
+    .dout_BRAMConv2Arr2_2(dout_BRAMConv2Arr2_2),
 
     
     .din_BRAM4k_1(din_BRAM4k_1),
