@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="BRAM32k_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1607652379">
+<GenRun Id="BRAM32k_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1608170280">
   <File Type="PA-TCL" Name="BRAM32k.tcl"/>
   <File Type="REPORTS-TCL" Name="BRAM32k_reports.tcl"/>
   <File Type="RDS-RDS" Name="BRAM32k.vds"/>

@@ -18,3 +18,7 @@ This includes to codes for AIchip in 2020 Autumn, written by Jiuru Song and Qiha
 
 ### Layer1 Finished, going for Layer2
 **dev5** is the head of the project.  
+
+
+### 文件夹simu-wave-backup
+作用：这备份了在layer1中的仿真波形配置，留以备用
