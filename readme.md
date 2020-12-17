@@ -11,14 +11,13 @@ This includes to codes for AIchip in 2020 Autumn, written by Jiuru Song and Qiha
 ​	Implementation of a pe group. Including module 'pe_group'.
 
 
-### debug note
-12.13   
-目前使用10MHz进行运算   
-在111.6us时候进入第二个卷积核   
-
-### Layer1 Finished, going for Layer2
-**dev5** is the head of the project.  
-
+## debug note
+12.16  
+目前使用100MHz
 
 ### 文件夹simu-wave-backup
 作用：这备份了在layer1中的仿真波形配置，留以备用
+
+### Layer2 Finished, going for Layer3
+**dev6** is the head of the project.  
+
