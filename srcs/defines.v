@@ -1,6 +1,7 @@
 `define RstEnable 1'b0
 `define RstDisable 1'b1
 
+`define ZeroBtye 8'b00000000
 `define Layer1 4'b0001
 `define Layer2 4'd2
 `define Layer3 4'd3
@@ -18,12 +19,12 @@
 `define ByteOne 7:0
 `define ByteTwo 15:8
 `define ByteThr 23:16
-`define ByteFor 32:24
+`define ByteFor 31:24
 `define ByteFiv 39:32
 `define ByteSix 47:40
 `define ByteSev 55:48
 `define ByteEig 63:56
-`define ByteNin 72:64
+`define ByteNin 71:64
 
 `define Zero  4'd0 
 `define First  4'd1

@@ -72,7 +72,8 @@ module pe1(
     addr_BRAM4k_1,
     addr_BRAM4k_2,
   
-    we_BRAMConv2Arr1,
+    we_BRAMConv2Arr1_1,
+    we_BRAMConv2Arr1_2,
     addr_BRAMConv2Arr1_1,
     addr_BRAMConv2Arr1_2,
     din_BRAMConv2Arr1_1,
@@ -80,7 +81,8 @@ module pe1(
     dout_BRAMConv2Arr1_1,
     dout_BRAMConv2Arr1_2,
 //-------------------------------------------//--------
-    we_BRAMConv2Arr2,
+    we_BRAMConv2Arr2_1,
+    we_BRAMConv2Arr2_2,
     addr_BRAMConv2Arr2_1,
     addr_BRAMConv2Arr2_2,
     din_BRAMConv2Arr2_1,
@@ -90,22 +92,32 @@ module pe1(
 
 );
 //------------------------
-
-output  reg    we_BRAMConv2Arr1;
+reg [63:0] din_BRAMConv2Arr;
+output  reg    we_BRAMConv2Arr1_1;
+output  reg    we_BRAMConv2Arr1_2;
 output  reg    [11:0] addr_BRAMConv2Arr1_1;
 output  reg    [11:0] addr_BRAMConv2Arr1_2;
-output  reg    [63:0] din_BRAMConv2Arr1_1;
-output  reg    [63:0] din_BRAMConv2Arr1_2;
+output  wire    [63:0] din_BRAMConv2Arr1_1;
+output  wire    [63:0] din_BRAMConv2Arr1_2;
 input    [63:0] dout_BRAMConv2Arr1_1;
 input    [63:0] dout_BRAMConv2Arr1_2;
+reg [1:0] BRAMFLAG;
+
 //-------------------------------------------//--------
-output  reg    we_BRAMConv2Arr2;
+output  reg    we_BRAMConv2Arr2_1;
+output  reg    we_BRAMConv2Arr2_2;
 output  reg    [11:0] addr_BRAMConv2Arr2_1;
 output  reg    [11:0] addr_BRAMConv2Arr2_2;
-output  reg    [63:0] din_BRAMConv2Arr2_1;
-output  reg    [63:0] din_BRAMConv2Arr2_2;
+output  wire    [63:0] din_BRAMConv2Arr2_1;
+output  wire    [63:0] din_BRAMConv2Arr2_2;
 input    [63:0] dout_BRAMConv2Arr2_1;
 input    [63:0] dout_BRAMConv2Arr2_2;
+
+// assign din_BRAMConv2Arr1_1 = BRAMFLAG==2'b01? din_BRAMConv2Arr: 64'b0;
+// assign din_BRAMConv2Arr2_1 = BRAMFLAG==2'b10? din_BRAMConv2Arr: 64'b0;
+
+assign din_BRAMConv2Arr1_1 = din_BRAMConv2Arr;
+assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
 //--------------------------------------
     input locked;
     // input wire initializing;
@@ -252,18 +264,18 @@ input    [63:0] dout_BRAMConv2Arr2_2;
     reg          signed    [17:0]    psum62;
 
     reg                    [7:0]     num;
-    reg                    [`Byte]   ifbuf1 [31:0];
-    reg                    [`Byte]   ifbuf2 [31:0];
-    reg                    [`Byte]   ifbuf3 [31:0];
-    reg                    [`Byte]   ifbuf4 [31:0];
-    reg                    [`Byte]   ifbuf5 [31:0];
-    reg                    [`Byte]   ifbuf6 [31:0];
-    reg                    [`Byte]   regPad1 [1:0];
-    reg                    [`Byte]   regPad2 [1:0];
-    reg                    [`Byte]   regPad3 [3:0];
-    reg                    [`Byte]   regPad4 [1:0];
-    reg                    [`Byte]   regPad5 [1:0];
-    reg                    [`Byte]   regPad6 [3:0];
+    reg signed                   [`Byte]   ifbuf1 [31:0];
+    reg signed                   [`Byte]   ifbuf2 [31:0];
+    reg signed                   [`Byte]   ifbuf3 [31:0];
+    reg signed                   [`Byte]   ifbuf4 [31:0];
+    reg signed                   [`Byte]   ifbuf5 [31:0];
+    reg signed                   [`Byte]   ifbuf6 [31:0];
+    reg signed                   [`Byte]   regPad1 [1:0];
+    reg signed                   [`Byte]   regPad2 [1:0];
+    reg signed                   [`Byte]   regPad3 [3:0];
+    reg signed                   [`Byte]   regPad4 [1:0];
+    reg signed                   [`Byte]   regPad5 [1:0];
+    reg signed                   [`Byte]   regPad6 [3:0];
 
 
     reg     [7:0]       plusi11 ;
@@ -398,10 +410,12 @@ if ( rst == `RstEnable) begin
     //layer2
     addr_BRAMConv2Arr1_1    <= 0;
     addr_BRAMConv2Arr2_1    <= 0;
-    we_BRAMConv2Arr1        <= 0;    
+    we_BRAMConv2Arr1_1        <= 0;    
+    we_BRAMConv2Arr1_2        <= 0;    
     addr_BRAMConv2Arr1_2    <= 0;
     addr_BRAMConv2Arr2_2    <= 0;
-    we_BRAMConv2Arr2        <= 0;   
+    we_BRAMConv2Arr2_1        <= 0;   
+    we_BRAMConv2Arr2_2        <= 0;   
     addr_BRAM32k_1_pe       <= 0;
     addr_BRAM32k_2_pe       <= 4;
     Selctrl                 <= 1;
@@ -411,6 +425,7 @@ if ( rst == `RstEnable) begin
     ProcessBubble3         <= `Idle;
     ProcessBubble4         <= `Idle;
     ProcessBubble5         <= `Idle;
+    BRAMFLAG <= 0;
 
 end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
@@ -974,25 +989,24 @@ end else if( rst == `RstDisable && locked == 1 )begin
         //--using the data that could calculate without bubble,
         //--this could make the pipeline more tide
         //--left /right /wright-back;
-        ifbuf5[24]   <=   dout_BRAM32k_1[63:56];
-        ifbuf5[25]   <=   dout_BRAM32k_1[55:48];
-        ifbuf5[26]   <=   dout_BRAM32k_1[47:40];
-        ifbuf5[27]   <=   dout_BRAM32k_1[39:32];
-        ifbuf5[28]   <=   dout_BRAM32k_1[31:24];
-        ifbuf5[29]   <=   dout_BRAM32k_1[23:16];
-        ifbuf5[30]   <=   dout_BRAM32k_1[15:8];
-        ifbuf5[31]   <=   dout_BRAM32k_1[7:0];
+        ifbuf5[24]   <=   dout_BRAM32k_1[63]?`ZeroBtye: dout_BRAM32k_1[`ByteEig];
+        ifbuf5[25]   <=   dout_BRAM32k_1[55]?`ZeroBtye: dout_BRAM32k_1[`ByteSev];
+        ifbuf5[26]   <=   dout_BRAM32k_1[47]?`ZeroBtye: dout_BRAM32k_1[`ByteSix];
+        ifbuf5[27]   <=   dout_BRAM32k_1[39]?`ZeroBtye: dout_BRAM32k_1[`ByteFiv];
+        ifbuf5[28]   <=   dout_BRAM32k_1[31]?`ZeroBtye: dout_BRAM32k_1[`ByteFor];
+        ifbuf5[29]   <=   dout_BRAM32k_1[23]?`ZeroBtye: dout_BRAM32k_1[`ByteThr];
+        ifbuf5[30]   <=   dout_BRAM32k_1[15]?`ZeroBtye: dout_BRAM32k_1[`ByteTwo];
+        ifbuf5[31]   <=   dout_BRAM32k_1[7]?`ZeroBtye: dout_BRAM32k_1[`ByteOne];
 
-        ifbuf5[4]   <=   dout_BRAM32k_2[63:56];
-        ifbuf5[5]   <=   dout_BRAM32k_2[55:48];
-        ifbuf5[6]   <=   dout_BRAM32k_2[47:40];
-        ifbuf5[7]   <=   dout_BRAM32k_2[39:32];
-        ifbuf5[8]   <=   dout_BRAM32k_2[31:24];
-        ifbuf5[9]   <=   dout_BRAM32k_2[23:16];
-        ifbuf5[10]   <=   dout_BRAM32k_2[15:8];
-        ifbuf5[11]   <=   dout_BRAM32k_2[7:0];
+        ifbuf5[4]   <=   dout_BRAM32k_2[63]?`ZeroBtye: dout_BRAM32k_2[`ByteEig];
+        ifbuf5[5]   <=   dout_BRAM32k_2[55]?`ZeroBtye: dout_BRAM32k_2[`ByteSev];
+        ifbuf5[6]   <=   dout_BRAM32k_2[47]?`ZeroBtye: dout_BRAM32k_2[`ByteSix];
+        ifbuf5[7]   <=   dout_BRAM32k_2[39]?`ZeroBtye: dout_BRAM32k_2[`ByteFiv];
+        ifbuf5[8]   <=   dout_BRAM32k_2[31]?`ZeroBtye: dout_BRAM32k_2[`ByteFor];
+        ifbuf5[9]   <=   dout_BRAM32k_2[23]?`ZeroBtye: dout_BRAM32k_2[`ByteThr];
+        ifbuf5[10]   <=   dout_BRAM32k_2[15]?`ZeroBtye: dout_BRAM32k_2[`ByteTwo];
+        ifbuf5[11]   <=   dout_BRAM32k_2[7]?`ZeroBtye: dout_BRAM32k_2[`ByteOne];
 //-------------------------------------------------
-
         if($signed(ifbuf5[24]) >= $signed(ifbuf5[25])) begin
             ifbuf4[25] <= ifbuf5[24];
         end else begin
@@ -1042,99 +1056,288 @@ end else if( rst == `RstDisable && locked == 1 )begin
         end
 
 //-------------------------------------------------        
-        if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
-            ifbuf2[25] <= ifbuf4[5];
-        end else begin
-            ifbuf2[25] <= ifbuf4[25];
-        end
-
-        if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
-            ifbuf2[27] <= ifbuf4[7];
-        end else begin
-            ifbuf2[27] <= ifbuf4[27];
-        end
-        
-        if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
-            ifbuf2[29] <= ifbuf4[9];
-        end else begin
-            ifbuf2[29] <= ifbuf4[29];
-        end
-
-        if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
-            ifbuf2[31] <= ifbuf4[11];
-        end else begin
-            ifbuf2[31] <= ifbuf4[31];
-        end
-
-
-        Selctrl <= Selctrl + 1;  //binary clapping
         case(Process)
             `Idle:begin
                 if(Selctrl) begin
-                    we_BRAMConv2Arr1 <= 0;
-                    din_BRAMConv2Arr1_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
+                    BRAMFLAG <= 1;
+                    we_BRAMConv2Arr1_1 <= 0;
+//                  -----fold it please------       
+                    if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                        din_BRAMConv2Arr[`ByteFor] <= ifbuf4[5];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteFor] <= ifbuf4[25];
+                    end
+
+                    if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                        din_BRAMConv2Arr[`ByteThr] <= ifbuf4[7];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteThr] <= ifbuf4[27];
+                    end
+                    
+                    if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                        din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[9];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[29];
+                    end
+
+                    if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                        din_BRAMConv2Arr[`ByteOne] <= ifbuf4[11];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteOne] <= ifbuf4[31];
+                    end     
+//                  -----fold it end------   
                     addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
                     addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                    Selctrl <= 0;
                 end else begin 
-                    din_BRAMConv2Arr1_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
-                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 3;
-                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 3;
+                    we_BRAMConv2Arr1_1 <= 0;
+//                  -----fold it please------       
+                    if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                        din_BRAMConv2Arr[`ByteEig] <= ifbuf4[5];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteEig] <= ifbuf4[25];
+                    end
+
+                    if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                        din_BRAMConv2Arr[`ByteSev] <= ifbuf4[7];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteSev] <= ifbuf4[27];
+                    end
+                    
+                    if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                        din_BRAMConv2Arr[`ByteSix] <= ifbuf4[9];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteSix] <= ifbuf4[29];
+                    end
+
+                    if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                        din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[11];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[31];
+                    end     
+//                  -----fold it end------   
+                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                    Selctrl <= 1;
                 end
-                ProcessBubble4 <=  `Start;
-                ProcessBubble3 <= ProcessBubble4;
-                ProcessBubble2 <= ProcessBubble3;
-                ProcessBubble1 <= ProcessBubble2;
-                Process         <= ProcessBubble1;
+                ProcessBubble1 <=  `Init;
+                Process        <= ProcessBubble1;
+            end
+            `Init:begin
+                if(Selctrl) begin
+                    we_BRAMConv2Arr1_1 <= 0;
+//                  -----fold it please------       
+                    if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                        din_BRAMConv2Arr[`ByteFor] <= ifbuf4[5];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteFor] <= ifbuf4[25];
+                    end
+
+                    if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                        din_BRAMConv2Arr[`ByteThr] <= ifbuf4[7];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteThr] <= ifbuf4[27];
+                    end
+                    
+                    if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                        din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[9];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[29];
+                    end
+
+                    if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                        din_BRAMConv2Arr[`ByteOne] <= ifbuf4[11];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteOne] <= ifbuf4[31];
+                    end     
+//                  -----fold it end------   
+                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                    Selctrl <= 0;
+                end else begin 
+                    we_BRAMConv2Arr1_1 <= 1;
+//                  -----fold it please------       
+                    if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                        din_BRAMConv2Arr[`ByteEig] <= ifbuf4[5];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteEig] <= ifbuf4[25];
+                    end
+
+                    if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                        din_BRAMConv2Arr[`ByteSev] <= ifbuf4[7];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteSev] <= ifbuf4[27];
+                    end
+                    
+                    if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                        din_BRAMConv2Arr[`ByteSix] <= ifbuf4[9];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteSix] <= ifbuf4[29];
+                    end
+
+                    if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                        din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[11];
+                    end else begin
+                        din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[31];
+                    end     
+//                  -----fold it end------  
+                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 5;
+                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 5;
+                    Selctrl <= 1;
+                end
+                ProcessBubble1 <=  `Start;
+                Process        <= ProcessBubble1;
             end
             `Start:begin
-                if(addr_BRAM32k_1<2048) begin
+                if(addr_BRAMConv2Arr1_1<512) begin
                     if(Selctrl) begin
                         //writeback buffer 
                         //low four first
-                        din_BRAMConv2Arr1_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
-                        we_BRAMConv2Arr1 <= 0; //enable at next cycle;
+//                      -----fold it please------       
+                        if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                            din_BRAMConv2Arr[`ByteFor] <= ifbuf4[5];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteFor] <= ifbuf4[25];
+                        end
+
+                        if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                            din_BRAMConv2Arr[`ByteThr] <= ifbuf4[7];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteThr] <= ifbuf4[27];
+                        end
+                        
+                        if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                            din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[9];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[29];
+                        end
+
+                        if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                            din_BRAMConv2Arr[`ByteOne] <= ifbuf4[11];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteOne] <= ifbuf4[31];
+                        end     
+//                      -----fold it end------                           
+                        we_BRAMConv2Arr1_1 <= 1; //enable at next cycle;
                         addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
                         addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
-                        newlan <= newlan + 1;
+                        Selctrl <= 0;
                     end else begin
                         //high four next
-                        din_BRAMConv2Arr1_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
-                        we_BRAMConv2Arr1 <= 1; //disable at next cycle;
-                        if(addr_BRAM32k_1!=9) begin
-                            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 1;  
+//                      -----fold it please------       
+                        if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                            din_BRAMConv2Arr[`ByteEig] <= ifbuf4[5];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteEig] <= ifbuf4[25];
                         end
-                        if(newlan==2) begin
+
+                        if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                            din_BRAMConv2Arr[`ByteSev] <= ifbuf4[7];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteSev] <= ifbuf4[27];
+                        end
+                        
+                        if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                            din_BRAMConv2Arr[`ByteSix] <= ifbuf4[9];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteSix] <= ifbuf4[29];
+                        end
+
+                        if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                            din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[11];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[31];
+                        end     
+//                      -----fold it end------                          
+                        we_BRAMConv2Arr1_1 <= 0; //disable at next cycle;
+                        addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 1;  
+                        if(newlan) begin
                             addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 5;
                             addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 5;
+                            newlan <= 0;
                         end
                         else begin
                             addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
-                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;                            
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                            newlan <= 1;                            
                         end
-
+                        Selctrl <= 1;
                     end
                 end
-                else if(addr_BRAM32k_1>=2048 && addr_BRAM32k_1<4096) begin
+                else if(addr_BRAMConv2Arr1_1==512 && addr_BRAMConv2Arr2_1<512) begin
+                    BRAMFLAG <= 2;
                     if(Selctrl) begin
                         //writeback buffer 
                         //low four first
-                        din_BRAMConv2Arr2_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
-                        we_BRAMConv2Arr2 <= 0; //enable at next cycle;
+//                      -----fold it please------       
+                        if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                            din_BRAMConv2Arr[`ByteFor] <= ifbuf4[5];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteFor] <= ifbuf4[25];
+                        end
+
+                        if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                            din_BRAMConv2Arr[`ByteThr] <= ifbuf4[7];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteThr] <= ifbuf4[27];
+                        end
+                        
+                        if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                            din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[9];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteTwo] <= ifbuf4[29];
+                        end
+
+                        if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                            din_BRAMConv2Arr[`ByteOne] <= ifbuf4[11];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteOne] <= ifbuf4[31];
+                        end     
+//                      -----fold it end------                           
+                        we_BRAMConv2Arr2_1 <= 1; //enable at next cycle;
                         addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
                         addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                        Selctrl <= 0;
                     end else begin
                         //high four next
-                        din_BRAMConv2Arr2_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
-                        we_BRAMConv2Arr2 <= 1; //disable at next cycle;
+//                      -----fold it please------       
+                        if($signed(ifbuf4[5]) >= $signed(ifbuf4[25])) begin
+                            din_BRAMConv2Arr[`ByteEig] <= ifbuf4[5];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteEig] <= ifbuf4[25];
+                        end
+
+                        if($signed(ifbuf4[7]) >= $signed(ifbuf4[27])) begin
+                            din_BRAMConv2Arr[`ByteSev] <= ifbuf4[7];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteSev] <= ifbuf4[27];
+                        end
+                        
+                        if($signed(ifbuf4[9]) >= $signed(ifbuf4[29])) begin
+                            din_BRAMConv2Arr[`ByteSix] <= ifbuf4[9];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteSix] <= ifbuf4[29];
+                        end
+
+                        if($signed(ifbuf4[11]) >= $signed(ifbuf4[31])) begin
+                            din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[11];
+                        end else begin
+                            din_BRAMConv2Arr[`ByteFiv] <= ifbuf4[31];
+                        end     
+//                      -----fold it end------                          
+                        we_BRAMConv2Arr2_1 <= 0; //disable at next cycle;
                         addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 1;
                         if(newlan) begin
                             addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 5;
                             addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 5;
+                            newlan <= 0;
                         end
                         else begin
                             addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
-                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;                            
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                            newlan <= 1;                            
                         end
+                        Selctrl <= 1;
                     end
                     if(addr_BRAM32k_1==4093) begin// the end of layer2
                         Layer   <=   `Layer3 ;
