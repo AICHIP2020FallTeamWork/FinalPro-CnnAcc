@@ -61,6 +61,9 @@ module pe1(
     addr_BRAM32k_2,
     din_BRAM32k_1,
     din_BRAM32k_2,
+    dout_BRAM32k_1,
+    dout_BRAM32k_2,
+
 
     din_BRAM4k_1,
     din_BRAM4k_2,
@@ -288,15 +291,16 @@ input    [63:0] dout_BRAMConv2Arr2_2;
     reg                             Trashdata;
     reg     [4:0]                   Row;
     reg  [3:0]   Layer;
-    reg  [2:0]   State;    
-    reg  [2:0]   StateBubble1;
-    reg  [2:0]   StateBubble2;
-    reg  [2:0]   StateBubble3;
-    reg  [2:0]   StateBubble4;
-    reg  [2:0]   StateBubble5;
+    // reg  [2:0]   Process;    
+    reg  [2:0]   ProcessBubble1;
+    reg  [2:0]   ProcessBubble2;
+    reg  [2:0]   ProcessBubble3;
+    reg  [2:0]   ProcessBubble4;
+    reg  [2:0]   ProcessBubble5;
     reg [5:0]  Counter;
     reg [6:0]  kernCounter;
     reg Selctrl;
+    reg newlan;
     reg [7:0] multi111;
     reg [7:0] multi112;
     reg [7:0] multi113;
@@ -379,14 +383,13 @@ so we need to choose which one to assign to the real address/
 */
 reg [11:0] addr_BRAM32k_1_pe;
 reg [11:0] addr_BRAM32k_2_pe;
-assign addr_BRAM32k_1 = (Layer == `Layer1)? addr_BRAM32k_1_wb:addr_BRAM32k_1_pe;
-assign addr_BRAM32k_2 = (Layer == `Layer1)? addr_BRAM32k_2_wb:addr_BRAM32k_2_pe;
+
 //---------------------------------
 always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable) begin    
     //layer1
     Process         <= `Idle;
-    Layer           <= `Layer1;
+    Layer           <= `Layer2;
     addr_BRAM4k_1 <= 0;
     Counter <= 0;
     Row <= 0;
@@ -400,7 +403,14 @@ if ( rst == `RstEnable) begin
     addr_BRAMConv2Arr2_2    <= 0;
     we_BRAMConv2Arr2        <= 0;   
     addr_BRAM32k_1_pe       <= 0;
-    Selctrl                 <= 0;  
+    addr_BRAM32k_2_pe       <= 4;
+    Selctrl                 <= 1;
+    newlan <= 0;  
+    ProcessBubble2 <= `Idle;
+    ProcessBubble1 <=`Idle;
+    ProcessBubble3         <= `Idle;
+    ProcessBubble4         <= `Idle;
+    ProcessBubble5         <= `Idle;
 
 end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline
@@ -964,23 +974,23 @@ end else if( rst == `RstDisable && locked == 1 )begin
         //--using the data that could calculate without bubble,
         //--this could make the pipeline more tide
         //--left /right /wright-back;
-        ifbuf5[24]   <=   dout_BRAMConv2Arr2_1[63:56];
-        ifbuf5[25]   <=   dout_BRAMConv2Arr2_1[55:48];
-        ifbuf5[26]   <=   dout_BRAMConv2Arr2_1[47:40];
-        ifbuf5[27]   <=   dout_BRAMConv2Arr2_1[39:32];
-        ifbuf5[28]   <=   dout_BRAMConv2Arr2_1[31:24];
-        ifbuf5[29]   <=   dout_BRAMConv2Arr2_1[23:16];
-        ifbuf5[30]   <=   dout_BRAMConv2Arr2_1[15:8];
-        ifbuf5[31]   <=   dout_BRAMConv2Arr2_1[7:0];
+        ifbuf5[24]   <=   dout_BRAM32k_1[63:56];
+        ifbuf5[25]   <=   dout_BRAM32k_1[55:48];
+        ifbuf5[26]   <=   dout_BRAM32k_1[47:40];
+        ifbuf5[27]   <=   dout_BRAM32k_1[39:32];
+        ifbuf5[28]   <=   dout_BRAM32k_1[31:24];
+        ifbuf5[29]   <=   dout_BRAM32k_1[23:16];
+        ifbuf5[30]   <=   dout_BRAM32k_1[15:8];
+        ifbuf5[31]   <=   dout_BRAM32k_1[7:0];
 
-        ifbuf5[4]   <=   dout_BRAMConv2Arr2_2[63:56];
-        ifbuf5[5]   <=   dout_BRAMConv2Arr2_2[55:48];
-        ifbuf5[6]   <=   dout_BRAMConv2Arr2_2[47:40];
-        ifbuf5[7]   <=   dout_BRAMConv2Arr2_2[39:32];
-        ifbuf5[8]   <=   dout_BRAMConv2Arr2_2[31:24];
-        ifbuf5[9]   <=   dout_BRAMConv2Arr2_2[23:16];
-        ifbuf5[10]   <=   dout_BRAMConv2Arr2_2[15:8];
-        ifbuf5[11]   <=   dout_BRAMConv2Arr2_2[7:0];
+        ifbuf5[4]   <=   dout_BRAM32k_2[63:56];
+        ifbuf5[5]   <=   dout_BRAM32k_2[55:48];
+        ifbuf5[6]   <=   dout_BRAM32k_2[47:40];
+        ifbuf5[7]   <=   dout_BRAM32k_2[39:32];
+        ifbuf5[8]   <=   dout_BRAM32k_2[31:24];
+        ifbuf5[9]   <=   dout_BRAM32k_2[23:16];
+        ifbuf5[10]   <=   dout_BRAM32k_2[15:8];
+        ifbuf5[11]   <=   dout_BRAM32k_2[7:0];
 //-------------------------------------------------
 
         if($signed(ifbuf5[24]) >= $signed(ifbuf5[25])) begin
@@ -1058,44 +1068,81 @@ end else if( rst == `RstDisable && locked == 1 )begin
 
 
         Selctrl <= Selctrl + 1;  //binary clapping
-        if(addr_BRAM32k_1<2048) begin
-            if(Selctrl) begin
-                //writeback buffer 
-                //low four first
-                din_BRAMConv2Arr1_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
-                we_BRAMConv2Arr1 <= 1; //enable at next cycle;
-                addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
-                addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
-            end else begin
-                //high four next
-                din_BRAMConv2Arr1_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
-                we_BRAMConv2Arr1 <= 0; //disable at next cycle;
-                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 1;  
-                addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 2;
-                addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 2;
+        case(Process)
+            `Idle:begin
+                if(Selctrl) begin
+                    we_BRAMConv2Arr1 <= 0;
+                    din_BRAMConv2Arr1_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
+                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                end else begin 
+                    din_BRAMConv2Arr1_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
+                    addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 3;
+                    addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 3;
+                end
+                ProcessBubble4 <=  `Start;
+                ProcessBubble3 <= ProcessBubble4;
+                ProcessBubble2 <= ProcessBubble3;
+                ProcessBubble1 <= ProcessBubble2;
+                Process         <= ProcessBubble1;
+            end
+            `Start:begin
+                if(addr_BRAM32k_1<2048) begin
+                    if(Selctrl) begin
+                        //writeback buffer 
+                        //low four first
+                        din_BRAMConv2Arr1_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
+                        we_BRAMConv2Arr1 <= 0; //enable at next cycle;
+                        addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                        addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                        newlan <= newlan + 1;
+                    end else begin
+                        //high four next
+                        din_BRAMConv2Arr1_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
+                        we_BRAMConv2Arr1 <= 1; //disable at next cycle;
+                        if(addr_BRAM32k_1!=9) begin
+                            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 1;  
+                        end
+                        if(newlan==2) begin
+                            addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 5;
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 5;
+                        end
+                        else begin
+                            addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;                            
+                        end
 
+                    end
+                end
+                else if(addr_BRAM32k_1>=2048 && addr_BRAM32k_1<4096) begin
+                    if(Selctrl) begin
+                        //writeback buffer 
+                        //low four first
+                        din_BRAMConv2Arr2_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
+                        we_BRAMConv2Arr2 <= 0; //enable at next cycle;
+                        addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                        addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
+                    end else begin
+                        //high four next
+                        din_BRAMConv2Arr2_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
+                        we_BRAMConv2Arr2 <= 1; //disable at next cycle;
+                        addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 1;
+                        if(newlan) begin
+                            addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 5;
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 5;
+                        end
+                        else begin
+                            addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
+                            addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;                            
+                        end
+                    end
+                    if(addr_BRAM32k_1==4093) begin// the end of layer2
+                        Layer   <=   `Layer3 ;
+                        Process <= `Idle;
+                    end 
+                end             
             end
-        end
-        else if(addr_BRAM32k_1>=2048 && addr_BRAM32k_1<4096) begin
-            if(Selctrl) begin
-                //writeback buffer 
-                //low four first
-                din_BRAMConv2Arr2_1[31:0] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]};
-                we_BRAMConv2Arr2 <= 1; //enable at next cycle;
-                addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 1;
-                addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 1;
-            end else begin
-                //high four next
-                din_BRAMConv2Arr2_1[63:32] <= {ifbuf2[25],ifbuf2[27],ifbuf2[29],ifbuf2[31]}; 
-                we_BRAMConv2Arr2 <= 0; //disable at next cycle;
-                addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 1;
-                addr_BRAM32k_1_pe <= addr_BRAM32k_1_pe + 2;
-                addr_BRAM32k_2_pe <= addr_BRAM32k_2_pe + 2;
-            end
-        end 
-        else if(addr_BRAM32k_1==4096) begin// the end of layer2
-            Layer   <=   `Layer3 ; 
-        end
+        endcase
 
 //----------------------------------------------------------
 
@@ -2573,7 +2620,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
         endcase
     end 
     `Layer5: begin 
-        case ( State )     
+        case ( Process )     
         `Init:begin
             ifbuf6[24]   <=   0;
             ifbuf6[25]   <=   0;
@@ -2604,10 +2651,10 @@ end else if( rst == `RstDisable && locked == 1 )begin
             regPad4[1]   <= 0;
             regPad5[1]   <= 0;
             regPad6[1]   <= 0;
-            StateBubble3 <= `Start;
-            StateBubble2 <= `Start;
-            StateBubble1 <= `Start;
-            State        <= `Start;  
+            ProcessBubble3 <= `Start;
+            ProcessBubble2 <= `Start;
+            ProcessBubble1 <= `Start;
+            Process        <= `Start;  
         end
         `Start:begin
 
@@ -2698,28 +2745,28 @@ end else if( rst == `RstDisable && locked == 1 )begin
             plusi42 <= multi421 + multi422 + multi423;
             plusi43 <= multi431 + multi432 + multi433;
 //----------------------------------------------------------
-            if(StateBubble2 == `Init) begin
+            if(ProcessBubble2 == `Init) begin
             ifbuf6[23] <= plusi11  + plusi12  + plusi13 + ifbuf6[23];
             ifbuf6[22] <= plusi21  + plusi22  + plusi23 + ifbuf6[22];
             ifbuf6[21] <= plusi31  + plusi32  + plusi33 + ifbuf6[21];
             ifbuf6[20] <= plusi41  + plusi42  + plusi43 + ifbuf6[20];
             end
 //----------------------------------------------------------
-            if(StateBubble3 == `Init) begin
+            if(ProcessBubble3 == `Init) begin
             ifbuf5[23] <= plusi11  + plusi12  + plusi13 + ifbuf5[23];
             ifbuf5[22] <= plusi21  + plusi22  + plusi23 + ifbuf5[22];
             ifbuf5[21] <= plusi31  + plusi32  + plusi33 + ifbuf5[21];
             ifbuf5[20] <= plusi41  + plusi42  + plusi43 + ifbuf5[20];
             end
 //----------------------------------------------------------
-            if(StateBubble4 == `Init) begin
+            if(ProcessBubble4 == `Init) begin
             ifbuf4[23] <= plusi11  + plusi12  + plusi13 + ifbuf4[23];
             ifbuf4[22] <= plusi21  + plusi22  + plusi23 + ifbuf4[22];
             ifbuf4[21] <= plusi31  + plusi32  + plusi33 + ifbuf4[21];
             ifbuf4[20] <= plusi41  + plusi42  + plusi43 + ifbuf4[20];
             end
 //----------------------------------------------------------
-            if(StateBubble5 == `Init) begin
+            if(ProcessBubble5 == `Init) begin
             ifbuf3[23] <= plusi11  + plusi12  + plusi13 + ifbuf3[23];
             ifbuf3[22] <= plusi21  + plusi22  + plusi23 + ifbuf3[22];
             ifbuf3[21] <= plusi31  + plusi32  + plusi33 + ifbuf3[21];
@@ -2737,16 +2784,16 @@ end else if( rst == `RstDisable && locked == 1 )begin
             //4   23 22 21 20 
             //3   23 22 21 20   
 //----------------------------------------------------------
-            StateBubble1 <= `Init;
-            StateBubble2 <= StateBubble1;
-            StateBubble3 <= StateBubble2;
-            StateBubble4 <= StateBubble3;
-            StateBubble5 <= StateBubble4;
-            if(kernCounter == 64 && StateBubble5 == `Init) begin
+            ProcessBubble1 <= `Init;
+            ProcessBubble2 <= ProcessBubble1;
+            ProcessBubble3 <= ProcessBubble2;
+            ProcessBubble4 <= ProcessBubble3;
+            ProcessBubble5 <= ProcessBubble4;
+            if(kernCounter == 64 && ProcessBubble5 == `Init) begin
                 kernCounter <= 1 ; 
-                State <= `CalPool;
-            end else if(kernCounter != 64 && StateBubble5 == `Init) begin
-                State <= StateBubble5; 
+                Process <= `CalPool;
+            end else if(kernCounter != 64 && ProcessBubble5 == `Init) begin
+                Process <= ProcessBubble5; 
                 kernCounter <= kernCounter + 1;
             end
         end
@@ -2781,11 +2828,11 @@ end else if( rst == `RstDisable && locked == 1 )begin
         ifbuf1[8] <= ifbuf1[8] + weight32_in * ifbuf5[15];
         ifbuf1[9] <= ifbuf1[9] + weight33_in * ifbuf5[15];
         ifbuf1[10] <= ifbuf1[10] + weight41_in * ifbuf5[15];
-        StateBubble1 <= `Init;
-        StateBubble2 <= StateBubble1;
-        StateBubble3 <= StateBubble2;
-        StateBubble4 <= StateBubble3;
-        State <= StateBubble4;
+        ProcessBubble1 <= `Init;
+        ProcessBubble2 <= ProcessBubble1;
+        ProcessBubble3 <= ProcessBubble2;
+        ProcessBubble4 <= ProcessBubble3;
+        Process <= ProcessBubble4;
 //-----------------------------------
             //6   (19 18 ) 17
             //5   (19 18 ) 17 16 15
@@ -3089,9 +3136,13 @@ output wire [11:0] addr_BRAM32k_1;
 output wire [11:0] addr_BRAM32k_2;
 output wire [63:0] din_BRAM32k_1;
 output wire [63:0] din_BRAM32k_2;
-
-reg [11:0] addr_BRAM32k_1_wb;
-reg [11:0] addr_BRAM32k_2_wb;
+input  wire [63:0] dout_BRAM32k_1;
+input  wire [63:0] dout_BRAM32k_2;
+ 
+wire [11:0] addr_BRAM32k_1_wb;
+wire [11:0] addr_BRAM32k_2_wb;
+assign addr_BRAM32k_1 = (Layer == `Layer1)? addr_BRAM32k_1_wb:addr_BRAM32k_1_pe;
+assign addr_BRAM32k_2 = (Layer == `Layer1)? addr_BRAM32k_2_wb:addr_BRAM32k_2_pe;
 
 writeback   WB(
     //in

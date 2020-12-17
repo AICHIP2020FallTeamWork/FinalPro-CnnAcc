@@ -31,6 +31,7 @@ set_property ip_output_repo d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc
 set_property ip_cache_permissions {read write} [current_project]
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1input.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv1.coe
+add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1.output.coe
 read_verilog -library xil_defaultlib {
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/defines.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v

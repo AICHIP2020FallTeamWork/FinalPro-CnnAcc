@@ -4,16 +4,15 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/rep
 INFO: [VRFC 10-311] analyzing module BRAM32k
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/sim/WLay1ROM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WLay1ROM
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/sim/weightROM.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module weightROM
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module clk_wiz_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe1
-WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:308]
-WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:314]
+WARNING: [VRFC 10-2379] empty port in module declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:91]
+WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:357]
+WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:363]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_group2
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v" into library xil_defaultlib

@@ -226,6 +226,8 @@ pe1 PE(
     .addr_BRAM32k_2(addr_BRAM32k_2),
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
+    .dout_BRAM32k_1(dout_BRAM32k_1),
+    .dout_BRAM32k_2(dout_BRAM32k_2),
 
     //----the double baseram 
     .we_BRAMConv2Arr1(we_BRAMConv2Arr1),
