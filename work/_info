@@ -1,0 +1,30 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/OneDrive/course/Grade2_Autumn/Digital_Electronic_Circuit
+vagu
+!s110 1606303485
+!i10b 1
+!s100 h^jAUTL;[DHSTXFm^LB^m3
+Ic@?:WG84dP64EDbbDcoze3
+VDg1SIo80bB@j0V0VzS_@n1
+dD:/study_tools/FPGA/final_project
+w1606303481
+8D:/study_tools/FPGA/final_project/agu.v
+FD:/study_tools/FPGA/final_project/agu.v
+L0 1
+OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1606303485.615000
+!s107 D:/study_tools/FPGA/final_project/agu.v|
+!s90 -reportprogress|300|-work|work|-novopt|-stats=none|D:/study_tools/FPGA/final_project/agu.v|
+!i113 1
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact

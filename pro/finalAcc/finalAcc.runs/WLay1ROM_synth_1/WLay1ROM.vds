@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Wed Dec 16 16:04:30 2020
+# Process ID: 13892
+# Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/WLay1ROM_synth_1
+# Command line: vivado.exe -log WLay1ROM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source WLay1ROM.tcl
+# Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/WLay1ROM_synth_1/WLay1ROM.vds
+# Journal file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/WLay1ROM_synth_1\vivado.jou
+#-----------------------------------------------------------
+source WLay1ROM.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP WLay1ROM, cache-ID = 6bd9857ba4e1a441.
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 16 16:04:36 2020...

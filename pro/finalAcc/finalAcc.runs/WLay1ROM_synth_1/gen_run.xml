@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="WLay1ROM_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1608105866">
+  <File Type="PA-TCL" Name="WLay1ROM.tcl"/>
+  <File Type="REPORTS-TCL" Name="WLay1ROM_reports.tcl"/>
+  <File Type="RDS-RDS" Name="WLay1ROM.vds"/>
+  <File Type="RDS-DCP" Name="WLay1ROM.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/WLay1ROM">
+    <File Path="$PSRCDIR/sources_1/ip/WLay1ROM/WLay1ROM.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="WLay1ROM"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/WLay1ROM">
+    <File Path="$PSRCDIR/sources_1/ip/WLay1ROM/WLay1ROM.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="WLay1ROM"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
