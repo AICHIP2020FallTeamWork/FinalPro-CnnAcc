@@ -8,10 +8,17 @@
 `define Layer4 4'd4
 `define Layer5 4'd5
 
-`define Idle    3'b110
-`define Init     3'b000
-`define Start    3'b001
-`define CalPool  3'b010
+`define Idle       3'b110
+`define Init       3'b000
+`define Start      3'b001
+`define CalPool    3'b010
+`define upHalf     3'b011
+`define loHalf     3'b100
+`define Stop       3'b111
+`define InitUp     3'b000
+`define InitLo     3'b001
+
+
 
 
 `define Byte 7:0

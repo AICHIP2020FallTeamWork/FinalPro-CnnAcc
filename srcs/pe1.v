@@ -2821,9 +2821,146 @@ end else if( rst == `RstDisable && locked == 1 )begin
             
         end
         endcase
-    end 
+    end
+    */ 
     `Layer5: begin 
-        case ( Process )     
+
+
+
+
+
+
+        case ( Process )
+        `Idle:begin
+            Process <= `InitUp;
+            kernCounter <= 0;
+        end
+        `InitUp:begin
+            Process <= `upHalf;
+            addr_BRAMConv2Arr1_1 <= 0;
+            addr_BRAMConv2Arr1_2 <= 1;
+            addr_BRAMConv2Arr2_1 <= 2;
+            addr_BRAMConv2Arr2_2 <= 3;
+        end
+        `InitLo:begin
+            Process <= `loHalf;
+            addr_BRAM4k_1        <= 3;
+            addr_BRAMConv2Arr1_1 <= 4;
+            addr_BRAMConv2Arr1_2 <= 5;
+            addr_BRAMConv2Arr2_1 <= 6;
+            addr_BRAMConv2Arr2_2 <= 7;
+        end
+        `upHalf: begin
+            if(addr_BRAMConv2Arr2_2 == 507) begin // withdraw condition
+                Process <= `InitLo;
+            end else begin
+                Process <= `upHalf;
+            end
+            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
+            addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
+            addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
+            addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
+            addr_weight_1        <= addr_weight_1 + 1;
+            ifbuf1[7] <= 0;
+            ifbuf1[6] <= 0;
+            ifbuf1[5] <= 0;
+            ifbuf1[4] <= 0;
+            ifbuf1[3] <= 0;
+            ifbuf1[2] <= 0;
+            ifbuf1[1] <= 0;
+            ifbuf1[0] <= 0;
+            ifbuf2[7] <=  dout_BRAMConv2Arr1_1[`ByteEig];
+            ifbuf2[6] <=  dout_BRAMConv2Arr1_1[`ByteSev];
+            ifbuf2[5] <=  dout_BRAMConv2Arr1_1[`ByteSix];
+            ifbuf2[4] <=  dout_BRAMConv2Arr1_1[`ByteFiv];
+            ifbuf2[3] <=  dout_BRAMConv2Arr1_1[`ByteFor];
+            ifbuf2[2] <=  dout_BRAMConv2Arr1_1[`ByteThr];
+            ifbuf2[1] <=  dout_BRAMConv2Arr1_1[`ByteTwo];
+            ifbuf2[0] <=  dout_BRAMConv2Arr1_1[`ByteOne];
+            ifbuf3[7] <=  dout_BRAMConv2Arr1_2[`ByteEig];
+            ifbuf3[6] <=  dout_BRAMConv2Arr1_2[`ByteSev];
+            ifbuf3[5] <=  dout_BRAMConv2Arr1_2[`ByteSix];
+            ifbuf3[4] <=  dout_BRAMConv2Arr1_2[`ByteFiv];
+            ifbuf3[3] <=  dout_BRAMConv2Arr1_2[`ByteFor];
+            ifbuf3[2] <=  dout_BRAMConv2Arr1_2[`ByteThr];
+            ifbuf3[1] <=  dout_BRAMConv2Arr1_2[`ByteTwo];
+            ifbuf3[0] <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf4[7] <=  dout_BRAMConv2Arr2_1[`ByteEig];
+            ifbuf4[6] <=  dout_BRAMConv2Arr2_1[`ByteSev];
+            ifbuf4[5] <=  dout_BRAMConv2Arr2_1[`ByteSix];
+            ifbuf4[4] <=  dout_BRAMConv2Arr2_1[`ByteFiv];
+            ifbuf4[3] <=  dout_BRAMConv2Arr2_1[`ByteFor];
+            ifbuf4[2] <=  dout_BRAMConv2Arr2_1[`ByteThr];
+            ifbuf4[1] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
+            ifbuf4[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf5[7] <=  dout_BRAMConv2Arr2_2[`ByteEig];
+            ifbuf5[6] <=  dout_BRAMConv2Arr2_2[`ByteSev];
+            ifbuf5[5] <=  dout_BRAMConv2Arr2_2[`ByteSix];
+            ifbuf5[4] <=  dout_BRAMConv2Arr2_2[`ByteFiv];
+            ifbuf5[3] <=  dout_BRAMConv2Arr2_2[`ByteFor];
+            ifbuf5[2] <=  dout_BRAMConv2Arr2_2[`ByteThr];
+            ifbuf5[1] <=  dout_BRAMConv2Arr2_2[`ByteTwo];
+            ifbuf5[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+        end
+        `loHalf:begin
+            if(addr_BRAMConv2Arr2_2 == 511 && kernCounter < 127) begin // withdraw condition
+                Process <= `InitUp;
+                kernCounter <= kernCounter + 1;
+            end else if (addr_BRAMConv2Arr2_2 == 511 && kernCounter == 127) begin
+                Process <= `Stop;
+                kernCounter <= 0;
+            end
+            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
+            addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
+            addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
+            addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
+            addr_BRAM4k_1        <= addr_BRAM4k_1 + 8;
+            addr_weight_2        <= addr_weight_2 + 1;
+            ifbuf1[7] <=  dout_BRAM4k_1[`ByteEig];
+            ifbuf1[6] <=  dout_BRAM4k_1[`ByteSev];
+            ifbuf1[5] <=  dout_BRAM4k_1[`ByteSix];
+            ifbuf1[4] <=  dout_BRAM4k_1[`ByteFiv];
+            ifbuf1[3] <=  dout_BRAM4k_1[`ByteFor];
+            ifbuf1[2] <=  dout_BRAM4k_1[`ByteThr];
+            ifbuf1[1] <=  dout_BRAM4k_1[`ByteTwo];
+            ifbuf1[0] <=  dout_BRAM4k_1[`ByteOne];
+            ifbuf2[7] <=  dout_BRAMConv2Arr1_1[`ByteEig];
+            ifbuf2[6] <=  dout_BRAMConv2Arr1_1[`ByteSev];
+            ifbuf2[5] <=  dout_BRAMConv2Arr1_1[`ByteSix];
+            ifbuf2[4] <=  dout_BRAMConv2Arr1_1[`ByteFiv];
+            ifbuf2[3] <=  dout_BRAMConv2Arr1_1[`ByteFor];
+            ifbuf2[2] <=  dout_BRAMConv2Arr1_1[`ByteThr];
+            ifbuf2[1] <=  dout_BRAMConv2Arr1_1[`ByteTwo];
+            ifbuf2[0] <=  dout_BRAMConv2Arr1_1[`ByteOne];
+            ifbuf3[7] <=  dout_BRAMConv2Arr1_2[`ByteEig];
+            ifbuf3[6] <=  dout_BRAMConv2Arr1_2[`ByteSev];
+            ifbuf3[5] <=  dout_BRAMConv2Arr1_2[`ByteSix];
+            ifbuf3[4] <=  dout_BRAMConv2Arr1_2[`ByteFiv];
+            ifbuf3[3] <=  dout_BRAMConv2Arr1_2[`ByteFor];
+            ifbuf3[2] <=  dout_BRAMConv2Arr1_2[`ByteThr];
+            ifbuf3[1] <=  dout_BRAMConv2Arr1_2[`ByteTwo];
+            ifbuf3[0] <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf4[7] <=  dout_BRAMConv2Arr2_1[`ByteEig];
+            ifbuf4[6] <=  dout_BRAMConv2Arr2_1[`ByteSev];
+            ifbuf4[5] <=  dout_BRAMConv2Arr2_1[`ByteSix];
+            ifbuf4[4] <=  dout_BRAMConv2Arr2_1[`ByteFiv];
+            ifbuf4[3] <=  dout_BRAMConv2Arr2_1[`ByteFor];
+            ifbuf4[2] <=  dout_BRAMConv2Arr2_1[`ByteThr];
+            ifbuf4[1] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
+            ifbuf4[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf5[7] <=  dout_BRAMConv2Arr2_2[`ByteEig];
+            ifbuf5[6] <=  dout_BRAMConv2Arr2_2[`ByteSev];
+            ifbuf5[5] <=  dout_BRAMConv2Arr2_2[`ByteSix];
+            ifbuf5[4] <=  dout_BRAMConv2Arr2_2[`ByteFiv];
+            ifbuf5[3] <=  dout_BRAMConv2Arr2_2[`ByteFor];
+            ifbuf5[2] <=  dout_BRAMConv2Arr2_2[`ByteThr];
+            ifbuf5[1] <=  dout_BRAMConv2Arr2_2[`ByteTwo];
+            ifbuf5[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+        end
+
+        `Stop:begin//status stop is for the pipeline shutting down
+        
+        end
         `Init:begin
             ifbuf6[24]   <=   0;
             ifbuf6[25]   <=   0;
@@ -3047,7 +3184,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
     end
     endcase
             end
-*/
+
             endcase
     end
 end
