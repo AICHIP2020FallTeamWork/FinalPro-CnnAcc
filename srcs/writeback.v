@@ -327,11 +327,18 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
         plusi6 <=0;
         plusi7 <=0;
         plusi8 <=0;
-        wdata_CB <= 0;
+        wdata_CB8 <= 0;
+        wdata_CB1 <= 0;
+        wdata_CB2 <= 0;
+        wdata_CB3 <= 0;
+        wdata_CB4 <= 0;
+        wdata_CB5 <= 0;
+        wdata_CB6 <= 0;
+        wdata_CB7 <= 0;
         waddr_CB <= 0;
         we_CB <= 0; //always enable;
     end else begin
-        case(layer)
+        case(Layer)
             `Layer1:begin
                 we_CB <= 0;
             end
@@ -362,6 +369,7 @@ reg [21:0] wdata_CB5;
 reg [21:0] wdata_CB6;
 reg [21:0] wdata_CB7;
 reg [21:0] wdata_CB8;
+reg we_CB;
 wire doneflag_CB;
 wire [63:0] dout_CB;
 channelBuf CB(

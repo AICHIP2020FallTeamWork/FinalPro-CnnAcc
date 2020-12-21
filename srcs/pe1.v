@@ -417,7 +417,7 @@ always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable) begin    
     //layer1
     Process         <= `Idle;
-    Layer           <= `Layer2;
+    Layer           <= `Layer5;
     addr_BRAM4k_1 <= 0;
     Counter <= 0;
     Row <= 0;
@@ -3231,8 +3231,8 @@ wire FinishWBB6;
 
 
 //-------------------   
-    reg [18:0] psumA11;
-    reg [18:0] psumA12;
+    wire [18:0] psumA11;
+    wire [18:0] psumA12;
     reg [7:0]  ifmapA11;
     reg [7:0]  ifmapA12;
     reg [7:0]  ifmapA13;

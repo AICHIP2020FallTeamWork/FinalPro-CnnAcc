@@ -3,7 +3,7 @@
 module channelBuf(
          clk,
          we,
-         
+         waddr,
          wdata1,
          wdata2,
          wdata3,
@@ -18,7 +18,8 @@ module channelBuf(
 
 input wire clk;
 input wire we;
-input wire[4:0]  waddr;
+
+input wire[5:0] waddr;
 input wire[21:0] wdata1;
 input wire[21:0] wdata2;
 input wire[21:0] wdata3;
@@ -44,35 +45,35 @@ reg signed     [23:0]      registers12 [0:15];
 reg signed     [24:0]      registers13 [0:7];
 reg signed     [25:0]      registers14 [0:3];
 reg signed     [26:0]      registers15 [0:1];
-reg signed                 registers16 [27:0];
+reg signed     [27:0]            registers16 ;
 
 reg signed     [22:0]      registers21 [0:31];
 reg signed     [23:0]      registers22 [0:15];
 reg signed     [24:0]      registers23 [0:7];
 reg signed     [25:0]      registers24 [0:3];
 reg signed     [26:0]      registers25 [0:1];
-reg signed                 registers26 [27:0];
+reg signed     [27:0]            registers26;
 
 reg signed     [22:0]      registers31 [0:31];
 reg signed     [23:0]      registers32 [0:15];
 reg signed     [24:0]      registers33 [0:7];
 reg signed     [25:0]      registers34 [0:3];
 reg signed     [26:0]      registers35 [0:1];
-reg signed                 registers36 [27:0];
+reg signed     [27:0]            registers36 ;
 
 reg signed     [22:0]      registers41 [0:31];
 reg signed     [23:0]      registers42 [0:15];
 reg signed     [24:0]      registers43 [0:7];
 reg signed     [25:0]      registers44 [0:3];
 reg signed     [26:0]      registers45 [0:1];
-reg signed                 registers46 [27:0];
+reg signed     [27:0]            registers46 ;
 
 reg signed     [22:0]      registers51 [0:31];
 reg signed     [23:0]      registers52 [0:15];
 reg signed     [24:0]      registers53 [0:7];
 reg signed     [25:0]      registers54 [0:3];
 reg signed     [26:0]      registers55 [0:1];
-reg signed                 registers56 [27:0];
+reg signed     [27:0]            registers56;
 
 
 reg signed     [22:0]      registers61 [0:31];
@@ -80,7 +81,7 @@ reg signed     [23:0]      registers62 [0:15];
 reg signed     [24:0]      registers63 [0:7];
 reg signed     [25:0]      registers64 [0:3];
 reg signed     [26:0]      registers65 [0:1];
-reg signed                 registers66 [27:0];
+reg signed     [27:0]            registers66 ;
 
 
 reg signed     [22:0]      registers71 [0:31];
@@ -88,14 +89,14 @@ reg signed     [23:0]      registers72 [0:15];
 reg signed     [24:0]      registers73 [0:7];
 reg signed     [25:0]      registers74 [0:3];
 reg signed     [26:0]      registers75 [0:1];
-reg signed                 registers76 [27:0];
+reg signed      [27:0]           registers76 ;
 
 reg signed     [22:0]      registers81 [0:31];
 reg signed     [23:0]      registers82 [0:15];
 reg signed     [24:0]      registers83 [0:7];
 reg signed     [25:0]      registers84 [0:3];
 reg signed     [26:0]      registers85 [0:1];
-reg signed                 registers86 [27:0];
+reg signed     [27:0]            registers86;
 reg signed     [7:0]       out1;
 reg signed     [7:0]       out2;
 reg signed     [7:0]       out3;
@@ -644,14 +645,14 @@ always @(posedge clk) begin
                 end
                 6: begin
                     state<=7;
-                    registers16 <= registers15[0]+registers15[1];
-                    registers26 <= registers25[0]+registers25[1];
-                    registers36 <= registers35[0]+registers35[1];
-                    registers46 <= registers45[0]+registers45[1];
-                    registers56 <= registers55[0]+registers55[1];
-                    registers66 <= registers65[0]+registers65[1];
-                    registers76 <= registers75[0]+registers75[1];
-                    registers86 <= registers85[0]+registers85[1];  //27                  
+                    registers16 [27:0] <= registers15[0]+registers15[1];
+                    registers26 [27:0] <= registers25[0]+registers25[1];
+                    registers36 [27:0] <= registers35[0]+registers35[1];
+                    registers46 [27:0] <= registers45[0]+registers45[1];
+                    registers56 [27:0] <= registers55[0]+registers55[1];
+                    registers66 [27:0] <= registers65[0]+registers65[1];
+                    registers76 [27:0] <= registers75[0]+registers75[1];
+                    registers86 [27:0] <= registers85[0]+registers85[1];  //27                  
                 end
                 7: begin
                     state <= 1;   
