@@ -18,23 +18,27 @@
 # for i in range(8):
 #     print(\
 # "        wdata_CB"+str(i)+" <= 0;")
-for i in range(4,5):
+# for i in range(4,5):
+#     print(\
+# "            weightA"+str(i)+"1 <= dout_weight_1[`ByteThr];\n\
+#             weightA"+str(i)+"2 <= dout_weight_1[`ByteTwo];\n\
+#             weightA"+str(i)+"3 <= dout_weight_1[`ByteOne];\n\
+#             weightA"+str(i)+"4 <= dout_weight_1[`ByteThr];\n\
+#             weightA"+str(i)+"5 <= dout_weight_1[`ByteTwo];\n\
+#             weightA"+str(i)+"6 <= dout_weight_1[`ByteOne];\n\
+#             weightA"+str(i+1)+"1 <= dout_weight_1[`ByteSix];\n\
+#             weightA"+str(i+1)+"2 <= dout_weight_1[`ByteFiv];\n\
+#             weightA"+str(i+1)+"3 <= dout_weight_1[`ByteFor];\n\
+#             weightA"+str(i+1)+"4 <= dout_weight_1[`ByteSix];\n\
+#             weightA"+str(i+1)+"5 <= dout_weight_1[`ByteFiv];\n\
+#             weightA"+str(i+1)+"6 <= dout_weight_1[`ByteFor];\n\
+#             weightA"+str(i+2)+"1 <= dout_weight_1[`ByteNin];\n\
+#             weightA"+str(i+2)+"2 <= dout_weight_1[`ByteEig];\n\
+#             weightA"+str(i+2)+"3 <= dout_weight_1[`ByteSev];\n\
+#             weightA"+str(i+2)+"4 <= dout_weight_1[`ByteNin];\n\
+#             weightA"+str(i+2)+"5 <= dout_weight_1[`ByteEig];\n\
+#             weightA"+str(i+2)+"6 <= dout_weight_1[`ByteSev];")
+
+for i in range(16):
     print(\
-"            weightA"+str(i)+"1 <= dout_weight_1[`ByteThr];\n\
-            weightA"+str(i)+"2 <= dout_weight_1[`ByteTwo];\n\
-            weightA"+str(i)+"3 <= dout_weight_1[`ByteOne];\n\
-            weightA"+str(i)+"4 <= dout_weight_1[`ByteThr];\n\
-            weightA"+str(i)+"5 <= dout_weight_1[`ByteTwo];\n\
-            weightA"+str(i)+"6 <= dout_weight_1[`ByteOne];\n\
-            weightA"+str(i+1)+"1 <= dout_weight_1[`ByteSix];\n\
-            weightA"+str(i+1)+"2 <= dout_weight_1[`ByteFiv];\n\
-            weightA"+str(i+1)+"3 <= dout_weight_1[`ByteFor];\n\
-            weightA"+str(i+1)+"4 <= dout_weight_1[`ByteSix];\n\
-            weightA"+str(i+1)+"5 <= dout_weight_1[`ByteFiv];\n\
-            weightA"+str(i+1)+"6 <= dout_weight_1[`ByteFor];\n\
-            weightA"+str(i+2)+"1 <= dout_weight_1[`ByteNin];\n\
-            weightA"+str(i+2)+"2 <= dout_weight_1[`ByteEig];\n\
-            weightA"+str(i+2)+"3 <= dout_weight_1[`ByteSev];\n\
-            weightA"+str(i+2)+"4 <= dout_weight_1[`ByteNin];\n\
-            weightA"+str(i+2)+"5 <= dout_weight_1[`ByteEig];\n\
-            weightA"+str(i+2)+"6 <= dout_weight_1[`ByteSev];")
+"            ifbuf1["+str(i)+"] <= 0;")

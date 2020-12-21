@@ -8,15 +8,15 @@
 `define Layer4 4'd4
 `define Layer5 4'd5
 
-`define prolenth   3:0
-`define Idle       4'b1110
-`define Init       4'b0000
-`define Start      4'b0111
-`define upHalf     4'b0110
-`define loHalf     4'b1000
-`define Stop       4'b1100
-`define InitUp     4'b0100
-`define InitLo     4'b0010
+`define prolenth   4:0
+`define Idle       5'b01110
+`define Init       5'b00000
+`define Start      5'b00111
+`define upHalf     5'b00110
+`define loHalf     5'b01000
+`define Stop       5'b01100
+`define InitUp     5'b00100
+`define InitLo     5'b00010
 
 
 

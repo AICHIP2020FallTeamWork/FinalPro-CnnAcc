@@ -98,8 +98,8 @@ reg we_CB ;
 reg [63:0] din_BRAMConv2Arr;
 output  reg    we_BRAMConv2Arr1_1;
 output  reg    we_BRAMConv2Arr1_2;
-output  reg    [11:0] addr_BRAMConv2Arr1_1;
-output  reg    [11:0] addr_BRAMConv2Arr1_2;
+output  reg    [9:0] addr_BRAMConv2Arr1_1;
+output  reg    [9:0] addr_BRAMConv2Arr1_2;
 output  wire    [63:0] din_BRAMConv2Arr1_1;
 output  wire    [63:0] din_BRAMConv2Arr1_2;
 input    [63:0] dout_BRAMConv2Arr1_1;
@@ -109,8 +109,8 @@ reg [11:0] addrbase;
 //-------------------------------------------//--------
 output  reg    we_BRAMConv2Arr2_1;
 output  reg    we_BRAMConv2Arr2_2;
-output  reg    [11:0] addr_BRAMConv2Arr2_1;
-output  reg    [11:0] addr_BRAMConv2Arr2_2;
+output  reg    [9:0] addr_BRAMConv2Arr2_1;
+output  reg    [9:0] addr_BRAMConv2Arr2_2;
 output  wire    [63:0] din_BRAMConv2Arr2_1;
 output  wire    [63:0] din_BRAMConv2Arr2_2;
 input    [63:0] dout_BRAMConv2Arr2_1;
@@ -176,18 +176,30 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
     // output  reg  signed    [19:0]      ofmap_out;
 //-------------------input and output ----------------------------------------------
 //------------------
-   reg [13:0] addr_weight_1;
-   reg [13:0] addr_weight_2;
+   reg [12:0] addr_weight_1;
+   reg [12:0] addr_weight_2;
    wire [71:0] dout_weight_1;
    wire [71:0] dout_weight_2;
 
-   weightROM weightRom(
+   weightROM weightRomlayer5(
        .addra(addr_weight_1),
        .addrb(addr_weight_2),
        .clka(clk),
        .clkb(clk),
        .douta(dout_weight_1),
        .doutb(dout_weight_2)
+   );
+//----------------------
+   reg [11:0] addr_layer4_base;
+   reg [11:0] addr_layer4_base_bub;
+
+   reg [11:0] addr_layer4;
+   wire [71:0] dout_layer4;
+
+   weightRomLayer4 rom4(
+       .addra(addr_layer4),
+       .clka(clk),
+       .douta(dout_layer4)
    );
 //----------------------
 //weight register
@@ -318,6 +330,68 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
 
 
 //---------------------------------------------
+//-------------------------------------------//--------
+   reg we_BRAMConv3Arr1;
+   reg  [10:0] addr_BRAMConv3Arr1_1;
+   reg  [10:0] addr_BRAMConv3Arr1_2;
+   reg  [63:0] din_BRAMConv3Arr1_1;
+   reg  [63:0] din_BRAMConv3Arr1_2;
+   wire [63:0] dout_BRAMConv3Arr1_1;
+   wire [63:0] dout_BRAMConv3Arr1_2;
+   BRAM16K BRAMConv3Arr1(
+       .addra(addr_BRAMConv3Arr1_1),
+       .addrb(addr_BRAMConv3Arr1_2),
+       .clka(clk),
+       .clkb(clk),
+       .dina(din_BRAMConv3Arr1_1),
+       .dinb(din_BRAMConv3Arr1_2),
+       .douta(dout_BRAMConv3Arr1_1),
+       .doutb(dout_BRAMConv3Arr1_2),
+       .wea(we_BRAMConv3Arr1),
+       .web(we_BRAMConv3Arr1)
+   );
+//-------------------------------------------//--------
+   reg we_BRAMConv3Arr2;
+   reg  [10:0] addr_BRAMConv3Arr2_1;
+   reg  [10:0] addr_BRAMConv3Arr2_2;
+   reg  [63:0] din_BRAMConv3Arr2_1;
+   reg  [63:0] din_BRAMConv3Arr2_2;
+   wire [63:0] dout_BRAMConv3Arr2_1;
+   wire [63:0] dout_BRAMConv3Arr2_2;
+   BRAM16K BRAMConv3Arr2(
+       .addra(addr_BRAMConv3Arr2_1),
+       .addrb(addr_BRAMConv3Arr2_2),
+       .clka(clk),
+       .clkb(clk),
+       .dina(din_BRAMConv3Arr2_1),
+       .dinb(din_BRAMConv3Arr2_2),
+       .douta(dout_BRAMConv3Arr2_1),
+       .doutb(dout_BRAMConv3Arr2_2),
+       .wea(we_BRAMConv3Arr2),
+       .web(we_BRAMConv3Arr2)
+   );
+
+//-------------------------------------------//--------
+   reg we_BRAMConv3Arr3;
+   reg  [10:0] addr_BRAMConv3Arr3_1;
+   reg  [10:0] addr_BRAMConv3Arr3_2;
+   reg  [63:0] din_BRAMConv3Arr3_1;
+   reg  [63:0] din_BRAMConv3Arr3_2;
+   wire [63:0] dout_BRAMConv3Arr3_1;
+   wire [63:0] dout_BRAMConv3Arr3_2;
+   BRAM16K BRAMConv3Arr3(
+       .addra(addr_BRAMConv3Arr3_1),
+       .addrb(addr_BRAMConv3Arr3_2),
+       .clka(clk),
+       .clkb(clk),
+       .dina(din_BRAMConv3Arr3_1),
+       .dinb(din_BRAMConv3Arr3_2),
+       .douta(dout_BRAMConv3Arr3_1),
+       .doutb(dout_BRAMConv3Arr3_2),
+       .wea(we_BRAMConv3Arr3),
+       .web(we_BRAMConv3Arr3)
+   );
+//-------------------------------------------//--------
     reg                             Trashdata;
     reg     [4:0]                   Row;
     reg  [3:0]   Layer;
@@ -372,18 +446,18 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
     reg [7:0] multi432;
     reg [7:0] multi433;
 //--------------------------------------------
-output  reg  [11:0]  addr_BRAM4k_1;  
-output  reg  [11:0]  addr_BRAM4k_2;  
-output  reg  [7:0]   addr_wLayer1_1; 
-input   wire [39:0]  dout_wLayer1_1;
-input   wire  [63:0]  dout_BRAM4k_1;  
-input   wire  [63:0]  dout_BRAM4k_2;  
-output reg  [63:0]  din_BRAM4k_1;  
-output reg  [63:0]  din_BRAM4k_2;  
+    output  reg  [9:0]  addr_BRAM4k_1;  
+    output  reg  [9:0]  addr_BRAM4k_2;  
+    output  reg  [7:0]   addr_wLayer1_1; 
+    input   wire [39:0]  dout_wLayer1_1;
+    input   wire  [63:0]  dout_BRAM4k_1;  
+    input   wire  [63:0]  dout_BRAM4k_2;  
+    output reg  [63:0]  din_BRAM4k_1;  
+    output reg  [63:0]  din_BRAM4k_2;  
 
-reg        FinishFlag_Bub2 ;
-reg        FinishFlag_Bub1 ;
-reg        FinishFlag      ;
+    reg        FinishFlag_Bub2 ;
+    reg        FinishFlag_Bub1 ;
+    reg        FinishFlag      ;
 
 always @(posedge clk or negedge Process[0] or negedge rst) begin 
 
@@ -420,7 +494,7 @@ always @(posedge clk or negedge rst) begin
 if ( rst == `RstEnable) begin    
     //layer1
     Process         <= `Idle;
-    Layer           <= `Layer5;
+    Layer           <= `Layer4;
     addr_BRAM4k_1 <= 0;
     Counter <= 0;
     Row <= 0;
@@ -2031,817 +2105,355 @@ end else if( rst == `RstDisable && locked == 1 )begin
         end
         endcase
     end 
+*/
     `Layer4: begin
-        case ( Process )
-        `Init:begin
-            if (Counter != 5'd2) begin
-                Counter <= Counter + 1;
-                Process <= `Init;
-                ifbuf6[24]   <=   ifmap_in4[63:56];
-                ifbuf6[25]   <=   ifmap_in4[55:48];
-                ifbuf6[26]   <=   ifmap_in4[47:40];
-                ifbuf6[27]   <=   ifmap_in4[39:32];
-                ifbuf6[28]   <=   ifmap_in4[31:24];
-                ifbuf6[29]   <=   ifmap_in4[23:16];
-                ifbuf6[30]   <=   ifmap_in4[15:8];
-                ifbuf6[31]   <=   ifmap_in4[7:0];
-//--------------------------------------------------                                
-                ifbuf6[23] <=      ifbuf6[31];
-                ifbuf6[22] <=      ifbuf6[30];
-                ifbuf6[21] <=      ifbuf6[29];
-                ifbuf6[20] <=      ifbuf6[28];
-                ifbuf6[19] <=      ifbuf6[27];
-                ifbuf6[18] <=      ifbuf6[26];
-                ifbuf6[17] <=      ifbuf6[25];
-                ifbuf6[16] <=      ifbuf6[24];
-
-                ifbuf6[8]   <=    ifmap_in3[63:56];
-                ifbuf6[9]   <=    ifmap_in3[55:48];
-                ifbuf6[10]   <=   ifmap_in3[47:40];
-                ifbuf6[11]   <=   ifmap_in3[39:32];
-                ifbuf6[12]   <=   ifmap_in3[31:24];
-                ifbuf6[13]   <=   ifmap_in3[23:16];
-                ifbuf6[14]   <=   ifmap_in3[15:8];
-                ifbuf6[15]   <=   ifmap_in3[7:0];
-
-                ifbuf6[7] <=      ifbuf6[15];
-                ifbuf6[6] <=      ifbuf6[14];
-                ifbuf6[5] <=      ifbuf6[13];
-                ifbuf6[4] <=      ifbuf6[12];
-                ifbuf6[3] <=      ifbuf6[11];
-                ifbuf6[2] <=      ifbuf6[10];
-                ifbuf6[1] <=      ifbuf6[9];
-                ifbuf6[0] <=      ifbuf6[8];
-
-                ifbuf5[24]   <=   ifmap_in04[63:56];
-                ifbuf5[25]   <=   ifmap_in04[55:48];
-                ifbuf5[26]   <=   ifmap_in04[47:40];
-                ifbuf5[27]   <=   ifmap_in04[39:32];
-                ifbuf5[28]   <=   ifmap_in04[31:24];
-                ifbuf5[29]   <=   ifmap_in04[23:16];
-                ifbuf5[30]   <=   ifmap_in04[15:8];
-                ifbuf5[31]   <=   ifmap_in04[7:0];
-//--------------------------------------------------                                
-                ifbuf5[23] <=      ifbuf5[31];
-                ifbuf5[22] <=      ifbuf5[30];
-                ifbuf5[21] <=      ifbuf5[29];
-                ifbuf5[20] <=      ifbuf5[28];
-                ifbuf5[19] <=      ifbuf5[27];
-                ifbuf5[18] <=      ifbuf5[26];
-                ifbuf5[17] <=      ifbuf5[25];
-                ifbuf5[16] <=      ifbuf5[24];
-
-                ifbuf5[8]   <=    ifmap_in03[63:56];
-                ifbuf5[9]   <=    ifmap_in03[55:48];
-                ifbuf5[10]   <=   ifmap_in03[47:40];
-                ifbuf5[11]   <=   ifmap_in03[39:32];
-                ifbuf5[12]   <=   ifmap_in03[31:24];
-                ifbuf5[13]   <=   ifmap_in03[23:16];
-                ifbuf5[14]   <=   ifmap_in03[15:8];
-                ifbuf5[15]   <=   ifmap_in03[7:0];
-
-                ifbuf5[7] <=      ifbuf5[15];
-                ifbuf5[6] <=      ifbuf5[14];
-                ifbuf5[5] <=      ifbuf5[13];
-                ifbuf5[4] <=      ifbuf5[12];
-                ifbuf5[3] <=      ifbuf5[11];
-                ifbuf5[2] <=      ifbuf5[10];
-                ifbuf5[1] <=      ifbuf5[9];
-                ifbuf5[0] <=      ifbuf5[8];
-
-
-
-                ifbuf3[24]   <=   ifmap_in2[63:56];
-                ifbuf3[25]   <=   ifmap_in2[55:48];
-                ifbuf3[26]   <=   ifmap_in2[47:40];
-                ifbuf3[27]   <=   ifmap_in2[39:32];
-                ifbuf3[28]   <=   ifmap_in2[31:24];
-                ifbuf3[29]   <=   ifmap_in2[23:16];
-                ifbuf3[30]   <=   ifmap_in2[15:8];
-                ifbuf3[31]   <=   ifmap_in2[7:0];
-//--------------------------------------------------                                
-                ifbuf3[23] <=      ifbuf3[31];
-                ifbuf3[22] <=      ifbuf3[30];
-                ifbuf3[21] <=      ifbuf3[29];
-                ifbuf3[20] <=      ifbuf3[28];
-                ifbuf3[19] <=      ifbuf3[27];
-                ifbuf3[18] <=      ifbuf3[26];
-                ifbuf3[17] <=      ifbuf3[25];
-                ifbuf3[16] <=      ifbuf3[24];
-
-                ifbuf3[8]   <=    dout_BRAM4k_1[63:56];
-                ifbuf3[9]   <=    dout_BRAM4k_1[55:48];
-                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
-                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
-                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
-                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
-                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
-                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
-
-                ifbuf3[7] <=      ifbuf3[15];
-                ifbuf3[6] <=      ifbuf3[14];
-                ifbuf3[5] <=      ifbuf3[13];
-                ifbuf3[4] <=      ifbuf3[12];
-                ifbuf3[3] <=      ifbuf3[11];
-                ifbuf3[2] <=      ifbuf3[10];
-                ifbuf3[1] <=      ifbuf3[9];
-                ifbuf3[0] <=      ifbuf3[8];
-
-                ifbuf2[24]   <=   ifmap_in02[63:56];
-                ifbuf2[25]   <=   ifmap_in02[55:48];
-                ifbuf2[26]   <=   ifmap_in02[47:40];
-                ifbuf2[27]   <=   ifmap_in02[39:32];
-                ifbuf2[28]   <=   ifmap_in02[31:24];
-                ifbuf2[29]   <=   ifmap_in02[23:16];
-                ifbuf2[30]   <=   ifmap_in02[15:8];
-                ifbuf2[31]   <=   ifmap_in02[7:0];
-//--------------------------------------------------                                
-                ifbuf2[23] <=      ifbuf2[31];
-                ifbuf2[22] <=      ifbuf2[30];
-                ifbuf2[21] <=      ifbuf2[29];
-                ifbuf2[20] <=      ifbuf2[28];
-                ifbuf2[19] <=      ifbuf2[27];
-                ifbuf2[18] <=      ifbuf2[26];
-                ifbuf2[17] <=      ifbuf2[25];
-                ifbuf2[16] <=      ifbuf2[24];
-
-                ifbuf2[8]   <=    ifmap_in01[63:56];
-                ifbuf2[9]   <=    ifmap_in01[55:48];
-                ifbuf2[10]   <=   ifmap_in01[47:40];
-                ifbuf2[11]   <=   ifmap_in01[39:32];
-                ifbuf2[12]   <=   ifmap_in01[31:24];
-                ifbuf2[13]   <=   ifmap_in01[23:16];
-                ifbuf2[14]   <=   ifmap_in01[15:8];
-                ifbuf2[15]   <=   ifmap_in01[7:0];
-
-                ifbuf2[7] <=      ifbuf2[15];
-                ifbuf2[6] <=      ifbuf2[14];
-                ifbuf2[5] <=      ifbuf2[13];
-                ifbuf2[4] <=      ifbuf2[12];
-                ifbuf2[3] <=      ifbuf2[11];
-                ifbuf2[2] <=      ifbuf2[10];
-                ifbuf2[1] <=      ifbuf2[9];
-                ifbuf2[0] <=      ifbuf2[8];
-
-                  
-              end else begin
-                ifbuf4[0]    <=      0;
-                ifbuf4[1]    <=      0;
-                ifbuf4[2]    <=      0;
-                ifbuf4[3]    <=      0;
-                ifbuf4[4]    <=      0;
-                ifbuf4[5]    <=      0;
-                ifbuf4[6]    <=      0;
-                ifbuf4[7]    <=      0;
-                ifbuf4[8]    <=      0;
-                ifbuf4[9]    <=      0;
-                ifbuf4[10]   <=      0;
-                ifbuf4[11]   <=      0;
-                ifbuf4[12]   <=      0;
-                ifbuf4[13]   <=      0;
-                ifbuf4[14]   <=      0;
-                ifbuf4[15]   <=      0;
-                ifbuf4[16]   <=      0;
-                ifbuf4[17]   <=      0;
-                ifbuf4[18]   <=      0;
-                ifbuf4[19]   <=      0;
-                ifbuf4[20]   <=      0;
-                ifbuf4[21]   <=      0;
-                ifbuf4[22]   <=      0;
-                ifbuf4[23]   <=      0;
-                ifbuf4[24]   <=      0;
-                ifbuf4[25]   <=      0;
-                ifbuf4[26]   <=      0;
-                ifbuf4[27]   <=      0;
-                ifbuf4[28]   <=      0;
-                ifbuf4[29]   <=      0;
-                ifbuf4[30]   <=      0;
-                ifbuf1[31]   <=      0;
-                ifbuf1[0]    <=      0;
-                ifbuf1[1]    <=      0;
-                ifbuf1[2]    <=      0;
-                ifbuf1[3]    <=      0;
-                ifbuf1[4]    <=      0;
-                ifbuf1[5]    <=      0;
-                ifbuf1[6]    <=      0;
-                ifbuf1[7]    <=      0;
-                ifbuf1[8]    <=      0;
-                ifbuf1[9]    <=      0;
-                ifbuf1[10]   <=      0;
-                ifbuf1[11]   <=      0;
-                ifbuf1[12]   <=      0;
-                ifbuf1[13]   <=      0;
-                ifbuf1[14]   <=      0;
-                ifbuf1[15]   <=      0;
-                ifbuf1[16]   <=      0;
-                ifbuf1[17]   <=      0;
-                ifbuf1[18]   <=      0;
-                ifbuf1[19]   <=      0;
-                ifbuf1[20]   <=      0;
-                ifbuf1[21]   <=      0;
-                ifbuf1[22]   <=      0;
-                ifbuf1[23]   <=      0;
-                ifbuf1[24]   <=      0;
-                ifbuf1[25]   <=      0;
-                ifbuf1[26]   <=      0;
-                ifbuf1[27]   <=      0;
-                ifbuf1[28]   <=      0;
-                ifbuf1[29]   <=      0;
-                ifbuf1[30]   <=      0;
-                ifbuf1[31]   <=      0;                
-                regPad1[0]   <= 0;
-                regPad2[0]   <= 0;
-                regPad3[0]   <= 0;
-                regPad4[0]   <= 0;
-                regPad5[0]   <= 0;
-                regPad1[1]   <= 0;
-                regPad6[0]   <= 0;
-                regPad6[1]   <= 0;
-                regPad2[1]   <= 0;
-                regPad3[1]   <= 0;
-                regPad4[1]   <= 0;
-                regPad5[1]   <= 0;
-                Process <= `Start;
-                Counter <= 0;
-              end
+        case( Process )
+        `Idle :begin
+            Process <= `InitUp;
+            kernCounter <= 0;
+            addr_layer4 <= 0;
+            addr_layer4_base <= 0;
+            addr_layer4_base_bub <= 0;
+            addrbase <= 0;            
         end
-        //ifbuf5[31]
-        `Start:begin
-            
-            regPad6[0]   <=      ifbuf6[1];
-            ifbuf6[0]    <=      ifbuf6[2];
-            ifbuf6[1]    <=      ifbuf6[3];
-            ifbuf6[2]    <=      ifbuf6[4];
-            ifbuf6[3]    <=      ifbuf6[5];
-            ifbuf6[4]    <=      ifbuf6[6];
-            ifbuf6[5]    <=      ifbuf6[7];
-            ifbuf6[6]    <=      ifbuf6[8];
-            ifbuf6[7]    <=      ifbuf6[9];
-            ifbuf6[8]    <=      ifbuf6[10];
-            ifbuf6[9]    <=      ifbuf6[11];
-            ifbuf6[10]   <=      ifbuf6[12];
-            ifbuf6[11]   <=      ifbuf6[13];
-            ifbuf6[12]   <=      ifbuf6[14];
-            ifbuf6[13]   <=      ifbuf6[15];
+        `InitUp:begin //000
+            Process <= `upHalf;
+            addr_BRAMConv3Arr2_2 <= 0;
+            addr_BRAMConv3Arr2_1 <= 1;
+            addr_BRAMConv3Arr3_2 <= 2;
+            addr_BRAMConv3Arr3_1 <= 3;
+            addrbase <= 2;
+            addr_layer4        <= addr_layer4_base;
+            we_CB <= 1;
+            we_CB_bub <= 0;
+        end
 
-            regPad6[1]   <=      ifbuf6[17];
-            ifbuf6[16]   <=      ifbuf6[18];
-            ifbuf6[17]   <=      ifbuf6[19];
-            ifbuf6[18]   <=      ifbuf6[20];
-            ifbuf6[19]   <=      ifbuf6[21];
-            ifbuf6[20]   <=      ifbuf6[22];
-            ifbuf6[21]   <=      ifbuf6[23];
-            ifbuf6[22]   <=      ifbuf6[24];
-            ifbuf6[23]   <=      ifbuf6[25];
-            ifbuf6[24]   <=      ifbuf6[26];
-            ifbuf6[25]   <=      ifbuf6[27];
-            ifbuf6[26]   <=      ifbuf6[28];
-            ifbuf6[27]   <=      ifbuf6[29];
-            ifbuf6[28]   <=      ifbuf6[30];
-            ifbuf6[29]   <=      ifbuf6[31];
-
-            
-            regPad5[0]   <=      ifbuf5[1];
-            ifbuf5[0]    <=      ifbuf5[2];
-            ifbuf5[1]    <=      ifbuf5[3];
-            ifbuf5[2]    <=      ifbuf5[4];
-            ifbuf5[3]    <=      ifbuf5[5];
-            ifbuf5[4]    <=      ifbuf5[6];
-            ifbuf5[5]    <=      ifbuf5[7];
-            ifbuf5[6]    <=      ifbuf5[8];
-            ifbuf5[7]    <=      ifbuf5[9];
-            ifbuf5[8]    <=      ifbuf5[10];
-            ifbuf5[9]    <=      ifbuf5[11];
-            ifbuf5[10]   <=      ifbuf5[12];
-            ifbuf5[11]   <=      ifbuf5[13];
-            ifbuf5[12]   <=      ifbuf5[14];
-            ifbuf5[13]   <=      ifbuf5[15];
-
-            regPad5[1]   <=      ifbuf5[17];
-            ifbuf5[16]   <=      ifbuf5[18];
-            ifbuf5[17]   <=      ifbuf5[19];
-            ifbuf5[18]   <=      ifbuf5[20];
-            ifbuf5[19]   <=      ifbuf5[21];
-            ifbuf5[20]   <=      ifbuf5[22];
-            ifbuf5[21]   <=      ifbuf5[23];
-            ifbuf5[22]   <=      ifbuf5[24];
-            ifbuf5[23]   <=      ifbuf5[25];
-            ifbuf5[24]   <=      ifbuf5[26];
-            ifbuf5[25]   <=      ifbuf5[27];
-            ifbuf5[26]   <=      ifbuf5[28];
-            ifbuf5[27]   <=      ifbuf5[29];
-            ifbuf5[28]   <=      ifbuf5[30];
-            ifbuf5[29]   <=      ifbuf5[31];
-
-
-            regPad4[0]   <=      ifbuf4[1];
-            ifbuf4[0]    <=      ifbuf4[2];
-            ifbuf4[1]    <=      ifbuf4[3];
-            ifbuf4[2]    <=      ifbuf4[4];
-            ifbuf4[3]    <=      ifbuf4[5];
-            ifbuf4[4]    <=      ifbuf4[6];
-            ifbuf4[5]    <=      ifbuf4[7];
-            ifbuf4[6]    <=      ifbuf4[8];
-            ifbuf4[7]    <=      ifbuf4[9];
-            ifbuf4[8]    <=      ifbuf4[10];
-            ifbuf4[9]    <=      ifbuf4[11];
-            ifbuf4[10]   <=      ifbuf4[12];
-            ifbuf4[11]   <=      ifbuf4[13];
-            ifbuf4[12]   <=      ifbuf4[14];
-            ifbuf4[13]   <=      ifbuf1[15];
-            ifbuf4[14]   <=      regPad6[2];
-            ifbuf4[15]   <=      regPad6[0];
-            regPad6[2]   <=      ifbuf6[0];
-
-
-
-            regPad4[1]   <=      ifbuf4[17];
-            ifbuf4[16]   <=      ifbuf4[18];
-            ifbuf4[17]   <=      ifbuf4[19];
-            ifbuf4[18]   <=      ifbuf4[20];
-            ifbuf4[19]   <=      ifbuf4[21];
-            ifbuf4[20]   <=      ifbuf4[22];
-            ifbuf4[21]   <=      ifbuf4[23];
-            ifbuf4[22]   <=      ifbuf4[24];
-            ifbuf4[23]   <=      ifbuf4[25];
-            ifbuf4[24]   <=      ifbuf4[26];
-            ifbuf4[25]   <=      ifbuf4[27];
-            ifbuf4[26]   <=      ifbuf4[28];
-            ifbuf4[27]   <=      ifbuf4[29];
-            ifbuf4[28]   <=      ifbuf4[30];
-            ifbuf4[29]   <=      ifbuf4[31];
-            ifbuf4[30]   <=      regPad6[3];
-            ifbuf4[31]   <=      regPad6[1];
-            regPad6[3]   <=      ifbuf6[16];
-
-            regPad3[0]   <=      ifbuf3[1];
-            ifbuf3[0]    <=      ifbuf3[2];
-            ifbuf3[1]    <=      ifbuf3[3];
-            ifbuf3[2]    <=      ifbuf3[4];
-            ifbuf3[3]    <=      ifbuf3[5];
-            ifbuf3[4]    <=      ifbuf3[6];
-            ifbuf3[5]    <=      ifbuf3[7];
-            ifbuf3[6]    <=      ifbuf3[8];
-            ifbuf3[7]    <=      ifbuf3[9];
-            ifbuf3[8]    <=      ifbuf3[10];
-            ifbuf3[9]    <=      ifbuf3[11];
-            ifbuf3[10]   <=      ifbuf3[12];
-            ifbuf3[11]   <=      ifbuf3[13];
-            ifbuf3[12]   <=      ifbuf3[14];
-            ifbuf3[13]   <=      ifbuf3[15];
-
-            regPad3[1]   <=      ifbuf3[17];
-            ifbuf3[16]   <=      ifbuf3[18];
-            ifbuf3[17]   <=      ifbuf3[19];
-            ifbuf3[18]   <=      ifbuf3[20];
-            ifbuf3[19]   <=      ifbuf3[21];
-            ifbuf3[20]   <=      ifbuf3[22];
-            ifbuf3[21]   <=      ifbuf3[23];
-            ifbuf3[22]   <=      ifbuf3[24];
-            ifbuf3[23]   <=      ifbuf3[25];
-            ifbuf3[24]   <=      ifbuf3[26];
-            ifbuf3[25]   <=      ifbuf3[27];
-            ifbuf3[26]   <=      ifbuf3[28];
-            ifbuf3[27]   <=      ifbuf3[29];
-            ifbuf3[28]   <=      ifbuf3[30];
-            ifbuf3[29]   <=      ifbuf3[31];
-
-
-            regPad2[0]   <=      ifbuf2[1];
-            ifbuf2[0]    <=      ifbuf2[2];
-            ifbuf2[1]    <=      ifbuf2[3];
-            ifbuf2[2]    <=      ifbuf2[4];
-            ifbuf2[3]    <=      ifbuf2[5];
-            ifbuf2[4]    <=      ifbuf2[6];
-            ifbuf2[5]    <=      ifbuf2[7];
-            ifbuf2[6]    <=      ifbuf2[8];
-            ifbuf2[7]    <=      ifbuf2[9];
-            ifbuf2[8]    <=      ifbuf2[10];
-            ifbuf2[9]    <=      ifbuf2[11];
-            ifbuf2[10]   <=      ifbuf2[12];
-            ifbuf2[11]   <=      ifbuf2[13];
-            ifbuf2[12]   <=      ifbuf2[14];
-            ifbuf2[13]   <=      ifbuf2[15];
-
-            regPad2[1]   <=      ifbuf2[17];
-            ifbuf2[16]   <=      ifbuf2[18];
-            ifbuf2[17]   <=      ifbuf2[19];
-            ifbuf2[18]   <=      ifbuf2[20];
-            ifbuf2[19]   <=      ifbuf2[21];
-            ifbuf2[20]   <=      ifbuf2[22];
-            ifbuf2[21]   <=      ifbuf2[23];
-            ifbuf2[22]   <=      ifbuf2[24];
-            ifbuf2[23]   <=      ifbuf2[25];
-            ifbuf2[24]   <=      ifbuf2[26];
-            ifbuf2[25]   <=      ifbuf2[27];
-            ifbuf2[26]   <=      ifbuf2[28];
-            ifbuf2[27]   <=      ifbuf2[29];
-            ifbuf2[28]   <=      ifbuf2[30];
-            ifbuf2[29]   <=      ifbuf2[31];
-
-
-            regPad1[0]   <=      ifbuf1[1];
-            ifbuf1[0]    <=      ifbuf1[2];
-            ifbuf1[1]    <=      ifbuf1[3];
-            ifbuf1[2]    <=      ifbuf1[4];
-            ifbuf1[3]    <=      ifbuf1[5];
-            ifbuf1[4]    <=      ifbuf1[6];
-            ifbuf1[5]    <=      ifbuf1[7];
-            ifbuf1[6]    <=      ifbuf1[8];
-            ifbuf1[7]    <=      ifbuf1[9];
-            ifbuf1[8]    <=      ifbuf1[10];
-            ifbuf1[9]    <=      ifbuf1[11];
-            ifbuf1[10]   <=      ifbuf1[12];
-            ifbuf1[11]   <=      ifbuf1[13];
-            ifbuf1[12]   <=      ifbuf1[14];
-            ifbuf1[13]   <=      ifbuf1[15];
-            ifbuf1[14]   <=      regPad3[2];
-            ifbuf1[15]   <=      regPad3[0];
-            regPad3[2]   <=      ifbuf3[0];
-
-            regPad1[1]   <=      ifbuf1[17];
-            ifbuf1[16]   <=      ifbuf1[18];
-            ifbuf1[17]   <=      ifbuf1[19];
-            ifbuf1[18]   <=      ifbuf1[20];
-            ifbuf1[19]   <=      ifbuf1[21];
-            ifbuf1[20]   <=      ifbuf1[22];
-            ifbuf1[21]   <=      ifbuf1[23];
-            ifbuf1[22]   <=      ifbuf1[24];
-            ifbuf1[23]   <=      ifbuf1[25];
-            ifbuf1[24]   <=      ifbuf1[26];
-            ifbuf1[25]   <=      ifbuf1[27];
-            ifbuf1[26]   <=      ifbuf1[28];
-            ifbuf1[27]   <=      ifbuf1[29];
-            ifbuf1[28]   <=      ifbuf1[30];
-            ifbuf1[29]   <=      ifbuf1[31];
-            ifbuf1[30]   <=      regPad3[3];
-            ifbuf1[31]   <=      regPad3[1];
-            regPad3[3]   <=      ifbuf3[16];
-
-
-// need further change
-            case ( Counter )
-            6'd5 : begin
-                ifbuf6[8]   <=   ifmap_in3[63:56];
-                ifbuf6[9]   <=   ifmap_in3[55:48];
-                ifbuf6[10]   <=   ifmap_in3[47:40];
-                ifbuf6[11]   <=   ifmap_in3[39:32];
-                ifbuf6[12]   <=   ifmap_in3[31:24];
-                ifbuf6[13]   <=   ifmap_in3[23:16];
-                ifbuf6[14]   <=   ifmap_in3[15:8];
-                ifbuf6[15]   <=   ifmap_in3[7:0];
-
-                ifbuf6[24]   <=   ifmap_in4[63:56];
-                ifbuf6[25]   <=   ifmap_in4[55:48];
-                ifbuf6[26]   <=   ifmap_in4[47:40];
-                ifbuf6[27]   <=   ifmap_in4[39:32];
-                ifbuf6[28]   <=   ifmap_in4[31:24];
-                ifbuf6[29]   <=   ifmap_in4[23:16];
-                ifbuf6[30]   <=   ifmap_in4[15:8];
-                ifbuf6[31]   <=   ifmap_in4[7:0];
-
-                ifbuf3[8]   <=   dout_BRAM4k_1[63:56];
-                ifbuf3[9]   <=   dout_BRAM4k_1[55:48];
-                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
-                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
-                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
-                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
-                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
-                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
-                
-                ifbuf3[24]   <=   ifmap_in2[63:56];
-                ifbuf3[25]   <=   ifmap_in2[55:48];
-                ifbuf3[26]   <=   ifmap_in2[47:40];
-                ifbuf3[27]   <=   ifmap_in2[39:32];
-                ifbuf3[28]   <=   ifmap_in2[31:24];
-                ifbuf3[29]   <=   ifmap_in2[23:16];
-                ifbuf3[30]   <=   ifmap_in2[15:8];
-                ifbuf3[31]   <=   ifmap_in2[7:0];
-
-                ifbuf5[8]   <=   ifmap_in03[63:56];
-                ifbuf5[9]   <=   ifmap_in03[55:48];
-                ifbuf5[10]   <=   ifmap_in03[47:40];
-                ifbuf5[11]   <=   ifmap_in03[39:32];
-                ifbuf5[12]   <=   ifmap_in03[31:24];
-                ifbuf5[13]   <=   ifmap_in03[23:16];
-                ifbuf5[14]   <=   ifmap_in03[15:8];
-                ifbuf5[15]   <=   ifmap_in03[7:0];
-
-                ifbuf5[24]   <=   ifmap_in04[63:56];
-                ifbuf5[25]   <=   ifmap_in04[55:48];
-                ifbuf5[26]   <=   ifmap_in04[47:40];
-                ifbuf5[27]   <=   ifmap_in04[39:32];
-                ifbuf5[28]   <=   ifmap_in04[31:24];
-                ifbuf5[29]   <=   ifmap_in04[23:16];
-                ifbuf5[30]   <=   ifmap_in04[15:8];
-                ifbuf5[31]   <=   ifmap_in04[7:0];
-
-                ifbuf2[8]   <=   ifmap_in01[63:56];
-                ifbuf2[9]   <=   ifmap_in01[55:48];
-                ifbuf2[10]   <=   ifmap_in01[47:40];
-                ifbuf2[11]   <=   ifmap_in01[39:32];
-                ifbuf2[12]   <=   ifmap_in01[31:24];
-                ifbuf2[13]   <=   ifmap_in01[23:16];
-                ifbuf2[14]   <=   ifmap_in01[15:8];
-                ifbuf2[15]   <=   ifmap_in01[7:0];
-                
-                ifbuf2[24]   <=   ifmap_in02[63:56];
-                ifbuf2[25]   <=   ifmap_in02[55:48];
-                ifbuf2[26]   <=   ifmap_in02[47:40];
-                ifbuf2[27]   <=   ifmap_in02[39:32];
-                ifbuf2[28]   <=   ifmap_in02[31:24];
-                ifbuf2[29]   <=   ifmap_in02[23:16];
-                ifbuf2[30]   <=   ifmap_in02[15:8];
-                ifbuf2[31]   <=   ifmap_in02[7:0];
-
-                Counter <= Counter + 1;
-                Trashdata <= 0;
-            end
-            6'd9 : begin
-                ifbuf6[8]   <=   ifmap_in3[63:56];
-                ifbuf6[9]   <=   ifmap_in3[55:48];
-                ifbuf6[10]   <=   ifmap_in3[47:40];
-                ifbuf6[11]   <=   ifmap_in3[39:32];
-                ifbuf6[12]   <=   ifmap_in3[31:24];
-                ifbuf6[13]   <=   ifmap_in3[23:16];
-                ifbuf6[14]   <=   ifmap_in3[15:8];
-                ifbuf6[15]   <=   ifmap_in3[7:0];
-
-                ifbuf6[24]   <=   ifmap_in4[63:56];
-                ifbuf6[25]   <=   ifmap_in4[55:48];
-                ifbuf6[26]   <=   ifmap_in4[47:40];
-                ifbuf6[27]   <=   ifmap_in4[39:32];
-                ifbuf6[28]   <=   ifmap_in4[31:24];
-                ifbuf6[29]   <=   ifmap_in4[23:16];
-                ifbuf6[30]   <=   ifmap_in4[15:8];
-                ifbuf6[31]   <=   ifmap_in4[7:0];
-
-                ifbuf3[8]   <=   dout_BRAM4k_1[63:56];
-                ifbuf3[9]   <=   dout_BRAM4k_1[55:48];
-                ifbuf3[10]   <=   dout_BRAM4k_1[47:40];
-                ifbuf3[11]   <=   dout_BRAM4k_1[39:32];
-                ifbuf3[12]   <=   dout_BRAM4k_1[31:24];
-                ifbuf3[13]   <=   dout_BRAM4k_1[23:16];
-                ifbuf3[14]   <=   dout_BRAM4k_1[15:8];
-                ifbuf3[15]   <=   dout_BRAM4k_1[7:0];
-                
-                ifbuf3[24]   <=   ifmap_in2[63:56];
-                ifbuf3[25]   <=   ifmap_in2[55:48];
-                ifbuf3[26]   <=   ifmap_in2[47:40];
-                ifbuf3[27]   <=   ifmap_in2[39:32];
-                ifbuf3[28]   <=   ifmap_in2[31:24];
-                ifbuf3[29]   <=   ifmap_in2[23:16];
-                ifbuf3[30]   <=   ifmap_in2[15:8];
-                ifbuf3[31]   <=   ifmap_in2[7:0];
-
-                ifbuf5[8]   <=   ifmap_in03[63:56];
-                ifbuf5[9]   <=   ifmap_in03[55:48];
-                ifbuf5[10]   <=   ifmap_in03[47:40];
-                ifbuf5[11]   <=   ifmap_in03[39:32];
-                ifbuf5[12]   <=   ifmap_in03[31:24];
-                ifbuf5[13]   <=   ifmap_in03[23:16];
-                ifbuf5[14]   <=   ifmap_in03[15:8];
-                ifbuf5[15]   <=   ifmap_in03[7:0];
-
-                ifbuf5[24]   <=   ifmap_in04[63:56];
-                ifbuf5[25]   <=   ifmap_in04[55:48];
-                ifbuf5[26]   <=   ifmap_in04[47:40];
-                ifbuf5[27]   <=   ifmap_in04[39:32];
-                ifbuf5[28]   <=   ifmap_in04[31:24];
-                ifbuf5[29]   <=   ifmap_in04[23:16];
-                ifbuf5[30]   <=   ifmap_in04[15:8];
-                ifbuf5[31]   <=   ifmap_in04[7:0];
-
-                ifbuf2[8]   <=   ifmap_in01[63:56];
-                ifbuf2[9]   <=   ifmap_in01[55:48];
-                ifbuf2[10]   <=   ifmap_in01[47:40];
-                ifbuf2[11]   <=   ifmap_in01[39:32];
-                ifbuf2[12]   <=   ifmap_in01[31:24];
-                ifbuf2[13]   <=   ifmap_in01[23:16];
-                ifbuf2[14]   <=   ifmap_in01[15:8];
-                ifbuf2[15]   <=   ifmap_in01[7:0];
-                
-                ifbuf2[24]   <=   ifmap_in02[63:56];
-                ifbuf2[25]   <=   ifmap_in02[55:48];
-                ifbuf2[26]   <=   ifmap_in02[47:40];
-                ifbuf2[27]   <=   ifmap_in02[39:32];
-                ifbuf2[28]   <=   ifmap_in02[31:24];
-                ifbuf2[29]   <=   ifmap_in02[23:16];
-                ifbuf2[30]   <=   ifmap_in02[15:8];
-                ifbuf2[31]   <=   ifmap_in02[7:0];
-
-                Counter <= 6'd1;
-                Trashdata <= 0;
-                if(Row == 5'd15) begin
-                    Row <= 0;
-                end else begin
-                    Row <= Row + 1;                    
-                end
+        `InitLo:begin //001
+            Process <= `loHalf;
+            addr_BRAM4k_1        <= 3;
+            addr_BRAMConv3Arr1_2 <= addrbase + 0;
+            addr_BRAMConv3Arr1_1 <= addrbase + 1;
+            addr_BRAMConv3Arr2_2 <= addrbase + 2;
+            addr_BRAMConv3Arr2_1 <= addrbase + 3;
+            addr_BRAMConv3Arr3_2 <= addrbase + 4;
+            addr_BRAMConv3Arr3_1 <= addrbase + 5;
+            addrbase <= addrbase + 6;
+            addr_layer4  <= addr_layer4_base;
+            we_CB <= 1;
+            we_CB_bub <= 0;
+        end
+        `upHalf: begin //011
+            if(addr_BRAMConv3Arr3_2 == (2026)) begin // withdraw condition
+                ProcessBubble1 <= `InitLo;
+                Process <= ProcessBubble1;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
+            end else begin
+                Process <= `upHalf;
+                ProcessBubble1 <=`upHalf;
+                addr_BRAMConv3Arr1_1 <= addr_BRAMConv3Arr1_1 + 8;
+                addr_BRAMConv3Arr1_2 <= addr_BRAMConv3Arr1_2 + 8;
+                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 8;
+                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 8;
+                addr_weight_1        <= addr_weight_1 + 1;
             end
 
-            6'd1 : begin
-                ifbuf6[8]   <=      ifbuf6[10];
-                ifbuf6[9]   <=      ifbuf6[11];
-                ifbuf6[10]   <=      ifbuf6[12];
-                ifbuf6[11]   <=      ifbuf6[13];
-                ifbuf6[12]   <=      ifbuf6[14];
-                ifbuf6[13]   <=      ifbuf6[15];
-                ifbuf6[14]   <=      0;
-                ifbuf6[15]   <=      0;
+//          -main-----------------------------------------------
+            weightA11 <= dout_weight_1[`ByteSev];
+            weightA12 <= dout_weight_1[`ByteEig];
+            weightA13 <= dout_weight_1[`ByteNin];
+            weightA14 <= dout_weight_1[`ByteSev];
+            weightA15 <= dout_weight_1[`ByteEig];
+            weightA16 <= dout_weight_1[`ByteNin];
+            weightA21 <= dout_weight_1[`ByteFor];
+            weightA22 <= dout_weight_1[`ByteFiv];
+            weightA23 <= dout_weight_1[`ByteSix];
+            weightA24 <= dout_weight_1[`ByteFor];
+            weightA25 <= dout_weight_1[`ByteFiv];
+            weightA26 <= dout_weight_1[`ByteSix];
+            weightA31 <= dout_weight_1[`ByteOne];
+            weightA32 <= dout_weight_1[`ByteTwo];
+            weightA33 <= dout_weight_1[`ByteThr];
+            weightA34 <= dout_weight_1[`ByteOne];
+            weightA35 <= dout_weight_1[`ByteTwo];
+            weightA36 <= dout_weight_1[`ByteThr];
+            weightA41 <= dout_weight_1[`ByteSev];
+            weightA42 <= dout_weight_1[`ByteEig];
+            weightA43 <= dout_weight_1[`ByteNin];
+            weightA44 <= dout_weight_1[`ByteSev];
+            weightA45 <= dout_weight_1[`ByteEig];
+            weightA46 <= dout_weight_1[`ByteNin];
+            weightA51 <= dout_weight_1[`ByteFor];
+            weightA52 <= dout_weight_1[`ByteFiv];
+            weightA53 <= dout_weight_1[`ByteSix];
+            weightA54 <= dout_weight_1[`ByteFor];
+            weightA55 <= dout_weight_1[`ByteFiv];
+            weightA56 <= dout_weight_1[`ByteSix];
+            weightA61 <= dout_weight_1[`ByteOne];
+            weightA62 <= dout_weight_1[`ByteTwo];
+            weightA63 <= dout_weight_1[`ByteThr];
+            weightA64 <= dout_weight_1[`ByteOne];
+            weightA65 <= dout_weight_1[`ByteTwo];
+            weightA66 <= dout_weight_1[`ByteThr];
 
-                ifbuf6[24]   <=      ifbuf6[26];
-                ifbuf6[25]   <=      ifbuf6[27];
-                ifbuf6[26]   <=      ifbuf6[28];
-                ifbuf6[27]   <=      ifbuf6[29];
-                ifbuf6[28]   <=      ifbuf6[30];
-                ifbuf6[29]   <=      ifbuf6[31];
-                ifbuf6[30]   <=      0;
-                ifbuf6[31]   <=      0;
+            weightB11 <= dout_weight_1[`ByteSev];
+            weightB12 <= dout_weight_1[`ByteEig];
+            weightB13 <= dout_weight_1[`ByteNin];
+            weightB14 <= dout_weight_1[`ByteSev];
+            weightB15 <= dout_weight_1[`ByteEig];
+            weightB16 <= dout_weight_1[`ByteNin];
+            weightB21 <= dout_weight_1[`ByteFor];
+            weightB22 <= dout_weight_1[`ByteFiv];
+            weightB23 <= dout_weight_1[`ByteSix];
+            weightB24 <= dout_weight_1[`ByteFor];
+            weightB25 <= dout_weight_1[`ByteFiv];
+            weightB26 <= dout_weight_1[`ByteSix];
+            weightB31 <= dout_weight_1[`ByteOne];
+            weightB32 <= dout_weight_1[`ByteTwo];
+            weightB33 <= dout_weight_1[`ByteThr];
+            weightB34 <= dout_weight_1[`ByteOne];
+            weightB35 <= dout_weight_1[`ByteTwo];
+            weightB36 <= dout_weight_1[`ByteThr];
+            weightB41 <= dout_weight_1[`ByteSev];
+            weightB42 <= dout_weight_1[`ByteEig];
+            weightB43 <= dout_weight_1[`ByteNin];
+            weightB44 <= dout_weight_1[`ByteSev];
+            weightB45 <= dout_weight_1[`ByteEig];
+            weightB46 <= dout_weight_1[`ByteNin];
+            weightB51 <= dout_weight_1[`ByteFor];
+            weightB52 <= dout_weight_1[`ByteFiv];
+            weightB53 <= dout_weight_1[`ByteSix];
+            weightB54 <= dout_weight_1[`ByteFor];
+            weightB55 <= dout_weight_1[`ByteFiv];
+            weightB56 <= dout_weight_1[`ByteSix];
+            weightB61 <= dout_weight_1[`ByteOne];
+            weightB62 <= dout_weight_1[`ByteTwo];
+            weightB63 <= dout_weight_1[`ByteThr];
+            weightB64 <= dout_weight_1[`ByteOne];
+            weightB65 <= dout_weight_1[`ByteTwo];
+            weightB66 <= dout_weight_1[`ByteThr];
+//          ------------------------------------------------
+            ifbuf1[0] <= 0;
+            ifbuf1[1] <= 0;
+            ifbuf1[2] <= 0;
+            ifbuf1[3] <= 0;
+            ifbuf1[4] <= 0;
+            ifbuf1[5] <= 0;
+            ifbuf1[6] <= 0;
+            ifbuf1[7] <= 0;
+            ifbuf1[8] <= 0;
+            ifbuf1[9] <= 0;
+            ifbuf1[10] <= 0;
+            ifbuf1[11] <= 0;
+            ifbuf1[12] <= 0;
+            ifbuf1[13] <= 0;
+            ifbuf1[14] <= 0;
+            ifbuf1[15] <= 0;
 
-                ifbuf5[8]   <=      ifbuf5[10];
-                ifbuf5[9]   <=      ifbuf5[11];
-                ifbuf5[10]   <=      ifbuf5[12];
-                ifbuf5[11]   <=      ifbuf5[13];
-                ifbuf5[12]   <=      ifbuf5[14];
-                ifbuf5[13]   <=      ifbuf5[15];
-                ifbuf5[14]   <=      0;
-                ifbuf5[15]   <=      0;
-
-                ifbuf5[24]   <=      ifbuf5[26];
-                ifbuf5[25]   <=      ifbuf5[27];
-                ifbuf5[26]   <=      ifbuf5[28];
-                ifbuf5[27]   <=      ifbuf5[29];
-                ifbuf5[28]   <=      ifbuf5[30];
-                ifbuf5[29]   <=      ifbuf5[31];
-                ifbuf5[30]   <=      0;
-                ifbuf5[31]   <=      0;
-
-                ifbuf3[8]   <=      ifbuf3[10];
-                ifbuf3[9]   <=      ifbuf3[11];
-                ifbuf3[10]   <=      ifbuf3[12];
-                ifbuf3[11]   <=      ifbuf3[13];
-                ifbuf3[12]   <=      ifbuf3[14];
-                ifbuf3[13]   <=      ifbuf3[15];
-                ifbuf3[14]   <=      0;
-                ifbuf3[15]   <=      0;
-
-                ifbuf3[24]   <=      ifbuf3[26];
-                ifbuf3[25]   <=      ifbuf3[27];
-                ifbuf3[26]   <=      ifbuf3[28];
-                ifbuf3[27]   <=      ifbuf3[29];
-                ifbuf3[28]   <=      ifbuf3[30];
-                ifbuf3[29]   <=      ifbuf3[31];
-                ifbuf3[30]   <=      0;
-                ifbuf3[31]   <=      0;
-
-                ifbuf2[8]   <=      ifbuf2[10];
-                ifbuf2[9]   <=      ifbuf2[11];
-                ifbuf2[10]   <=      ifbuf2[12];
-                ifbuf2[11]   <=      ifbuf2[13];
-                ifbuf2[12]   <=      ifbuf2[14];
-                ifbuf2[13]   <=      ifbuf2[15];
-                ifbuf2[14]   <=      0;
-                ifbuf2[15]   <=      0;
-
-                ifbuf2[24]   <=      ifbuf2[26];
-                ifbuf2[25]   <=      ifbuf2[27];
-                ifbuf2[26]   <=      ifbuf2[28];
-                ifbuf2[27]   <=      ifbuf2[29];
-                ifbuf2[28]   <=      ifbuf2[30];
-                ifbuf2[29]   <=      ifbuf2[31];
-                ifbuf2[30]   <=      0;
-                ifbuf2[31]   <=      0;
-
-                Counter <= Counter + 1;
-                Trashdata <= 0;
+            ifbuf2[7] <=  dout_BRAMConv3Arr2_1[`ByteEig];
+            ifbuf2[6] <=  dout_BRAMConv3Arr2_1[`ByteSev];
+            ifbuf2[5] <=  dout_BRAMConv3Arr2_1[`ByteSix];
+            ifbuf2[4] <=  dout_BRAMConv3Arr2_1[`ByteFiv];
+            ifbuf2[3] <=  dout_BRAMConv3Arr2_1[`ByteFor];
+            ifbuf2[2] <=  dout_BRAMConv3Arr2_1[`ByteThr];
+            ifbuf2[1] <=  dout_BRAMConv3Arr2_1[`ByteTwo];
+            ifbuf2[0] <=  dout_BRAMConv3Arr2_1[`ByteOne];
+            ifbuf3[7] <=  dout_BRAMConv3Arr2_2[`ByteEig];
+            ifbuf3[6] <=  dout_BRAMConv3Arr2_2[`ByteSev];
+            ifbuf3[5] <=  dout_BRAMConv3Arr2_2[`ByteSix];
+            ifbuf3[4] <=  dout_BRAMConv3Arr2_2[`ByteFiv];
+            ifbuf3[3] <=  dout_BRAMConv3Arr2_2[`ByteFor];
+            ifbuf3[2] <=  dout_BRAMConv3Arr2_2[`ByteThr];
+            ifbuf3[1] <=  dout_BRAMConv3Arr2_2[`ByteTwo];
+            ifbuf3[0] <=  dout_BRAMConv3Arr2_2[`ByteOne];
+            ifbuf4[7] <=  dout_BRAMConv3Arr3_1[`ByteEig];
+            ifbuf4[6] <=  dout_BRAMConv3Arr3_1[`ByteSev];
+            ifbuf4[5] <=  dout_BRAMConv3Arr3_1[`ByteSix];
+            ifbuf4[4] <=  dout_BRAMConv3Arr3_1[`ByteFiv];
+            ifbuf4[3] <=  dout_BRAMConv3Arr3_1[`ByteFor];
+            ifbuf4[2] <=  dout_BRAMConv3Arr3_1[`ByteThr];
+            ifbuf4[1] <=  dout_BRAMConv3Arr3_1[`ByteTwo];
+            ifbuf4[0] <=  dout_BRAMConv3Arr3_1[`ByteOne];
+            ifbuf5[7] <=  dout_BRAMConv3Arr3_2[`ByteEig];
+            ifbuf5[6] <=  dout_BRAMConv3Arr3_2[`ByteSev];
+            ifbuf5[5] <=  dout_BRAMConv3Arr3_2[`ByteSix];
+            ifbuf5[4] <=  dout_BRAMConv3Arr3_2[`ByteFiv];
+            ifbuf5[3] <=  dout_BRAMConv3Arr3_2[`ByteFor];
+            ifbuf5[2] <=  dout_BRAMConv3Arr3_2[`ByteThr];
+            ifbuf5[1] <=  dout_BRAMConv3Arr3_2[`ByteTwo];
+            ifbuf5[0] <=  dout_BRAMConv3Arr3_2[`ByteOne];
+//---
+        end
+        `loHalf:begin //100
+            if(addr_layer4 == addr_layer4_base + 63) begin
+                ProcessBubble1 <= `InitLo;
+                Process <= ProcessBubble1;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;               
+           
+            end else if(addr_BRAMConv3Arr3_2 == (2047) && kernCounter < 63) begin // withdraw condition
+                ProcessBubble1 <= `InitUp;
+                Process <= ProcessBubble1;
+                kernCounterbub <= kernCounter + 1;
+                kernCounter <= kernCounterbub;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
+                addr_layer4_base_bub <= addr_layer4_base_bub + 64;
+                addr_layer4_base <= addr_layer4_base_bub;
+            end else if (addr_BRAMConv3Arr2_2 == (2047) && kernCounter == 63) begin
+                ProcessBubble1 <= `Stop;
+                Process <= ProcessBubble1;
+                kernCounter <= 0;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
+                addr_layer4_base_bub <= addr_layer4_base_bub + 64;
+                addr_layer4_base <= addr_layer4_base_bub;
+            end else begin
+                Process <= `loHalf;
+                ProcessBubble1 <= `loHalf;
+                addr_BRAMConv3Arr1_1 <= addr_BRAMConv3Arr1_1 + 8;
+                addr_BRAMConv3Arr1_2 <= addr_BRAMConv3Arr1_2 + 8;
+                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 8;
+                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 8;
+                addr_BRAM4k_1        <= addr_BRAM4k_1 + 8;
+                addr_weight_2        <= addr_weight_2 + 1;
+                kernCounterbub <= kernCounter ;
+                addr_layer4_base_bub <= addr_layer4_base;
+                addr_layer4_base <= addr_layer4_base;
             end
-            6'd8 : begin
-                ifbuf6[8]   <=      ifbuf6[10];
-                ifbuf6[9]   <=      ifbuf6[11];
-                ifbuf6[10]   <=      ifbuf6[12];
-                ifbuf6[11]   <=      ifbuf6[13];
-                ifbuf6[12]   <=      ifbuf6[14];
-                ifbuf6[13]   <=      ifbuf6[15];
+//          weight-------------------------------------------------
+            weightA11 <= dout_weight_2[`ByteSev];
+            weightA12 <= dout_weight_2[`ByteEig];
+            weightA13 <= dout_weight_2[`ByteNin];
+            weightA14 <= dout_weight_2[`ByteSev];
+            weightA15 <= dout_weight_2[`ByteEig];
+            weightA16 <= dout_weight_2[`ByteNin];
+            weightA21 <= dout_weight_2[`ByteFor];
+            weightA22 <= dout_weight_2[`ByteFiv];
+            weightA23 <= dout_weight_2[`ByteSix];
+            weightA24 <= dout_weight_2[`ByteFor];
+            weightA25 <= dout_weight_2[`ByteFiv];
+            weightA26 <= dout_weight_2[`ByteSix];
+            weightA31 <= dout_weight_2[`ByteOne];
+            weightA32 <= dout_weight_2[`ByteTwo];
+            weightA33 <= dout_weight_2[`ByteThr];
+            weightA34 <= dout_weight_2[`ByteOne];
+            weightA35 <= dout_weight_2[`ByteTwo];
+            weightA36 <= dout_weight_2[`ByteThr];
+            weightA41 <= dout_weight_2[`ByteSev];
+            weightA42 <= dout_weight_2[`ByteEig];
+            weightA43 <= dout_weight_2[`ByteNin];
+            weightA44 <= dout_weight_2[`ByteSev];
+            weightA45 <= dout_weight_2[`ByteEig];
+            weightA46 <= dout_weight_2[`ByteNin];
+            weightA51 <= dout_weight_2[`ByteFor];
+            weightA52 <= dout_weight_2[`ByteFiv];
+            weightA53 <= dout_weight_2[`ByteSix];
+            weightA54 <= dout_weight_2[`ByteFor];
+            weightA55 <= dout_weight_2[`ByteFiv];
+            weightA56 <= dout_weight_2[`ByteSix];
+            weightA61 <= dout_weight_2[`ByteOne];
+            weightA62 <= dout_weight_2[`ByteTwo];
+            weightA63 <= dout_weight_2[`ByteThr];
+            weightA64 <= dout_weight_2[`ByteOne];
+            weightA65 <= dout_weight_2[`ByteTwo];
+            weightA66 <= dout_weight_2[`ByteThr];
 
-                ifbuf6[24]   <=      ifbuf6[26];
-                ifbuf6[25]   <=      ifbuf6[27];
-                ifbuf6[26]   <=      ifbuf6[28];
-                ifbuf6[27]   <=      ifbuf6[29];
-                ifbuf6[28]   <=      ifbuf6[30];
-                ifbuf6[29]   <=      ifbuf6[31];
+            weightB11 <= dout_weight_2[`ByteSev];
+            weightB12 <= dout_weight_2[`ByteEig];
+            weightB13 <= dout_weight_2[`ByteNin];
+            weightB14 <= dout_weight_2[`ByteSev];
+            weightB15 <= dout_weight_2[`ByteEig];
+            weightB16 <= dout_weight_2[`ByteNin];
+            weightB21 <= dout_weight_2[`ByteFor];
+            weightB22 <= dout_weight_2[`ByteFiv];
+            weightB23 <= dout_weight_2[`ByteSix];
+            weightB24 <= dout_weight_2[`ByteFor];
+            weightB25 <= dout_weight_2[`ByteFiv];
+            weightB26 <= dout_weight_2[`ByteSix];
+            weightB31 <= dout_weight_2[`ByteOne];
+            weightB32 <= dout_weight_2[`ByteTwo];
+            weightB33 <= dout_weight_2[`ByteThr];
+            weightB34 <= dout_weight_2[`ByteOne];
+            weightB35 <= dout_weight_2[`ByteTwo];
+            weightB36 <= dout_weight_2[`ByteThr];
+            weightB41 <= dout_weight_2[`ByteSev];
+            weightB42 <= dout_weight_2[`ByteEig];
+            weightB43 <= dout_weight_2[`ByteNin];
+            weightB44 <= dout_weight_2[`ByteSev];
+            weightB45 <= dout_weight_2[`ByteEig];
+            weightB46 <= dout_weight_2[`ByteNin];
+            weightB51 <= dout_weight_2[`ByteFor];
+            weightB52 <= dout_weight_2[`ByteFiv];
+            weightB53 <= dout_weight_2[`ByteSix];
+            weightB54 <= dout_weight_2[`ByteFor];
+            weightB55 <= dout_weight_2[`ByteFiv];
+            weightB56 <= dout_weight_2[`ByteSix];
+            weightB61 <= dout_weight_2[`ByteOne];
+            weightB62 <= dout_weight_2[`ByteTwo];
+            weightB63 <= dout_weight_2[`ByteThr];
+            weightB64 <= dout_weight_2[`ByteOne];
+            weightB65 <= dout_weight_2[`ByteTwo];
+            weightB66 <= dout_weight_2[`ByteThr];
+//          main-------------------------------------------------
 
-                ifbuf5[8]   <=      ifbuf5[10];
-                ifbuf5[9]   <=      ifbuf5[11];
-                ifbuf5[10]   <=      ifbuf5[12];
-                ifbuf5[11]   <=      ifbuf5[13];
-                ifbuf5[12]   <=      ifbuf5[14];
-                ifbuf5[13]   <=      ifbuf5[15];
+            ifbuf1[15] <=  dout_BRAMConv3Arr1_2[`ByteEig];
+            ifbuf1[14] <=  dout_BRAMConv3Arr1_2[`ByteSev];
+            ifbuf1[13] <=  dout_BRAMConv3Arr1_2[`ByteSix];
+            ifbuf1[12] <=  dout_BRAMConv3Arr1_2[`ByteFiv];
+            ifbuf1[11] <=  dout_BRAMConv3Arr1_2[`ByteFor];
+            ifbuf1[10] <=  dout_BRAMConv3Arr1_2[`ByteThr];
+            ifbuf1[9] <=  dout_BRAMConv3Arr1_2[`ByteTwo];
+            ifbuf1[8] <=  dout_BRAMConv3Arr1_2[`ByteOne];
+            ifbuf1[7] <=  dout_BRAMConv3Arr1_1[`ByteEig];
+            ifbuf1[6] <=  dout_BRAMConv3Arr1_1[`ByteSev];
+            ifbuf1[5] <=  dout_BRAMConv3Arr1_1[`ByteSix];
+            ifbuf1[4] <=  dout_BRAMConv3Arr1_1[`ByteFiv];
+            ifbuf1[3] <=  dout_BRAMConv3Arr1_1[`ByteFor];
+            ifbuf1[2] <=  dout_BRAMConv3Arr1_1[`ByteThr];
+            ifbuf1[1] <=  dout_BRAMConv3Arr1_1[`ByteTwo];
+            ifbuf1[0] <=  dout_BRAMConv3Arr1_1[`ByteOne];
+            ifbuf2[7] <=  dout_BRAMConv3Arr2_1[`ByteEig];
+            ifbuf2[6] <=  dout_BRAMConv3Arr2_1[`ByteSev];
+            ifbuf2[5] <=  dout_BRAMConv3Arr2_1[`ByteSix];
+            ifbuf2[4] <=  dout_BRAMConv3Arr2_1[`ByteFiv];
+            ifbuf2[3] <=  dout_BRAMConv3Arr2_1[`ByteFor];
+            ifbuf2[2] <=  dout_BRAMConv3Arr2_1[`ByteThr];
+            ifbuf2[1] <=  dout_BRAMConv3Arr2_1[`ByteTwo];
+            ifbuf2[0] <=  dout_BRAMConv3Arr2_1[`ByteOne];
+            ifbuf3[7] <=  dout_BRAMConv3Arr2_2[`ByteEig];
+            ifbuf3[6] <=  dout_BRAMConv3Arr2_2[`ByteSev];
+            ifbuf3[5] <=  dout_BRAMConv3Arr2_2[`ByteSix];
+            ifbuf3[4] <=  dout_BRAMConv3Arr2_2[`ByteFiv];
+            ifbuf3[3] <=  dout_BRAMConv3Arr2_2[`ByteFor];
+            ifbuf3[2] <=  dout_BRAMConv3Arr2_2[`ByteThr];
+            ifbuf3[1] <=  dout_BRAMConv3Arr2_2[`ByteTwo];
+            ifbuf3[0] <=  dout_BRAMConv3Arr2_2[`ByteOne];
+            ifbuf4[7] <=  dout_BRAMConv3Arr3_1[`ByteEig];
+            ifbuf4[6] <=  dout_BRAMConv3Arr3_1[`ByteSev];
+            ifbuf4[5] <=  dout_BRAMConv3Arr3_1[`ByteSix];
+            ifbuf4[4] <=  dout_BRAMConv3Arr3_1[`ByteFiv];
+            ifbuf4[3] <=  dout_BRAMConv3Arr3_1[`ByteFor];
+            ifbuf4[2] <=  dout_BRAMConv3Arr3_1[`ByteThr];
+            ifbuf4[1] <=  dout_BRAMConv3Arr3_1[`ByteTwo];
+            ifbuf4[0] <=  dout_BRAMConv3Arr3_1[`ByteOne];
+            ifbuf5[7] <=  dout_BRAMConv3Arr3_2[`ByteEig];
+            ifbuf5[6] <=  dout_BRAMConv3Arr3_2[`ByteSev];
+            ifbuf5[5] <=  dout_BRAMConv3Arr3_2[`ByteSix];
+            ifbuf5[4] <=  dout_BRAMConv3Arr3_2[`ByteFiv];
+            ifbuf5[3] <=  dout_BRAMConv3Arr3_2[`ByteFor];
+            ifbuf5[2] <=  dout_BRAMConv3Arr3_2[`ByteThr];
+            ifbuf5[1] <=  dout_BRAMConv3Arr3_2[`ByteTwo];
+            ifbuf5[0] <=  dout_BRAMConv3Arr3_2[`ByteOne];
+//----
+        end
 
-                ifbuf5[24]   <=      ifbuf5[26];
-                ifbuf5[25]   <=      ifbuf5[27];
-                ifbuf5[26]   <=      ifbuf5[28];
-                ifbuf5[27]   <=      ifbuf5[29];
-                ifbuf5[28]   <=      ifbuf5[30];
-                ifbuf5[29]   <=      ifbuf5[31];
-
-                ifbuf3[8]   <=      ifbuf3[10];
-                ifbuf3[9]   <=      ifbuf3[11];
-                ifbuf3[10]   <=      ifbuf3[12];
-                ifbuf3[11]   <=      ifbuf3[13];
-                ifbuf3[12]   <=      ifbuf3[14];
-                ifbuf3[13]   <=      ifbuf3[15];
-
-                ifbuf3[24]   <=      ifbuf3[26];
-                ifbuf3[25]   <=      ifbuf3[27];
-                ifbuf3[26]   <=      ifbuf3[28];
-                ifbuf3[27]   <=      ifbuf3[29];
-                ifbuf3[28]   <=      ifbuf3[30];
-                ifbuf3[29]   <=      ifbuf3[31];
-
-                ifbuf2[8]   <=      ifbuf2[10];
-                ifbuf2[9]   <=      ifbuf2[11];
-                ifbuf2[10]   <=      ifbuf2[12];
-                ifbuf2[11]   <=      ifbuf2[13];
-                ifbuf2[12]   <=      ifbuf2[14];
-                ifbuf2[13]   <=      ifbuf2[15];
-
-                ifbuf2[24]   <=      ifbuf2[26];
-                ifbuf2[25]   <=      ifbuf2[27];
-                ifbuf2[26]   <=      ifbuf2[28];
-                ifbuf2[27]   <=      ifbuf2[29];
-                ifbuf2[28]   <=      ifbuf2[30];
-                ifbuf2[29]   <=      ifbuf2[31];
-
-                
-                Counter <= Counter + 1;
-                Trashdata <= 1;
-            end
-            default :begin
-                ifbuf6[8]   <=      ifbuf6[10];
-                ifbuf6[9]   <=      ifbuf6[11];
-                ifbuf6[10]   <=      ifbuf6[12];
-                ifbuf6[11]   <=      ifbuf6[13];
-                ifbuf6[12]   <=      ifbuf6[14];
-                ifbuf6[13]   <=      ifbuf6[15];
-
-                ifbuf6[24]   <=      ifbuf6[26];
-                ifbuf6[25]   <=      ifbuf6[27];
-                ifbuf6[26]   <=      ifbuf6[28];
-                ifbuf6[27]   <=      ifbuf6[29];
-                ifbuf6[28]   <=      ifbuf6[30];
-                ifbuf6[29]   <=      ifbuf6[31];
-
-                ifbuf5[8]   <=      ifbuf5[10];
-                ifbuf5[9]   <=      ifbuf5[11];
-                ifbuf5[10]   <=      ifbuf5[12];
-                ifbuf5[11]   <=      ifbuf5[13];
-                ifbuf5[12]   <=      ifbuf5[14];
-                ifbuf5[13]   <=      ifbuf5[15];
-
-                ifbuf5[24]   <=      ifbuf5[26];
-                ifbuf5[25]   <=      ifbuf5[27];
-                ifbuf5[26]   <=      ifbuf5[28];
-                ifbuf5[27]   <=      ifbuf5[29];
-                ifbuf5[28]   <=      ifbuf5[30];
-                ifbuf5[29]   <=      ifbuf5[31];
-
-                ifbuf3[8]   <=      ifbuf3[10];
-                ifbuf3[9]   <=      ifbuf3[11];
-                ifbuf3[10]   <=      ifbuf3[12];
-                ifbuf3[11]   <=      ifbuf3[13];
-                ifbuf3[12]   <=      ifbuf3[14];
-                ifbuf3[13]   <=      ifbuf3[15];
-
-                ifbuf3[24]   <=      ifbuf3[26];
-                ifbuf3[25]   <=      ifbuf3[27];
-                ifbuf3[26]   <=      ifbuf3[28];
-                ifbuf3[27]   <=      ifbuf3[29];
-                ifbuf3[28]   <=      ifbuf3[30];
-                ifbuf3[29]   <=      ifbuf3[31];
-
-                ifbuf2[8]   <=      ifbuf2[10];
-                ifbuf2[9]   <=      ifbuf2[11];
-                ifbuf2[10]   <=      ifbuf2[12];
-                ifbuf2[11]   <=      ifbuf2[13];
-                ifbuf2[12]   <=      ifbuf2[14];
-                ifbuf2[13]   <=      ifbuf2[15];
-
-                ifbuf2[24]   <=      ifbuf2[26];
-                ifbuf2[25]   <=      ifbuf2[27];
-                ifbuf2[26]   <=      ifbuf2[28];
-                ifbuf2[27]   <=      ifbuf2[29];
-                ifbuf2[28]   <=      ifbuf2[30];
-                ifbuf2[29]   <=      ifbuf2[31];
-                
-                Counter <= Counter + 1;
-                Trashdata <= 0;
-            end
-            endcase
+        `Stop:begin//status stop is for the pipeline shutting down
             
         end
         endcase
     end
-    */ 
+
     `Layer5: begin 
         case ( Process )
         `Idle:begin //110
@@ -2854,7 +2466,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
 
             *****************/
             addr_weight_1 <= 0;
-            addr_weight_2 <= 14'b1111_1111_1111_11; 
+            addr_weight_2 <= 10'b1111_1111_11; 
             addrbase <= 0;
             
         end
@@ -3443,6 +3055,14 @@ wire FinishWBB6;
             ifmapA14 = ifbuf1[2];
             ifmapA15 = ifbuf1[3];
             ifmapA16 = ifbuf1[4];
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapA11 = ifbuf1[0];
+            ifmapA12 = ifbuf1[1];
+            ifmapA13 = ifbuf1[2];
+            ifmapA14 = ifbuf1[2];
+            ifmapA15 = ifbuf1[3];
+            ifmapA16 = ifbuf1[4];
         end
     end
                                
@@ -3487,6 +3107,14 @@ wire FinishWBB6;
             ifmapA24 = ifbuf2[1];
             ifmapA25 = ifbuf2[2];
         end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA21 = ifbuf2[0];
+            ifmapA22 = ifbuf2[1];
+            ifmapA23 = ifbuf2[2];
+            ifmapA24 = ifbuf2[2];
+            ifmapA25 = ifbuf2[3];
+            ifmapA26 = ifbuf2[4];
+        end else if(Layer == `Layer4) begin
             //assuming padding in left
             ifmapA21 = ifbuf2[0];
             ifmapA22 = ifbuf2[1];
@@ -3545,6 +3173,14 @@ wire FinishWBB6;
             ifmapA34 = ifbuf3[2];
             ifmapA35 = ifbuf3[3];
             ifmapA36 = ifbuf3[4];
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapA31 = ifbuf4[0];
+            ifmapA32 = ifbuf4[1];
+            ifmapA33 = ifbuf4[2];
+            ifmapA34 = ifbuf4[2];
+            ifmapA35 = ifbuf4[3];
+            ifmapA36 = ifbuf4[4];
         end
     end
     pe_group2 pe_group13(
@@ -3595,6 +3231,14 @@ wire FinishWBB6;
             ifmapA44 = ifbuf1[6];
             ifmapA45 = ifbuf1[7];
             ifmapA46 = 0; //pad
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapA41 = ifbuf1[4];
+            ifmapA42 = ifbuf1[5];
+            ifmapA43 = ifbuf1[6];
+            ifmapA44 = ifbuf1[6];
+            ifmapA45 = ifbuf1[7];
+            ifmapA46 = ifbuf1[8];
         end
     end
     pe_group2 pe_group14(
@@ -3647,6 +3291,14 @@ wire FinishWBB6;
             ifmapA54 = ifbuf2[6];
             ifmapA55 = ifbuf2[7];
             ifmapA56 = 0;
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapA51 = ifbuf2[4];
+            ifmapA52 = ifbuf2[5];
+            ifmapA53 = ifbuf2[6];
+            ifmapA54 = ifbuf2[6];
+            ifmapA55 = ifbuf2[7];
+            ifmapA56 = ifbuf3[0];
         end
     end
     pe_group2 pe_group15(
@@ -3695,6 +3347,14 @@ wire FinishWBB6;
             ifmapA64 = ifbuf3[6];
             ifmapA65 = ifbuf3[7];
             ifmapA66 = 0;
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapA61 = ifbuf4[4];
+            ifmapA62 = ifbuf4[5];
+            ifmapA63 = ifbuf4[6];
+            ifmapA64 = ifbuf4[6];
+            ifmapA65 = ifbuf4[7];
+            ifmapA66 = ifbuf5[0];
         end
     end
     pe_group2 pe_group16(
@@ -3747,6 +3407,14 @@ wire FinishWBB6;
             ifmapB14 = ifbuf3[2];
             ifmapB15 = ifbuf3[3];
             ifmapB16 = ifbuf3[4];
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapB11 = ifbuf1[8];
+            ifmapB12 = ifbuf1[9];
+            ifmapB13 = ifbuf1[10];
+            ifmapB14 = ifbuf1[10];
+            ifmapB15 = ifbuf1[11];
+            ifmapB16 = ifbuf1[12];
         end
     end
     pe_group2 pe_group21(
@@ -3799,6 +3467,14 @@ wire FinishWBB6;
             ifmapB24 = ifbuf4[2];
             ifmapB25 = ifbuf4[3];
             ifmapB26 = ifbuf4[4];
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapB21 = ifbuf3[0];
+            ifmapB22 = ifbuf3[1];
+            ifmapB23 = ifbuf3[2];
+            ifmapB24 = ifbuf3[2];
+            ifmapB25 = ifbuf3[3];
+            ifmapB26 = ifbuf3[4];
         end
     end
     pe_group2 pe_group22(
@@ -3844,6 +3520,14 @@ wire FinishWBB6;
             ifmapB34 = ifbuf3[1];
             ifmapB35 = ifbuf3[2];
         end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB31 = ifbuf5[0];
+            ifmapB32 = ifbuf5[1];
+            ifmapB33 = ifbuf5[2];
+            ifmapB34 = ifbuf5[2];
+            ifmapB35 = ifbuf5[3];
+            ifmapB36 = ifbuf5[4];
+        end else if(Layer == `Layer4) begin
             //assuming padding in left
             ifmapB31 = ifbuf5[0];
             ifmapB32 = ifbuf5[1];
@@ -3903,6 +3587,14 @@ wire FinishWBB6;
             ifmapB44 = ifbuf3[6];
             ifmapB45 = ifbuf3[7];
             ifmapB46 = 0;
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapB41 = ifbuf1[12];
+            ifmapB42 = ifbuf1[13];
+            ifmapB43 = ifbuf1[14];
+            ifmapB44 = ifbuf1[14];
+            ifmapB45 = ifbuf1[15];
+            ifmapB46 = 0;
         end
     end
     pe_group2 pe_group24(
@@ -3954,6 +3646,14 @@ wire FinishWBB6;
             ifmapB54 = ifbuf4[6];
             ifmapB55 = ifbuf4[7];
             ifmapB56 = 0;
+        end else if(Layer == `Layer4) begin
+            //assuming padding in left
+            ifmapB51 = ifbuf3[4];
+            ifmapB52 = ifbuf3[5];
+            ifmapB53 = ifbuf3[6];
+            ifmapB54 = ifbuf3[6];
+            ifmapB55 = ifbuf3[7];
+            ifmapB56 = 0;
         end
     end
     pe_group2 pe_group25(
@@ -3995,6 +3695,14 @@ wire FinishWBB6;
     always @ * begin 
         if(Layer == `Layer1) begin
         end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB61 = ifbuf5[4];
+            ifmapB62 = ifbuf5[5];
+            ifmapB63 = ifbuf5[6];
+            ifmapB64 = ifbuf5[6];
+            ifmapB65 = ifbuf5[7];
+            ifmapB66 = 0;
+        end  else if(Layer == `Layer4) begin
             //assuming padding in left
             ifmapB61 = ifbuf5[4];
             ifmapB62 = ifbuf5[5];
@@ -4107,6 +3815,8 @@ writeback   WB(
     .FinishWB(FinishWBA1),
     .we_CB_i (we_CB_o)
 );
+
+
 
 
 endmodule

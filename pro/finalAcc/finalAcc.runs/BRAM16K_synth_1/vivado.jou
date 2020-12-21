@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Dec 22 02:03:44 2020
+# Process ID: 10768
+# Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/BRAM16K_synth_1
+# Command line: vivado.exe -log BRAM16K.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BRAM16K.tcl
+# Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/BRAM16K_synth_1/BRAM16K.vds
+# Journal file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/BRAM16K_synth_1\vivado.jou
+#-----------------------------------------------------------
+source BRAM16K.tcl -notrace
