@@ -91,7 +91,7 @@ module writeback(
     reg  signed   [21:0]      plusi4; // kernels
     reg  signed   [21:0]      plusi5; // kernels
     reg  signed   [21:0]      plusi6; // kernels
-    reg  signed   [21:0]      plusi7 // kernels
+    reg  signed   [21:0]      plusi7; // kernels
     reg  signed   [21:0]      plusi8; // kernels
 //======
 always @(posedge clk or negedge rst) begin
@@ -105,7 +105,8 @@ always @(posedge clk or negedge rst) begin
         addr_BRAM32k_1   <= 0;
         addr_BRAM32k_2   <= 128;
         we_BRAM32k              <= 0;
-        
+        // for layer5
+        we_BRAMtemp <= 0;
 
     end else begin
         case(Layer) 
@@ -303,7 +304,11 @@ always @(posedge clk or negedge rst) begin
 //             `Layer4:
             `Layer5: begin
                 if(doneflag_CB == 1) begin
-                    
+                    we_BRAMtemp <= 1;
+                    din_BRAMtemp_1 <= dout_CB;
+                end else begin
+                    we_BRAMtemp <= 0;
+                    din_BRAMtemp_1 <= 64'bz;
                 end
             end
         endcase
@@ -311,7 +316,7 @@ always @(posedge clk or negedge rst) begin
 end
 
 
-always @ (posedge clk or negedge rst) begin
+always @ (posedge clk or negedge rst) begin // this part is for controlling channelBuf.
     if(!rst) begin
         // below codes are added for layer5
         plusi1 <=0;
@@ -376,24 +381,24 @@ channelBuf CB(
 );
 //--this is the temperoray bram for debug in layer 5
 //--when debug is over it will be abandoned
-    reg we_BRAM4k;
-    wire [8:0] addr_BRAM4k_1;
-    wire [8:0] addr_BRAM4k_2;
-    wire [63:0] din_BRAM4k_1;
-    wire [63:0] din_BRAM4k_2;
-    wire [63:0] dout_BRAM4k_1;
-    wire [63:0] dout_BRAM4k_2;
-    BRAM4k bram4k(
-        .addra(addr_BRAM4k_1),
-        .addrb(addr_BRAM4k_2),
+    reg we_BRAMtemp;
+    wire [8:0] addr_BRAMtemp_1;
+    wire [8:0] addr_BRAMtemp_2;
+    reg  [63:0] din_BRAMtemp_1;
+    wire [63:0] din_BRAMtemp_2;
+    wire [63:0] dout_BRAMtemp_1;
+    wire [63:0] dout_BRAMtemp_2;
+    BRAM4k bramtemp(
+        .addra(addr_BRAMtemp_1),
+        .addrb(addr_BRAMtemp_2),
         .clka(clk),
         .clkb(clk),
-        .dina(din_BRAM4k_1),
-        .dinb(din_BRAM4k_2),
-        .douta(dout_BRAM4k_1),
-        .doutb(dout_BRAM4k_2),
-        .wea(we_BRAM4k),
-        .web(we_BRAM4k)
+        .dina(din_BRAMtemp_1),
+        .dinb(din_BRAMtemp_2),
+        .douta(dout_BRAMtemp_1),
+        .doutb(dout_BRAMtemp_2),
+        .wea(we_BRAMtemp),
+        .web(we_BRAMtemp)
     );
 
 
