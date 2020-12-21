@@ -1,0 +1,30 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM4k/sim/BRAM4k.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAM4k
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/sim/weightROM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module weightROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM32k/sim/BRAM32k.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAM32k
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/sim/WLay1ROM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WLay1ROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module channelBuf
+ERROR: [VRFC 10-1241] port waddr is not defined [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:21]
+ERROR: [VRFC 10-402] cannot assign to memory registers16 directly [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:647]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:647]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:647]
+ERROR: [VRFC 10-402] cannot assign to memory registers26 directly [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:648]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:648]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:648]
+ERROR: [VRFC 10-402] cannot assign to memory registers36 directly [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:649]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:649]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:649]
+ERROR: [VRFC 10-402] cannot assign to memory registers46 directly [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:650]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:650]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:650]
+ERROR: [VRFC 10-402] cannot assign to memory registers56 directly [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:651]
+ERROR: [VRFC 10-395] cannot assign a packed type to an unpacked type [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:651]
+ERROR: [VRFC 10-1523] unpacked value/target cannot be used in assignment [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:651]

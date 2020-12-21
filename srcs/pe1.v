@@ -91,6 +91,7 @@ module pe1(
     dout_BRAMConv2Arr2_2,
 
 );
+
 //------------------------
 reg [63:0] din_BRAMConv2Arr;
 output  reg    we_BRAMConv2Arr1_1;
@@ -172,6 +173,21 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
 
     // output  reg  signed    [19:0]      ofmap_out;
 //-------------------input and output ----------------------------------------------
+//------------------
+   reg [13:0] addr_weight_1;
+   reg [13:0] addr_weight_2;
+   wire [71:0] dout_weight_1;
+   wire [71:0] dout_weight_2;
+
+   weightROM weightRom(
+       .addra(addr_weight_1),
+       .addrb(addr_weight_2),
+       .clka(clk),
+       .clkb(clk),
+       .douta(dout_weight_1),
+       .doutb(dout_weight_2)
+   );
+//----------------------
 //weight register
     reg        signed    [7:0]      weightA11;
     reg        signed    [7:0]      weightA12;
@@ -3215,14 +3231,14 @@ wire FinishWBB6;
 
 
 //-------------------   
-    wire [18:0] psumA11;
-    wire [18:0] psumA12;
-    wire [7:0]  ifmapA11;
-    wire [7:0]  ifmapA12;
-    wire [7:0]  ifmapA13;
-    wire [7:0]  ifmapA14;
-    wire [7:0]  ifmapA15;
-    wire [7:0]  ifmapA16;
+    reg [18:0] psumA11;
+    reg [18:0] psumA12;
+    reg [7:0]  ifmapA11;
+    reg [7:0]  ifmapA12;
+    reg [7:0]  ifmapA13;
+    reg [7:0]  ifmapA14;
+    reg [7:0]  ifmapA15;
+    reg [7:0]  ifmapA16;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapA11 = regPad1[0];
@@ -3268,12 +3284,12 @@ wire FinishWBB6;
 //----------------------------------------
     wire [18:0] psumA21;
     wire [18:0] psumA22;
-    wire [7:0]  ifmapA21;
-    wire [7:0]  ifmapA22;
-    wire [7:0]  ifmapA23;
-    wire [7:0]  ifmapA24;
-    wire [7:0]  ifmapA25;
-    wire [7:0]  ifmapA26;
+    reg [7:0]  ifmapA21;
+    reg [7:0]  ifmapA22;
+    reg [7:0]  ifmapA23;
+    reg [7:0]  ifmapA24;
+    reg [7:0]  ifmapA25;
+    reg [7:0]  ifmapA26;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapA21 = regPad2[0];
@@ -3319,12 +3335,12 @@ wire FinishWBB6;
 //-------------------------------
     wire [18:0] psumA31;
     wire [18:0] psumA32;
-    wire [7:0]  ifmapA31;
-    wire [7:0]  ifmapA32;
-    wire [7:0]  ifmapA33;
-    wire [7:0]  ifmapA34;
-    wire [7:0]  ifmapA35;
-    wire [7:0]  ifmapA36;
+    reg [7:0]  ifmapA31;
+    reg [7:0]  ifmapA32;
+    reg [7:0]  ifmapA33;
+    reg [7:0]  ifmapA34;
+    reg [7:0]  ifmapA35;
+    reg [7:0]  ifmapA36;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapA31 = regPad3[0];
@@ -3369,12 +3385,12 @@ wire FinishWBB6;
 //---
     wire [18:0] psumA41;
     wire [18:0] psumA42;
-    wire [7:0]  ifmapA41;
-    wire [7:0]  ifmapA42;
-    wire [7:0]  ifmapA43;
-    wire [7:0]  ifmapA44;
-    wire [7:0]  ifmapA45;
-    wire [7:0]  ifmapA46;
+    reg [7:0]  ifmapA41;
+    reg [7:0]  ifmapA42;
+    reg [7:0]  ifmapA43;
+    reg [7:0]  ifmapA44;
+    reg [7:0]  ifmapA45;
+    reg [7:0]  ifmapA46;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapA41 = regPad4[0];
@@ -3421,12 +3437,12 @@ wire FinishWBB6;
 
     wire [18:0] psumA51;
     wire [18:0] psumA52;
-    wire [7:0]  ifmapA51;
-    wire [7:0]  ifmapA52;
-    wire [7:0]  ifmapA53;
-    wire [7:0]  ifmapA54;
-    wire [7:0]  ifmapA55;
-    wire [7:0]  ifmapA56;
+    reg [7:0]  ifmapA51;
+    reg [7:0]  ifmapA52;
+    reg [7:0]  ifmapA53;
+    reg [7:0]  ifmapA54;
+    reg [7:0]  ifmapA55;
+    reg [7:0]  ifmapA56;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapA51 = regPad5[0];
@@ -3474,12 +3490,12 @@ wire FinishWBB6;
 
     wire [18:0] psumA61;
     wire [18:0] psumA62;
-    wire [7:0]  ifmapA61;
-    wire [7:0]  ifmapA62;
-    wire [7:0]  ifmapA63;
-    wire [7:0]  ifmapA64;
-    wire [7:0]  ifmapA65;
-    wire [7:0]  ifmapA66;
+    reg [7:0]  ifmapA61;
+    reg [7:0]  ifmapA62;
+    reg [7:0]  ifmapA63;
+    reg [7:0]  ifmapA64;
+    reg [7:0]  ifmapA65;
+    reg [7:0]  ifmapA66;
     always @ * begin 
         if(Layer == `Layer1) begin
         end else if(Layer == `Layer5) begin
@@ -3521,12 +3537,12 @@ wire FinishWBB6;
 
     wire [18:0] psumB11;
     wire [18:0] psumB12;
-    wire [7:0]  ifmapB11;
-    wire [7:0]  ifmapB12;
-    wire [7:0]  ifmapB13;
-    wire [7:0]  ifmapB14;
-    wire [7:0]  ifmapB15;
-    wire [7:0]  ifmapB16;
+    reg [7:0]  ifmapB11;
+    reg [7:0]  ifmapB12;
+    reg [7:0]  ifmapB13;
+    reg [7:0]  ifmapB14;
+    reg [7:0]  ifmapB15;
+    reg [7:0]  ifmapB16;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapB11 = regPad1[0];
@@ -3573,12 +3589,12 @@ wire FinishWBB6;
 
     wire [18:0] psumB21;
     wire [18:0] psumB22;
-    wire [7:0]  ifmapB21;
-    wire [7:0]  ifmapB22;
-    wire [7:0]  ifmapB23;
-    wire [7:0]  ifmapB24;
-    wire [7:0]  ifmapB25;
-    wire [7:0]  ifmapB26;
+    reg [7:0]  ifmapB21;
+    reg [7:0]  ifmapB22;
+    reg [7:0]  ifmapB23;
+    reg [7:0]  ifmapB24;
+    reg [7:0]  ifmapB25;
+    reg [7:0]  ifmapB26;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapB21 = regPad2[0];
@@ -3625,12 +3641,12 @@ wire FinishWBB6;
     //-------------------------------
     wire [18:0] psumB31;
     wire [18:0] psumB32;
-    wire [7:0]  ifmapB31;
-    wire [7:0]  ifmapB32;
-    wire [7:0]  ifmapB33;
-    wire [7:0]  ifmapB34;
-    wire [7:0]  ifmapB35;
-    wire [7:0]  ifmapB36;
+    reg [7:0]  ifmapB31;
+    reg [7:0]  ifmapB32;
+    reg [7:0]  ifmapB33;
+    reg [7:0]  ifmapB34;
+    reg [7:0]  ifmapB35;
+    reg [7:0]  ifmapB36;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapB31 = regPad3[0];
@@ -3677,12 +3693,12 @@ wire FinishWBB6;
 
     wire [18:0] psumB41;
     wire [18:0] psumB42;
-    wire [7:0]  ifmapB41;
-    wire [7:0]  ifmapB42;
-    wire [7:0]  ifmapB43;
-    wire [7:0]  ifmapB44;
-    wire [7:0]  ifmapB45;
-    wire [7:0]  ifmapB46;
+    reg [7:0]  ifmapB41;
+    reg [7:0]  ifmapB42;
+    reg [7:0]  ifmapB43;
+    reg [7:0]  ifmapB44;
+    reg [7:0]  ifmapB45;
+    reg [7:0]  ifmapB46;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapB41 = regPad4[0];
@@ -3728,12 +3744,12 @@ wire FinishWBB6;
 
     wire [18:0] psumB51;
     wire [18:0] psumB52;
-    wire [7:0]  ifmapB51;
-    wire [7:0]  ifmapB52;
-    wire [7:0]  ifmapB53;
-    wire [7:0]  ifmapB54;
-    wire [7:0]  ifmapB55;
-    wire [7:0]  ifmapB56;
+    reg [7:0]  ifmapB51;
+    reg [7:0]  ifmapB52;
+    reg [7:0]  ifmapB53;
+    reg [7:0]  ifmapB54;
+    reg [7:0]  ifmapB55;
+    reg [7:0]  ifmapB56;
     always @ * begin 
         if(Layer == `Layer1) begin
             ifmapB51 = regPad5[0];
@@ -3781,12 +3797,12 @@ wire FinishWBB6;
 
     wire [18:0] psumB61;
     wire [18:0] psumB62;
-    wire [7:0]  ifmapB61;
-    wire [7:0]  ifmapB62;
-    wire [7:0]  ifmapB63;
-    wire [7:0]  ifmapB64;
-    wire [7:0]  ifmapB65;
-    wire [7:0]  ifmapB66;
+    reg [7:0]  ifmapB61;
+    reg [7:0]  ifmapB62;
+    reg [7:0]  ifmapB63;
+    reg [7:0]  ifmapB64;
+    reg [7:0]  ifmapB65;
+    reg [7:0]  ifmapB66;
     always @ * begin 
         if(Layer == `Layer1) begin
         end else if(Layer == `Layer5) begin
@@ -3799,7 +3815,7 @@ wire FinishWBB6;
             ifmapB66 = ifbuf5[11];
         end
     end
-    pe_group2 pe_group16(
+    pe_group2 pe_group26(
         .clk(clk),
         .rst(rst),
         .weight1(weightB61),
@@ -3878,8 +3894,5 @@ writeback   WB(
     .din_BRAM32k_2(din_BRAM32k_2),
     .FinishWB(FinishWBA1)
 );
-
-
-
 
 endmodule
