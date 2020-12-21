@@ -93,6 +93,8 @@ module pe1(
 );
 
 //------------------------
+reg we_CB_bub ;
+reg we_CB ;
 reg [63:0] din_BRAMConv2Arr;
 output  reg    we_BRAMConv2Arr1_1;
 output  reg    we_BRAMConv2Arr1_2;
@@ -103,7 +105,7 @@ output  wire    [63:0] din_BRAMConv2Arr1_2;
 input    [63:0] dout_BRAMConv2Arr1_1;
 input    [63:0] dout_BRAMConv2Arr1_2;
 reg [1:0] BRAMFLAG;
-
+reg [11:0] addrbase;
 //-------------------------------------------//--------
 output  reg    we_BRAMConv2Arr2_1;
 output  reg    we_BRAMConv2Arr2_2;
@@ -266,18 +268,18 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
 //------
 //------
 
-    reg          signed    [17:0]    psum11;
-    reg          signed    [17:0]    psum21;
-    reg          signed    [17:0]    psum31;
-    reg          signed    [17:0]    psum12;
-    reg          signed    [17:0]    psum22;
-    reg          signed    [17:0]    psum32;
-    reg          signed    [17:0]    psum41;
-    reg          signed    [17:0]    psum51;
-    reg          signed    [17:0]    psum61;
-    reg          signed    [17:0]    psum42;
-    reg          signed    [17:0]    psum52;
-    reg          signed    [17:0]    psum62;
+    // reg          signed    [17:0]    psum11;
+    // reg          signed    [17:0]    psum21;
+    // reg          signed    [17:0]    psum31;
+    // reg          signed    [17:0]    psum12;
+    // reg          signed    [17:0]    psum22;
+    // reg          signed    [17:0]    psum32;
+    // reg          signed    [17:0]    psum41;
+    // reg          signed    [17:0]    psum51;
+    // reg          signed    [17:0]    psum61;
+    // reg          signed    [17:0]    psum42;
+    // reg          signed    [17:0]    psum52;
+    // reg          signed    [17:0]    psum62;
 
     reg                    [7:0]     num;
     reg signed                   [`Byte]   ifbuf1 [31:0];
@@ -320,13 +322,14 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
     reg     [4:0]                   Row;
     reg  [3:0]   Layer;
     // reg  [2:0]   Process;    
-    reg  [2:0]   ProcessBubble1;
-    reg  [2:0]   ProcessBubble2;
-    reg  [2:0]   ProcessBubble3;
-    reg  [2:0]   ProcessBubble4;
-    reg  [2:0]   ProcessBubble5;
+    reg  [`prolenth]   ProcessBubble1;
+    reg  [`prolenth]   ProcessBubble2;
+    reg  [`prolenth]   ProcessBubble3;
+    reg  [`prolenth]   ProcessBubble4;
+    reg  [`prolenth]   ProcessBubble5;
     reg [5:0]  Counter;
     reg [6:0]  kernCounter;
+    reg [6:0]  kernCounterbub;
     reg Selctrl;
     reg newlan;
     reg [7:0] multi111;
@@ -402,7 +405,7 @@ end
 
 
 reg [4:0] Channel;
-reg [2:0] Process;
+reg [`prolenth] Process;
 //------------------------------------
 /*
 address selector
@@ -2852,107 +2855,119 @@ end else if( rst == `RstDisable && locked == 1 )begin
             *****************/
             addr_weight_1 <= 0;
             addr_weight_2 <= 0; 
+            addrbase <= 0;
+            
         end
         `InitUp:begin //000
             Process <= `upHalf;
-            addr_BRAMConv2Arr1_1 <= 0;
-            addr_BRAMConv2Arr1_2 <= 1;
-            addr_BRAMConv2Arr2_1 <= 2;
-            addr_BRAMConv2Arr2_2 <= 3;
+            addr_BRAMConv2Arr1_1 <= addrbase+0;
+            addr_BRAMConv2Arr1_2 <= addrbase+1;
+            addr_BRAMConv2Arr2_1 <= addrbase+2;
+            addr_BRAMConv2Arr2_2 <= addrbase+3;
+            we_CB <= 1;
+            we_CB_bub <= 0;
         end
         `InitLo:begin //001
             Process <= `loHalf;
-            addr_BRAM4k_1        <= 3;
-            addr_BRAMConv2Arr1_1 <= 4;
-            addr_BRAMConv2Arr1_2 <= 5;
-            addr_BRAMConv2Arr2_1 <= 6;
-            addr_BRAMConv2Arr2_2 <= 7;
+            addr_BRAM4k_1        <= addrbase+3;
+            addr_BRAMConv2Arr1_1 <= addrbase+4;
+            addr_BRAMConv2Arr1_2 <= addrbase+5;
+            addr_BRAMConv2Arr2_1 <= addrbase+6;
+            addr_BRAMConv2Arr2_2 <= addrbase+7;
+            addrbase <= addrbase + 512;
+            we_CB <= 1;
+            we_CB_bub <= 0;
         end
         `upHalf: begin //011
-            if(addr_BRAMConv2Arr2_2 == 507) begin // withdraw condition
-                Process <= `InitLo;
+            if(addr_BRAMConv2Arr2_2 == (addrbase+507)) begin // withdraw condition
+                ProcessBubble1 <= `InitLo;
+                Process <= ProcessBubble1;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
             end else begin
                 Process <= `upHalf;
+                ProcessBubble1 <=`upHalf;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
+                addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
+                addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
+                addr_weight_1        <= addr_weight_1 + 1;
             end
-            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
-            addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
-            addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
-            addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
-            addr_weight_1        <= addr_weight_1 + 1;
-//          ------------------------------------------------
-            weightA11 <= dout_weight_1[`ByteThr];
-            weightA12 <= dout_weight_1[`ByteTwo];
-            weightA13 <= dout_weight_1[`ByteOne];
-            weightA14 <= dout_weight_1[`ByteThr];
-            weightA15 <= dout_weight_1[`ByteTwo];
-            weightA16 <= dout_weight_1[`ByteOne];
-            weightA21 <= dout_weight_1[`ByteSix];
-            weightA22 <= dout_weight_1[`ByteFiv];
-            weightA23 <= dout_weight_1[`ByteFor];
-            weightA24 <= dout_weight_1[`ByteSix];
-            weightA25 <= dout_weight_1[`ByteFiv];
-            weightA26 <= dout_weight_1[`ByteFor];
-            weightA31 <= dout_weight_1[`ByteNin];
-            weightA32 <= dout_weight_1[`ByteEig];
-            weightA33 <= dout_weight_1[`ByteSev];
-            weightA34 <= dout_weight_1[`ByteNin];
-            weightA35 <= dout_weight_1[`ByteEig];
-            weightA36 <= dout_weight_1[`ByteSev];
-            weightA41 <= dout_weight_1[`ByteThr];
-            weightA42 <= dout_weight_1[`ByteTwo];
-            weightA43 <= dout_weight_1[`ByteOne];
-            weightA44 <= dout_weight_1[`ByteThr];
-            weightA45 <= dout_weight_1[`ByteTwo];
-            weightA46 <= dout_weight_1[`ByteOne];
-            weightA51 <= dout_weight_1[`ByteSix];
-            weightA52 <= dout_weight_1[`ByteFiv];
-            weightA53 <= dout_weight_1[`ByteFor];
-            weightA54 <= dout_weight_1[`ByteSix];
-            weightA55 <= dout_weight_1[`ByteFiv];
-            weightA56 <= dout_weight_1[`ByteFor];
-            weightA61 <= dout_weight_1[`ByteNin];
-            weightA62 <= dout_weight_1[`ByteEig];
-            weightA63 <= dout_weight_1[`ByteSev];
-            weightA64 <= dout_weight_1[`ByteNin];
-            weightA65 <= dout_weight_1[`ByteEig];
-            weightA66 <= dout_weight_1[`ByteSev];
 
-            weightB11 <= dout_weight_1[`ByteThr];
+//          ------------------------------------------------
+            weightA11 <= dout_weight_1[`ByteOne];
+            weightA12 <= dout_weight_1[`ByteTwo];
+            weightA13 <= dout_weight_1[`ByteThr];
+            weightA14 <= dout_weight_1[`ByteOne];
+            weightA15 <= dout_weight_1[`ByteTwo];
+            weightA16 <= dout_weight_1[`ByteThr];
+            weightA21 <= dout_weight_1[`ByteFor];
+            weightA22 <= dout_weight_1[`ByteFiv];
+            weightA23 <= dout_weight_1[`ByteSix];
+            weightA24 <= dout_weight_1[`ByteFor];
+            weightA25 <= dout_weight_1[`ByteFiv];
+            weightA26 <= dout_weight_1[`ByteSix];
+            weightA31 <= dout_weight_1[`ByteSev];
+            weightA32 <= dout_weight_1[`ByteEig];
+            weightA33 <= dout_weight_1[`ByteNin];
+            weightA34 <= dout_weight_1[`ByteSev];
+            weightA35 <= dout_weight_1[`ByteEig];
+            weightA36 <= dout_weight_1[`ByteNin];
+            weightA41 <= dout_weight_1[`ByteOne];
+            weightA42 <= dout_weight_1[`ByteTwo];
+            weightA43 <= dout_weight_1[`ByteThr];
+            weightA44 <= dout_weight_1[`ByteOne];
+            weightA45 <= dout_weight_1[`ByteTwo];
+            weightA46 <= dout_weight_1[`ByteThr];
+            weightA51 <= dout_weight_1[`ByteFor];
+            weightA52 <= dout_weight_1[`ByteFiv];
+            weightA53 <= dout_weight_1[`ByteSix];
+            weightA54 <= dout_weight_1[`ByteFor];
+            weightA55 <= dout_weight_1[`ByteFiv];
+            weightA56 <= dout_weight_1[`ByteSix];
+            weightA61 <= dout_weight_1[`ByteSev];
+            weightA62 <= dout_weight_1[`ByteEig];
+            weightA63 <= dout_weight_1[`ByteNin];
+            weightA64 <= dout_weight_1[`ByteSev];
+            weightA65 <= dout_weight_1[`ByteEig];
+            weightA66 <= dout_weight_1[`ByteNin];
+
+            weightB11 <= dout_weight_1[`ByteOne];
             weightB12 <= dout_weight_1[`ByteTwo];
-            weightB13 <= dout_weight_1[`ByteOne];
-            weightB14 <= dout_weight_1[`ByteThr];
+            weightB13 <= dout_weight_1[`ByteThr];
+            weightB14 <= dout_weight_1[`ByteOne];
             weightB15 <= dout_weight_1[`ByteTwo];
-            weightB16 <= dout_weight_1[`ByteOne];
-            weightB21 <= dout_weight_1[`ByteSix];
+            weightB16 <= dout_weight_1[`ByteThr];
+            weightB21 <= dout_weight_1[`ByteFor];
             weightB22 <= dout_weight_1[`ByteFiv];
-            weightB23 <= dout_weight_1[`ByteFor];
-            weightB24 <= dout_weight_1[`ByteSix];
+            weightB23 <= dout_weight_1[`ByteSix];
+            weightB24 <= dout_weight_1[`ByteFor];
             weightB25 <= dout_weight_1[`ByteFiv];
-            weightB26 <= dout_weight_1[`ByteFor];
-            weightB31 <= dout_weight_1[`ByteNin];
+            weightB26 <= dout_weight_1[`ByteSix];
+            weightB31 <= dout_weight_1[`ByteSev];
             weightB32 <= dout_weight_1[`ByteEig];
-            weightB33 <= dout_weight_1[`ByteSev];
-            weightB34 <= dout_weight_1[`ByteNin];
+            weightB33 <= dout_weight_1[`ByteNin];
+            weightB34 <= dout_weight_1[`ByteSev];
             weightB35 <= dout_weight_1[`ByteEig];
-            weightB36 <= dout_weight_1[`ByteSev];
-            weightB41 <= dout_weight_1[`ByteThr];
+            weightB36 <= dout_weight_1[`ByteNin];
+            weightB41 <= dout_weight_1[`ByteOne];
             weightB42 <= dout_weight_1[`ByteTwo];
-            weightB43 <= dout_weight_1[`ByteOne];
-            weightB44 <= dout_weight_1[`ByteThr];
+            weightB43 <= dout_weight_1[`ByteThr];
+            weightB44 <= dout_weight_1[`ByteOne];
             weightB45 <= dout_weight_1[`ByteTwo];
-            weightB46 <= dout_weight_1[`ByteOne];
-            weightB51 <= dout_weight_1[`ByteSix];
+            weightB46 <= dout_weight_1[`ByteThr];
+            weightB51 <= dout_weight_1[`ByteFor];
             weightB52 <= dout_weight_1[`ByteFiv];
-            weightB53 <= dout_weight_1[`ByteFor];
-            weightB54 <= dout_weight_1[`ByteSix];
+            weightB53 <= dout_weight_1[`ByteSix];
+            weightB54 <= dout_weight_1[`ByteFor];
             weightB55 <= dout_weight_1[`ByteFiv];
-            weightB56 <= dout_weight_1[`ByteFor];
-            weightB61 <= dout_weight_1[`ByteNin];
+            weightB56 <= dout_weight_1[`ByteSix];
+            weightB61 <= dout_weight_1[`ByteSev];
             weightB62 <= dout_weight_1[`ByteEig];
-            weightB63 <= dout_weight_1[`ByteSev];
-            weightB64 <= dout_weight_1[`ByteNin];
+            weightB63 <= dout_weight_1[`ByteNin];
+            weightB64 <= dout_weight_1[`ByteSev];
             weightB65 <= dout_weight_1[`ByteEig];
-            weightB66 <= dout_weight_1[`ByteSev];
+            weightB66 <= dout_weight_1[`ByteNin];
 //          ------------------------------------------------
             ifbuf1[7] <= 0;
             ifbuf1[6] <= 0;
@@ -2985,7 +3000,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf4[3] <=  dout_BRAMConv2Arr2_1[`ByteFor];
             ifbuf4[2] <=  dout_BRAMConv2Arr2_1[`ByteThr];
             ifbuf4[1] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
-            ifbuf4[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf4[0] <=  dout_BRAMConv2Arr2_1[`ByteOne];
             ifbuf5[7] <=  dout_BRAMConv2Arr2_2[`ByteEig];
             ifbuf5[6] <=  dout_BRAMConv2Arr2_2[`ByteSev];
             ifbuf5[5] <=  dout_BRAMConv2Arr2_2[`ByteSix];
@@ -2996,94 +3011,106 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf5[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
         end
         `loHalf:begin //100
-            if(addr_BRAMConv2Arr2_2 == 511 && kernCounter < 127) begin // withdraw condition
-                Process <= `InitUp;
-                kernCounter <= kernCounter + 1;
-            end else if (addr_BRAMConv2Arr2_2 == 511 && kernCounter == 127) begin
-                Process <= `Stop;
+            if(addr_BRAMConv2Arr2_2 == (addrbase-1) && kernCounter < 127) begin // withdraw condition
+                ProcessBubble1 <= `InitUp;
+                Process <= ProcessBubble1;
+                kernCounterbub <= kernCounter + 1;
+                kernCounter <= kernCounterbub;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
+            end else if (addr_BRAMConv2Arr2_2 == (addrbase-1) && kernCounter == 127) begin
+                ProcessBubble1 <= `Stop;
+                Process <= ProcessBubble1;
                 kernCounter <= 0;
+                we_CB_bub <= 0;
+                we_CB <= we_CB_bub;
+            end else begin
+                Process <= `loHalf;
+                ProcessBubble1 <= `loHalf;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
+                addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
+                addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
+                addr_BRAM4k_1        <= addr_BRAM4k_1 + 8;
+                addr_weight_2        <= addr_weight_2 + 1;
+                kernCounterbub <= kernCounter ;
             end
 //          weight-------------------------------------------------
-            weightA11 <= dout_weight_2[`ByteThr];
+            weightA11 <= dout_weight_2[`ByteOne];
             weightA12 <= dout_weight_2[`ByteTwo];
-            weightA13 <= dout_weight_2[`ByteOne];
-            weightA14 <= dout_weight_2[`ByteThr];
+            weightA13 <= dout_weight_2[`ByteThr];
+            weightA14 <= dout_weight_2[`ByteOne];
             weightA15 <= dout_weight_2[`ByteTwo];
-            weightA16 <= dout_weight_2[`ByteOne];
-            weightA21 <= dout_weight_2[`ByteSix];
+            weightA16 <= dout_weight_2[`ByteThr];
+            weightA21 <= dout_weight_2[`ByteFor];
             weightA22 <= dout_weight_2[`ByteFiv];
-            weightA23 <= dout_weight_2[`ByteFor];
-            weightA24 <= dout_weight_2[`ByteSix];
+            weightA23 <= dout_weight_2[`ByteSix];
+            weightA24 <= dout_weight_2[`ByteFor];
             weightA25 <= dout_weight_2[`ByteFiv];
-            weightA26 <= dout_weight_2[`ByteFor];
-            weightA31 <= dout_weight_2[`ByteNin];
+            weightA26 <= dout_weight_2[`ByteSix];
+            weightA31 <= dout_weight_2[`ByteSev];
             weightA32 <= dout_weight_2[`ByteEig];
-            weightA33 <= dout_weight_2[`ByteSev];
-            weightA34 <= dout_weight_2[`ByteNin];
+            weightA33 <= dout_weight_2[`ByteNin];
+            weightA34 <= dout_weight_2[`ByteSev];
             weightA35 <= dout_weight_2[`ByteEig];
-            weightA36 <= dout_weight_2[`ByteSev];
-            weightA41 <= dout_weight_2[`ByteThr];
+            weightA36 <= dout_weight_2[`ByteNin];
+            weightA41 <= dout_weight_2[`ByteOne];
             weightA42 <= dout_weight_2[`ByteTwo];
-            weightA43 <= dout_weight_2[`ByteOne];
-            weightA44 <= dout_weight_2[`ByteThr];
+            weightA43 <= dout_weight_2[`ByteThr];
+            weightA44 <= dout_weight_2[`ByteOne];
             weightA45 <= dout_weight_2[`ByteTwo];
-            weightA46 <= dout_weight_2[`ByteOne];
-            weightA51 <= dout_weight_2[`ByteSix];
+            weightA46 <= dout_weight_2[`ByteThr];
+            weightA51 <= dout_weight_2[`ByteFor];
             weightA52 <= dout_weight_2[`ByteFiv];
-            weightA53 <= dout_weight_2[`ByteFor];
-            weightA54 <= dout_weight_2[`ByteSix];
+            weightA53 <= dout_weight_2[`ByteSix];
+            weightA54 <= dout_weight_2[`ByteFor];
             weightA55 <= dout_weight_2[`ByteFiv];
-            weightA56 <= dout_weight_2[`ByteFor];
-            weightA61 <= dout_weight_2[`ByteNin];
+            weightA56 <= dout_weight_2[`ByteSix];
+            weightA61 <= dout_weight_2[`ByteSev];
             weightA62 <= dout_weight_2[`ByteEig];
-            weightA63 <= dout_weight_2[`ByteSev];
-            weightA64 <= dout_weight_2[`ByteNin];
+            weightA63 <= dout_weight_2[`ByteNin];
+            weightA64 <= dout_weight_2[`ByteSev];
             weightA65 <= dout_weight_2[`ByteEig];
-            weightA66 <= dout_weight_2[`ByteSev];
+            weightA66 <= dout_weight_2[`ByteNin];
 
-            weightB11 <= dout_weight_2[`ByteThr];
+            weightB11 <= dout_weight_2[`ByteOne];
             weightB12 <= dout_weight_2[`ByteTwo];
-            weightB13 <= dout_weight_2[`ByteOne];
-            weightB14 <= dout_weight_2[`ByteThr];
+            weightB13 <= dout_weight_2[`ByteThr];
+            weightB14 <= dout_weight_2[`ByteOne];
             weightB15 <= dout_weight_2[`ByteTwo];
-            weightB16 <= dout_weight_2[`ByteOne];
-            weightB21 <= dout_weight_2[`ByteSix];
+            weightB16 <= dout_weight_2[`ByteThr];
+            weightB21 <= dout_weight_2[`ByteFor];
             weightB22 <= dout_weight_2[`ByteFiv];
-            weightB23 <= dout_weight_2[`ByteFor];
-            weightB24 <= dout_weight_2[`ByteSix];
+            weightB23 <= dout_weight_2[`ByteSix];
+            weightB24 <= dout_weight_2[`ByteFor];
             weightB25 <= dout_weight_2[`ByteFiv];
-            weightB26 <= dout_weight_2[`ByteFor];
-            weightB31 <= dout_weight_2[`ByteNin];
+            weightB26 <= dout_weight_2[`ByteSix];
+            weightB31 <= dout_weight_2[`ByteSev];
             weightB32 <= dout_weight_2[`ByteEig];
-            weightB33 <= dout_weight_2[`ByteSev];
-            weightB34 <= dout_weight_2[`ByteNin];
+            weightB33 <= dout_weight_2[`ByteNin];
+            weightB34 <= dout_weight_2[`ByteSev];
             weightB35 <= dout_weight_2[`ByteEig];
-            weightB36 <= dout_weight_2[`ByteSev];
-            weightB41 <= dout_weight_2[`ByteThr];
+            weightB36 <= dout_weight_2[`ByteNin];
+            weightB41 <= dout_weight_2[`ByteOne];
             weightB42 <= dout_weight_2[`ByteTwo];
-            weightB43 <= dout_weight_2[`ByteOne];
-            weightB44 <= dout_weight_2[`ByteThr];
+            weightB43 <= dout_weight_2[`ByteThr];
+            weightB44 <= dout_weight_2[`ByteOne];
             weightB45 <= dout_weight_2[`ByteTwo];
-            weightB46 <= dout_weight_2[`ByteOne];
-            weightB51 <= dout_weight_2[`ByteSix];
+            weightB46 <= dout_weight_2[`ByteThr];
+            weightB51 <= dout_weight_2[`ByteFor];
             weightB52 <= dout_weight_2[`ByteFiv];
-            weightB53 <= dout_weight_2[`ByteFor];
-            weightB54 <= dout_weight_2[`ByteSix];
+            weightB53 <= dout_weight_2[`ByteSix];
+            weightB54 <= dout_weight_2[`ByteFor];
             weightB55 <= dout_weight_2[`ByteFiv];
-            weightB56 <= dout_weight_2[`ByteFor];
-            weightB61 <= dout_weight_2[`ByteNin];
+            weightB56 <= dout_weight_2[`ByteSix];
+            weightB61 <= dout_weight_2[`ByteSev];
             weightB62 <= dout_weight_2[`ByteEig];
-            weightB63 <= dout_weight_2[`ByteSev];
-            weightB64 <= dout_weight_2[`ByteNin];
+            weightB63 <= dout_weight_2[`ByteNin];
+            weightB64 <= dout_weight_2[`ByteSev];
             weightB65 <= dout_weight_2[`ByteEig];
-            weightB66 <= dout_weight_2[`ByteSev];
+            weightB66 <= dout_weight_2[`ByteNin];
 //          weight-------------------------------------------------
-            addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
-            addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
-            addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
-            addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
-            addr_BRAM4k_1        <= addr_BRAM4k_1 + 8;
-            addr_weight_2        <= addr_weight_2 + 1;
+
             ifbuf1[7] <=  dout_BRAM4k_1[`ByteEig];
             ifbuf1[6] <=  dout_BRAM4k_1[`ByteSev];
             ifbuf1[5] <=  dout_BRAM4k_1[`ByteSix];
@@ -3115,7 +3142,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf4[3] <=  dout_BRAMConv2Arr2_1[`ByteFor];
             ifbuf4[2] <=  dout_BRAMConv2Arr2_1[`ByteThr];
             ifbuf4[1] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
-            ifbuf4[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf4[0] <=  dout_BRAMConv2Arr2_1[`ByteOne];
             ifbuf5[7] <=  dout_BRAMConv2Arr2_2[`ByteEig];
             ifbuf5[6] <=  dout_BRAMConv2Arr2_2[`ByteSev];
             ifbuf5[5] <=  dout_BRAMConv2Arr2_2[`ByteSix];
@@ -3409,9 +3436,9 @@ wire FinishWBB6;
             ifmapA11 = ifbuf1[0];
             ifmapA12 = ifbuf1[1];
             ifmapA13 = ifbuf1[2];
-            ifmapA14 = ifbuf1[3];
-            ifmapA15 = ifbuf1[4];
-            ifmapA16 = ifbuf1[5];
+            ifmapA14 = ifbuf1[2];
+            ifmapA15 = ifbuf1[3];
+            ifmapA16 = ifbuf1[4];
         end
     end
                                
@@ -3437,7 +3464,7 @@ wire FinishWBB6;
         .Process(Process),
         .wb_en(wb_enA1),
         .FinishFlag(FinishFlag),
-        .FinishWB(FinishWBA1)
+        .FinishWB(FinishWBA1)        
     );
 //----------------------------------------
     wire [18:0] psumA21;
@@ -3460,9 +3487,9 @@ wire FinishWBB6;
             ifmapA21 = ifbuf2[0];
             ifmapA22 = ifbuf2[1];
             ifmapA23 = ifbuf2[2];
-            ifmapA24 = ifbuf2[3];
-            ifmapA25 = ifbuf2[4];
-            ifmapA26 = ifbuf2[5];
+            ifmapA24 = ifbuf2[2];
+            ifmapA25 = ifbuf2[3];
+            ifmapA26 = ifbuf2[4];
         end
     end
     pe_group2 pe_group12(
@@ -3511,9 +3538,9 @@ wire FinishWBB6;
             ifmapA31 = ifbuf3[0];
             ifmapA32 = ifbuf3[1];
             ifmapA33 = ifbuf3[2];
-            ifmapA34 = ifbuf3[3];
-            ifmapA35 = ifbuf3[4];
-            ifmapA36 = ifbuf3[5];
+            ifmapA34 = ifbuf3[2];
+            ifmapA35 = ifbuf3[3];
+            ifmapA36 = ifbuf3[4];
         end
     end
     pe_group2 pe_group13(
@@ -3558,12 +3585,12 @@ wire FinishWBB6;
             ifmapA45 = ifbuf4[2];
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapA41 = ifbuf1[6];
-            ifmapA42 = ifbuf1[7];
-            ifmapA43 = ifbuf1[8];
-            ifmapA44 = ifbuf1[9];
-            ifmapA45 = ifbuf1[10];
-            ifmapA46 = ifbuf1[11];
+            ifmapA41 = ifbuf1[4];
+            ifmapA42 = ifbuf1[5];
+            ifmapA43 = ifbuf1[6];
+            ifmapA44 = ifbuf1[6];
+            ifmapA45 = ifbuf1[7];
+            ifmapA46 = 0; //pad
         end
     end
     pe_group2 pe_group14(
@@ -3610,12 +3637,12 @@ wire FinishWBB6;
             ifmapA55 = ifbuf5[2];
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapA51 = ifbuf2[6];
-            ifmapA52 = ifbuf2[7];
-            ifmapA53 = ifbuf2[8];
-            ifmapA54 = ifbuf2[9];
-            ifmapA55 = ifbuf2[10];
-            ifmapA56 = ifbuf2[11];
+            ifmapA51 = ifbuf2[4];
+            ifmapA52 = ifbuf2[5];
+            ifmapA53 = ifbuf2[6];
+            ifmapA54 = ifbuf2[6];
+            ifmapA55 = ifbuf2[7];
+            ifmapA56 = 0;
         end
     end
     pe_group2 pe_group15(
@@ -3658,12 +3685,12 @@ wire FinishWBB6;
         if(Layer == `Layer1) begin
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapA61 = ifbuf3[6];
-            ifmapA62 = ifbuf3[7];
-            ifmapA63 = ifbuf3[8];
-            ifmapA64 = ifbuf3[9];
-            ifmapA65 = ifbuf3[10];
-            ifmapA66 = ifbuf3[11];
+            ifmapA61 = ifbuf3[4];
+            ifmapA62 = ifbuf3[5];
+            ifmapA63 = ifbuf3[6];
+            ifmapA64 = ifbuf3[6];
+            ifmapA65 = ifbuf3[7];
+            ifmapA66 = 0;
         end
     end
     pe_group2 pe_group16(
@@ -3713,9 +3740,9 @@ wire FinishWBB6;
             ifmapB11 = ifbuf3[0];
             ifmapB12 = ifbuf3[1];
             ifmapB13 = ifbuf3[2];
-            ifmapB14 = ifbuf3[3];
-            ifmapB15 = ifbuf3[4];
-            ifmapB16 = ifbuf3[5];
+            ifmapB14 = ifbuf3[2];
+            ifmapB15 = ifbuf3[3];
+            ifmapB16 = ifbuf3[4];
         end
     end
     pe_group2 pe_group21(
@@ -3765,9 +3792,9 @@ wire FinishWBB6;
             ifmapB21 = ifbuf4[0];
             ifmapB22 = ifbuf4[1];
             ifmapB23 = ifbuf4[2];
-            ifmapB24 = ifbuf4[3];
-            ifmapB25 = ifbuf4[4];
-            ifmapB26 = ifbuf4[5];
+            ifmapB24 = ifbuf4[2];
+            ifmapB25 = ifbuf4[3];
+            ifmapB26 = ifbuf4[4];
         end
     end
     pe_group2 pe_group22(
@@ -3817,9 +3844,9 @@ wire FinishWBB6;
             ifmapB31 = ifbuf5[0];
             ifmapB32 = ifbuf5[1];
             ifmapB33 = ifbuf5[2];
-            ifmapB34 = ifbuf5[3];
-            ifmapB35 = ifbuf5[4];
-            ifmapB36 = ifbuf5[5];
+            ifmapB34 = ifbuf5[2];
+            ifmapB35 = ifbuf5[3];
+            ifmapB36 = ifbuf5[4];
         end
     end
     pe_group2 pe_group23(
@@ -3866,12 +3893,12 @@ wire FinishWBB6;
             ifmapB45 = ifbuf4[2];
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapB41 = ifbuf3[6];
-            ifmapB42 = ifbuf3[7];
-            ifmapB43 = ifbuf3[8];
-            ifmapB44 = ifbuf3[9];
-            ifmapB45 = ifbuf3[10];
-            ifmapB46 = ifbuf3[11];
+            ifmapB41 = ifbuf3[4];
+            ifmapB42 = ifbuf3[5];
+            ifmapB43 = ifbuf3[6];
+            ifmapB44 = ifbuf3[6];
+            ifmapB45 = ifbuf3[7];
+            ifmapB46 = 0;
         end
     end
     pe_group2 pe_group24(
@@ -3917,12 +3944,12 @@ wire FinishWBB6;
             ifmapB55 = ifbuf5[2];
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapB51 = ifbuf4[6];
-            ifmapB52 = ifbuf4[7];
-            ifmapB53 = ifbuf4[8];
-            ifmapB54 = ifbuf4[9];
-            ifmapB55 = ifbuf4[10];
-            ifmapB56 = ifbuf4[11];
+            ifmapB51 = ifbuf4[4];
+            ifmapB52 = ifbuf4[5];
+            ifmapB53 = ifbuf4[6];
+            ifmapB54 = ifbuf4[6];
+            ifmapB55 = ifbuf4[7];
+            ifmapB56 = 0;
         end
     end
     pe_group2 pe_group25(
@@ -3965,12 +3992,12 @@ wire FinishWBB6;
         if(Layer == `Layer1) begin
         end else if(Layer == `Layer5) begin
             //assuming padding in left
-            ifmapB61 = ifbuf5[6];
-            ifmapB62 = ifbuf5[7];
-            ifmapB63 = ifbuf5[8];
-            ifmapB64 = ifbuf5[9];
-            ifmapB65 = ifbuf5[10];
-            ifmapB66 = ifbuf5[11];
+            ifmapB61 = ifbuf5[4];
+            ifmapB62 = ifbuf5[5];
+            ifmapB63 = ifbuf5[6];
+            ifmapB64 = ifbuf5[6];
+            ifmapB65 = ifbuf5[7];
+            ifmapB66 = 0;
         end
     end
     pe_group2 pe_group26(
@@ -4000,6 +4027,26 @@ wire FinishWBB6;
     );
 
 //---------
+
+reg we_CB_bub3;
+reg we_CB_bub2;
+reg we_CB_bub1;
+reg we_CB_o;
+always @ (posedge clk or negedge rst) begin
+    if(rst == `RstEnable) begin
+        we_CB_bub3 <= 0;
+        we_CB_bub2 <= 0;
+        we_CB_bub1 <= 0;
+        we_CB_o <= 0;
+    end else begin
+        we_CB_bub3 <= we_CB;
+        we_CB_bub2 <= we_CB_bub3;
+        we_CB_bub1 <= we_CB_bub2;
+        we_CB_o <= we_CB_bub1;
+    end
+end
+
+//-----------
 
 output wire we_BRAM32k;
 output wire [11:0] addr_BRAM32k_1;
@@ -4050,7 +4097,9 @@ writeback   WB(
     .addr_BRAM32k_2(addr_BRAM32k_2_wb),
     .din_BRAM32k_1(din_BRAM32k_1),
     .din_BRAM32k_2(din_BRAM32k_2),
-    .FinishWB(FinishWBA1)
+    .FinishWB(FinishWBA1),
+    .we_CB_i (we_CB_o)
 );
+
 
 endmodule

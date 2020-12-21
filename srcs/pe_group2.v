@@ -19,11 +19,13 @@ module pe_group2(
     Process,
     wb_en,
     FinishFlag,
-    FinishWB
+    FinishWB,
+
 );
 
 input                                    clk;
 input                                    rst;
+
 input                  [3:0]             layer;
 
 input        signed    [7:0]             weight1;
@@ -39,7 +41,7 @@ input        signed    [7:0]             ifmap3;
 input        signed    [7:0]             ifmap4;
 input        signed    [7:0]             ifmap5;
 input        signed    [7:0]             ifmap6;
-input                  [2:0]             Process  ;
+input                  [`prolenth]             Process  ;
 
 input                            FinishFlag;
 
@@ -72,10 +74,12 @@ always @(posedge clk or negedge rst) begin
         half1 <= 0;
         half2 <= 0;
         groupsum_out1 <= 0;
+        groupsum_out2 <= 0;
         wb_en_bub2      <= 0;
         wb_en_bub1      <= 0;
         wb_en           <= 0;
-    end else if ( Process == `Start  ||  FinishFlag == 1 ) begin
+
+    end else if ( (Process != `Idle && Process != `Init) ||  FinishFlag == 1 ) begin
 
         prod1 <= $signed(ifmap1) * $signed(weight1);
         prod2 <= $signed(ifmap2) * $signed(weight2);
@@ -84,10 +88,14 @@ always @(posedge clk or negedge rst) begin
         prod5 <= $signed(ifmap5) * $signed(weight5);
         prod6 <= $signed(ifmap6) * $signed(weight6);
         wb_en_bub2 <= 1; //�
+
+
         half1 <= ($signed(prod1) + $signed(prod2) + $signed(prod3));
         half2 <= ($signed(prod4) + $signed(prod5) + $signed(prod6));
         wb_en_bub1 <= wb_en_bub2; //�
+
         wb_en           <=  wb_en_bub1; //�
+
 
         case (layer)
         `Layer1: begin
