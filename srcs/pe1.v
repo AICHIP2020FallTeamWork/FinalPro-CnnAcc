@@ -2841,18 +2841,26 @@ end else if( rst == `RstDisable && locked == 1 )begin
     */ 
     `Layer5: begin 
         case ( Process )
-        `Idle:begin
+        `Idle:begin //110
             Process <= `InitUp;
             kernCounter <= 0;
+            /*****************
+            ATTENTION!
+            when we connect each layer,addr_weight should be 
+            the num of last layer.
+
+            *****************/
+            addr_weight_1 <= 0;
+            addr_weight_2 <= 0; 
         end
-        `InitUp:begin
+        `InitUp:begin //000
             Process <= `upHalf;
             addr_BRAMConv2Arr1_1 <= 0;
             addr_BRAMConv2Arr1_2 <= 1;
             addr_BRAMConv2Arr2_1 <= 2;
             addr_BRAMConv2Arr2_2 <= 3;
         end
-        `InitLo:begin
+        `InitLo:begin //001
             Process <= `loHalf;
             addr_BRAM4k_1        <= 3;
             addr_BRAMConv2Arr1_1 <= 4;
@@ -2860,7 +2868,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
             addr_BRAMConv2Arr2_1 <= 6;
             addr_BRAMConv2Arr2_2 <= 7;
         end
-        `upHalf: begin
+        `upHalf: begin //011
             if(addr_BRAMConv2Arr2_2 == 507) begin // withdraw condition
                 Process <= `InitLo;
             end else begin
@@ -2871,6 +2879,81 @@ end else if( rst == `RstDisable && locked == 1 )begin
             addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;
             addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 8;
             addr_weight_1        <= addr_weight_1 + 1;
+//          ------------------------------------------------
+            weightA11 <= dout_weight_1[`ByteThr];
+            weightA12 <= dout_weight_1[`ByteTwo];
+            weightA13 <= dout_weight_1[`ByteOne];
+            weightA14 <= dout_weight_1[`ByteThr];
+            weightA15 <= dout_weight_1[`ByteTwo];
+            weightA16 <= dout_weight_1[`ByteOne];
+            weightA21 <= dout_weight_1[`ByteSix];
+            weightA22 <= dout_weight_1[`ByteFiv];
+            weightA23 <= dout_weight_1[`ByteFor];
+            weightA24 <= dout_weight_1[`ByteSix];
+            weightA25 <= dout_weight_1[`ByteFiv];
+            weightA26 <= dout_weight_1[`ByteFor];
+            weightA31 <= dout_weight_1[`ByteNin];
+            weightA32 <= dout_weight_1[`ByteEig];
+            weightA33 <= dout_weight_1[`ByteSev];
+            weightA34 <= dout_weight_1[`ByteNin];
+            weightA35 <= dout_weight_1[`ByteEig];
+            weightA36 <= dout_weight_1[`ByteSev];
+            weightA41 <= dout_weight_1[`ByteThr];
+            weightA42 <= dout_weight_1[`ByteTwo];
+            weightA43 <= dout_weight_1[`ByteOne];
+            weightA44 <= dout_weight_1[`ByteThr];
+            weightA45 <= dout_weight_1[`ByteTwo];
+            weightA46 <= dout_weight_1[`ByteOne];
+            weightA51 <= dout_weight_1[`ByteSix];
+            weightA52 <= dout_weight_1[`ByteFiv];
+            weightA53 <= dout_weight_1[`ByteFor];
+            weightA54 <= dout_weight_1[`ByteSix];
+            weightA55 <= dout_weight_1[`ByteFiv];
+            weightA56 <= dout_weight_1[`ByteFor];
+            weightA61 <= dout_weight_1[`ByteNin];
+            weightA62 <= dout_weight_1[`ByteEig];
+            weightA63 <= dout_weight_1[`ByteSev];
+            weightA64 <= dout_weight_1[`ByteNin];
+            weightA65 <= dout_weight_1[`ByteEig];
+            weightA66 <= dout_weight_1[`ByteSev];
+
+            weightB11 <= dout_weight_1[`ByteThr];
+            weightB12 <= dout_weight_1[`ByteTwo];
+            weightB13 <= dout_weight_1[`ByteOne];
+            weightB14 <= dout_weight_1[`ByteThr];
+            weightB15 <= dout_weight_1[`ByteTwo];
+            weightB16 <= dout_weight_1[`ByteOne];
+            weightB21 <= dout_weight_1[`ByteSix];
+            weightB22 <= dout_weight_1[`ByteFiv];
+            weightB23 <= dout_weight_1[`ByteFor];
+            weightB24 <= dout_weight_1[`ByteSix];
+            weightB25 <= dout_weight_1[`ByteFiv];
+            weightB26 <= dout_weight_1[`ByteFor];
+            weightB31 <= dout_weight_1[`ByteNin];
+            weightB32 <= dout_weight_1[`ByteEig];
+            weightB33 <= dout_weight_1[`ByteSev];
+            weightB34 <= dout_weight_1[`ByteNin];
+            weightB35 <= dout_weight_1[`ByteEig];
+            weightB36 <= dout_weight_1[`ByteSev];
+            weightB41 <= dout_weight_1[`ByteThr];
+            weightB42 <= dout_weight_1[`ByteTwo];
+            weightB43 <= dout_weight_1[`ByteOne];
+            weightB44 <= dout_weight_1[`ByteThr];
+            weightB45 <= dout_weight_1[`ByteTwo];
+            weightB46 <= dout_weight_1[`ByteOne];
+            weightB51 <= dout_weight_1[`ByteSix];
+            weightB52 <= dout_weight_1[`ByteFiv];
+            weightB53 <= dout_weight_1[`ByteFor];
+            weightB54 <= dout_weight_1[`ByteSix];
+            weightB55 <= dout_weight_1[`ByteFiv];
+            weightB56 <= dout_weight_1[`ByteFor];
+            weightB61 <= dout_weight_1[`ByteNin];
+            weightB62 <= dout_weight_1[`ByteEig];
+            weightB63 <= dout_weight_1[`ByteSev];
+            weightB64 <= dout_weight_1[`ByteNin];
+            weightB65 <= dout_weight_1[`ByteEig];
+            weightB66 <= dout_weight_1[`ByteSev];
+//          ------------------------------------------------
             ifbuf1[7] <= 0;
             ifbuf1[6] <= 0;
             ifbuf1[5] <= 0;
@@ -2912,7 +2995,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf5[1] <=  dout_BRAMConv2Arr2_2[`ByteTwo];
             ifbuf5[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
         end
-        `loHalf:begin
+        `loHalf:begin //100
             if(addr_BRAMConv2Arr2_2 == 511 && kernCounter < 127) begin // withdraw condition
                 Process <= `InitUp;
                 kernCounter <= kernCounter + 1;
@@ -2920,6 +3003,81 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 Process <= `Stop;
                 kernCounter <= 0;
             end
+//          weight-------------------------------------------------
+            weightA11 <= dout_weight_2[`ByteThr];
+            weightA12 <= dout_weight_2[`ByteTwo];
+            weightA13 <= dout_weight_2[`ByteOne];
+            weightA14 <= dout_weight_2[`ByteThr];
+            weightA15 <= dout_weight_2[`ByteTwo];
+            weightA16 <= dout_weight_2[`ByteOne];
+            weightA21 <= dout_weight_2[`ByteSix];
+            weightA22 <= dout_weight_2[`ByteFiv];
+            weightA23 <= dout_weight_2[`ByteFor];
+            weightA24 <= dout_weight_2[`ByteSix];
+            weightA25 <= dout_weight_2[`ByteFiv];
+            weightA26 <= dout_weight_2[`ByteFor];
+            weightA31 <= dout_weight_2[`ByteNin];
+            weightA32 <= dout_weight_2[`ByteEig];
+            weightA33 <= dout_weight_2[`ByteSev];
+            weightA34 <= dout_weight_2[`ByteNin];
+            weightA35 <= dout_weight_2[`ByteEig];
+            weightA36 <= dout_weight_2[`ByteSev];
+            weightA41 <= dout_weight_2[`ByteThr];
+            weightA42 <= dout_weight_2[`ByteTwo];
+            weightA43 <= dout_weight_2[`ByteOne];
+            weightA44 <= dout_weight_2[`ByteThr];
+            weightA45 <= dout_weight_2[`ByteTwo];
+            weightA46 <= dout_weight_2[`ByteOne];
+            weightA51 <= dout_weight_2[`ByteSix];
+            weightA52 <= dout_weight_2[`ByteFiv];
+            weightA53 <= dout_weight_2[`ByteFor];
+            weightA54 <= dout_weight_2[`ByteSix];
+            weightA55 <= dout_weight_2[`ByteFiv];
+            weightA56 <= dout_weight_2[`ByteFor];
+            weightA61 <= dout_weight_2[`ByteNin];
+            weightA62 <= dout_weight_2[`ByteEig];
+            weightA63 <= dout_weight_2[`ByteSev];
+            weightA64 <= dout_weight_2[`ByteNin];
+            weightA65 <= dout_weight_2[`ByteEig];
+            weightA66 <= dout_weight_2[`ByteSev];
+
+            weightB11 <= dout_weight_2[`ByteThr];
+            weightB12 <= dout_weight_2[`ByteTwo];
+            weightB13 <= dout_weight_2[`ByteOne];
+            weightB14 <= dout_weight_2[`ByteThr];
+            weightB15 <= dout_weight_2[`ByteTwo];
+            weightB16 <= dout_weight_2[`ByteOne];
+            weightB21 <= dout_weight_2[`ByteSix];
+            weightB22 <= dout_weight_2[`ByteFiv];
+            weightB23 <= dout_weight_2[`ByteFor];
+            weightB24 <= dout_weight_2[`ByteSix];
+            weightB25 <= dout_weight_2[`ByteFiv];
+            weightB26 <= dout_weight_2[`ByteFor];
+            weightB31 <= dout_weight_2[`ByteNin];
+            weightB32 <= dout_weight_2[`ByteEig];
+            weightB33 <= dout_weight_2[`ByteSev];
+            weightB34 <= dout_weight_2[`ByteNin];
+            weightB35 <= dout_weight_2[`ByteEig];
+            weightB36 <= dout_weight_2[`ByteSev];
+            weightB41 <= dout_weight_2[`ByteThr];
+            weightB42 <= dout_weight_2[`ByteTwo];
+            weightB43 <= dout_weight_2[`ByteOne];
+            weightB44 <= dout_weight_2[`ByteThr];
+            weightB45 <= dout_weight_2[`ByteTwo];
+            weightB46 <= dout_weight_2[`ByteOne];
+            weightB51 <= dout_weight_2[`ByteSix];
+            weightB52 <= dout_weight_2[`ByteFiv];
+            weightB53 <= dout_weight_2[`ByteFor];
+            weightB54 <= dout_weight_2[`ByteSix];
+            weightB55 <= dout_weight_2[`ByteFiv];
+            weightB56 <= dout_weight_2[`ByteFor];
+            weightB61 <= dout_weight_2[`ByteNin];
+            weightB62 <= dout_weight_2[`ByteEig];
+            weightB63 <= dout_weight_2[`ByteSev];
+            weightB64 <= dout_weight_2[`ByteNin];
+            weightB65 <= dout_weight_2[`ByteEig];
+            weightB66 <= dout_weight_2[`ByteSev];
+//          weight-------------------------------------------------
             addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 8;
             addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 8;
             addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 8;

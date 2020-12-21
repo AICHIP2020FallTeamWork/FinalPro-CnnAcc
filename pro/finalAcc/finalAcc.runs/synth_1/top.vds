@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Dec 21 12:14:45 2020
-# Process ID: 7648
+# Start of session at: Mon Dec 21 13:22:59 2020
+# Process ID: 13260
 # Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/top.vds
@@ -15,27 +15,27 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7700 
+INFO: Helper process launched with PID 16528 
 WARNING: [Synth 8-1935] empty port in module declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:91]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 421.004 ; gain = 115.230
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 422.383 ; gain = 115.938
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:1]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:100]
 WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:101]
 WARNING: [Synth 8-689] width (12) of port connection 'addra' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:121]
 WARNING: [Synth 8-689] width (12) of port connection 'addrb' does not match port width (9) of module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:122]
 INFO: [Synth 8-638] synthesizing module 'pe1' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
-INFO: [Synth 8-638] synthesizing module 'weightROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'weightROM' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'weightROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'weightROM' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:450]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:1075]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2843]
@@ -178,28 +178,6 @@ WARNING: [Synth 8-3848] Net din_BRAM4k_2 in module/entity pe1 does not have driv
 WARNING: [Synth 8-3848] Net addr_BRAM4k_2 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:373]
 WARNING: [Synth 8-3848] Net din_BRAMConv2Arr1_2 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:102]
 WARNING: [Synth 8-3848] Net din_BRAMConv2Arr2_2 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:113]
-WARNING: [Synth 8-3848] Net weightA16 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:212]
-WARNING: [Synth 8-3848] Net weightA26 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:215]
-WARNING: [Synth 8-3848] Net weightA36 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:218]
-WARNING: [Synth 8-3848] Net weightA46 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:221]
-WARNING: [Synth 8-3848] Net weightA56 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:224]
-WARNING: [Synth 8-3848] Net weightA61 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:207]
-WARNING: [Synth 8-3848] Net weightA62 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:208]
-WARNING: [Synth 8-3848] Net weightA63 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:209]
-WARNING: [Synth 8-3848] Net weightA64 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:225]
-WARNING: [Synth 8-3848] Net weightA65 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:226]
-WARNING: [Synth 8-3848] Net weightA66 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:227]
-WARNING: [Synth 8-3848] Net weightB16 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:250]
-WARNING: [Synth 8-3848] Net weightB26 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:253]
-WARNING: [Synth 8-3848] Net weightB36 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:256]
-WARNING: [Synth 8-3848] Net weightB46 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:259]
-WARNING: [Synth 8-3848] Net weightB56 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:262]
-WARNING: [Synth 8-3848] Net weightB61 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:245]
-WARNING: [Synth 8-3848] Net weightB62 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:246]
-WARNING: [Synth 8-3848] Net weightB63 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:247]
-WARNING: [Synth 8-3848] Net weightB64 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:263]
-WARNING: [Synth 8-3848] Net weightB65 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:264]
-WARNING: [Synth 8-3848] Net weightB66 in module/entity pe1 does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:265]
 INFO: [Synth 8-256] done synthesizing module 'pe1' (9#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
 WARNING: [Synth 8-350] instance 'PE' of module 'pe1' requires 35 connections, but only 34 given [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:214]
 WARNING: [Synth 8-3848] Net we_BRAM4k in module/entity top does not have driver. [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:71]
@@ -307,7 +285,7 @@ WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[29]
 WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[28]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 606.789 ; gain = 301.016
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 614.961 ; gain = 308.516
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -316,131 +294,30 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group11:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3260]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group12:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3310]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group13:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3361]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group14:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3411]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group15:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3463]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight1[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight2[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight3[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight4[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight5[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group16:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3511]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[3] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[2] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[1] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group21:weight6[0] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3563]
-WARNING: [Synth 8-3295] tying undriven pin pe_group22:weight6[7] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3615]
-WARNING: [Synth 8-3295] tying undriven pin pe_group22:weight6[6] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3615]
-WARNING: [Synth 8-3295] tying undriven pin pe_group22:weight6[5] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3615]
-WARNING: [Synth 8-3295] tying undriven pin pe_group22:weight6[4] to constant 0 [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3615]
-INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 606.789 ; gain = 301.016
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 614.961 ; gain = 308.516
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z035ffg676-2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'PE/weightRom'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'PE/weightRom'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr1'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr1'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr2'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr2'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'PE/weightRom'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp6/weightROM_in_context.xdc] for cell 'PE/weightRom'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'bram4k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr1'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr1'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr2'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp7/BRAM4k_in_context.xdc] for cell 'BRAMConv2Arr2'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp8/BRAM32k_in_context.xdc] for cell 'bram32k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp9/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
 Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
 Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
@@ -450,7 +327,7 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1066.566 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1073.141 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAMConv2Arr1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAMConv2Arr2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'bram32k' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
@@ -459,20 +336,20 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'PE/weightRom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'PE/WB/bramtemp' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z035ffg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7648-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-13260-LAPTOP-PD9C7IFG/dcp5/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for BRAMConv2Arr1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for BRAMConv2Arr2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for PE/WB/bramtemp. (constraint file  auto generated constraint, line ).
@@ -482,7 +359,7 @@ Applied set_property DONT_TOUCH = true for bram4k. (constraint file  auto genera
 Applied set_property DONT_TOUCH = true for clk0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for wLayer1Rom. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "groupsum_out1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "groupsum_out2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -571,6 +448,40 @@ INFO: [Synth 8-5544] ROM "we_BRAM32k" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "din_BRAM32k_1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Zuhe" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element waddr_CB_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:338]
+INFO: [Synth 8-4471] merging register 'weightA46_reg[7:0]' into 'weightA16_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2906]
+INFO: [Synth 8-4471] merging register 'weightA56_reg[7:0]' into 'weightA26_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2912]
+INFO: [Synth 8-4471] merging register 'weightA63_reg[7:0]' into 'weightA36_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2915]
+INFO: [Synth 8-4471] merging register 'weightA64_reg[7:0]' into 'weightA61_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2916]
+INFO: [Synth 8-4471] merging register 'weightA65_reg[7:0]' into 'weightA62_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2917]
+INFO: [Synth 8-4471] merging register 'weightA66_reg[7:0]' into 'weightA36_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2918]
+INFO: [Synth 8-4471] merging register 'weightB16_reg[7:0]' into 'weightA16_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2925]
+INFO: [Synth 8-4471] merging register 'weightB26_reg[7:0]' into 'weightA26_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2931]
+INFO: [Synth 8-4471] merging register 'weightB36_reg[7:0]' into 'weightA36_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2937]
+INFO: [Synth 8-4471] merging register 'weightB46_reg[7:0]' into 'weightA16_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2943]
+INFO: [Synth 8-4471] merging register 'weightB56_reg[7:0]' into 'weightA26_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2949]
+INFO: [Synth 8-4471] merging register 'weightB61_reg[7:0]' into 'weightA61_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2950]
+INFO: [Synth 8-4471] merging register 'weightB62_reg[7:0]' into 'weightA62_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2951]
+INFO: [Synth 8-4471] merging register 'weightB63_reg[7:0]' into 'weightA36_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2952]
+INFO: [Synth 8-4471] merging register 'weightB64_reg[7:0]' into 'weightA61_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2953]
+INFO: [Synth 8-4471] merging register 'weightB65_reg[7:0]' into 'weightA62_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2954]
+INFO: [Synth 8-4471] merging register 'weightB66_reg[7:0]' into 'weightA36_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2955]
+WARNING: [Synth 8-6014] Unused sequential element weightA46_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2906]
+WARNING: [Synth 8-6014] Unused sequential element weightA56_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2912]
+WARNING: [Synth 8-6014] Unused sequential element weightA63_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2915]
+WARNING: [Synth 8-6014] Unused sequential element weightA64_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2916]
+WARNING: [Synth 8-6014] Unused sequential element weightA65_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2917]
+WARNING: [Synth 8-6014] Unused sequential element weightA66_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2918]
+WARNING: [Synth 8-6014] Unused sequential element weightB16_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2925]
+WARNING: [Synth 8-6014] Unused sequential element weightB26_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2931]
+WARNING: [Synth 8-6014] Unused sequential element weightB36_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2937]
+WARNING: [Synth 8-6014] Unused sequential element weightB46_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2943]
+WARNING: [Synth 8-6014] Unused sequential element weightB56_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2949]
+WARNING: [Synth 8-6014] Unused sequential element weightB61_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2950]
+WARNING: [Synth 8-6014] Unused sequential element weightB62_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2951]
+WARNING: [Synth 8-6014] Unused sequential element weightB63_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2952]
+WARNING: [Synth 8-6014] Unused sequential element weightB64_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2953]
+WARNING: [Synth 8-6014] Unused sequential element weightB65_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2954]
+WARNING: [Synth 8-6014] Unused sequential element weightB66_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2955]
 INFO: [Synth 8-802] inferred FSM for state register 'Layer_reg' in module 'pe1'
 INFO: [Synth 8-5546] ROM "Process" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Process" won't be mapped to RAM because it is too sparse
@@ -583,8 +494,6 @@ INFO: [Synth 8-5546] ROM "weightA11" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5544] ROM "ifmapA11" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:424]
 WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:425]
-WARNING: [Synth 8-6014] Unused sequential element addr_weight_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:183]
-WARNING: [Synth 8-6014] Unused sequential element addr_weight_2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:184]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -601,85 +510,78 @@ WARNING: [Synth 8-6014] Unused sequential element addr_weight_2_reg was removed.
                  iSTATE9 |                             1010 |                             1010
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'Zuhe_reg' using encoding 'sequential' in module 'writeback'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                 iSTATE0 |                               01 |                             0010
-                 iSTATE2 |                               10 |                             0011
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'Layer_reg' using encoding 'one-hot' in module 'pe1'
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA11_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3244]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA12_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3245]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA13_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3246]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA14_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3247]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA15_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3248]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA16_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3256]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA21_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3295]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA22_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3296]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA23_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3297]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA24_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3298]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA25_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3299]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA26_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3307]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA31_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3346]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA32_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3347]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA33_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3348]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA34_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3349]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA35_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3350]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA36_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3358]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA41_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3396]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA42_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3397]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA43_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3398]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA44_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3399]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA45_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3400]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA46_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3408]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA51_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3448]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA52_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3449]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA53_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3450]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA54_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3451]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA55_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3452]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA56_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3460]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA61_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3503]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA62_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3504]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA63_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3505]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA64_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3506]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA65_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3507]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapA66_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3508]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB11_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3548]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB12_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3549]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB13_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3550]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB14_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3551]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB15_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3552]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB21_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3600]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB22_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3601]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB23_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3602]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB24_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3603]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB25_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3604]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB26_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3612]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB31_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3652]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB32_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3653]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB33_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3654]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB34_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3655]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB35_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3656]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB36_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3664]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB41_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3704]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB42_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3705]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB43_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3706]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB44_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3707]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB45_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3708]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB51_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3755]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB52_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3756]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB53_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3757]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB54_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3758]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB55_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3759]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB56_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3767]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB61_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3810]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB62_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3811]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB63_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3812]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB64_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3813]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB65_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3814]
-WARNING: [Synth 8-327] inferring latch for variable 'ifmapB66_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3815]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA11_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3402]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA12_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3403]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA13_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3404]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA14_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3405]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA15_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3406]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA16_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3414]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA21_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3453]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA22_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3454]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA23_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3455]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA24_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3456]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA25_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3457]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA26_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3465]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA31_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3504]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA32_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3505]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA33_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3506]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA34_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3507]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA35_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3508]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA36_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3516]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA41_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3554]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA42_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3555]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA43_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3556]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA44_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3557]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA45_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3558]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA46_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3566]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA51_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3606]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA52_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3607]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA53_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3608]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA54_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3609]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA55_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3610]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA56_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3618]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA61_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3661]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA62_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3662]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA63_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3663]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA64_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3664]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA65_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3665]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapA66_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3666]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB11_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3706]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB12_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3707]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB13_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3708]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB14_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3709]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB15_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3710]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB21_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3758]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB22_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3759]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB23_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3760]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB24_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3761]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB25_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3762]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB26_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3770]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB31_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3810]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB32_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3811]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB33_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3812]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB34_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3813]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB35_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3814]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB36_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3822]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB41_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3862]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB42_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3863]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB43_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3864]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB44_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3865]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB45_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3866]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB51_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3913]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB52_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3914]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB53_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3915]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB54_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3916]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB55_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3917]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB56_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3925]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB61_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3968]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB62_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3969]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB63_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3970]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB64_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3971]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB65_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3972]
+WARNING: [Synth 8-327] inferring latch for variable 'ifmapB66_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3973]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -692,7 +594,7 @@ Report RTL Partitions:
 |4     |channelBuf__GB3 |           1|      9770|
 |5     |channelBuf__GB4 |           1|     14096|
 |6     |writeback__GC0  |           1|      5808|
-|7     |pe1__GC0        |           1|     17394|
+|7     |pe1__GC0        |           1|     20586|
 |8     |top__GC0        |           1|       555|
 +------+----------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -710,6 +612,7 @@ Detailed RTL Component Info :
 	   5 Input     19 Bit       Adders := 2     
 	   2 Input     19 Bit       Adders := 12    
 	   3 Input     18 Bit       Adders := 24    
+	   2 Input     14 Bit       Adders := 2     
 	   2 Input     12 Bit       Adders := 14    
 	   2 Input      9 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 9     
@@ -729,9 +632,10 @@ Detailed RTL Component Info :
 	               19 Bit    Registers := 24    
 	               18 Bit    Registers := 24    
 	               15 Bit    Registers := 74    
+	               14 Bit    Registers := 2     
 	               12 Bit    Registers := 8     
 	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 229   
+	                8 Bit    Registers := 234   
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 2     
 	                5 Bit    Registers := 2     
@@ -740,43 +644,44 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 61    
 +---Muxes : 
 	  11 Input     64 Bit        Muxes := 3     
-	   2 Input     64 Bit        Muxes := 11    
+	   2 Input     64 Bit        Muxes := 10    
 	   3 Input     64 Bit        Muxes := 1     
-	   4 Input     64 Bit        Muxes := 1     
+	   4 Input     64 Bit        Muxes := 2     
 	   2 Input     19 Bit        Muxes := 24    
 	   3 Input     19 Bit        Muxes := 12    
 	   2 Input     18 Bit        Muxes := 24    
 	   2 Input     15 Bit        Muxes := 62    
+	   7 Input     14 Bit        Muxes := 2     
 	  11 Input     12 Bit        Muxes := 2     
-	   2 Input     12 Bit        Muxes := 6     
-	   4 Input     12 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 8     
+	   4 Input     12 Bit        Muxes := 4     
 	   7 Input     12 Bit        Muxes := 4     
-	   4 Input      9 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 2     
 	   7 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 56    
-	   4 Input      8 Bit        Muxes := 170   
-	   7 Input      8 Bit        Muxes := 8     
+	   2 Input      8 Bit        Muxes := 106   
+	   4 Input      8 Bit        Muxes := 243   
+	   7 Input      8 Bit        Muxes := 17    
 	   7 Input      7 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
 	   6 Input      6 Bit        Muxes := 1     
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 4     
 	   8 Input      4 Bit        Muxes := 1     
 	   3 Input      4 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
 	  14 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 3     
+	   4 Input      3 Bit        Muxes := 4     
 	   7 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 156   
+	   2 Input      1 Bit        Muxes := 150   
 	   8 Input      1 Bit        Muxes := 17    
 	   3 Input      1 Bit        Muxes := 22    
 	  11 Input      1 Bit        Muxes := 8     
-	   4 Input      1 Bit        Muxes := 43    
+	   4 Input      1 Bit        Muxes := 79    
 	   7 Input      1 Bit        Muxes := 8     
 	   6 Input      1 Bit        Muxes := 3     
 	   9 Input      1 Bit        Muxes := 2     
@@ -1067,6 +972,7 @@ Detailed RTL Component Info :
 Module pe1 
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     14 Bit       Adders := 2     
 	   2 Input     12 Bit       Adders := 10    
 	   2 Input      9 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 1     
@@ -1075,40 +981,41 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit       Adders := 2     
 +---Registers : 
 	               64 Bit    Registers := 1     
+	               14 Bit    Registers := 2     
 	               12 Bit    Registers := 6     
 	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 221   
+	                8 Bit    Registers := 226   
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
 	                5 Bit    Registers := 2     
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 9     
 +---Muxes : 
-	   4 Input     64 Bit        Muxes := 1     
-	   2 Input     64 Bit        Muxes := 6     
-	   2 Input     12 Bit        Muxes := 6     
-	   4 Input     12 Bit        Muxes := 2     
+	   4 Input     64 Bit        Muxes := 2     
+	   2 Input     64 Bit        Muxes := 5     
+	   7 Input     14 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 8     
+	   4 Input     12 Bit        Muxes := 4     
 	   7 Input     12 Bit        Muxes := 4     
-	   4 Input      9 Bit        Muxes := 1     
+	   4 Input      9 Bit        Muxes := 2     
 	   7 Input      9 Bit        Muxes := 1     
-	   4 Input      8 Bit        Muxes := 170   
-	   2 Input      8 Bit        Muxes := 28    
-	   7 Input      8 Bit        Muxes := 8     
+	   4 Input      8 Bit        Muxes := 243   
+	   2 Input      8 Bit        Muxes := 78    
+	   7 Input      8 Bit        Muxes := 17    
 	   7 Input      7 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
 	   6 Input      6 Bit        Muxes := 1     
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 1     
 	   6 Input      3 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 3     
+	   4 Input      3 Bit        Muxes := 4     
 	   7 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 30    
+	   4 Input      1 Bit        Muxes := 66    
 	   7 Input      1 Bit        Muxes := 8     
-	   2 Input      1 Bit        Muxes := 27    
+	   2 Input      1 Bit        Muxes := 21    
 	   6 Input      1 Bit        Muxes := 3     
 	   9 Input      1 Bit        Muxes := 2     
 	  12 Input      1 Bit        Muxes := 1     
@@ -1135,103 +1042,10 @@ Start Cross Boundary and Area Optimization
 INFO: [Synth 8-5545] ROM "we_BRAMtemp" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "din_BRAMtemp_10" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 WARNING: [Synth 8-6014] Unused sequential element waddr_CB_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:338]
-INFO: [Synth 8-4471] merging register 'weightA21_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:589]
-INFO: [Synth 8-4471] merging register 'weightA22_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:590]
-INFO: [Synth 8-4471] merging register 'weightA23_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:591]
-INFO: [Synth 8-4471] merging register 'weightA24_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:592]
-INFO: [Synth 8-4471] merging register 'weightA25_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:593]
-INFO: [Synth 8-4471] merging register 'weightA31_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:596]
-INFO: [Synth 8-4471] merging register 'weightA32_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:597]
-INFO: [Synth 8-4471] merging register 'weightA33_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:598]
-INFO: [Synth 8-4471] merging register 'weightA34_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:599]
-INFO: [Synth 8-4471] merging register 'weightA35_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:600]
-INFO: [Synth 8-4471] merging register 'weightA41_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:603]
-INFO: [Synth 8-4471] merging register 'weightA42_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:604]
-INFO: [Synth 8-4471] merging register 'weightA43_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:605]
-INFO: [Synth 8-4471] merging register 'weightA44_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:606]
-INFO: [Synth 8-4471] merging register 'weightA45_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:607]
-INFO: [Synth 8-4471] merging register 'weightA51_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:611]
-INFO: [Synth 8-4471] merging register 'weightA52_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:612]
-INFO: [Synth 8-4471] merging register 'weightA53_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:613]
-INFO: [Synth 8-4471] merging register 'weightA54_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:614]
-INFO: [Synth 8-4471] merging register 'weightA55_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:615]
-INFO: [Synth 8-4471] merging register 'weightB11_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:619]
-INFO: [Synth 8-4471] merging register 'weightB12_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:620]
-INFO: [Synth 8-4471] merging register 'weightB13_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:621]
-INFO: [Synth 8-4471] merging register 'weightB14_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:622]
-INFO: [Synth 8-4471] merging register 'weightB15_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:623]
-INFO: [Synth 8-4471] merging register 'weightB21_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:626]
-INFO: [Synth 8-4471] merging register 'weightB22_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:627]
-INFO: [Synth 8-4471] merging register 'weightB23_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:628]
-INFO: [Synth 8-4471] merging register 'weightB24_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:629]
-INFO: [Synth 8-4471] merging register 'weightB25_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:630]
-INFO: [Synth 8-4471] merging register 'weightB31_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:633]
-INFO: [Synth 8-4471] merging register 'weightB32_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:634]
-INFO: [Synth 8-4471] merging register 'weightB33_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:635]
-INFO: [Synth 8-4471] merging register 'weightB34_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:636]
-INFO: [Synth 8-4471] merging register 'weightB35_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:637]
-INFO: [Synth 8-4471] merging register 'weightB41_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:640]
-INFO: [Synth 8-4471] merging register 'weightB42_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:641]
-INFO: [Synth 8-4471] merging register 'weightB43_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:642]
-INFO: [Synth 8-4471] merging register 'weightB44_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:643]
-INFO: [Synth 8-4471] merging register 'weightB45_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:644]
-INFO: [Synth 8-4471] merging register 'weightB51_reg[7:0]' into 'weightA11_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:646]
-INFO: [Synth 8-4471] merging register 'weightB52_reg[7:0]' into 'weightA12_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:647]
-INFO: [Synth 8-4471] merging register 'weightB53_reg[7:0]' into 'weightA13_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:648]
-INFO: [Synth 8-4471] merging register 'weightB54_reg[7:0]' into 'weightA14_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:649]
-INFO: [Synth 8-4471] merging register 'weightB55_reg[7:0]' into 'weightA15_reg[7:0]' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:650]
-WARNING: [Synth 8-6014] Unused sequential element weightA21_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:589]
-WARNING: [Synth 8-6014] Unused sequential element weightA22_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:590]
-WARNING: [Synth 8-6014] Unused sequential element weightA23_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:591]
-WARNING: [Synth 8-6014] Unused sequential element weightA24_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:592]
-WARNING: [Synth 8-6014] Unused sequential element weightA25_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:593]
-WARNING: [Synth 8-6014] Unused sequential element weightA31_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:596]
-WARNING: [Synth 8-6014] Unused sequential element weightA32_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:597]
-WARNING: [Synth 8-6014] Unused sequential element weightA33_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:598]
-WARNING: [Synth 8-6014] Unused sequential element weightA34_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:599]
-WARNING: [Synth 8-6014] Unused sequential element weightA35_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:600]
-WARNING: [Synth 8-6014] Unused sequential element weightA41_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:603]
-WARNING: [Synth 8-6014] Unused sequential element weightA42_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:604]
-WARNING: [Synth 8-6014] Unused sequential element weightA43_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:605]
-WARNING: [Synth 8-6014] Unused sequential element weightA44_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:606]
-WARNING: [Synth 8-6014] Unused sequential element weightA45_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:607]
-WARNING: [Synth 8-6014] Unused sequential element weightA51_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:611]
-WARNING: [Synth 8-6014] Unused sequential element weightA52_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:612]
-WARNING: [Synth 8-6014] Unused sequential element weightA53_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:613]
-WARNING: [Synth 8-6014] Unused sequential element weightA54_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:614]
-WARNING: [Synth 8-6014] Unused sequential element weightA55_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:615]
-WARNING: [Synth 8-6014] Unused sequential element weightB11_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:619]
-WARNING: [Synth 8-6014] Unused sequential element weightB12_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:620]
-WARNING: [Synth 8-6014] Unused sequential element weightB13_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:621]
-WARNING: [Synth 8-6014] Unused sequential element weightB14_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:622]
-WARNING: [Synth 8-6014] Unused sequential element weightB15_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:623]
-WARNING: [Synth 8-6014] Unused sequential element weightB21_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:626]
-WARNING: [Synth 8-6014] Unused sequential element weightB22_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:627]
-WARNING: [Synth 8-6014] Unused sequential element weightB23_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:628]
-WARNING: [Synth 8-6014] Unused sequential element weightB24_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:629]
-WARNING: [Synth 8-6014] Unused sequential element weightB25_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:630]
-WARNING: [Synth 8-6014] Unused sequential element weightB31_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:633]
-WARNING: [Synth 8-6014] Unused sequential element weightB32_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:634]
-WARNING: [Synth 8-6014] Unused sequential element weightB33_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:635]
-WARNING: [Synth 8-6014] Unused sequential element weightB34_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:636]
-WARNING: [Synth 8-6014] Unused sequential element weightB35_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:637]
-WARNING: [Synth 8-6014] Unused sequential element weightB41_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:640]
-WARNING: [Synth 8-6014] Unused sequential element weightB42_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:641]
-WARNING: [Synth 8-6014] Unused sequential element weightB43_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:642]
-WARNING: [Synth 8-6014] Unused sequential element weightB44_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:643]
-WARNING: [Synth 8-6014] Unused sequential element weightB45_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:644]
-WARNING: [Synth 8-6014] Unused sequential element weightB51_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:646]
-WARNING: [Synth 8-6014] Unused sequential element weightB52_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:647]
-WARNING: [Synth 8-6014] Unused sequential element weightB53_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:648]
-WARNING: [Synth 8-6014] Unused sequential element weightB54_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:649]
-WARNING: [Synth 8-6014] Unused sequential element weightB55_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:650]
 INFO: [Synth 8-5546] ROM "Process" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "Process" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element Channel_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:424]
 WARNING: [Synth 8-6014] Unused sequential element addr_wLayer1_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:425]
-WARNING: [Synth 8-6014] Unused sequential element addr_weight_1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:183]
-WARNING: [Synth 8-6014] Unused sequential element addr_weight_2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:184]
-WARNING: [Synth 8-6014] Unused sequential element addr_weight_2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:184]
 WARNING: [Synth 8-3917] design top has port led driven by constant 1
 INFO: [Synth 8-3886] merging instance 'WBi_5/plusiB_reg[9]' (FDCE) to 'WBi_5/plusiB_reg[14]'
 INFO: [Synth 8-3886] merging instance 'WBi_5/plusiB_reg[10]' (FDCE) to 'WBi_5/plusiB_reg[14]'
@@ -1251,139 +1065,58 @@ INFO: [Synth 8-3886] merging instance 'WBi_5/wdata_CB4_reg[21]' (FDCE) to 'WBi_5
 INFO: [Synth 8-3886] merging instance 'WBi_5/wdata_CB3_reg[21]' (FDCE) to 'WBi_5/wdata_CB2_reg[21]'
 INFO: [Synth 8-3886] merging instance 'WBi_5/wdata_CB2_reg[21]' (FDCE) to 'WBi_5/wdata_CB1_reg[21]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (WBi_5/\wdata_CB1_reg[21] )
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB61_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB63_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB62_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB64_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB66_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB65_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB51_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB51_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB51_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch PEi_6/\ifmapB51_reg[1]  is always disabled
-INFO: [Common 17-14] Message 'Synth 8-264' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[1][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[1][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad3_reg[0][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\regPad2_reg[0][7] )
+INFO: [Synth 8-3886] merging instance 'PEi_6/ProcessBubble1_reg[1]' (FDPE) to 'PEi_6/ProcessBubble1_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/half1_reg[16]' (FDC) to 'PEi_6/pe_group26/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/half2_reg[16]' (FDC) to 'PEi_6/pe_group26/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/half1_reg[16]' (FDC) to 'PEi_6/pe_group25/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/half2_reg[16]' (FDC) to 'PEi_6/pe_group25/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/half1_reg[16]' (FDC) to 'PEi_6/pe_group24/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/half2_reg[16]' (FDC) to 'PEi_6/pe_group24/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/half1_reg[16]' (FDC) to 'PEi_6/pe_group23/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/half2_reg[16]' (FDC) to 'PEi_6/pe_group23/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/half1_reg[16]' (FDC) to 'PEi_6/pe_group22/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/half2_reg[16]' (FDC) to 'PEi_6/pe_group22/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group21/half1_reg[16]' (FDC) to 'PEi_6/pe_group21/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group21/half2_reg[16]' (FDC) to 'PEi_6/pe_group21/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group16/half1_reg[16]' (FDC) to 'PEi_6/pe_group16/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group16/half2_reg[16]' (FDC) to 'PEi_6/pe_group16/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group15/half1_reg[16]' (FDC) to 'PEi_6/pe_group15/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group15/half2_reg[16]' (FDC) to 'PEi_6/pe_group15/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group14/half1_reg[16]' (FDC) to 'PEi_6/pe_group14/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group14/half2_reg[16]' (FDC) to 'PEi_6/pe_group14/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group13/half1_reg[16]' (FDC) to 'PEi_6/pe_group13/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group13/half2_reg[16]' (FDC) to 'PEi_6/pe_group13/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group12/half1_reg[16]' (FDC) to 'PEi_6/pe_group12/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group12/half2_reg[16]' (FDC) to 'PEi_6/pe_group12/half2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group11/half1_reg[16]' (FDC) to 'PEi_6/pe_group11/half1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group11/half2_reg[16]' (FDC) to 'PEi_6/pe_group11/half2_reg[17]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/we_BRAMConv2Arr2_2_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/we_BRAMConv2Arr1_2_reg)
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group26/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group26/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group25/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group25/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group24/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group24/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group23/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group23/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group22/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group22/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group21/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group21/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group21/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group21/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group16/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group16/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group16/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group16/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group15/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group15/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group15/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group15/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group14/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group14/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group14/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group14/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group13/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group13/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group13/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group13/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group12/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group12/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group12/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group12/groupsum_out2_reg[18]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/i_275/\Layer_reg[3] )
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group11/groupsum_out2_reg[16]' (FDE) to 'PEi_6/pe_group11/groupsum_out2_reg[18]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group11/groupsum_out2_reg[17]' (FDE) to 'PEi_6/pe_group11/groupsum_out2_reg[18]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[31][0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[31][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[31][2] )
@@ -1451,207 +1184,187 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\if
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[27][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[27][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf2_reg[26][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PEi_6/\ifbuf1_reg[26][7] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[10][7]' (FDE) to 'PEi_6/ifbuf5_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[11][7]' (FDE) to 'PEi_6/ifbuf5_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[30][7]' (FDE) to 'PEi_6/ifbuf5_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[31][7]' (FDE) to 'PEi_6/ifbuf5_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[8][7]' (FDE) to 'PEi_6/ifbuf5_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[9][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[28][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[29][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[6][7]' (FDE) to 'PEi_6/ifbuf5_reg[7][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[7][7]' (FDE) to 'PEi_6/ifbuf5_reg[4][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[26][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[27][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[4][7]' (FDE) to 'PEi_6/ifbuf5_reg[5][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[24][7]' (FDE) to 'PEi_6/ifbuf5_reg[25][7]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[5]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[5]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[5]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[8]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[8]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[8]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[9]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[9]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[9]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[10]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[10]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[10]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[11]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[11]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[11]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[12]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[12]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[12]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[13]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[13]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[13]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod1_reg[14]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod3_reg[14]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod2_reg[14]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[5]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[5]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[5]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[8]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[8]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[8]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[8]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[9]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[9]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[9]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[9]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[10]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[10]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[10]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[10]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[11]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[11]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[11]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[11]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[12]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[12]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[12]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[12]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[13]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[13]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod5_reg[13]' (FDC) to 'PEi_6/pe_group26/prod4_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod6_reg[13]' (FDCE) to 'PEi_6/pe_group26/prod6_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group26/prod4_reg[14]' (FDC) to 'PEi_6/pe_group26/prod5_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[5]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[8]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[8]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[9]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[9]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[10]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[10]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[11]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[11]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[12]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[12]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[13]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group25/prod6_reg[13]' (FDCE) to 'PEi_6/pe_group25/prod6_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[5]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[8]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[8]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[9]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[9]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[10]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[10]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[11]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[11]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[12]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[12]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[13]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group24/prod6_reg[13]' (FDCE) to 'PEi_6/pe_group24/prod6_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[5]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[8]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[8]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[9]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[9]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[10]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[10]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[11]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[11]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[12]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[12]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[13]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group23/prod6_reg[13]' (FDCE) to 'PEi_6/pe_group23/prod6_reg[14]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/prod6_reg[5]' (FDCE) to 'PEi_6/pe_group22/prod6_reg[8]'
-INFO: [Synth 8-3886] merging instance 'PEi_6/pe_group22/prod6_reg[8]' (FDCE) to 'PEi_6/pe_group22/prod6_reg[9]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][0]' (FDE) to 'PEi_6/ifbuf4_reg[0][0]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][1]' (FDE) to 'PEi_6/ifbuf4_reg[0][1]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][2]' (FDE) to 'PEi_6/ifbuf4_reg[0][2]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][3]' (FDE) to 'PEi_6/ifbuf4_reg[0][3]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][4]' (FDE) to 'PEi_6/ifbuf4_reg[0][4]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][5]' (FDE) to 'PEi_6/ifbuf4_reg[0][5]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][6]' (FDE) to 'PEi_6/ifbuf4_reg[0][6]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifbuf5_reg[0][7]' (FDE) to 'PEi_6/ifbuf4_reg[0][7]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[0]' (FDE) to 'PEi_6/weightB54_reg[0]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[1]' (FDE) to 'PEi_6/weightB54_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[2]' (FDE) to 'PEi_6/weightB54_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[3]' (FDE) to 'PEi_6/weightB54_reg[3]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[4]' (FDE) to 'PEi_6/weightB54_reg[4]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[5]' (FDE) to 'PEi_6/weightB54_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[6]' (FDE) to 'PEi_6/weightB54_reg[6]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB51_reg[7]' (FDE) to 'PEi_6/weightB54_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[0]' (FDE) to 'PEi_6/weightB55_reg[0]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[1]' (FDE) to 'PEi_6/weightB55_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[2]' (FDE) to 'PEi_6/weightB55_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[3]' (FDE) to 'PEi_6/weightB55_reg[3]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[4]' (FDE) to 'PEi_6/weightB55_reg[4]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[5]' (FDE) to 'PEi_6/weightB55_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[6]' (FDE) to 'PEi_6/weightB55_reg[6]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB52_reg[7]' (FDE) to 'PEi_6/weightB55_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[0]' (FDE) to 'PEi_6/weightB44_reg[0]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[1]' (FDE) to 'PEi_6/weightB44_reg[1]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[2]' (FDE) to 'PEi_6/weightB44_reg[2]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[3]' (FDE) to 'PEi_6/weightB44_reg[3]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[4]' (FDE) to 'PEi_6/weightB44_reg[4]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[5]' (FDE) to 'PEi_6/weightB44_reg[5]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[6]' (FDE) to 'PEi_6/weightB44_reg[6]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/weightB41_reg[7]' (FDE) to 'PEi_6/weightB44_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifmapB43_reg[0]' (LD) to 'PEi_6/ifmapB45_reg[7]'
+INFO: [Synth 8-3886] merging instance 'PEi_6/ifmapB43_reg[1]' (LD) to 'PEi_6/ifmapB45_reg[7]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[17]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[15]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half1_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod5_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod6_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod4_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[17]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[15]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (half2_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[18]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[17]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[16]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[15]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out1_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[18]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[15]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[14]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[13]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[12]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[11]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[10]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[9]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[8]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[7]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[6]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[5]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[4]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[3]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[2]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[1]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[0]) is unused and will be removed from module pe_group2__1.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[14]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[13]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[12]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[11]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[10]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[9]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[8]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod2_reg[5]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[14]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[13]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[12]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[11]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[10]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[9]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[8]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod3_reg[5]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[14]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[13]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[12]) is unused and will be removed from module pe_group2__2.
-WARNING: [Synth 8-3332] Sequential element (prod1_reg[11]) is unused and will be removed from module pe_group2__2.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__2.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__2.
+WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__2.
+WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__2.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__3.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__3.
+WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__3.
+WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__3.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[14]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[13]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[12]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[11]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[10]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[9]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[8]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[5]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[14]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[13]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[12]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[11]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[10]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[9]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[8]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[5]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[14]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[13]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[12]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[11]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[10]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[9]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[8]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[5]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[14]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[13]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[12]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[11]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[10]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[9]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[8]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[5]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[17]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[15]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[14]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[13]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[12]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[11]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[10]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[18]) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__4.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[14]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[13]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[12]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[11]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[10]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[9]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[8]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[5]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[14]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[13]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[12]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[11]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[10]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[9]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[8]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod5_reg[5]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[14]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[13]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[12]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[11]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[10]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[9]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[8]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod6_reg[5]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[14]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[13]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[12]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[11]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[10]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[9]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[8]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod4_reg[5]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[17]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[15]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[14]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[13]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[12]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[11]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (half2_reg[10]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (groupsum_out2_reg[18]) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub2_reg) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2__5.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[14]) is unused and will be removed from module pe_group2__6.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[13]) is unused and will be removed from module pe_group2__6.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[12]) is unused and will be removed from module pe_group2__6.
+WARNING: [Synth 8-3332] Sequential element (prod3_reg[11]) is unused and will be removed from module pe_group2__6.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:10 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+----------------+------------+----------+
 |      |RTL Partition   |Replication |Instances |
 +------+----------------+------------+----------+
-|1     |channelBuf__GB0 |           1|     11358|
-|2     |channelBuf__GB1 |           1|      3987|
-|3     |channelBuf__GB2 |           1|      8833|
-|4     |channelBuf__GB3 |           1|      6258|
-|5     |channelBuf__GB4 |           1|      9112|
-|6     |writeback__GC0  |           1|      3358|
-|7     |pe1__GC0        |           1|      1468|
+|1     |channelBuf__GB0 |           1|      8601|
+|2     |channelBuf__GB1 |           1|      3691|
+|3     |channelBuf__GB2 |           1|      8247|
+|4     |channelBuf__GB3 |           1|      3745|
+|5     |channelBuf__GB4 |           1|      4524|
+|6     |writeback__GC0  |           1|       776|
+|7     |pe1__GC0        |           1|     20730|
 |8     |top__GC0        |           1|       555|
 +------+----------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -1660,32 +1373,33 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk0/clk_out1' to pin 'clk0/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:18 ; elapsed = 00:01:21 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:38 ; elapsed = 00:01:42 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 1068.125 ; gain = 762.352
+Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:01:48 . Memory (MB): peak = 1074.629 ; gain = 768.184
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+----------------+------------+----------+
 |      |RTL Partition   |Replication |Instances |
 +------+----------------+------------+----------+
-|1     |channelBuf__GB2 |           1|      8833|
-|2     |channelBuf__GB3 |           1|      6258|
-|3     |channelBuf__GB4 |           1|      9112|
-|4     |writeback__GC0  |           1|      3358|
-|5     |pe1__GC0        |           1|      1468|
-|6     |top__GC0        |           1|       555|
-|7     |top_GT0         |           1|     15342|
+|1     |channelBuf__GB0 |           1|      8473|
+|2     |channelBuf__GB1 |           1|      3691|
+|3     |channelBuf__GB2 |           1|      8247|
+|4     |channelBuf__GB3 |           1|      3612|
+|5     |channelBuf__GB4 |           1|      4253|
+|6     |writeback__GC0  |           1|       776|
+|7     |pe1__GC0        |           1|     20730|
+|8     |top__GC0        |           1|       555|
 +------+----------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:38 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Technology Mapping : Time (s): cpu = 00:01:55 ; elapsed = 00:01:59 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1791,7 +1505,7 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnecte
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnected pin dinb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnected pin dinb[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:36 ; elapsed = 00:01:39 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished IO Insertion : Time (s): cpu = 00:01:57 ; elapsed = 00:02:02 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1804,7 +1518,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:36 ; elapsed = 00:01:39 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:58 ; elapsed = 00:02:02 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1816,25 +1530,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1864,38 +1578,51 @@ Report Cell Usage:
 |7     |clk_wiz_0 |     1|
 |8     |weightROM |     1|
 |9     |BUFG      |     1|
-|10    |CARRY4    |    58|
-|11    |LUT1      |    58|
-|12    |LUT2      |    99|
-|13    |LUT3      |   105|
-|14    |LUT4      |    98|
-|15    |LUT5      |    40|
-|16    |LUT6      |   216|
-|17    |FDCE      |   215|
-|18    |FDPE      |     9|
-|19    |FDRE      |   352|
-|20    |LDC       |     1|
-|21    |IBUF      |     1|
-|22    |OBUF      |     1|
+|10    |CARRY4    |  3137|
+|11    |LUT1      |    21|
+|12    |LUT2      | 11157|
+|13    |LUT3      |   615|
+|14    |LUT4      |  1455|
+|15    |LUT5      |   357|
+|16    |LUT6      |  1327|
+|17    |FDCE      |  1418|
+|18    |FDPE      |     5|
+|19    |FDRE      | 17616|
+|20    |FDSE      |     7|
+|21    |LDC       |     1|
+|22    |IBUF      |     1|
+|23    |OBUF      |     1|
 +------+----------+------+
 
 Report Instance Areas: 
-+------+---------------+----------+------+
-|      |Instance       |Module    |Cells |
-+------+---------------+----------+------+
-|1     |top            |          |  2080|
-|2     |  PE           |pe1       |  1523|
-|3     |    WB         |writeback |   772|
-|4     |    pe_group11 |pe_group2 |    30|
-+------+---------------+----------+------+
++------+---------------+-------------+------+
+|      |Instance       |Module       |Cells |
++------+---------------+-------------+------+
+|1     |top            |             | 37945|
+|2     |  PE           |pe1          | 36524|
+|3     |    WB         |writeback    | 28389|
+|4     |      CB       |channelBuf   | 27985|
+|5     |    pe_group11 |pe_group2    |   513|
+|6     |    pe_group12 |pe_group2_0  |   458|
+|7     |    pe_group13 |pe_group2_1  |   507|
+|8     |    pe_group14 |pe_group2_2  |   256|
+|9     |    pe_group15 |pe_group2_3  |   233|
+|10    |    pe_group16 |pe_group2_4  |   257|
+|11    |    pe_group21 |pe_group2_5  |   505|
+|12    |    pe_group22 |pe_group2_6  |   457|
+|13    |    pe_group23 |pe_group2_7  |   507|
+|14    |    pe_group24 |pe_group2_8  |   257|
+|15    |    pe_group25 |pe_group2_9  |   233|
+|16    |    pe_group26 |pe_group2_10 |   190|
++------+---------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1131.262 ; gain = 824.816
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 82 critical warnings and 25537 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:10 ; elapsed = 00:01:28 . Memory (MB): peak = 1075.727 ; gain = 308.617
-Synthesis Optimization Complete : Time (s): cpu = 00:01:36 ; elapsed = 00:01:40 . Memory (MB): peak = 1075.727 ; gain = 769.953
+Synthesis finished with 0 errors, 82 critical warnings and 408 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:35 ; elapsed = 00:01:53 . Memory (MB): peak = 1131.262 ; gain = 365.148
+Synthesis Optimization Complete : Time (s): cpu = 00:02:03 ; elapsed = 00:02:07 . Memory (MB): peak = 1131.262 ; gain = 824.816
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 3139 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1904,10 +1631,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LDC => LDCE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-400 Infos, 687 Warnings, 82 Critical Warnings and 0 Errors encountered.
+369 Infos, 432 Warnings, 82 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:40 ; elapsed = 00:01:45 . Memory (MB): peak = 1075.727 ; gain = 781.426
+synth_design: Time (s): cpu = 00:02:12 ; elapsed = 00:02:19 . Memory (MB): peak = 1131.262 ; gain = 836.289
 INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.159 . Memory (MB): peak = 1075.727 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 21 12:16:37 2020...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.388 . Memory (MB): peak = 1131.262 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 21 13:25:29 2020...

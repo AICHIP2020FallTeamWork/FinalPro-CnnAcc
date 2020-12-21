@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri Dec 11 09:40:38 2020
-# Process ID: 16980
+# Start of session at: Mon Dec 21 13:19:38 2020
+# Process ID: 15220
 # Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1
 # Command line: vivado.exe -log weightROM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source weightROM.tcl
 # Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/weightROM_synth_1/weightROM.vds
