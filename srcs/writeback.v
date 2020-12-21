@@ -309,9 +309,9 @@ always @(posedge clk or negedge rst) begin
                 if(doneflag_CB == 1) begin
                     we_BRAMtemp <= 1;
                     din_BRAMtemp_1 <= dout_CB;
+                    addr_BRAMtemp_1 <= addr_BRAMtemp_1 + 1;
                 end else begin
                     we_BRAMtemp <= 0;
-                    addr_BRAMtemp_1 <= addr_BRAMtemp_1 + 1;
                     din_BRAMtemp_1 <= 64'bz;
                 end
             end
@@ -367,7 +367,7 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
                                 StateCB <= `Second ;
                             end
                             `Second:begin
-                            we_CB <= 1;
+                                we_CB <= 1;
                                 wdata_CB1  <= sumA1 + sumA2 + sumA3;
                                 wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
                                 wdata_CB3  <= sumA4 + sumA5 + sumA6;
@@ -376,7 +376,7 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
                                 wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
                                 wdata_CB7  <= sumB4 + sumB5 + sumB6;
                                 wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
-                                waddr_CB <= waddr_CB + 1;                                
+                                waddr_CB   <= waddr_CB + 1; 
                             end
                         endcase
                     end

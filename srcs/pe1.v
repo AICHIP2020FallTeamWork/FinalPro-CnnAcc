@@ -372,8 +372,8 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
     reg [7:0] multi432;
     reg [7:0] multi433;
 //--------------------------------------------
-output  reg  [8:0]  addr_BRAM4k_1;  
-output  reg  [8:0]  addr_BRAM4k_2;  
+output  reg  [11:0]  addr_BRAM4k_1;  
+output  reg  [11:0]  addr_BRAM4k_2;  
 output  reg  [7:0]   addr_wLayer1_1; 
 input   wire [39:0]  dout_wLayer1_1;
 input   wire  [63:0]  dout_BRAM4k_1;  
@@ -2854,32 +2854,36 @@ end else if( rst == `RstDisable && locked == 1 )begin
 
             *****************/
             addr_weight_1 <= 0;
-            addr_weight_2 <= 0; 
+            addr_weight_2 <= 14'b1111_1111_1111_11; 
             addrbase <= 0;
             
         end
+
         `InitUp:begin //000
             Process <= `upHalf;
-            addr_BRAMConv2Arr1_1 <= addrbase+0;
-            addr_BRAMConv2Arr1_2 <= addrbase+1;
-            addr_BRAMConv2Arr2_1 <= addrbase+2;
-            addr_BRAMConv2Arr2_2 <= addrbase+3;
+            addr_BRAMConv2Arr1_1 <= 0;
+            addr_BRAMConv2Arr1_2 <= 1;
+            addr_BRAMConv2Arr2_1 <= 2;
+            addr_BRAMConv2Arr2_2 <= 3;
+            addr_weight_2        <= addr_weight_2 + 1;
             we_CB <= 1;
             we_CB_bub <= 0;
         end
+
         `InitLo:begin //001
             Process <= `loHalf;
-            addr_BRAM4k_1        <= addrbase+3;
-            addr_BRAMConv2Arr1_1 <= addrbase+4;
-            addr_BRAMConv2Arr1_2 <= addrbase+5;
-            addr_BRAMConv2Arr2_1 <= addrbase+6;
-            addr_BRAMConv2Arr2_2 <= addrbase+7;
-            addrbase <= addrbase + 512;
+            addr_BRAM4k_1        <= 3;
+            addr_BRAMConv2Arr1_1 <= 4;
+            addr_BRAMConv2Arr1_2 <= 5;
+            addr_BRAMConv2Arr2_1 <= 6;
+            addr_BRAMConv2Arr2_2 <= 7;
+            // addrbase <= addrbase + 512;
+            addr_weight_1        <= addr_weight_1 + 1;
             we_CB <= 1;
             we_CB_bub <= 0;
         end
         `upHalf: begin //011
-            if(addr_BRAMConv2Arr2_2 == (addrbase+507)) begin // withdraw condition
+            if(addr_BRAMConv2Arr2_2 == (507)) begin // withdraw condition
                 ProcessBubble1 <= `InitLo;
                 Process <= ProcessBubble1;
                 we_CB_bub <= 0;
@@ -2895,79 +2899,79 @@ end else if( rst == `RstDisable && locked == 1 )begin
             end
 
 //          ------------------------------------------------
-            weightA11 <= dout_weight_1[`ByteOne];
-            weightA12 <= dout_weight_1[`ByteTwo];
-            weightA13 <= dout_weight_1[`ByteThr];
-            weightA14 <= dout_weight_1[`ByteOne];
-            weightA15 <= dout_weight_1[`ByteTwo];
-            weightA16 <= dout_weight_1[`ByteThr];
+            weightA11 <= dout_weight_1[`ByteSev];
+            weightA12 <= dout_weight_1[`ByteEig];
+            weightA13 <= dout_weight_1[`ByteNin];
+            weightA14 <= dout_weight_1[`ByteSev];
+            weightA15 <= dout_weight_1[`ByteEig];
+            weightA16 <= dout_weight_1[`ByteNin];
             weightA21 <= dout_weight_1[`ByteFor];
             weightA22 <= dout_weight_1[`ByteFiv];
             weightA23 <= dout_weight_1[`ByteSix];
             weightA24 <= dout_weight_1[`ByteFor];
             weightA25 <= dout_weight_1[`ByteFiv];
             weightA26 <= dout_weight_1[`ByteSix];
-            weightA31 <= dout_weight_1[`ByteSev];
-            weightA32 <= dout_weight_1[`ByteEig];
-            weightA33 <= dout_weight_1[`ByteNin];
-            weightA34 <= dout_weight_1[`ByteSev];
-            weightA35 <= dout_weight_1[`ByteEig];
-            weightA36 <= dout_weight_1[`ByteNin];
-            weightA41 <= dout_weight_1[`ByteOne];
-            weightA42 <= dout_weight_1[`ByteTwo];
-            weightA43 <= dout_weight_1[`ByteThr];
-            weightA44 <= dout_weight_1[`ByteOne];
-            weightA45 <= dout_weight_1[`ByteTwo];
-            weightA46 <= dout_weight_1[`ByteThr];
+            weightA31 <= dout_weight_1[`ByteOne];
+            weightA32 <= dout_weight_1[`ByteTwo];
+            weightA33 <= dout_weight_1[`ByteThr];
+            weightA34 <= dout_weight_1[`ByteOne];
+            weightA35 <= dout_weight_1[`ByteTwo];
+            weightA36 <= dout_weight_1[`ByteThr];
+            weightA41 <= dout_weight_1[`ByteSev];
+            weightA42 <= dout_weight_1[`ByteEig];
+            weightA43 <= dout_weight_1[`ByteNin];
+            weightA44 <= dout_weight_1[`ByteSev];
+            weightA45 <= dout_weight_1[`ByteEig];
+            weightA46 <= dout_weight_1[`ByteNin];
             weightA51 <= dout_weight_1[`ByteFor];
             weightA52 <= dout_weight_1[`ByteFiv];
             weightA53 <= dout_weight_1[`ByteSix];
             weightA54 <= dout_weight_1[`ByteFor];
             weightA55 <= dout_weight_1[`ByteFiv];
             weightA56 <= dout_weight_1[`ByteSix];
-            weightA61 <= dout_weight_1[`ByteSev];
-            weightA62 <= dout_weight_1[`ByteEig];
-            weightA63 <= dout_weight_1[`ByteNin];
-            weightA64 <= dout_weight_1[`ByteSev];
-            weightA65 <= dout_weight_1[`ByteEig];
-            weightA66 <= dout_weight_1[`ByteNin];
+            weightA61 <= dout_weight_1[`ByteOne];
+            weightA62 <= dout_weight_1[`ByteTwo];
+            weightA63 <= dout_weight_1[`ByteThr];
+            weightA64 <= dout_weight_1[`ByteOne];
+            weightA65 <= dout_weight_1[`ByteTwo];
+            weightA66 <= dout_weight_1[`ByteThr];
 
-            weightB11 <= dout_weight_1[`ByteOne];
-            weightB12 <= dout_weight_1[`ByteTwo];
-            weightB13 <= dout_weight_1[`ByteThr];
-            weightB14 <= dout_weight_1[`ByteOne];
-            weightB15 <= dout_weight_1[`ByteTwo];
-            weightB16 <= dout_weight_1[`ByteThr];
+            weightB11 <= dout_weight_1[`ByteSev];
+            weightB12 <= dout_weight_1[`ByteEig];
+            weightB13 <= dout_weight_1[`ByteNin];
+            weightB14 <= dout_weight_1[`ByteSev];
+            weightB15 <= dout_weight_1[`ByteEig];
+            weightB16 <= dout_weight_1[`ByteNin];
             weightB21 <= dout_weight_1[`ByteFor];
             weightB22 <= dout_weight_1[`ByteFiv];
             weightB23 <= dout_weight_1[`ByteSix];
             weightB24 <= dout_weight_1[`ByteFor];
             weightB25 <= dout_weight_1[`ByteFiv];
             weightB26 <= dout_weight_1[`ByteSix];
-            weightB31 <= dout_weight_1[`ByteSev];
-            weightB32 <= dout_weight_1[`ByteEig];
-            weightB33 <= dout_weight_1[`ByteNin];
-            weightB34 <= dout_weight_1[`ByteSev];
-            weightB35 <= dout_weight_1[`ByteEig];
-            weightB36 <= dout_weight_1[`ByteNin];
-            weightB41 <= dout_weight_1[`ByteOne];
-            weightB42 <= dout_weight_1[`ByteTwo];
-            weightB43 <= dout_weight_1[`ByteThr];
-            weightB44 <= dout_weight_1[`ByteOne];
-            weightB45 <= dout_weight_1[`ByteTwo];
-            weightB46 <= dout_weight_1[`ByteThr];
+            weightB31 <= dout_weight_1[`ByteOne];
+            weightB32 <= dout_weight_1[`ByteTwo];
+            weightB33 <= dout_weight_1[`ByteThr];
+            weightB34 <= dout_weight_1[`ByteOne];
+            weightB35 <= dout_weight_1[`ByteTwo];
+            weightB36 <= dout_weight_1[`ByteThr];
+            weightB41 <= dout_weight_1[`ByteSev];
+            weightB42 <= dout_weight_1[`ByteEig];
+            weightB43 <= dout_weight_1[`ByteNin];
+            weightB44 <= dout_weight_1[`ByteSev];
+            weightB45 <= dout_weight_1[`ByteEig];
+            weightB46 <= dout_weight_1[`ByteNin];
             weightB51 <= dout_weight_1[`ByteFor];
             weightB52 <= dout_weight_1[`ByteFiv];
             weightB53 <= dout_weight_1[`ByteSix];
             weightB54 <= dout_weight_1[`ByteFor];
             weightB55 <= dout_weight_1[`ByteFiv];
             weightB56 <= dout_weight_1[`ByteSix];
-            weightB61 <= dout_weight_1[`ByteSev];
-            weightB62 <= dout_weight_1[`ByteEig];
-            weightB63 <= dout_weight_1[`ByteNin];
-            weightB64 <= dout_weight_1[`ByteSev];
-            weightB65 <= dout_weight_1[`ByteEig];
-            weightB66 <= dout_weight_1[`ByteNin];
+            weightB61 <= dout_weight_1[`ByteOne];
+            weightB62 <= dout_weight_1[`ByteTwo];
+            weightB63 <= dout_weight_1[`ByteThr];
+            weightB64 <= dout_weight_1[`ByteOne];
+            weightB65 <= dout_weight_1[`ByteTwo];
+            weightB66 <= dout_weight_1[`ByteThr];
 //          ------------------------------------------------
             ifbuf1[7] <= 0;
             ifbuf1[6] <= 0;
@@ -3011,14 +3015,14 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf5[0] <=  dout_BRAMConv2Arr2_2[`ByteOne];
         end
         `loHalf:begin //100
-            if(addr_BRAMConv2Arr2_2 == (addrbase-1) && kernCounter < 127) begin // withdraw condition
+            if(addr_BRAMConv2Arr2_2 == (511) && kernCounter < 127) begin // withdraw condition
                 ProcessBubble1 <= `InitUp;
                 Process <= ProcessBubble1;
                 kernCounterbub <= kernCounter + 1;
                 kernCounter <= kernCounterbub;
                 we_CB_bub <= 0;
                 we_CB <= we_CB_bub;
-            end else if (addr_BRAMConv2Arr2_2 == (addrbase-1) && kernCounter == 127) begin
+            end else if (addr_BRAMConv2Arr2_2 == (511) && kernCounter == 127) begin
                 ProcessBubble1 <= `Stop;
                 Process <= ProcessBubble1;
                 kernCounter <= 0;
@@ -3036,79 +3040,79 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 kernCounterbub <= kernCounter ;
             end
 //          weight-------------------------------------------------
-            weightA11 <= dout_weight_2[`ByteOne];
-            weightA12 <= dout_weight_2[`ByteTwo];
-            weightA13 <= dout_weight_2[`ByteThr];
-            weightA14 <= dout_weight_2[`ByteOne];
-            weightA15 <= dout_weight_2[`ByteTwo];
-            weightA16 <= dout_weight_2[`ByteThr];
+            weightA11 <= dout_weight_2[`ByteSev];
+            weightA12 <= dout_weight_2[`ByteEig];
+            weightA13 <= dout_weight_2[`ByteNin];
+            weightA14 <= dout_weight_2[`ByteSev];
+            weightA15 <= dout_weight_2[`ByteEig];
+            weightA16 <= dout_weight_2[`ByteNin];
             weightA21 <= dout_weight_2[`ByteFor];
             weightA22 <= dout_weight_2[`ByteFiv];
             weightA23 <= dout_weight_2[`ByteSix];
             weightA24 <= dout_weight_2[`ByteFor];
             weightA25 <= dout_weight_2[`ByteFiv];
             weightA26 <= dout_weight_2[`ByteSix];
-            weightA31 <= dout_weight_2[`ByteSev];
-            weightA32 <= dout_weight_2[`ByteEig];
-            weightA33 <= dout_weight_2[`ByteNin];
-            weightA34 <= dout_weight_2[`ByteSev];
-            weightA35 <= dout_weight_2[`ByteEig];
-            weightA36 <= dout_weight_2[`ByteNin];
-            weightA41 <= dout_weight_2[`ByteOne];
-            weightA42 <= dout_weight_2[`ByteTwo];
-            weightA43 <= dout_weight_2[`ByteThr];
-            weightA44 <= dout_weight_2[`ByteOne];
-            weightA45 <= dout_weight_2[`ByteTwo];
-            weightA46 <= dout_weight_2[`ByteThr];
+            weightA31 <= dout_weight_2[`ByteOne];
+            weightA32 <= dout_weight_2[`ByteTwo];
+            weightA33 <= dout_weight_2[`ByteThr];
+            weightA34 <= dout_weight_2[`ByteOne];
+            weightA35 <= dout_weight_2[`ByteTwo];
+            weightA36 <= dout_weight_2[`ByteThr];
+            weightA41 <= dout_weight_2[`ByteSev];
+            weightA42 <= dout_weight_2[`ByteEig];
+            weightA43 <= dout_weight_2[`ByteNin];
+            weightA44 <= dout_weight_2[`ByteSev];
+            weightA45 <= dout_weight_2[`ByteEig];
+            weightA46 <= dout_weight_2[`ByteNin];
             weightA51 <= dout_weight_2[`ByteFor];
             weightA52 <= dout_weight_2[`ByteFiv];
             weightA53 <= dout_weight_2[`ByteSix];
             weightA54 <= dout_weight_2[`ByteFor];
             weightA55 <= dout_weight_2[`ByteFiv];
             weightA56 <= dout_weight_2[`ByteSix];
-            weightA61 <= dout_weight_2[`ByteSev];
-            weightA62 <= dout_weight_2[`ByteEig];
-            weightA63 <= dout_weight_2[`ByteNin];
-            weightA64 <= dout_weight_2[`ByteSev];
-            weightA65 <= dout_weight_2[`ByteEig];
-            weightA66 <= dout_weight_2[`ByteNin];
+            weightA61 <= dout_weight_2[`ByteOne];
+            weightA62 <= dout_weight_2[`ByteTwo];
+            weightA63 <= dout_weight_2[`ByteThr];
+            weightA64 <= dout_weight_2[`ByteOne];
+            weightA65 <= dout_weight_2[`ByteTwo];
+            weightA66 <= dout_weight_2[`ByteThr];
 
-            weightB11 <= dout_weight_2[`ByteOne];
-            weightB12 <= dout_weight_2[`ByteTwo];
-            weightB13 <= dout_weight_2[`ByteThr];
-            weightB14 <= dout_weight_2[`ByteOne];
-            weightB15 <= dout_weight_2[`ByteTwo];
-            weightB16 <= dout_weight_2[`ByteThr];
+            weightB11 <= dout_weight_2[`ByteSev];
+            weightB12 <= dout_weight_2[`ByteEig];
+            weightB13 <= dout_weight_2[`ByteNin];
+            weightB14 <= dout_weight_2[`ByteSev];
+            weightB15 <= dout_weight_2[`ByteEig];
+            weightB16 <= dout_weight_2[`ByteNin];
             weightB21 <= dout_weight_2[`ByteFor];
             weightB22 <= dout_weight_2[`ByteFiv];
             weightB23 <= dout_weight_2[`ByteSix];
             weightB24 <= dout_weight_2[`ByteFor];
             weightB25 <= dout_weight_2[`ByteFiv];
             weightB26 <= dout_weight_2[`ByteSix];
-            weightB31 <= dout_weight_2[`ByteSev];
-            weightB32 <= dout_weight_2[`ByteEig];
-            weightB33 <= dout_weight_2[`ByteNin];
-            weightB34 <= dout_weight_2[`ByteSev];
-            weightB35 <= dout_weight_2[`ByteEig];
-            weightB36 <= dout_weight_2[`ByteNin];
-            weightB41 <= dout_weight_2[`ByteOne];
-            weightB42 <= dout_weight_2[`ByteTwo];
-            weightB43 <= dout_weight_2[`ByteThr];
-            weightB44 <= dout_weight_2[`ByteOne];
-            weightB45 <= dout_weight_2[`ByteTwo];
-            weightB46 <= dout_weight_2[`ByteThr];
+            weightB31 <= dout_weight_2[`ByteOne];
+            weightB32 <= dout_weight_2[`ByteTwo];
+            weightB33 <= dout_weight_2[`ByteThr];
+            weightB34 <= dout_weight_2[`ByteOne];
+            weightB35 <= dout_weight_2[`ByteTwo];
+            weightB36 <= dout_weight_2[`ByteThr];
+            weightB41 <= dout_weight_2[`ByteSev];
+            weightB42 <= dout_weight_2[`ByteEig];
+            weightB43 <= dout_weight_2[`ByteNin];
+            weightB44 <= dout_weight_2[`ByteSev];
+            weightB45 <= dout_weight_2[`ByteEig];
+            weightB46 <= dout_weight_2[`ByteNin];
             weightB51 <= dout_weight_2[`ByteFor];
             weightB52 <= dout_weight_2[`ByteFiv];
             weightB53 <= dout_weight_2[`ByteSix];
             weightB54 <= dout_weight_2[`ByteFor];
             weightB55 <= dout_weight_2[`ByteFiv];
             weightB56 <= dout_weight_2[`ByteSix];
-            weightB61 <= dout_weight_2[`ByteSev];
-            weightB62 <= dout_weight_2[`ByteEig];
-            weightB63 <= dout_weight_2[`ByteNin];
-            weightB64 <= dout_weight_2[`ByteSev];
-            weightB65 <= dout_weight_2[`ByteEig];
-            weightB66 <= dout_weight_2[`ByteNin];
+            weightB61 <= dout_weight_2[`ByteOne];
+            weightB62 <= dout_weight_2[`ByteTwo];
+            weightB63 <= dout_weight_2[`ByteThr];
+            weightB64 <= dout_weight_2[`ByteOne];
+            weightB65 <= dout_weight_2[`ByteTwo];
+            weightB66 <= dout_weight_2[`ByteThr];
 //          weight-------------------------------------------------
 
             ifbuf1[7] <=  dout_BRAM4k_1[`ByteEig];
@@ -3154,7 +3158,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
         end
 
         `Stop:begin//status stop is for the pipeline shutting down
-        
+            
         end
 /*
         `Init:begin
@@ -4028,18 +4032,21 @@ wire FinishWBB6;
 
 //---------
 
+reg we_CB_bub4;
 reg we_CB_bub3;
 reg we_CB_bub2;
 reg we_CB_bub1;
 reg we_CB_o;
 always @ (posedge clk or negedge rst) begin
     if(rst == `RstEnable) begin
+        we_CB_bub4 <= 0;
         we_CB_bub3 <= 0;
         we_CB_bub2 <= 0;
         we_CB_bub1 <= 0;
         we_CB_o <= 0;
     end else begin
-        we_CB_bub3 <= we_CB;
+        we_CB_bub4 <= we_CB;
+        we_CB_bub3 <= we_CB_bub4;
         we_CB_bub2 <= we_CB_bub3;
         we_CB_bub1 <= we_CB_bub2;
         we_CB_o <= we_CB_bub1;

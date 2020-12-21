@@ -111,7 +111,7 @@ reg signed     [7:0]       out8;
 reg [3:0] state;
 output reg done;
 output wire [63:0] dout;
-assign dout = done? {out8,out7,out6,out5,out4,out3,out2,out1}:64'bz;
+assign dout = done? {out4,out3,out2,out1,out8,out7,out6,out5}:64'bz;
 
 always @(posedge clk or negedge rst) begin
     if(rst == `RstEnable) begin
@@ -662,77 +662,85 @@ always @(posedge clk or negedge rst) begin
                     state <= 8;   
                     done <=1; 
 
-                    if(registers16 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers16 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out1 <= `PosiFull;
-                    end else if(registers16 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers16 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out1 <= `NegFull;
-                    end else if (registers16 >= 0 || (registers16 < 0 && registers16[7]==0)) begin
+                    end else if (registers16 >= 0 || (registers16 < 0 && registers16[7:0]==0)) begin
                         out1 <= registers16>>>8;
-                    end else if(registers16 < 0 && registers16[7]==1)begin
-                        out1 <= (registers16>>>8) + 1;
+                    end else if(registers16 < 0 && registers16[7:0]!=0)begin
+                        // out1 <= (registers16>>>8) - 1;
+                        out1 <= (registers16>>>8) ;
                     end
-                    if(registers26 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers26 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out2 <= `PosiFull;
-                    end else if(registers26 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers26 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out2 <= `NegFull;
-                    end else if (registers26 >= 0 || (registers26 < 0 && registers26[7]==0)) begin
+                    end else if (registers26 >= 0 || (registers26 < 0 && registers26[7:0]==0)) begin
                         out2 <= registers26>>>8;
-                    end else if(registers26 < 0 && registers26[7]==1)begin
-                        out2 <= (registers26>>>8) + 1;
+                    end else if(registers26 < 0 && registers26[7:0]!=0)begin
+                        // out2 <= (registers26>>>8) - 1;
+                        out2 <= (registers26>>>8) ;
                     end
-                    if(registers36 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers36 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out3 <= `PosiFull;
-                    end else if(registers36 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers36 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out3 <= `NegFull;
-                    end else if (registers36 >= 0 || (registers36 < 0 && registers36[7]==0)) begin
+                    end else if (registers36 >= 0 || (registers36 < 0 && registers36[7:0]==0)) begin
                         out3 <= registers36>>>8;
-                    end else if(registers36 < 0 && registers36[7]==1)begin
-                        out3 <= (registers36>>>8) + 1;
+                    end else if(registers36 < 0 && registers36[7:0]!=0)begin
+                        // out3 <= (registers36>>>8) - 1;
+                        out3 <= (registers36>>>8) ;
                     end
-                    if(registers46 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers46 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out4 <= `PosiFull;
-                    end else if(registers46 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers46 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out4 <= `NegFull;
-                    end else if (registers46 >= 0 || (registers46 < 0 && registers46[7]==0)) begin
+                    end else if (registers46 >= 0 || (registers46 < 0 && registers46[7:0]==0)) begin
                         out4 <= registers46>>>8;
-                    end else if(registers46 < 0 && registers46[7]==1)begin
-                        out4 <= (registers46>>>8) + 1;
+                    end else if(registers46 < 0 && registers46[7:0]!=0)begin
+                        // out4 <= (registers46>>>8) - 1;
+                        out4 <= (registers46>>>8);
                     end
-                    if(registers56 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers56 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out5 <= `PosiFull;
-                    end else if(registers56 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers56 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out5 <= `NegFull;
-                    end else if (registers56 >= 0 || (registers56 < 0 && registers56[7]==0)) begin
+                    end else if (registers56 >= 0 || (registers56 < 0 && registers56[7:0]==0)) begin
                         out5 <= registers56>>>8;
-                    end else if(registers56 < 0 && registers56[7]==1)begin
-                        out5 <= (registers56>>>8) + 1;
+                    end else if(registers56 < 0 && registers56[7:0]!=0)begin
+                        // out5 <= (registers56>>>8) - 1;
+                        out5 <= (registers56>>>8) ;
                     end
-                    if(registers66 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers66 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out6 <= `PosiFull;
-                    end else if(registers66 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers66 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out6 <= `NegFull;
-                    end else if (registers66 >= 0 || (registers66 < 0 && registers66[7]==0)) begin
+                    end else if (registers66 >= 0 || (registers66 < 0 && registers66[7:0]==0)) begin
                         out6 <= registers66>>>8;
-                    end else if(registers66 < 0 && registers66[7]==1)begin
-                        out6 <= (registers66>>>8) + 1;
+                    end else if(registers66 < 0 && registers66[7:0]!=0)begin
+                        // out6 <= (registers66>>>8) - 1;
+                        out6 <= (registers66>>>8) ;
                     end
-                    if(registers76 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers76 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out7 <= `PosiFull;
-                    end else if(registers76 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers76 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out7 <= `NegFull;
-                    end else if (registers76 >= 0 || (registers76 < 0 && registers76[7]==0)) begin
+                    end else if (registers76 >= 0 || (registers76 < 0 && registers76[7:0]==0)) begin
                         out7 <= registers76>>>8;
-                    end else if(registers76 < 0 && registers76[7]==1)begin
-                        out7 <= (registers76>>>8) + 1;
+                    end else if(registers76 < 0 && registers76[7:0]!=0)begin
+                        // out7 <= (registers76>>>8) - 1;
+                        out7 <= (registers76>>>8);
                     end
-                    if(registers86 > $signed(27'b000_0000_0000_0111_1111_1111_1111))begin
+                    if(registers86 > $signed(28'b0000_0000_0000_0111_1111_1111_1111))begin
                         out8 <= `PosiFull;
-                    end else if(registers86 < $signed(27'b111_1111_1111_1000_0000_0000_0000))begin
+                    end else if(registers86 < $signed(28'b1111_1111_1111_1000_0000_0000_0000))begin
                         out8 <= `NegFull;
-                    end else if (registers86 >= 0 || (registers86 < 0 && registers86[7]==0)) begin
+                    end else if (registers86 >= 0 || (registers86 < 0 && registers86[7:0]==0)) begin
                         out8 <= registers86>>>8;
-                    end else if(registers86 < 0 && registers86[7]==1)begin
-                        out8 <= (registers86>>>8) + 1;
+                    end else if(registers86 < 0 && registers86[7:0]!=0)begin
+                        // out8 <= (registers86>>>8) - 1;
+                        out8 <= (registers86>>>8) ;
                     end
                 end
                 8: begin

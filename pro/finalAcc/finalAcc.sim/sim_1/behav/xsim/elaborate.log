@@ -3,6 +3,8 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: D:/vivado_ise_2017/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 018feefae29b4c6eb1949bdcb041afb8 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:79]
+WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addrb [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:80]
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:100]
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addrb [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:101]
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 9 for port addra [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:121]

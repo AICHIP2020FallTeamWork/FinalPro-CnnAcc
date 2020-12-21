@@ -69,8 +69,8 @@ clk_wiz_0 clk0(
     );
 //-------------------------------------------
     reg we_BRAM4k;
-    wire [8:0] addr_BRAM4k_1;
-    wire [8:0] addr_BRAM4k_2;
+    wire [11:0] addr_BRAM4k_1;
+    wire [11:0] addr_BRAM4k_2;
     wire [63:0] din_BRAM4k_1;
     wire [63:0] din_BRAM4k_2;
     wire [63:0] dout_BRAM4k_1;

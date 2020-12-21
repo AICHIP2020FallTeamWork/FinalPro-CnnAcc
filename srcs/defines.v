@@ -47,6 +47,6 @@
 `define Tenth  4'd10 
 
 `define PosiFull 8'b01111111
-`define NegFull  8'b10000000
+`define NegFull  8'b10000001
 `define PosiFull15 15'b0000_0000_1111_111
 `define NegFull15  15'b1111_1111_0000_000
