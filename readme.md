@@ -21,3 +21,10 @@ This includes to codes for AIchip in 2020 Autumn, written by Jiuru Song and Qiha
 ### Layer2 Finished, going for Layer3
 **dev6** is the head of the project.  
 
+
+### 新分支 master-b
+  
+BRAM4k  
+BRAMConv2Arr1  
+BRAMConv2Arr2  
+都将改成8kB(目前还没有改)  
