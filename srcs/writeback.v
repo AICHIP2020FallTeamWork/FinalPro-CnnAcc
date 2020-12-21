@@ -10,11 +10,25 @@ module writeback(
     sumA3,
     sumA4,
     sumA5,
+    sumA6,
     sumB1,
     sumB2,
     sumB3,
     sumB4,
     sumB5,
+    sumB6,
+    sumA1_,
+    sumA2_,
+    sumA3_,
+    sumA4_,
+    sumA5_,
+    sumA6_,
+    sumB1_,
+    sumB2_,
+    sumB3_,
+    sumB4_,
+    sumB5_,
+    sumB6_,
     // State,
     Layer,
     wb_en,
@@ -35,11 +49,25 @@ module writeback(
     input   [18:0] sumA3;
     input   [18:0] sumA4;
     input   [18:0] sumA5;
+    input   [18:0] sumA6;
     input   [18:0] sumB1;
     input   [18:0] sumB2;
     input   [18:0] sumB3;
     input   [18:0] sumB4;
     input   [18:0] sumB5;
+    input   [18:0] sumB6;
+    input   [18:0] sumA1_;
+    input   [18:0] sumA2_;
+    input   [18:0] sumA3_;
+    input   [18:0] sumA4_;
+    input   [18:0] sumA5_;
+    input   [18:0] sumA6_;
+    input   [18:0] sumB1_;
+    input   [18:0] sumB2_;
+    input   [18:0] sumB3_;
+    input   [18:0] sumB4_;
+    input   [18:0] sumB5_;
+    input   [18:0] sumB6_;
     input   [3:0]       Layer;
     // input   [4:0]       State;
     input wb_en;
@@ -57,6 +85,14 @@ module writeback(
     reg     [3:0]   Zuhe;
     reg     [3:0]   Counter;
 //======
+    reg  signed   [21:0]      plusi1; // kernels
+    reg  signed   [21:0]      plusi2; // kernels
+    reg  signed   [21:0]      plusi3; // kernels
+    reg  signed   [21:0]      plusi4; // kernels
+    reg  signed   [21:0]      plusi5; // kernels
+    reg  signed   [21:0]      plusi6; // kernels
+    reg  signed   [21:0]      plusi7 // kernels
+    reg  signed   [21:0]      plusi8; // kernels
 //======
 always @(posedge clk or negedge rst) begin
     if (rst == `RstEnable) begin
@@ -69,6 +105,8 @@ always @(posedge clk or negedge rst) begin
         addr_BRAM32k_1   <= 0;
         addr_BRAM32k_2   <= 128;
         we_BRAM32k              <= 0;
+        
+
     end else begin
         case(Layer) 
             `Layer1: begin
@@ -263,8 +301,101 @@ always @(posedge clk or negedge rst) begin
             end
 //             `Layer3:
 //             `Layer4:
-//             `Layer5:
+            `Layer5: begin
+                if(doneflag_CB == 1) begin
+                    
+                end
+            end
         endcase
     end
 end
+
+
+always @ (posedge clk or negedge rst) begin
+    if(!rst) begin
+        // below codes are added for layer5
+        plusi1 <=0;
+        plusi2 <=0;
+        plusi3 <=0;
+        plusi4 <=0;
+        plusi5 <=0;
+        plusi6 <=0;
+        plusi7 <=0;
+        plusi8 <=0;
+        wdata_CB <= 0;
+        waddr_CB <= 0;
+        we_CB <= 0; //always enable;
+    end else begin
+        case(layer)
+            `Layer1:begin
+                we_CB <= 0;
+            end
+            `Layer5:begin
+                we_CB <= 1;
+                wdata_CB1  <= sumA1 + sumA2 + sumA3;
+                wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
+                wdata_CB3  <= sumA4 + sumA5 + sumA6;
+                wdata_CB4  <= sumA4_ + sumA5_ + sumA6_;
+                wdata_CB5  <= sumB1 + sumB2 + sumB3;
+                wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
+                wdata_CB7  <= sumB4 + sumB5 + sumB6;
+                wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
+                waddr_CB <= waddr_CB + 1;
+            end
+        endcase
+    end
+end
+
+
+
+reg [5:0]   waddr_CB;
+reg [21:0] wdata_CB1;
+reg [21:0] wdata_CB2;
+reg [21:0] wdata_CB3;
+reg [21:0] wdata_CB4;
+reg [21:0] wdata_CB5;
+reg [21:0] wdata_CB6;
+reg [21:0] wdata_CB7;
+reg [21:0] wdata_CB8;
+wire doneflag_CB;
+wire [63:0] dout_CB;
+channelBuf CB(
+    .clk(clk),
+    .we(we_CB),
+    .waddr(waddr_CB),
+    .wdata1(wdata_CB1),
+    .wdata2(wdata_CB2),
+    .wdata3(wdata_CB3),
+    .wdata4(wdata_CB4),
+    .wdata5(wdata_CB5),
+    .wdata6(wdata_CB6),
+    .wdata7(wdata_CB7),
+    .wdata8(wdata_CB8),
+    .done(doneflag_CB),
+    .dout(dout_CB)
+);
+//--this is the temperoray bram for debug in layer 5
+//--when debug is over it will be abandoned
+    reg we_BRAM4k;
+    wire [8:0] addr_BRAM4k_1;
+    wire [8:0] addr_BRAM4k_2;
+    wire [63:0] din_BRAM4k_1;
+    wire [63:0] din_BRAM4k_2;
+    wire [63:0] dout_BRAM4k_1;
+    wire [63:0] dout_BRAM4k_2;
+    BRAM4k bram4k(
+        .addra(addr_BRAM4k_1),
+        .addrb(addr_BRAM4k_2),
+        .clka(clk),
+        .clkb(clk),
+        .dina(din_BRAM4k_1),
+        .dinb(din_BRAM4k_2),
+        .douta(dout_BRAM4k_1),
+        .doutb(dout_BRAM4k_2),
+        .wea(we_BRAM4k),
+        .web(we_BRAM4k)
+    );
+
+
+
 endmodule

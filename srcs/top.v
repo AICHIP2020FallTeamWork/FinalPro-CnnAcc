@@ -258,7 +258,4 @@ pe1 PE(
     .addr_BRAM4k_1(addr_BRAM4k_1),
     .addr_BRAM4k_2(addr_BRAM4k_2)   
 );
-
-
-
 endmodule

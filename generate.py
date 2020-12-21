@@ -24,4 +24,11 @@ for i in range(17):
 
 
 
+for i in range(8):
+    for j in range(32):
+        print("registers1["+str(j)+"]["+str(23*i+22)+":"+str(23*i)+"]\
+         <= $signed(registers1["+str(2*j)+"]["+str(22*i+21)+":"+str(22*i)+"]) \
+         + $signed(registers1["+str(2*j+1)+"]["+str(22*i+21)+":"+str(22*i)+"]);")
+
+
 

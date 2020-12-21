@@ -2824,12 +2824,6 @@ end else if( rst == `RstDisable && locked == 1 )begin
     end
     */ 
     `Layer5: begin 
-
-
-
-
-
-
         case ( Process )
         `Idle:begin
             Process <= `InitUp;
@@ -2961,6 +2955,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
         `Stop:begin//status stop is for the pipeline shutting down
         
         end
+/*
         `Init:begin
             ifbuf6[24]   <=   0;
             ifbuf6[25]   <=   0;
@@ -3182,6 +3177,7 @@ end else if( rst == `RstDisable && locked == 1 )begin
 //-----------------------------------
 
     end
+*/
     endcase
             end
 
@@ -3196,286 +3192,646 @@ wire wb_enA2;
 wire wb_enA3;
 wire wb_enA4;
 wire wb_enA5;
+wire wb_enA6;
 wire wb_enB1;
 wire wb_enB2;
 wire wb_enB3;
 wire wb_enB4;
 wire wb_enB5;
+wire wb_enB6;
 
 wire FinishWBA1;
 wire FinishWBA2;
 wire FinishWBA3;
 wire FinishWBA4;
 wire FinishWBA5;
+wire FinishWBA6;
 wire FinishWBB1;
 wire FinishWBB2;
 wire FinishWBB3;
 wire FinishWBB4;
 wire FinishWBB5;
+wire FinishWBB6;
 
-wire [18:0] psumA11;
-wire [18:0] psumA12;
-pe_group2 pe_group11(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightA11),
-    .weight2(weightA12),
-    .weight3(weightA13),
-    .weight4(weightA14),
-    .weight5(weightA15),
 
-    .ifmap1(regPad1[0]),
-    .ifmap2(regPad1[1]),
-    .ifmap3(ifbuf1[0]),
-    .ifmap4(ifbuf1[1]),
-    .ifmap5(ifbuf1[2]),
-    .groupsum_out1(psumA11),
-    .groupsum_out2(psumA12),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enA1),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBA1)
-);
+//-------------------   
+    wire [18:0] psumA11;
+    wire [18:0] psumA12;
+    wire [7:0]  ifmapA11;
+    wire [7:0]  ifmapA12;
+    wire [7:0]  ifmapA13;
+    wire [7:0]  ifmapA14;
+    wire [7:0]  ifmapA15;
+    wire [7:0]  ifmapA16;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapA11 = regPad1[0];
+            ifmapA12 = regPad1[1];
+            ifmapA13 = ifbuf1[0];
+            ifmapA14 = ifbuf1[1];
+            ifmapA15 = ifbuf1[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA11 = ifbuf1[0];
+            ifmapA12 = ifbuf1[1];
+            ifmapA13 = ifbuf1[2];
+            ifmapA14 = ifbuf1[3];
+            ifmapA15 = ifbuf1[4];
+            ifmapA16 = ifbuf1[5];
+        end
+    end
+                               
+    pe_group2 pe_group11(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA11),
+        .weight2(weightA12),
+        .weight3(weightA13),
+        .weight4(weightA14),
+        .weight5(weightA15),
+        .weight6(weightA16),
+
+        .ifmap1(ifmapA11),
+        .ifmap2(ifmapA12),
+        .ifmap3(ifmapA13),
+        .ifmap4(ifmapA14),
+        .ifmap5(ifmapA15),
+        .ifmap6(ifmapA16),
+        .groupsum_out1(psumA11),
+        .groupsum_out2(psumA12),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA1),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA1)
+    );
 //----------------------------------------
-wire [18:0] psumA21;
-wire [18:0] psumA22;
-pe_group2 pe_group12(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightA21),
-    .weight2(weightA22),
-    .weight3(weightA23),
-    .weight4(weightA24),
-    .weight5(weightA25),
+    wire [18:0] psumA21;
+    wire [18:0] psumA22;
+    wire [7:0]  ifmapA21;
+    wire [7:0]  ifmapA22;
+    wire [7:0]  ifmapA23;
+    wire [7:0]  ifmapA24;
+    wire [7:0]  ifmapA25;
+    wire [7:0]  ifmapA26;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapA21 = regPad2[0];
+            ifmapA22 = regPad2[1];
+            ifmapA23 = ifbuf2[0];
+            ifmapA24 = ifbuf2[1];
+            ifmapA25 = ifbuf2[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA21 = ifbuf2[0];
+            ifmapA22 = ifbuf2[1];
+            ifmapA23 = ifbuf2[2];
+            ifmapA24 = ifbuf2[3];
+            ifmapA25 = ifbuf2[4];
+            ifmapA26 = ifbuf2[5];
+        end
+    end
+    pe_group2 pe_group12(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA21),
+        .weight2(weightA22),
+        .weight3(weightA23),
+        .weight4(weightA24),
+        .weight5(weightA25),
+        .weight6(weightA26),
 
-    .ifmap1(regPad2[0]),
-    .ifmap2(regPad2[1]),
-    .ifmap3(ifbuf2[0]),
-    .ifmap4(ifbuf2[1]),
-    .ifmap5(ifbuf2[2]),
-    .groupsum_out1(psumA21),
-    .groupsum_out2(psumA22),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enA2),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBA2)
-);
+        .ifmap1(ifmapA21),
+        .ifmap2(ifmapA22),
+        .ifmap3(ifmapA23),
+        .ifmap4(ifmapA24),
+        .ifmap5(ifmapA25),
+        .ifmap6(ifmapA26),
+        .groupsum_out1(psumA21),
+        .groupsum_out2(psumA22),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA2),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA2)
+    );
 
 //-------------------------------
-wire [18:0] psumA31;
-wire [18:0] psumA32;
-pe_group2 pe_group13(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightA31),
-    .weight2(weightA32),
-    .weight3(weightA33),
-    .weight4(weightA34),
-    .weight5(weightA35),
+    wire [18:0] psumA31;
+    wire [18:0] psumA32;
+    wire [7:0]  ifmapA31;
+    wire [7:0]  ifmapA32;
+    wire [7:0]  ifmapA33;
+    wire [7:0]  ifmapA34;
+    wire [7:0]  ifmapA35;
+    wire [7:0]  ifmapA36;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapA31 = regPad3[0];
+            ifmapA32 = regPad3[1];
+            ifmapA33 = ifbuf3[0];
+            ifmapA34 = ifbuf3[1];
+            ifmapA35 = ifbuf3[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA31 = ifbuf3[0];
+            ifmapA32 = ifbuf3[1];
+            ifmapA33 = ifbuf3[2];
+            ifmapA34 = ifbuf3[3];
+            ifmapA35 = ifbuf3[4];
+            ifmapA36 = ifbuf3[5];
+        end
+    end
+    pe_group2 pe_group13(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA31),
+        .weight2(weightA32),
+        .weight3(weightA33),
+        .weight4(weightA34),
+        .weight5(weightA35),
+        .weight6(weightA36),
 
-    .ifmap1(regPad3[0]),
-    .ifmap2(regPad3[1]),
-    .ifmap3(ifbuf3[0]),
-    .ifmap4(ifbuf3[1]),
-    .ifmap5(ifbuf3[2]),
-    .groupsum_out1(psumA31),
-    .groupsum_out2(psumA32),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enA3),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBA3)
-);
+        .ifmap1(ifmapA31),
+        .ifmap2(ifmapA32),
+        .ifmap3(ifmapA33),
+        .ifmap4(ifmapA34),
+        .ifmap5(ifmapA35),
+        .ifmap6(ifmapA36),
+        .groupsum_out1(psumA31),
+        .groupsum_out2(psumA32),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA3),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA3)
+    );
+//---
+    wire [18:0] psumA41;
+    wire [18:0] psumA42;
+    wire [7:0]  ifmapA41;
+    wire [7:0]  ifmapA42;
+    wire [7:0]  ifmapA43;
+    wire [7:0]  ifmapA44;
+    wire [7:0]  ifmapA45;
+    wire [7:0]  ifmapA46;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapA41 = regPad4[0];
+            ifmapA42 = regPad4[1];
+            ifmapA43 = ifbuf4[0];
+            ifmapA44 = ifbuf4[1];
+            ifmapA45 = ifbuf4[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA41 = ifbuf1[6];
+            ifmapA42 = ifbuf1[7];
+            ifmapA43 = ifbuf1[8];
+            ifmapA44 = ifbuf1[9];
+            ifmapA45 = ifbuf1[10];
+            ifmapA46 = ifbuf1[11];
+        end
+    end
+    pe_group2 pe_group14(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA41),
+        .weight2(weightA42),
+        .weight3(weightA43),
+        .weight4(weightA44),
+        .weight5(weightA45),
+        .weight6(weightA46),
 
-wire [18:0] psumA41;
-wire [18:0] psumA42;
-pe_group2 pe_group14(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightA41),
-    .weight2(weightA42),
-    .weight3(weightA43),
-    .weight4(weightA44),
-    .weight5(weightA45),
 
-    .ifmap1(regPad4[0]),
-    .ifmap2(regPad4[1]),
-    .ifmap3(ifbuf4[0]),
-    .ifmap4(ifbuf4[1]),
-    .ifmap5(ifbuf4[2]),
-    .groupsum_out1(psumA41),
-    .groupsum_out2(psumA42),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enA4),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBA4)
-);
+        .ifmap1(ifmapA41),
+        .ifmap2(ifmapA42),
+        .ifmap3(ifmapA43),
+        .ifmap4(ifmapA44),
+        .ifmap5(ifmapA45),
+        .ifmap6(ifmapA46),
+        .groupsum_out1(psumA41),
+        .groupsum_out2(psumA42),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA4),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA4)
+    );
+//--------------
 
-wire [18:0] psumA51;
-wire [18:0] psumA52;
-pe_group2 pe_group15(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightA51),
-    .weight2(weightA52),
-    .weight3(weightA53),
-    .weight4(weightA54),
-    .weight5(weightA55),
+    wire [18:0] psumA51;
+    wire [18:0] psumA52;
+    wire [7:0]  ifmapA51;
+    wire [7:0]  ifmapA52;
+    wire [7:0]  ifmapA53;
+    wire [7:0]  ifmapA54;
+    wire [7:0]  ifmapA55;
+    wire [7:0]  ifmapA56;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapA51 = regPad5[0];
+            ifmapA52 = regPad5[1];
+            ifmapA53 = ifbuf5[0];
+            ifmapA54 = ifbuf5[1];
+            ifmapA55 = ifbuf5[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA51 = ifbuf2[6];
+            ifmapA52 = ifbuf2[7];
+            ifmapA53 = ifbuf2[8];
+            ifmapA54 = ifbuf2[9];
+            ifmapA55 = ifbuf2[10];
+            ifmapA56 = ifbuf2[11];
+        end
+    end
+    pe_group2 pe_group15(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA51),
+        .weight2(weightA52),
+        .weight3(weightA53),
+        .weight4(weightA54),
+        .weight5(weightA55),
+        .weight6(weightA56),
 
-    .ifmap1(regPad5[0]),
-    .ifmap2(regPad5[1]),
-    .ifmap3(ifbuf5[0]),
-    .ifmap4(ifbuf5[1]),
-    .ifmap5(ifbuf5[2]),
-    .groupsum_out1(psumA51),
-    .groupsum_out2(psumA52),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enA5),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBA5)
-);
 
+        .ifmap1(ifmapA51),
+        .ifmap2(ifmapA52),
+        .ifmap3(ifmapA53),
+        .ifmap4(ifmapA54),
+        .ifmap5(ifmapA55),
+        .ifmap6(ifmapA56),
+        .groupsum_out1(psumA51),
+        .groupsum_out2(psumA52),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA5),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA5)
+    );
+
+//--------------
+
+    wire [18:0] psumA61;
+    wire [18:0] psumA62;
+    wire [7:0]  ifmapA61;
+    wire [7:0]  ifmapA62;
+    wire [7:0]  ifmapA63;
+    wire [7:0]  ifmapA64;
+    wire [7:0]  ifmapA65;
+    wire [7:0]  ifmapA66;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapA61 = ifbuf3[6];
+            ifmapA62 = ifbuf3[7];
+            ifmapA63 = ifbuf3[8];
+            ifmapA64 = ifbuf3[9];
+            ifmapA65 = ifbuf3[10];
+            ifmapA66 = ifbuf3[11];
+        end
+    end
+    pe_group2 pe_group16(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightA61),
+        .weight2(weightA62),
+        .weight3(weightA63),
+        .weight4(weightA64),
+        .weight5(weightA65),
+        .weight6(weightA66),
+
+
+        .ifmap1(ifmapA61),
+        .ifmap2(ifmapA62),
+        .ifmap3(ifmapA63),
+        .ifmap4(ifmapA64),
+        .ifmap5(ifmapA65),
+        .ifmap6(ifmapA66),
+        .groupsum_out1(psumA61),
+        .groupsum_out2(psumA62),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enA6),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBA6)
+    );
 //*****************************************************
 
-wire [18:0] psumB11;
-wire [18:0] psumB12;
-pe_group2 pe_group21(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightB11),
-    .weight2(weightB12),
-    .weight3(weightB13),
-    .weight4(weightB14),
-    .weight5(weightB15),
+    wire [18:0] psumB11;
+    wire [18:0] psumB12;
+    wire [7:0]  ifmapB11;
+    wire [7:0]  ifmapB12;
+    wire [7:0]  ifmapB13;
+    wire [7:0]  ifmapB14;
+    wire [7:0]  ifmapB15;
+    wire [7:0]  ifmapB16;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapB11 = regPad1[0];
+            ifmapB12 = regPad1[1];
+            ifmapB13 = ifbuf1[0];
+            ifmapB14 = ifbuf1[1];
+            ifmapB15 = ifbuf1[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB11 = ifbuf3[0];
+            ifmapB12 = ifbuf3[1];
+            ifmapB13 = ifbuf3[2];
+            ifmapB14 = ifbuf3[3];
+            ifmapB15 = ifbuf3[4];
+            ifmapB16 = ifbuf3[5];
+        end
+    end
+    pe_group2 pe_group21(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB11),
+        .weight2(weightB12),
+        .weight3(weightB13),
+        .weight4(weightB14),
+        .weight5(weightB15),
+        .weight6(weightB16),
 
-    .ifmap1(regPad1[0]),
-    .ifmap2(regPad1[1]),
-    .ifmap3(ifbuf1[0]),
-    .ifmap4(ifbuf1[1]),
-    .ifmap5(ifbuf1[2]),
-    .groupsum_out1(psumB11),
-    .groupsum_out2(psumB12),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enB1),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBB1)
-);
-//----------------------------------------
+        .ifmap1(ifmapB11),
+        .ifmap2(ifmapB12),
+        .ifmap3(ifmapB13),
+        .ifmap4(ifmapB14),
+        .ifmap5(ifmapB15),
+        .ifmap6(ifmapB16),
+        .groupsum_out1(psumB11),
+        .groupsum_out2(psumB12),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB1),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB1)
+    );
+    //----------------------------------------
 
 
-wire [18:0] psumB21;
-wire [18:0] psumB22;
-pe_group2 pe_group22(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightB21),
-    .weight2(weightB22),
-    .weight3(weightB23),
-    .weight4(weightB24),
-    .weight5(weightB25),
+    wire [18:0] psumB21;
+    wire [18:0] psumB22;
+    wire [7:0]  ifmapB21;
+    wire [7:0]  ifmapB22;
+    wire [7:0]  ifmapB23;
+    wire [7:0]  ifmapB24;
+    wire [7:0]  ifmapB25;
+    wire [7:0]  ifmapB26;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapB21 = regPad2[0];
+            ifmapB22 = regPad2[1];
+            ifmapB23 = ifbuf2[0];
+            ifmapB24 = ifbuf2[1];
+            ifmapB25 = ifbuf2[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB21 = ifbuf4[0];
+            ifmapB22 = ifbuf4[1];
+            ifmapB23 = ifbuf4[2];
+            ifmapB24 = ifbuf4[3];
+            ifmapB25 = ifbuf4[4];
+            ifmapB26 = ifbuf4[5];
+        end
+    end
+    pe_group2 pe_group22(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB21),
+        .weight2(weightB22),
+        .weight3(weightB23),
+        .weight4(weightB24),
+        .weight5(weightB25),
+        .weight6(weightB26),
 
-    .ifmap1(regPad2[0]),
-    .ifmap2(regPad2[1]),
-    .ifmap3(ifbuf2[0]),
-    .ifmap4(ifbuf2[1]),
-    .ifmap5(ifbuf2[2]),
-    .groupsum_out1(psumB21),
-    .groupsum_out2(psumB22),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enB2),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBB2)
-);
+
+        .ifmap1(ifmapB21),
+        .ifmap2(ifmapB22),
+        .ifmap3(ifmapB23),
+        .ifmap4(ifmapB24),
+        .ifmap5(ifmapB25),
+        .ifmap6(ifmapB26),
+        .groupsum_out1(psumB21),
+        .groupsum_out2(psumB22),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB2),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB2)
+    );
+
+    //-------------------------------
+    wire [18:0] psumB31;
+    wire [18:0] psumB32;
+    wire [7:0]  ifmapB31;
+    wire [7:0]  ifmapB32;
+    wire [7:0]  ifmapB33;
+    wire [7:0]  ifmapB34;
+    wire [7:0]  ifmapB35;
+    wire [7:0]  ifmapB36;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapB31 = regPad3[0];
+            ifmapB32 = regPad3[1];
+            ifmapB33 = ifbuf3[0];
+            ifmapB34 = ifbuf3[1];
+            ifmapB35 = ifbuf3[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB31 = ifbuf5[0];
+            ifmapB32 = ifbuf5[1];
+            ifmapB33 = ifbuf5[2];
+            ifmapB34 = ifbuf5[3];
+            ifmapB35 = ifbuf5[4];
+            ifmapB36 = ifbuf5[5];
+        end
+    end
+    pe_group2 pe_group23(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB31),
+        .weight2(weightB32),
+        .weight3(weightB33),
+        .weight4(weightB34),
+        .weight5(weightB35),
+        .weight6(weightB36),
+
+        .ifmap1(ifmapB31),
+        .ifmap2(ifmapB32),
+        .ifmap3(ifmapB33),
+        .ifmap4(ifmapB34),
+        .ifmap5(ifmapB35),
+        .ifmap6(ifmapB36),
+        .groupsum_out1(psumB31),
+        .groupsum_out2(psumB32),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB3),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB3)
+    );
 
 //-------------------------------
-wire [18:0] psumB31;
-wire [18:0] psumB32;
-pe_group2 pe_group23(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightB31),
-    .weight2(weightB32),
-    .weight3(weightB33),
-    .weight4(weightB34),
-    .weight5(weightB35),
 
-    .ifmap1(regPad3[0]),
-    .ifmap2(regPad3[1]),
-    .ifmap3(ifbuf3[0]),
-    .ifmap4(ifbuf3[1]),
-    .ifmap5(ifbuf3[2]),
-    .groupsum_out1(psumB31),
-    .groupsum_out2(psumB32),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enB3),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBB3)
-);
+    wire [18:0] psumB41;
+    wire [18:0] psumB42;
+    wire [7:0]  ifmapB41;
+    wire [7:0]  ifmapB42;
+    wire [7:0]  ifmapB43;
+    wire [7:0]  ifmapB44;
+    wire [7:0]  ifmapB45;
+    wire [7:0]  ifmapB46;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapB41 = regPad4[0];
+            ifmapB42 = regPad4[1];
+            ifmapB43 = ifbuf4[0];
+            ifmapB44 = ifbuf4[1];
+            ifmapB45 = ifbuf4[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB41 = ifbuf3[6];
+            ifmapB42 = ifbuf3[7];
+            ifmapB43 = ifbuf3[8];
+            ifmapB44 = ifbuf3[9];
+            ifmapB45 = ifbuf3[10];
+            ifmapB46 = ifbuf3[11];
+        end
+    end
+    pe_group2 pe_group24(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB41),
+        .weight2(weightB42),
+        .weight3(weightB43),
+        .weight4(weightB44),
+        .weight5(weightB45),
+        .weight6(weightB46),
 
-wire [18:0] psumB41;
-wire [18:0] psumB42;
-pe_group2 pe_group24(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightB41),
-    .weight2(weightB42),
-    .weight3(weightB43),
-    .weight4(weightB44),
-    .weight5(weightB45),
+        .ifmap1(ifmapB41),
+        .ifmap2(ifmapB42),
+        .ifmap3(ifmapB43),
+        .ifmap4(ifmapB44),
+        .ifmap5(ifmapB45),
+        .ifmap6(ifmapB46),
+        .groupsum_out1(psumB41),
+        .groupsum_out2(psumB42),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB4),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB4)
+    );
+//----------------------
 
-    .ifmap1(regPad4[0]),
-    .ifmap2(regPad4[1]),
-    .ifmap3(ifbuf4[0]),
-    .ifmap4(ifbuf4[1]),
-    .ifmap5(ifbuf4[2]),
-    .groupsum_out1(psumB41),
-    .groupsum_out2(psumB42),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enB4),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBB4)
-);
-
-wire [18:0] psumB51;
-wire [18:0] psumB52;
-pe_group2 pe_group25(
-    .clk(clk),
-    .rst(rst),
-    .weight1(weightB51),
-    .weight2(weightB52),
-    .weight3(weightB53),
-    .weight4(weightB54),
-    .weight5(weightB55),
-
-    .ifmap1(regPad5[0]),
-    .ifmap2(regPad5[1]),
-    .ifmap3(ifbuf5[0]),
-    .ifmap4(ifbuf5[1]),
-    .ifmap5(ifbuf5[2]),
-    .groupsum_out1(psumB51),
-    .groupsum_out2(psumB52),
-    .layer(Layer),
-    .Process(Process),
-    .wb_en(wb_enB5),
-    .FinishFlag(FinishFlag),
-    .FinishWB(FinishWBB5)
-);
+    wire [18:0] psumB51;
+    wire [18:0] psumB52;
+    wire [7:0]  ifmapB51;
+    wire [7:0]  ifmapB52;
+    wire [7:0]  ifmapB53;
+    wire [7:0]  ifmapB54;
+    wire [7:0]  ifmapB55;
+    wire [7:0]  ifmapB56;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+            ifmapB51 = regPad5[0];
+            ifmapB52 = regPad5[1];
+            ifmapB53 = ifbuf5[0];
+            ifmapB54 = ifbuf5[1];
+            ifmapB55 = ifbuf5[2];
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB51 = ifbuf4[6];
+            ifmapB52 = ifbuf4[7];
+            ifmapB53 = ifbuf4[8];
+            ifmapB54 = ifbuf4[9];
+            ifmapB55 = ifbuf4[10];
+            ifmapB56 = ifbuf4[11];
+        end
+    end
+    pe_group2 pe_group25(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB51),
+        .weight2(weightB52),
+        .weight3(weightB53),
+        .weight4(weightB54),
+        .weight5(weightB55),
+        .weight6(weightB56),
 
 
+        .ifmap1(ifmapB51),
+        .ifmap2(ifmapB52),
+        .ifmap3(ifmapB53),
+        .ifmap4(ifmapB54),
+        .ifmap5(ifmapB55),
+        .ifmap6(ifmapB56),
+        .groupsum_out1(psumB51),
+        .groupsum_out2(psumB52),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB5),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB5)
+    );
+
+//--------------
+
+    wire [18:0] psumB61;
+    wire [18:0] psumB62;
+    wire [7:0]  ifmapB61;
+    wire [7:0]  ifmapB62;
+    wire [7:0]  ifmapB63;
+    wire [7:0]  ifmapB64;
+    wire [7:0]  ifmapB65;
+    wire [7:0]  ifmapB66;
+    always @ * begin 
+        if(Layer == `Layer1) begin
+        end else if(Layer == `Layer5) begin
+            //assuming padding in left
+            ifmapB61 = ifbuf5[6];
+            ifmapB62 = ifbuf5[7];
+            ifmapB63 = ifbuf5[8];
+            ifmapB64 = ifbuf5[9];
+            ifmapB65 = ifbuf5[10];
+            ifmapB66 = ifbuf5[11];
+        end
+    end
+    pe_group2 pe_group16(
+        .clk(clk),
+        .rst(rst),
+        .weight1(weightB61),
+        .weight2(weightB62),
+        .weight3(weightB63),
+        .weight4(weightB64),
+        .weight5(weightB65),
+        .weight6(weightB66),
+
+
+        .ifmap1(ifmapB61),
+        .ifmap2(ifmapB62),
+        .ifmap3(ifmapB63),
+        .ifmap4(ifmapB64),
+        .ifmap5(ifmapB65),
+        .ifmap6(ifmapB66),
+        .groupsum_out1(psumB61),
+        .groupsum_out2(psumB62),
+        .layer(Layer),
+        .Process(Process),
+        .wb_en(wb_enB6),
+        .FinishFlag(FinishFlag),
+        .FinishWB(FinishWBB6)
+    );
+
+//---------
 
 output wire we_BRAM32k;
 output wire [11:0] addr_BRAM32k_1;
 output wire [11:0] addr_BRAM32k_2;
-output wire [63:0] din_BRAM32k_1;
-output wire [63:0] din_BRAM32k_2;
+output wire [63:0]  din_BRAM32k_1;
+output wire [63:0]  din_BRAM32k_2;
 input  wire [63:0] dout_BRAM32k_1;
 input  wire [63:0] dout_BRAM32k_2;
  
@@ -3493,11 +3849,25 @@ writeback   WB(
     .sumA3(psumA31),
     .sumA4(psumA41),
     .sumA5(psumA51),
+    .sumA6(psumA61),
     .sumB1(psumB11),//B
     .sumB2(psumB21),
     .sumB3(psumB31),
     .sumB4(psumB41),
     .sumB5(psumB51),
+    .sumB6(psumB61),
+    .sumA1_(psumA12),//A
+    .sumA2_(psumA22),
+    .sumA3_(psumA32),
+    .sumA4_(psumA42),
+    .sumA5_(psumA52),
+    .sumA6_(psumA62),
+    .sumB1_(psumB12),//B
+    .sumB2_(psumB22),
+    .sumB3_(psumB32),
+    .sumB4_(psumB42),
+    .sumB5_(psumB52),
+    .sumB6_(psumB62),
     .Layer(Layer),
     .wb_en(wb_enA1),
     //out
