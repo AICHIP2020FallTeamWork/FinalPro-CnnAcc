@@ -12,12 +12,26 @@
 `define Idle       5'b01110
 `define Init       5'b00000
 `define Start      5'b00111
+`define Stop       5'b01100
+
 `define upHalf     5'b00110
 `define loHalf     5'b01000
-`define Stop       5'b01100
 `define InitUp     5'b00100
 `define InitLo     5'b00010
 
+//layer3
+`define InitUp2     5'b11000
+`define InitUp1     5'b10100
+`define InitMid2    5'b11100
+`define InitMid1    5'b10010
+`define InitLo2     5'b10110
+`define InitLo1     5'b11110
+`define up2         5'b11010
+`define up1         5'b01000
+`define mid2        5'b00110
+`define mid1        5'b01010
+`define lo2         5'b00100
+`define lo1         5'b00010
 
 
 
