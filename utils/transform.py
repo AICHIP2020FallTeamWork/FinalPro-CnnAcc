@@ -7,7 +7,9 @@ import numpy as np
 # memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv4.output.dat', dtype=np.uint8)
 # memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv3.input.dat', dtype=np.uint8)
 # memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv3.dat', dtype=np.uint8)
-memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv3.output.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv3.output.dat', dtype=np.uint8)
+memining = np.fromfile('D:/OneDrive/course/Grade2_Autumn/FPGA/final-project/new/data/parameters/fc.dat', dtype=np.uint8)
+
 
 width = 8
 # width = 9
@@ -47,11 +49,16 @@ def change(a):
     if (a == 15):
         return 'f'
 
+arr = []
 
 for i in range(len(memining)):
-    string = string + str(change(int(memining[i]/16))) + str(change(memining[i]%16))
-    if (i%width)== (width-1):
-        string = string + ',\n'
+    arr.append(change(int(memining[i]/16)))
+    arr.append(change(memining[i]%16))
+
+for i in range(128):
+    for j in range(10):
+        string = string + str(arr[2*i+256*j]) + str(arr[2*i+256*j+1])
+    string = string + ',\n'
 print(string)
 
 # with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.coe','w') as f1:    #设置文件对象
@@ -59,7 +66,7 @@ print(string)
 # with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.output.coe','w') as f1:    #设置文件对象
 # with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.input.coe','w') as f1:    #设置文件对象
 # with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.coe','w') as f1:    #设置文件对象
-with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.output.coe','w') as f1:    #设置文件对象
+with open('D:/OneDrive/course/Grade2_Autumn/FPGA/final-project/new/data/parameters/fc.coe','w') as f1:    #设置文件对象
 
 
 

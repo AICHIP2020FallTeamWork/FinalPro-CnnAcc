@@ -86,6 +86,8 @@ module writeback(
     reg     [14:0]  plusiB;
     reg     [3:0]   Zuhe;
     reg     [3:0]   Counter;
+    reg  signed   [11:0]  averpool;
+    reg  signed   [7:0]   fcin;
 //======
     reg  signed   [21:0]      plusi1; // kernels
     reg  signed   [21:0]      plusi2; // kernels
@@ -95,6 +97,19 @@ module writeback(
     reg  signed   [21:0]      plusi6; // kernels
     reg  signed   [21:0]      plusi7; // kernels
     reg  signed   [21:0]      plusi8; // kernels
+    
+    reg  signed   [23:0]      finalout0;
+    reg  signed   [23:0]      finalout1;
+    reg  signed   [23:0]      finalout2;
+    reg  signed   [23:0]      finalout3;
+    reg  signed   [23:0]      finalout4;
+    reg  signed   [23:0]      finalout5;
+    reg  signed   [23:0]      finalout6;
+    reg  signed   [23:0]      finalout7;
+    reg  signed   [23:0]      finalout8;
+    reg  signed   [23:0]      finalout9;
+
+    
 //======
 always @(posedge clk or negedge rst) begin
     if (rst == `RstEnable) begin
@@ -316,12 +331,62 @@ always @(posedge clk or negedge rst) begin
             end
             `Layer5: begin
                 if(doneflag_CB == 1) begin
-                    we_BRAMtemp <= 1;
-                    din_BRAMtemp_1 <= dout_CB;
+                    // we_BRAMtemp <= 1;
+                    if ((addr_BRAMtemp_1 % 2) == 0) begin
+                        if (addr_BRAMtemp_1 == 0) begin
+                            finalout0 <= 0;
+                            finalout1 <= 0;
+                            finalout2 <= 0;
+                            finalout3 <= 0;
+                            finalout4 <= 0;
+                            finalout5 <= 0;
+                            finalout6 <= 0;
+                            finalout7 <= 0;
+                            finalout8 <= 0;
+                            finalout9 <= 0;
+                        end
+                        else begin
+                            if ($signed(averpool) > 12'b0111_1111_0000)
+                                fcin <= `PosiFull;
+                            else
+                                fcin <= (averpool >>> 4);
+                            averpool <= 
+                                (dout_CB[63]?`ZeroBtye: dout_CB[`ByteEig])
+                                +(dout_CB[55]?`ZeroBtye: dout_CB[`ByteSev])
+                                +(dout_CB[47]?`ZeroBtye: dout_CB[`ByteSix])
+                                +(dout_CB[39]?`ZeroBtye: dout_CB[`ByteFiv])
+                                +(dout_CB[31]?`ZeroBtye: dout_CB[`ByteFor])
+                                +(dout_CB[23]?`ZeroBtye: dout_CB[`ByteThr])
+                                +(dout_CB[15]?`ZeroBtye: dout_CB[`ByteTwo])
+                                +(dout_CB[7]?`ZeroBtye: dout_CB[`ByteOne]);
+                        end
+                    end
+                    else begin
+                        averpool <= averpool  
+                            +(dout_CB[63]?`ZeroBtye: dout_CB[`ByteEig])
+                            +(dout_CB[55]?`ZeroBtye: dout_CB[`ByteSev])
+                            +(dout_CB[47]?`ZeroBtye: dout_CB[`ByteSix])
+                            +(dout_CB[39]?`ZeroBtye: dout_CB[`ByteFiv])
+                            +(dout_CB[31]?`ZeroBtye: dout_CB[`ByteFor])
+                            +(dout_CB[23]?`ZeroBtye: dout_CB[`ByteThr])
+                            +(dout_CB[15]?`ZeroBtye: dout_CB[`ByteTwo])
+                            +(dout_CB[7]?`ZeroBtye: dout_CB[`ByteOne]);
+                        finalout0 <= finalout0 + fc_in * $signed(fcw[79:72]);
+                        finalout1 <= finalout1 + fc_in * $signed(fcw[71:64]);
+                        finalout2 <= finalout2 + fc_in * $signed(fcw[63:56]);
+                        finalout3 <= finalout3 + fc_in * $signed(fcw[55:48]);
+                        finalout4 <= finalout4 + fc_in * $signed(fcw[47:40]);
+                        finalout5 <= finalout5 + fc_in * $signed(fcw[39:32]);
+                        finalout6 <= finalout6 + fc_in * $signed(fcw[31:24]);
+                        finalout7 <= finalout7 + fc_in * $signed(fcw[23:16]);
+                        finalout8 <= finalout8 + fc_in * $signed(fcw[15:8]);
+                        finalout9 <= finalout9 + fc_in * $signed(fcw[7:0]);
+                        end
+                    end
                     addr_BRAMtemp_1 <= addr_BRAMtemp_1 + 1;
                 end else begin
-                    we_BRAMtemp <= 0;
-                    din_BRAMtemp_1 <= 64'bz;
+                    // we_BRAMtemp <= 0;
+                    fcin <= 64'bz;
                 end
             end
         endcase
