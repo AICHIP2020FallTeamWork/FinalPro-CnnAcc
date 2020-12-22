@@ -1,6 +1,7 @@
 `include "defines.v"
 
 module channelBuf(
+         order,
          clk,
          we,
          rst,
@@ -20,6 +21,7 @@ module channelBuf(
 input wire clk;
 input wire we;
 input wire rst;
+input wire order;
 
 input wire[5:0] waddr;
 input wire[21:0] wdata1;
@@ -111,7 +113,9 @@ reg signed     [7:0]       out8;
 reg [3:0] state;
 output reg done;
 output wire [63:0] dout;
-assign dout = done? {out4,out3,out2,out1,out8,out7,out6,out5}:64'bz;
+assign dout =   (!done)?    64'bz :
+                order?      {out8,out7,out6,out5,out4,out3,out2,out1} :
+                            {out4,out3,out2,out1,out8,out7,out6,out5} ;
 
 always @(posedge clk or negedge rst) begin
     if(rst == `RstEnable) begin

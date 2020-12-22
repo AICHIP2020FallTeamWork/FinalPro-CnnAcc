@@ -81,12 +81,43 @@ always @(posedge clk or negedge rst) begin
 
     end else if ( (Process != `Idle && Process != `Init) ||  FinishFlag == 1 ) begin
 
-        prod1 <= $signed(ifmap1) * $signed(weight1);
-        prod2 <= $signed(ifmap2) * $signed(weight2);
-        prod3 <= $signed(ifmap3) * $signed(weight3);
-        prod4 <= $signed(ifmap4) * $signed(weight4);
-        prod5 <= $signed(ifmap5) * $signed(weight5);
-        prod6 <= $signed(ifmap6) * $signed(weight6);
+        // prod1 <= $signed(ifmap1) * $signed(weight1);
+        // prod2 <= $signed(ifmap2) * $signed(weight2);
+        // prod3 <= $signed(ifmap3) * $signed(weight3);
+        // prod4 <= $signed(ifmap4) * $signed(weight4);
+        // prod5 <= $signed(ifmap5) * $signed(weight5);
+        // prod6 <= $signed(ifmap6) * $signed(weight6);
+        
+        if (ifmap1 == 0) begin
+            prod1 <= 0;
+        end else begin
+            prod1 <= $signed(ifmap1) * $signed(weight1);
+        end
+        if (ifmap2 == 0)begin
+            prod2<=0;
+        end else begin
+            prod2<=$signed(ifmap2)*$signed(weight2);
+        end
+        if (ifmap3 == 0)begin
+            prod3<= 0;
+        end else begin
+            prod3<=$signed(ifmap3)*$signed(weight3);
+        end
+        if (ifmap4 == 0)begin
+            prod4<=0;
+        end else begin
+            prod4<=$signed(ifmap4)*$signed(weight4);
+        end
+        if (ifmap5 == 0)begin
+            prod5<= 0;
+        end else begin
+            prod5<=$signed(ifmap5)*$signed(weight5);
+        end
+        if (ifmap6 == 0) begin
+            prod6<=0;
+        end else begin
+            prod6<=$signed(ifmap6)*$signed(weight6);
+        end
         wb_en_bub2 <= 1; //�
 
 

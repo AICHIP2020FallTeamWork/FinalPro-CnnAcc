@@ -1,7 +1,13 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM4k/sim/BRAM4k.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BRAM4k
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/sim/BRAM16K.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAM16K
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/sim/weightRomLayer4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module weightRomLayer4
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/sim/weightROM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module weightROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM8K/sim/BRAM8K.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAM8K
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM32k/sim/BRAM32k.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BRAM32k
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/sim/WLay1ROM.v" into library xil_defaultlib
@@ -15,8 +21,8 @@ INFO: [VRFC 10-311] analyzing module channelBuf
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe1
 WARNING: [VRFC 10-2379] empty port in module declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:93]
-WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:388]
-WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:394]
+WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:462]
+WARNING: [VRFC 10-756] identifier Process is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:468]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pe_group2
 WARNING: [VRFC 10-2096] empty statement in sequential block [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:82]
@@ -27,33 +33,59 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/rep
 INFO: [VRFC 10-311] analyzing module writeback
 WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:111]
 WARNING: [VRFC 10-756] identifier addr_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:112]
-WARNING: [VRFC 10-756] identifier doneflag_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:309]
-WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:310]
-WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:311]
-WARNING: [VRFC 10-756] identifier addr_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:312]
-WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:314]
-WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:315]
-WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:345]
-WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:350]
-WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:357]
-WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:358]
-WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:359]
-WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:360]
-WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:361]
-WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:362]
-WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:363]
-WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:364]
-WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:365]
-WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:366]
-WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:370]
-WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:371]
-WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:372]
-WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:373]
-WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:374]
-WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:375]
-WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:376]
-WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:377]
-WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:378]
-WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:379]
+WARNING: [VRFC 10-756] identifier doneflag_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:308]
+WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:309]
+WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:310]
+WARNING: [VRFC 10-756] identifier addr_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:311]
+WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:313]
+WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:314]
+WARNING: [VRFC 10-756] identifier doneflag_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:318]
+WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:319]
+WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:320]
+WARNING: [VRFC 10-756] identifier addr_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:321]
+WARNING: [VRFC 10-756] identifier we_BRAMtemp is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:323]
+WARNING: [VRFC 10-756] identifier din_BRAMtemp_1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:324]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:354]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:359]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:367]
+WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:368]
+WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:369]
+WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:370]
+WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:371]
+WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:372]
+WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:373]
+WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:374]
+WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:375]
+WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:376]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:380]
+WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:381]
+WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:382]
+WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:383]
+WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:384]
+WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:385]
+WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:386]
+WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:387]
+WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:388]
+WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:389]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:401]
+WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:402]
+WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:403]
+WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:404]
+WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:405]
+WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:406]
+WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:407]
+WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:408]
+WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:409]
+WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:410]
+WARNING: [VRFC 10-756] identifier we_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:414]
+WARNING: [VRFC 10-756] identifier wdata_CB1 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:415]
+WARNING: [VRFC 10-756] identifier wdata_CB2 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:416]
+WARNING: [VRFC 10-756] identifier wdata_CB3 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:417]
+WARNING: [VRFC 10-756] identifier wdata_CB4 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:418]
+WARNING: [VRFC 10-756] identifier wdata_CB5 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:419]
+WARNING: [VRFC 10-756] identifier wdata_CB6 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:420]
+WARNING: [VRFC 10-756] identifier wdata_CB7 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:421]
+WARNING: [VRFC 10-756] identifier wdata_CB8 is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:422]
+WARNING: [VRFC 10-756] identifier waddr_CB is used before its declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:423]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module top_tb

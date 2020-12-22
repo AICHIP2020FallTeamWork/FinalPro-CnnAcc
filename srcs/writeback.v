@@ -330,7 +330,7 @@ end
 
 
 reg [`stateLength] StateCB;
-
+reg orderFlag;
 always @ (posedge clk or negedge rst) begin // this part is for controlling channelBuf.
     if(!rst) begin
         // below codes are added for layer5
@@ -358,9 +358,44 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
             `Layer1:begin
                 we_CB <= 0;
             end
-            `Layer5 ||`Layer4  :begin
+            `Layer4  :begin
                 if(wb_en) begin
                     if(we_CB_i) begin
+                        orderFlag <= 1;
+                        case(StateCB)
+                            `First:begin
+                                we_CB <= 1;
+                                wdata_CB1  <= sumA1 + sumA2 + sumA3;
+                                wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
+                                wdata_CB3  <= sumA4 + sumA5 + sumA6;
+                                wdata_CB4  <= sumA4_ + sumA5_ + sumA6_;
+                                wdata_CB5  <= sumB1 + sumB2 + sumB3;
+                                wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
+                                wdata_CB7  <= sumB4 + sumB5 + sumB6;
+                                wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
+                                waddr_CB <= 0;
+                                StateCB <= `Second ;
+                            end
+                            `Second:begin
+                                we_CB <= 1;
+                                wdata_CB1  <= sumA1 + sumA2 + sumA3;
+                                wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
+                                wdata_CB3  <= sumA4 + sumA5 + sumA6;
+                                wdata_CB4  <= sumA4_ + sumA5_ + sumA6_;
+                                wdata_CB5  <= sumB1 + sumB2 + sumB3;
+                                wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
+                                wdata_CB7  <= sumB4 + sumB5 + sumB6;
+                                wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
+                                waddr_CB   <= waddr_CB + 1; 
+                            end
+                        endcase
+                    end
+                end
+            end
+            `Layer5  :begin
+                if(wb_en) begin
+                    if(we_CB_i) begin
+                        orderFlag <= 0;
                         case(StateCB)
                             `First:begin
                                 we_CB <= 1;
@@ -410,6 +445,7 @@ reg we_CB;
 wire doneflag_CB;
 wire [63:0] dout_CB;
 channelBuf CB(
+    .order(orderFlag),
     .clk(clk),
     .we(we_CB),
     .rst(rst),
