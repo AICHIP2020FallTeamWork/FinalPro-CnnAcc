@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue Dec 22 23:50:14 2020
-# Process ID: 10660
+# Start of session at: Wed Dec 23 02:20:43 2020
+# Process ID: 7864
 # Current directory: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/top.vds
@@ -15,28 +15,28 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z035'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21684 
+INFO: Helper process launched with PID 19736 
 WARNING: [Synth 8-1935] empty port in module declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:91]
 WARNING: [Synth 8-1935] empty port in module declaration [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v:22]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 423.430 ; gain = 116.629
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 423.375 ; gain = 116.555
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/top.v:1]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM8K' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM8K_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM8K' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM8K_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (1#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'WLay1ROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'WLay1ROM' (2#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/WLay1ROM_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM32k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM32k' (3#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM32k_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM8K' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM8K_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM8K' (4#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM8K_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'pe1' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3]
-INFO: [Synth 8-638] synthesizing module 'weightROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'weightROM' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'weightRomLayer4' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/weightRomLayer4_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'weightRomLayer4' (6#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/weightRomLayer4_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'BRAM16K' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM16K_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM16K' (7#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM16K_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'weightROM' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'weightROM' (5#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/weightROM_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'weightRomLayer4' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/weightRomLayer4_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'weightRomLayer4' (6#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/weightRomLayer4_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM16K' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM16K_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM16K' (7#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM16K_stub.v:6]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:548]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:1173]
 INFO: [Synth 8-155] case statement is not full and has no default [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:2131]
@@ -168,8 +168,8 @@ WARNING: [Synth 8-5788] Register registers2_reg[34] in module channelBuf is has 
 WARNING: [Synth 8-5788] Register registers2_reg[35] in module channelBuf is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:125]
 INFO: [Common 17-14] Message 'Synth 8-5788' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-256] done synthesizing module 'channelBuf' (9#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v:3]
-INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (10#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'BRAM4k' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BRAM4k' (10#1) [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/realtime/BRAM4k_stub.v:6]
 WARNING: [Synth 8-6014] Unused sequential element plusi1_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:337]
 WARNING: [Synth 8-6014] Unused sequential element plusi2_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:338]
 WARNING: [Synth 8-6014] Unused sequential element plusi3_reg was removed.  [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v:339]
@@ -303,7 +303,7 @@ WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[29]
 WARNING: [Synth 8-3331] design pe1 has unconnected port din_BRAM4k_2[28]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 659.184 ; gain = 352.383
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 658.996 ; gain = 352.176
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -313,37 +313,37 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 659.184 ; gain = 352.383
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 658.996 ; gain = 352.176
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z035ffg676-2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc] for cell 'clk0'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp9/weightROM_in_context.xdc] for cell 'PE/weightRomlayer5'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp9/weightROM_in_context.xdc] for cell 'PE/weightRomlayer5'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp10/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp10/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp11/BRAM32k_in_context.xdc] for cell 'bram32k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp11/BRAM32k_in_context.xdc] for cell 'bram32k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp12/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp12/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'bram4k'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'bram4k'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr1'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr1'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr2'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr2'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr1'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr1'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr2'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr2'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr3'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr3'
-Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp15/weightRomLayer4_in_context.xdc] for cell 'PE/rom4'
-Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp15/weightRomLayer4_in_context.xdc] for cell 'PE/rom4'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc] for cell 'clk0'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp9/weightROM_in_context.xdc] for cell 'PE/weightRomlayer5'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp9/weightROM_in_context.xdc] for cell 'PE/weightRomlayer5'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp10/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp10/BRAM4k_in_context.xdc] for cell 'PE/WB/bramtemp'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp11/BRAM32k_in_context.xdc] for cell 'bram32k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp11/BRAM32k_in_context.xdc] for cell 'bram32k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp12/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp12/WLay1ROM_in_context.xdc] for cell 'wLayer1Rom'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'bram4k'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'bram4k'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr1'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr1'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr2'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp13/BRAM8K_in_context.xdc] for cell 'BRAMConv2Arr2'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr1'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr1'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr2'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr2'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr3'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp14/BRAM16K_in_context.xdc] for cell 'PE/BRAMConv3Arr3'
+Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp15/weightRomLayer4_in_context.xdc] for cell 'PE/rom4'
+Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp15/weightRomLayer4_in_context.xdc] for cell 'PE/rom4'
 Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
 Finished Parsing XDC File [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/io/constraint01.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
@@ -353,7 +353,7 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1117.066 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1119.039 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAMConv2Arr1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BRAMConv2Arr2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'bram32k' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
@@ -366,20 +366,20 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'PE/weightRomlayer5' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'PE/WB/bramtemp' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1117.066 ; gain = 810.266
+Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1119.039 ; gain = 812.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z035ffg676-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1117.066 ; gain = 810.266
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1119.039 ; gain = 812.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-10660-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk50MHz. (constraint file  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/.Xil/Vivado-7864-LAPTOP-PD9C7IFG/dcp8/clk_wiz_0_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for BRAMConv2Arr1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for BRAMConv2Arr2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for PE/BRAMConv3Arr1. (constraint file  auto generated constraint, line ).
@@ -393,7 +393,7 @@ Applied set_property DONT_TOUCH = true for bram4k. (constraint file  auto genera
 Applied set_property DONT_TOUCH = true for clk0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for wLayer1Rom. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1117.066 ; gain = 810.266
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1119.039 ; gain = 812.219
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "groupsum_out1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "groupsum_out2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -637,7 +637,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'ifmapB62_reg' [D:/GradeFour
 WARNING: [Synth 8-327] inferring latch for variable 'ifmapB63_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3723]
 WARNING: [Synth 8-327] inferring latch for variable 'ifmapB65_reg' [D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v:3725]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:49 . Memory (MB): peak = 1117.066 ; gain = 810.266
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 1119.039 ; gain = 812.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1431,7 +1431,7 @@ WARNING: [Synth 8-3332] Sequential element (wb_en_bub1_reg) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (wb_en_reg) is unused and will be removed from module pe_group2.
 WARNING: [Synth 8-3332] Sequential element (FinishWB_reg) is unused and will be removed from module pe_group2.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:06 . Memory (MB): peak = 1117.066 ; gain = 810.266
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:02:00 . Memory (MB): peak = 1119.039 ; gain = 812.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1454,13 +1454,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clk0/clk_out1' to pin 'clk0/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:14 ; elapsed = 00:02:20 . Memory (MB): peak = 1196.699 ; gain = 889.898
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:05 ; elapsed = 00:02:11 . Memory (MB): peak = 1198.648 ; gain = 891.828
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:20 ; elapsed = 00:02:25 . Memory (MB): peak = 1245.215 ; gain = 938.414
+Finished Timing Optimization : Time (s): cpu = 00:02:10 ; elapsed = 00:02:17 . Memory (MB): peak = 1244.672 ; gain = 937.852
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1481,7 +1481,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:38 ; elapsed = 00:02:44 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Technology Mapping : Time (s): cpu = 00:02:28 ; elapsed = 00:02:35 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1578,7 +1578,7 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnecte
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnected pin dinb[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \PE/WB/bramtemp  has unconnected pin dinb[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:44 ; elapsed = 00:02:50 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished IO Insertion : Time (s): cpu = 00:02:32 ; elapsed = 00:02:39 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1591,7 +1591,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:45 ; elapsed = 00:02:51 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:32 ; elapsed = 00:02:39 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1603,25 +1603,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:52 ; elapsed = 00:02:58 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:37 ; elapsed = 00:02:44 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:52 ; elapsed = 00:02:59 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:37 ; elapsed = 00:02:44 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:54 ; elapsed = 00:03:01 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:38 ; elapsed = 00:02:45 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:55 ; elapsed = 00:03:01 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:38 ; elapsed = 00:02:45 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1709,14 +1709,14 @@ Report Instance Areas:
 |16    |    pe_group26 |pe_group2_10 |   538|
 +------+---------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:55 ; elapsed = 00:03:01 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:38 ; elapsed = 00:02:45 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 73 critical warnings and 179 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:26 ; elapsed = 00:02:48 . Memory (MB): peak = 1333.805 ; gain = 569.121
-Synthesis Optimization Complete : Time (s): cpu = 00:02:55 ; elapsed = 00:03:01 . Memory (MB): peak = 1333.805 ; gain = 1027.004
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:01 ; elapsed = 00:02:31 . Memory (MB): peak = 1336.926 ; gain = 570.063
+Synthesis Optimization Complete : Time (s): cpu = 00:02:38 ; elapsed = 00:02:45 . Memory (MB): peak = 1336.926 ; gain = 1030.105
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 4258 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -1725,9 +1725,9 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 396 Infos, 430 Warnings, 73 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:21 ; elapsed = 00:03:31 . Memory (MB): peak = 1333.805 ; gain = 1038.887
+synth_design: Time (s): cpu = 00:02:50 ; elapsed = 00:03:01 . Memory (MB): peak = 1336.926 ; gain = 1041.578
 INFO: [Common 17-1381] The checkpoint 'D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.runs/synth_1/top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1333.805 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1336.926 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.814 . Memory (MB): peak = 1333.805 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 22 23:54:04 2020...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.417 . Memory (MB): peak = 1336.926 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 23 02:23:59 2020...

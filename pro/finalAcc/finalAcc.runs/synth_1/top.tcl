@@ -36,6 +36,8 @@ add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.input.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.coe
+add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.input.coe
+add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.coe
 read_verilog -library xil_defaultlib {
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/defines.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v

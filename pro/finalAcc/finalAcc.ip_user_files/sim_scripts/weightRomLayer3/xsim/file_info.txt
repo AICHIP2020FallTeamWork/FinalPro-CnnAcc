@@ -1,0 +1,2 @@
+weightRomLayer3.v,verilog,xil_defaultlib,../../../../finalAcc.srcs/sources_1/ip/weightRomLayer3/sim/weightRomLayer3.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
