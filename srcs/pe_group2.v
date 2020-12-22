@@ -132,6 +132,14 @@ always @(posedge clk or negedge rst) begin
         `Layer1: begin
             groupsum_out1   <=  ($signed(half1) + $signed(half2));
         end 
+        `Layer3: begin
+            groupsum_out1   <=  $signed(half1);
+            groupsum_out2   <=  $signed(half2);
+        end 
+        `Layer4: begin
+            groupsum_out1   <=  $signed(half1);
+            groupsum_out2   <=  $signed(half2);
+        end 
         `Layer5: begin
             groupsum_out1   <=  $signed(half1);
             groupsum_out2   <=  $signed(half2);

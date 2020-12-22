@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Dec 22 02:13:18 2020
+-- Date        : Tue Dec 22 23:19:09 2020
 -- Host        : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4_sim_netlist.vhdl
+--               D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4_sim_netlist.vhdl
 -- Design      : weightRomLayer4
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -40,7 +40,7 @@ architecture STRUCTURE of weightRomLayer4_blk_mem_gen_prim_wrapper_init is
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -244,7 +244,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -285,7 +285,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -489,7 +489,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -530,7 +530,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -734,7 +734,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -775,7 +775,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -979,7 +979,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1020,7 +1020,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -1224,7 +1224,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1265,7 +1265,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -1469,7 +1469,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1510,7 +1510,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -1714,7 +1714,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -1755,7 +1755,7 @@ architecture STRUCTURE of \weightRomLayer4_blk_mem_gen_prim_wrapper_init__parame
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram\: unisim.vcomponents.RAMB36E1
     generic map(
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       EN_ECC_READ => false,
       EN_ECC_WRITE => false,
@@ -1959,7 +1959,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => '1',
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2394,7 +2394,7 @@ entity weightRomLayer4_blk_mem_gen_v8_4_1 is
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of weightRomLayer4_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of weightRomLayer4_blk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of weightRomLayer4_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of weightRomLayer4_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
@@ -2793,7 +2793,7 @@ architecture STRUCTURE of weightRomLayer4 is
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;

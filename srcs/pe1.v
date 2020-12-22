@@ -331,7 +331,8 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
 
 //---------------------------------------------
 //-------------------------------------------//--------
-   reg we_BRAMConv3Arr1;
+   reg we_BRAMConv3Arr1_1;
+   reg we_BRAMConv3Arr1_2;
    reg  [10:0] addr_BRAMConv3Arr1_1;
    reg  [10:0] addr_BRAMConv3Arr1_2;
    reg  [63:0] din_BRAMConv3Arr1_1;
@@ -347,11 +348,12 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
        .dinb(din_BRAMConv3Arr1_2),
        .douta(dout_BRAMConv3Arr1_1),
        .doutb(dout_BRAMConv3Arr1_2),
-       .wea(we_BRAMConv3Arr1),
-       .web(we_BRAMConv3Arr1)
+       .wea(we_BRAMConv3Arr1_1),
+       .web(we_BRAMConv3Arr1_2)
    );
 //-------------------------------------------//--------
-   reg we_BRAMConv3Arr2;
+   reg we_BRAMConv3Arr2_1;
+   reg we_BRAMConv3Arr2_2;
    reg  [10:0] addr_BRAMConv3Arr2_1;
    reg  [10:0] addr_BRAMConv3Arr2_2;
    reg  [63:0] din_BRAMConv3Arr2_1;
@@ -367,12 +369,13 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
        .dinb(din_BRAMConv3Arr2_2),
        .douta(dout_BRAMConv3Arr2_1),
        .doutb(dout_BRAMConv3Arr2_2),
-       .wea(we_BRAMConv3Arr2),
-       .web(we_BRAMConv3Arr2)
+       .wea(we_BRAMConv3Arr2_1),
+       .web(we_BRAMConv3Arr2_2)
    );
 
 //-------------------------------------------//--------
-   reg we_BRAMConv3Arr3;
+   reg we_BRAMConv3Arr3_1;
+   reg we_BRAMConv3Arr3_2;
    reg  [10:0] addr_BRAMConv3Arr3_1;
    reg  [10:0] addr_BRAMConv3Arr3_2;
    reg  [63:0] din_BRAMConv3Arr3_1;
@@ -388,8 +391,8 @@ assign din_BRAMConv2Arr2_1 = din_BRAMConv2Arr;
        .dinb(din_BRAMConv3Arr3_2),
        .douta(dout_BRAMConv3Arr3_1),
        .doutb(dout_BRAMConv3Arr3_2),
-       .wea(we_BRAMConv3Arr3),
-       .web(we_BRAMConv3Arr3)
+       .wea(we_BRAMConv3Arr3_1),
+       .web(we_BRAMConv3Arr3_2)
    );
 //-------------------------------------------//--------
     reg                             Trashdata;
@@ -519,6 +522,24 @@ if ( rst == `RstEnable) begin
     ProcessBubble4         <= `Idle;
     ProcessBubble5         <= `Idle;
     BRAMFLAG <= 0;
+    addr_BRAMConv3Arr1_1 <= 0;
+    addr_BRAMConv3Arr1_2 <= 0;
+    addr_BRAMConv3Arr2_1 <= 0;
+    addr_BRAMConv3Arr2_2 <= 0;
+    addr_BRAMConv3Arr3_1 <= 0;
+    addr_BRAMConv3Arr3_2 <= 0;
+    din_BRAMConv3Arr1_1 <= 0;
+    din_BRAMConv3Arr1_2 <= 0;
+    din_BRAMConv3Arr2_1 <= 0;
+    din_BRAMConv3Arr2_2 <= 0;
+    din_BRAMConv3Arr3_1 <= 0;
+    din_BRAMConv3Arr3_2 <= 0;
+    we_BRAMConv3Arr1_1 <= 0;
+    we_BRAMConv3Arr1_2 <= 0;
+    we_BRAMConv3Arr2_1 <= 0;
+    we_BRAMConv3Arr2_2 <= 0;
+    we_BRAMConv3Arr3_1 <= 0;
+    we_BRAMConv3Arr3_2 <= 0;
 
 end else if( rst == `RstDisable && locked == 1 )begin
     //pipeline

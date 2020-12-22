@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Dec 22 02:05:40 2020
+-- Date        : Tue Dec 22 23:18:04 2020
 -- Host        : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K_stub.vhdl
+--               D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K_stub.vhdl
 -- Design      : BRAM16K
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z035ffg676-2

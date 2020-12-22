@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="38480708333fs"></ZoomStartTime>
-      <ZoomEndTime time="38536858334fs"></ZoomEndTime>
-      <Cursor1Time time="38495508000fs"></Cursor1Time>
+      <ZoomStartTime time="2979274977fs"></ZoomStartTime>
+      <ZoomEndTime time="2986414267fs"></ZoomEndTime>
+      <Cursor1Time time="3010000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="245"></NameColumnWidth>
-      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="107" />
+   <WVObjectSize size="129" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -66,55 +66,79 @@
       <obj_property name="ElementShortName">addr_BRAMConv3Arr1_1[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr1_1[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv3Arr1_2" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv3Arr1_2[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr1_2[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr1_1" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr1_1[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr1_1[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr1_2" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr1_2[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr1_2[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv3Arr2_1" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv3Arr2_1[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr2_1[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv3Arr2_2" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv3Arr2_2[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr2_2[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr2_1" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr2_1[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr2_1[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr2_2" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr2_2[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr2_2[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv3Arr3_1" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv3Arr3_1[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr3_1[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv3Arr3_2" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv3Arr3_2[10:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv3Arr3_2[10:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr3_1" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr3_1[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr3_1[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv3Arr3_2" type="array">
       <obj_property name="ElementShortName">dout_BRAMConv3Arr3_2[63:0]</obj_property>
       <obj_property name="ObjectShortName">dout_BRAMConv3Arr3_2[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_layer4" type="array">
       <obj_property name="ElementShortName">addr_layer4[11:0]</obj_property>
@@ -146,6 +170,190 @@
       <obj_property name="ObjectShortName">din_BRAMtemp_1[63:0]</obj_property>
       <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA1" type="array">
+      <obj_property name="ElementShortName">sumA1[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA1[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA2" type="array">
+      <obj_property name="ElementShortName">sumA2[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA2[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA3" type="array">
+      <obj_property name="ElementShortName">sumA3[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA3[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA4" type="array">
+      <obj_property name="ElementShortName">sumA4[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA4[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA5" type="array">
+      <obj_property name="ElementShortName">sumA5[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA5[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA6" type="array">
+      <obj_property name="ElementShortName">sumA6[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA6[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB1" type="array">
+      <obj_property name="ElementShortName">sumB1[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB1[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB2" type="array">
+      <obj_property name="ElementShortName">sumB2[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB2[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB3" type="array">
+      <obj_property name="ElementShortName">sumB3[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB3[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB4" type="array">
+      <obj_property name="ElementShortName">sumB4[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB4[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB5" type="array">
+      <obj_property name="ElementShortName">sumB5[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB5[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB6" type="array">
+      <obj_property name="ElementShortName">sumB6[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB6[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA1_" type="array">
+      <obj_property name="ElementShortName">sumA1_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA1_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA2_" type="array">
+      <obj_property name="ElementShortName">sumA2_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA2_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA3_" type="array">
+      <obj_property name="ElementShortName">sumA3_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA3_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA4_" type="array">
+      <obj_property name="ElementShortName">sumA4_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA4_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA5_" type="array">
+      <obj_property name="ElementShortName">sumA5_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA5_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumA6_" type="array">
+      <obj_property name="ElementShortName">sumA6_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumA6_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB1_" type="array">
+      <obj_property name="ElementShortName">sumB1_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB1_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB2_" type="array">
+      <obj_property name="ElementShortName">sumB2_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB2_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB3_" type="array">
+      <obj_property name="ElementShortName">sumB3_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB3_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB4_" type="array">
+      <obj_property name="ElementShortName">sumB4_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB4_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB5_" type="array">
+      <obj_property name="ElementShortName">sumB5_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB5_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/sumB6_" type="array">
+      <obj_property name="ElementShortName">sumB6_[18:0]</obj_property>
+      <obj_property name="ObjectShortName">sumB6_[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight1" type="array">
+      <obj_property name="ElementShortName">weight1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight2" type="array">
+      <obj_property name="ElementShortName">weight2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight3" type="array">
+      <obj_property name="ElementShortName">weight3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight4" type="array">
+      <obj_property name="ElementShortName">weight4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight4[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight5" type="array">
+      <obj_property name="ElementShortName">weight5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight5[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/weight6" type="array">
+      <obj_property name="ElementShortName">weight6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">weight6[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap1" type="array">
+      <obj_property name="ElementShortName">ifmap1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap2" type="array">
+      <obj_property name="ElementShortName">ifmap2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap3" type="array">
+      <obj_property name="ElementShortName">ifmap3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap4" type="array">
+      <obj_property name="ElementShortName">ifmap4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap4[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap5" type="array">
+      <obj_property name="ElementShortName">ifmap5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap5[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/ifmap6" type="array">
+      <obj_property name="ElementShortName">ifmap6[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ifmap6[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod1" type="array">
+      <obj_property name="ElementShortName">prod1[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod1[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod2" type="array">
+      <obj_property name="ElementShortName">prod2[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod2[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod3" type="array">
+      <obj_property name="ElementShortName">prod3[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod3[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod4" type="array">
+      <obj_property name="ElementShortName">prod4[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod4[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod5" type="array">
+      <obj_property name="ElementShortName">prod5[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod5[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/prod6" type="array">
+      <obj_property name="ElementShortName">prod6[14:0]</obj_property>
+      <obj_property name="ObjectShortName">prod6[14:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/half1" type="array">
+      <obj_property name="ElementShortName">half1[17:0]</obj_property>
+      <obj_property name="ObjectShortName">half1[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/half2" type="array">
+      <obj_property name="ElementShortName">half2[17:0]</obj_property>
+      <obj_property name="ObjectShortName">half2[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/groupsum_out1" type="array">
+      <obj_property name="ElementShortName">groupsum_out1[18:0]</obj_property>
+      <obj_property name="ObjectShortName">groupsum_out1[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group14/groupsum_out2" type="array">
+      <obj_property name="ElementShortName">groupsum_out2[18:0]</obj_property>
+      <obj_property name="ObjectShortName">groupsum_out2[18:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/ifbuf1[15]" type="array">
       <obj_property name="ElementShortName">[15][7:0]</obj_property>
@@ -370,101 +578,5 @@
    <wvobject fp_name="/top_tb/top_/PE/WB/wdata_CB8" type="array">
       <obj_property name="ElementShortName">wdata_CB8[21:0]</obj_property>
       <obj_property name="ObjectShortName">wdata_CB8[21:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA1" type="array">
-      <obj_property name="ElementShortName">sumA1[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA1[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA2" type="array">
-      <obj_property name="ElementShortName">sumA2[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA2[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA3" type="array">
-      <obj_property name="ElementShortName">sumA3[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA3[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA4" type="array">
-      <obj_property name="ElementShortName">sumA4[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA4[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA5" type="array">
-      <obj_property name="ElementShortName">sumA5[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA5[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA6" type="array">
-      <obj_property name="ElementShortName">sumA6[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA6[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB1" type="array">
-      <obj_property name="ElementShortName">sumB1[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB1[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB2" type="array">
-      <obj_property name="ElementShortName">sumB2[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB2[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB3" type="array">
-      <obj_property name="ElementShortName">sumB3[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB3[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB4" type="array">
-      <obj_property name="ElementShortName">sumB4[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB4[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB5" type="array">
-      <obj_property name="ElementShortName">sumB5[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB5[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB6" type="array">
-      <obj_property name="ElementShortName">sumB6[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB6[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA1_" type="array">
-      <obj_property name="ElementShortName">sumA1_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA1_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA2_" type="array">
-      <obj_property name="ElementShortName">sumA2_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA2_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA3_" type="array">
-      <obj_property name="ElementShortName">sumA3_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA3_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA4_" type="array">
-      <obj_property name="ElementShortName">sumA4_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA4_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA5_" type="array">
-      <obj_property name="ElementShortName">sumA5_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA5_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumA6_" type="array">
-      <obj_property name="ElementShortName">sumA6_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumA6_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB1_" type="array">
-      <obj_property name="ElementShortName">sumB1_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB1_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB2_" type="array">
-      <obj_property name="ElementShortName">sumB2_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB2_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB3_" type="array">
-      <obj_property name="ElementShortName">sumB3_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB3_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB4_" type="array">
-      <obj_property name="ElementShortName">sumB4_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB4_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB5_" type="array">
-      <obj_property name="ElementShortName">sumB5_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB5_[18:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/WB/sumB6_" type="array">
-      <obj_property name="ElementShortName">sumB6_[18:0]</obj_property>
-      <obj_property name="ObjectShortName">sumB6_[18:0]</obj_property>
    </wvobject>
 </wave_config>
