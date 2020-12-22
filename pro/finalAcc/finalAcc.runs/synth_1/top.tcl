@@ -16,7 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7z035ffg676-2
 
 set_param project.singleFileAddWarning.threshold 0
@@ -33,8 +32,10 @@ set_property ip_cache_permissions {read write} [current_project]
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1input.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv1.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1.output.coe
-add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.input.coe
-add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.input.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.input.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.coe
 read_verilog -library xil_defaultlib {
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/defines.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v
@@ -59,6 +60,15 @@ set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/re
 
 read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM.xci
 set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM8K/BRAM8K.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM8K/BRAM8K_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -2151,10 +2151,10 @@ end else if( rst == `RstDisable && locked == 1 )begin
             end else begin
                 Process <= `upHalf;
                 ProcessBubble1 <=`upHalf;
-                addr_BRAMConv3Arr1_1 <= addr_BRAMConv3Arr1_1 + 8;
-                addr_BRAMConv3Arr1_2 <= addr_BRAMConv3Arr1_2 + 8;
-                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 8;
-                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 8;
+                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 32;
+                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 32;
+                addr_BRAMConv3Arr3_1 <= addr_BRAMConv3Arr3_1 + 32;
+                addr_BRAMConv3Arr3_2 <= addr_BRAMConv3Arr3_2 + 32;
                 addr_weight_1        <= addr_weight_1 + 1;
             end
 
@@ -2311,15 +2311,16 @@ end else if( rst == `RstDisable && locked == 1 )begin
             end else begin
                 Process <= `loHalf;
                 ProcessBubble1 <= `loHalf;
-                addr_BRAMConv3Arr1_1 <= addr_BRAMConv3Arr1_1 + 8;
-                addr_BRAMConv3Arr1_2 <= addr_BRAMConv3Arr1_2 + 8;
-                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 8;
-                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 8;
-                addr_BRAM4k_1        <= addr_BRAM4k_1 + 8;
-                addr_weight_2        <= addr_weight_2 + 1;
+                addr_BRAMConv3Arr1_1 <= addr_BRAMConv3Arr1_1 + 32;
+                addr_BRAMConv3Arr1_2 <= addr_BRAMConv3Arr1_2 + 32;
+                addr_BRAMConv3Arr2_1 <= addr_BRAMConv3Arr2_1 + 32;
+                addr_BRAMConv3Arr2_2 <= addr_BRAMConv3Arr2_2 + 32;
+                addr_BRAMConv3Arr3_1 <= addr_BRAMConv3Arr3_1 + 32;
+                addr_BRAMConv3Arr3_2 <= addr_BRAMConv3Arr3_2 + 32;
                 kernCounterbub <= kernCounter ;
                 addr_layer4_base_bub <= addr_layer4_base;
                 addr_layer4_base <= addr_layer4_base;
+                addr_layer4 <= addr_layer4 + 1;
             end
 //          weight-------------------------------------------------
             weightA11 <= dout_weight_2[`ByteSev];

@@ -304,7 +304,16 @@ always @(posedge clk or negedge rst) begin
                 end
             end
 //             `Layer3:
-//             `Layer4:
+            `Layer4: begin
+                if(doneflag_CB == 1) begin
+                    we_BRAMtemp <= 1;
+                    din_BRAMtemp_1 <= dout_CB;
+                    addr_BRAMtemp_1 <= addr_BRAMtemp_1 + 1;
+                end else begin
+                    we_BRAMtemp <= 0;
+                    din_BRAMtemp_1 <= 64'bz;
+                end
+            end
             `Layer5: begin
                 if(doneflag_CB == 1) begin
                     we_BRAMtemp <= 1;
@@ -349,7 +358,7 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
             `Layer1:begin
                 we_CB <= 0;
             end
-            `Layer5:begin
+            `Layer5 ||`Layer4  :begin
                 if(wb_en) begin
                     if(we_CB_i) begin
                         case(StateCB)

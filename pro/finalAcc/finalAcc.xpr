@@ -370,9 +370,7 @@
     </Run>
     <Run Id="BRAM8K_synth_1" Type="Ft3:Synth" SrcSet="BRAM8K" Part="xc7z035ffg676-2" ConstrsSet="BRAM8K" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/BRAM8K_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -381,9 +379,7 @@
     </Run>
     <Run Id="BRAM16K_synth_1" Type="Ft3:Synth" SrcSet="BRAM16K" Part="xc7z035ffg676-2" ConstrsSet="BRAM16K" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/BRAM16K_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -392,9 +388,7 @@
     </Run>
     <Run Id="weightRomLayer4_synth_1" Type="Ft3:Synth" SrcSet="weightRomLayer4" Part="xc7z035ffg676-2" ConstrsSet="weightRomLayer4" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/weightRomLayer4_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -499,9 +493,7 @@
     </Run>
     <Run Id="BRAM8K_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="BRAM8K" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="BRAM8K_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -517,9 +509,7 @@
     </Run>
     <Run Id="BRAM16K_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="BRAM16K" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="BRAM16K_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -535,9 +525,7 @@
     </Run>
     <Run Id="weightRomLayer4_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="weightRomLayer4" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="weightRomLayer4_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

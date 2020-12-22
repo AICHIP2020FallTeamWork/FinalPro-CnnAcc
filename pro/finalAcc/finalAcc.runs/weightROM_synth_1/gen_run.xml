@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="weightROM_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1608574003">
   <File Type="PA-TCL" Name="weightROM.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="weightROM_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="weightROM_reports.tcl"/>
   <File Type="RDS-RDS" Name="weightROM.vds"/>
   <File Type="RDS-UTIL" Name="weightROM_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="weightROM_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="weightROM.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="weightROM_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="weightROM_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/weightROM">
     <File Path="$PSRCDIR/sources_1/ip/weightROM/weightROM.xci">
       <FileInfo>
