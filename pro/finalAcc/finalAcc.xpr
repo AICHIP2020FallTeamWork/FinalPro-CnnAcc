@@ -309,7 +309,6 @@
     <FileSet Name="weightRomLayer3" Type="BlockSrcs" RelSrcDir="$PSRCDIR/weightRomLayer3">
       <File Path="$PSRCDIR/sources_1/ip/weightRomLayer3/weightRomLayer3.xci">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
