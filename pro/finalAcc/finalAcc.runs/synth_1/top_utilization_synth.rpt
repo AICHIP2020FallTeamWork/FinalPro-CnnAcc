@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Wed Dec 23 02:23:59 2020
+| Date         : Wed Dec 23 11:20:11 2020
 | Host         : LAPTOP-PD9C7IFG running 64-bit major release  (build 9200)
 | Command      : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
 | Design       : top
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 18679 |     0 |    171900 | 10.87 |
-|   LUT as Logic             | 18678 |     0 |    171900 | 10.87 |
+| Slice LUTs*                | 13585 |     0 |    171900 |  7.90 |
+|   LUT as Logic             | 13584 |     0 |    171900 |  7.90 |
 |   LUT as Memory            |     1 |     0 |     70400 | <0.01 |
 |     LUT as Distributed RAM |     0 |     0 |           |       |
 |     LUT as Shift Register  |     1 |     0 |           |       |
-| Slice Registers            | 25652 |     0 |    343800 |  7.46 |
-|   Register as Flip Flop    | 25652 |     0 |    343800 |  7.46 |
+| Slice Registers            | 19688 |     0 |    343800 |  5.73 |
+|   Register as Flip Flop    | 19688 |     0 |    343800 |  5.73 |
 |   Register as Latch        |     0 |     0 |    343800 |  0.00 |
 | F7 Muxes                   |     0 |     0 |    109300 |  0.00 |
 | F8 Muxes                   |     0 |     0 |     54650 |  0.00 |
@@ -56,10 +56,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 25    |          Yes |           - |          Set |
-| 1943  |          Yes |           - |        Reset |
+| 30    |          Yes |           - |          Set |
+| 1999  |          Yes |           - |        Reset |
 | 49    |          Yes |         Set |            - |
-| 23635 |          Yes |       Reset |            - |
+| 17610 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,17 +154,17 @@ Table of Contents
 +----------+-------+---------------------+
 | Ref Name |  Used | Functional Category |
 +----------+-------+---------------------+
-| FDRE     | 23635 |        Flop & Latch |
-| LUT2     | 14967 |                 LUT |
-| CARRY4   |  4257 |          CarryLogic |
-| LUT4     |  2716 |                 LUT |
-| LUT6     |  2129 |                 LUT |
-| FDCE     |  1943 |        Flop & Latch |
-| LUT3     |   897 |                 LUT |
-| LUT5     |   618 |                 LUT |
-| LUT1     |   548 |                 LUT |
+| FDRE     | 17610 |        Flop & Latch |
+| LUT2     |  9364 |                 LUT |
+| CARRY4   |  2802 |          CarryLogic |
+| LUT6     |  2379 |                 LUT |
+| LUT4     |  2213 |                 LUT |
+| FDCE     |  1999 |        Flop & Latch |
+| LUT5     |  1235 |                 LUT |
+| LUT3     |   957 |                 LUT |
+| LUT1     |   298 |                 LUT |
 | FDSE     |    49 |        Flop & Latch |
-| FDPE     |    25 |        Flop & Latch |
+| FDPE     |    30 |        Flop & Latch |
 | SRL16E   |     1 |  Distributed Memory |
 | OBUF     |     1 |                  IO |
 | IBUF     |     1 |                  IO |
@@ -180,6 +180,7 @@ Table of Contents
 | BRAM8K          |    3 |
 | BRAM16K         |    3 |
 | weightRomLayer4 |    1 |
+| weightRomLayer3 |    1 |
 | weightROM       |    1 |
 | clk_wiz_0       |    1 |
 | WLay1ROM        |    1 |

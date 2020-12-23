@@ -512,6 +512,7 @@ if ( rst == `RstEnable) begin
     Process         <= `Idle;
     Layer           <= `Layer3;
     addr_BRAM4k_1 <= 0;
+    addr_BRAM4k_2 <= 0;
     Counter <= 0;
     Row <= 0;
     Channel <= 0;
@@ -1495,21 +1496,21 @@ end else if( rst == `RstDisable && locked == 1 )begin
         end
         `InitUp2 :begin
             Process <= `up2;
-            addr_BRAMConv2Arr2_2 <= 0;
-            addr_BRAMConv2Arr2_1 <= 1;
-            addr_BRAMConv2Arr3_2 <= 2;
-            addr_BRAMConv2Arr3_1 <= 3;
+            addr_BRAMConv2Arr1_2 <= 0;
+            addr_BRAMConv2Arr1_1 <= 1;
+            addr_BRAMConv2Arr2_2 <= 2;
+            addr_BRAMConv2Arr2_1 <= 3;
             addrbase8k <= 2;
             addr_layer3        <= addr_layer3_base;
             we_CB <= 1;
             we_CB_bub <= 0;            
         end
-        `Initup1:begin
+        `InitUp1:begin
             Process <= `up1;
-            addr_BRAMConv2Arr2_2 <= 0;
-            addr_BRAMConv2Arr2_1 <= 1;
-            addr_BRAMConv2Arr3_2 <= 2;
-            addr_BRAMConv2Arr3_1 <= 3;
+            addr_BRAMConv2Arr1_2 <= 0;
+            addr_BRAMConv2Arr1_1 <= 1;
+            addr_BRAMConv2Arr2_2 <= 2;
+            addr_BRAMConv2Arr2_1 <= 3;
             addrbase8k <= 2;
             addr_layer3        <= addr_layer3_base;
             we_CB <= 1;
@@ -1519,23 +1520,23 @@ end else if( rst == `RstDisable && locked == 1 )begin
             Process <= `mid2;
             addr_BRAM4k_2 <= addrbase8k + 0;
             addr_BRAM4k_1 <= addrbase8k + 1;
-            addr_BRAMConv2Arr2_2 <= addrbase8k + 2;
-            addr_BRAMConv2Arr2_1 <= addrbase8k + 3;
-            addr_BRAMConv2Arr3_2 <= addrbase8k + 4;
-            addr_BRAMConv2Arr3_1 <= addrbase8k + 5;
-            addrbase8k <= addrbase8k + 4;
+            addr_BRAMConv2Arr1_2 <= addrbase8k + 2;
+            addr_BRAMConv2Arr1_1 <= addrbase8k + 3;
+            addr_BRAMConv2Arr2_2 <= addrbase8k + 4;
+            addr_BRAMConv2Arr2_1 <= addrbase8k + 5;
+            // addrbase8k <= addrbase8k + 4;
             addr_layer3  <= addr_layer3_base;
             we_CB <= 1;
             we_CB_bub <= 0;
         end
         `InitMid1:begin
             Process <= `mid1;
-            addr_BRAM4k_2 <= addrbase8k + 0;
-            addr_BRAM4k_1 <= addrbase8k + 1;
-            addr_BRAMConv2Arr2_2 <= addrbase8k + 2;
-            addr_BRAMConv2Arr2_1 <= addrbase8k + 3;
-            addr_BRAMConv2Arr3_2 <= addrbase8k + 4;
-            addr_BRAMConv2Arr3_1 <= addrbase8k + 5;
+            addr_BRAM4k_2   <= addrbase8k + 0;
+            addr_BRAM4k_1   <= addrbase8k + 1;
+            addr_BRAMConv2Arr1_2 <= addrbase8k + 2;
+            addr_BRAMConv2Arr1_1 <= addrbase8k + 3;
+            addr_BRAMConv2Arr2_2 <= addrbase8k + 4;
+            addr_BRAMConv2Arr2_1 <= addrbase8k + 5;
             addrbase8k <= addrbase8k + 4;
             addr_layer3  <= addr_layer3_base;
             we_CB <= 1;
@@ -1545,8 +1546,8 @@ end else if( rst == `RstDisable && locked == 1 )begin
             Process <= `lo2;
             addr_BRAM4k_2 <= 28;
             addr_BRAM4k_1 <= 29;
-            addr_BRAMConv2Arr2_2 <= 30;
-            addr_BRAMConv2Arr2_1 <= 31;
+            addr_BRAMConv2Arr1_2 <= 30;
+            addr_BRAMConv2Arr1_1 <= 31;
             // addrbase8k <= addrbase8k + 4;//?
             addr_layer3  <= addr_layer3_base;
             we_CB <= 1;
@@ -1556,26 +1557,26 @@ end else if( rst == `RstDisable && locked == 1 )begin
             Process <= `lo1;
             addr_BRAM4k_2 <= 28;
             addr_BRAM4k_1 <= 29;
-            addr_BRAMConv2Arr2_2 <= 30;
-            addr_BRAMConv2Arr2_1 <= 31;
+            addr_BRAMConv2Arr1_2 <= 30;
+            addr_BRAMConv2Arr1_1 <= 31;
             // addrbase8k <= addrbase8k + 4;//?
             addr_layer3  <= addr_layer3_base;
             we_CB <= 1;
             we_CB_bub <= 0;  
         end
         `up2:begin
-            if(addr_BRAMConv2Arr3_2 == (4066)) begin // withdraw condition
-                ProcessBubble1 <= `Initup1;
+            if(addr_BRAMConv2Arr2_2 == (994)) begin // withdraw condition
+                ProcessBubble1 <= `InitUp1;
                 Process <= ProcessBubble1;
                 we_CB_bub <= 0;
                 we_CB <= we_CB_bub;
             end else begin
                 Process <= `up2;
                 ProcessBubble1 <=`up2;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
                 addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
                 addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
                 addr_layer3 <= addr_layer3 + 1;
             end
 //          -weight----------------------------------------------
@@ -1665,27 +1666,27 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf1[9] <= 0;
 
             ifbuf2[9] <=  0;
-            ifbuf2[8] <=  dout_BRAMconv2Arr2_2[`ByteEig];
-            ifbuf2[7] <=  dout_BRAMconv2Arr2_2[`ByteSev];
-            ifbuf2[6] <=  dout_BRAMconv2Arr2_2[`ByteSix];
-            ifbuf2[5] <=  dout_BRAMconv2Arr2_2[`ByteFiv];
-            ifbuf2[4] <=  dout_BRAMconv2Arr2_2[`ByteFor];
-            ifbuf2[3] <=  dout_BRAMconv2Arr2_2[`ByteThr];
-            ifbuf2[2] <=  dout_BRAMconv2Arr2_2[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[0]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
+            ifbuf2[8] <=  dout_BRAMConv2Arr1_2[`ByteEig];
+            ifbuf2[7] <=  dout_BRAMConv2Arr1_2[`ByteSev];
+            ifbuf2[6] <=  dout_BRAMConv2Arr1_2[`ByteSix];
+            ifbuf2[5] <=  dout_BRAMConv2Arr1_2[`ByteFiv];
+            ifbuf2[4] <=  dout_BRAMConv2Arr1_2[`ByteFor];
+            ifbuf2[3] <=  dout_BRAMConv2Arr1_2[`ByteThr];
+            ifbuf2[2] <=  dout_BRAMConv2Arr1_2[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[0]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
 
 
             ifbuf3[9] <=  0;
-            ifbuf3[8] <=  dout_BRAMconv2Arr3_2[`ByteEig];
-            ifbuf3[7] <=  dout_BRAMconv2Arr3_2[`ByteSev];
-            ifbuf3[6] <=  dout_BRAMconv2Arr3_2[`ByteSix];
-            ifbuf3[5] <=  dout_BRAMconv2Arr3_2[`ByteFiv];
-            ifbuf3[4] <=  dout_BRAMconv2Arr3_2[`ByteFor];
-            ifbuf3[3] <=  dout_BRAMconv2Arr3_2[`ByteThr];
-            ifbuf3[2] <=  dout_BRAMconv2Arr3_2[`ByteTwo];
-            ifbuf3[1] <=  dout_BRAMconv2Arr3_2[`ByteOne];
-            ifbuf3[0] <=  dout_BRAMconv2Arr3_1[`ByteEig];
+            ifbuf3[8] <=  dout_BRAMConv2Arr2_2[`ByteEig];
+            ifbuf3[7] <=  dout_BRAMConv2Arr2_2[`ByteSev];
+            ifbuf3[6] <=  dout_BRAMConv2Arr2_2[`ByteSix];
+            ifbuf3[5] <=  dout_BRAMConv2Arr2_2[`ByteFiv];
+            ifbuf3[4] <=  dout_BRAMConv2Arr2_2[`ByteFor];
+            ifbuf3[3] <=  dout_BRAMConv2Arr2_2[`ByteThr];
+            ifbuf3[2] <=  dout_BRAMConv2Arr2_2[`ByteTwo];
+            ifbuf3[1] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf3[0] <=  dout_BRAMConv2Arr2_1[`ByteEig];
 //          ---
 
         end
@@ -1776,40 +1777,40 @@ end else if( rst == `RstDisable && locked == 1 )begin
             ifbuf1[8] <= 0;
             ifbuf1[9] <= 0;
 
-            ifbuf2[9]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[8]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
-            ifbuf2[7]  <=  dout_BRAMconv2Arr2_1[`ByteSev];
-            ifbuf2[6]  <=  dout_BRAMconv2Arr2_1[`ByteSix];
-            ifbuf2[5]  <=  dout_BRAMconv2Arr2_1[`ByteFiv];
-            ifbuf2[4]  <=  dout_BRAMconv2Arr2_1[`ByteFor];
-            ifbuf2[3]  <=  dout_BRAMconv2Arr2_1[`ByteThr];
-            ifbuf2[2]  <=  dout_BRAMconv2Arr2_1[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_1[`ByteOne];
+            ifbuf2[9]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[8]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
+            ifbuf2[7]  <=  dout_BRAMConv2Arr1_1[`ByteSev];
+            ifbuf2[6]  <=  dout_BRAMConv2Arr1_1[`ByteSix];
+            ifbuf2[5]  <=  dout_BRAMConv2Arr1_1[`ByteFiv];
+            ifbuf2[4]  <=  dout_BRAMConv2Arr1_1[`ByteFor];
+            ifbuf2[3]  <=  dout_BRAMConv2Arr1_1[`ByteThr];
+            ifbuf2[2]  <=  dout_BRAMConv2Arr1_1[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_1[`ByteOne];
             ifbuf2[0]  <=  0;
 
-            ifbuf3[9] <=  dout_BRAMconv2Arr3_2[`ByteOne];
-            ifbuf3[8] <=  dout_BRAMconv2Arr3_1[`ByteEig];
-            ifbuf3[7] <=  dout_BRAMconv2Arr3_1[`ByteSev];
-            ifbuf3[6] <=  dout_BRAMconv2Arr3_1[`ByteSix];
-            ifbuf3[5] <=  dout_BRAMconv2Arr3_1[`ByteFiv];
-            ifbuf3[4] <=  dout_BRAMconv2Arr3_1[`ByteFor];
-            ifbuf3[3] <=  dout_BRAMconv2Arr3_1[`ByteThr];
-            ifbuf3[2] <=  dout_BRAMconv2Arr3_1[`ByteTwo];
-            ifbuf3[1] <=  dout_BRAMconv2Arr3_1[`ByteOne];
+            ifbuf3[9] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf3[8] <=  dout_BRAMConv2Arr2_1[`ByteEig];
+            ifbuf3[7] <=  dout_BRAMConv2Arr2_1[`ByteSev];
+            ifbuf3[6] <=  dout_BRAMConv2Arr2_1[`ByteSix];
+            ifbuf3[5] <=  dout_BRAMConv2Arr2_1[`ByteFiv];
+            ifbuf3[4] <=  dout_BRAMConv2Arr2_1[`ByteFor];
+            ifbuf3[3] <=  dout_BRAMConv2Arr2_1[`ByteThr];
+            ifbuf3[2] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
+            ifbuf3[1] <=  dout_BRAMConv2Arr2_1[`ByteOne];
             ifbuf3[0] <=  0;
 //          --
-            if(addr_BRAMConv2Arr3_2 == (4066)) begin // withdraw condition
-                ProcessBubble1 <= `InitLo2;
+            if(addr_BRAMConv2Arr2_2 == (994)) begin // withdraw condition
+                ProcessBubble1 <= `InitMid2;
                 Process <= ProcessBubble1;
                 we_CB_bub <= 0;
                 we_CB <= we_CB_bub;
             end else begin
                 Process <= `up1;
                 ProcessBubble1 <=`up1;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
                 addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
                 addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
                 addr_layer3 <= addr_layer3 + 1;
             end
         
@@ -1823,12 +1824,12 @@ end else if( rst == `RstDisable && locked == 1 )begin
             end else begin
                 Process <= `mid2;
                 ProcessBubble1 <= `mid2;
+                addr_BRAM4k_1        <= addr_BRAM4k_1 + 32;
+                addr_BRAM4k_2        <= addr_BRAM4k_2 + 32;
                 addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
                 addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
                 addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
                 addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
                 addr_layer3 <= addr_layer3 + 1;
             end
 //          -weight----------------------------------------------
@@ -1907,61 +1908,60 @@ end else if( rst == `RstDisable && locked == 1 )begin
             weightB66 <= dout_layer3[`ByteThr];
 //          ------------------------------------------------            
             ifbuf1[9] <=  0;
-            ifbuf1[8] <=  addr_BRAM4k_2[`ByteEig];
-            ifbuf1[7] <=  addr_BRAM4k_2[`ByteSev];
-            ifbuf1[6] <=  addr_BRAM4k_2[`ByteSix];
-            ifbuf1[5] <=  addr_BRAM4k_2[`ByteFiv];
-            ifbuf1[4] <=  addr_BRAM4k_2[`ByteFor];
-            ifbuf1[3] <=  addr_BRAM4k_2[`ByteThr];
-            ifbuf1[2] <=  addr_BRAM4k_2[`ByteTwo];
-            ifbuf1[1]  <=  addr_BRAM4k_2[`ByteOne];
-            ifbuf1[0]  <=  addr_BRAM4k_1[`ByteEig];
+            ifbuf1[8] <=  dout_BRAM4k_2[`ByteEig];
+            ifbuf1[7] <=  dout_BRAM4k_2[`ByteSev];
+            ifbuf1[6] <=  dout_BRAM4k_2[`ByteSix];
+            ifbuf1[5] <=  dout_BRAM4k_2[`ByteFiv];
+            ifbuf1[4] <=  dout_BRAM4k_2[`ByteFor];
+            ifbuf1[3] <=  dout_BRAM4k_2[`ByteThr];
+            ifbuf1[2] <=  dout_BRAM4k_2[`ByteTwo];
+            ifbuf1[1]  <=  dout_BRAM4k_2[`ByteOne];
+            ifbuf1[0]  <=  dout_BRAM4k_1[`ByteEig];
 
             ifbuf2[9] <=  0;
-            ifbuf2[8] <=  dout_BRAMconv2Arr2_2[`ByteEig];
-            ifbuf2[7] <=  dout_BRAMconv2Arr2_2[`ByteSev];
-            ifbuf2[6] <=  dout_BRAMconv2Arr2_2[`ByteSix];
-            ifbuf2[5] <=  dout_BRAMconv2Arr2_2[`ByteFiv];
-            ifbuf2[4] <=  dout_BRAMconv2Arr2_2[`ByteFor];
-            ifbuf2[3] <=  dout_BRAMconv2Arr2_2[`ByteThr];
-            ifbuf2[2] <=  dout_BRAMconv2Arr2_2[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[0]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
+            ifbuf2[8] <=  dout_BRAMConv2Arr1_2[`ByteEig];
+            ifbuf2[7] <=  dout_BRAMConv2Arr1_2[`ByteSev];
+            ifbuf2[6] <=  dout_BRAMConv2Arr1_2[`ByteSix];
+            ifbuf2[5] <=  dout_BRAMConv2Arr1_2[`ByteFiv];
+            ifbuf2[4] <=  dout_BRAMConv2Arr1_2[`ByteFor];
+            ifbuf2[3] <=  dout_BRAMConv2Arr1_2[`ByteThr];
+            ifbuf2[2] <=  dout_BRAMConv2Arr1_2[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[0]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
 
 
             ifbuf3[9] <=  0;
-            ifbuf3[8] <=  dout_BRAMconv2Arr3_2[`ByteEig];
-            ifbuf3[7] <=  dout_BRAMconv2Arr3_2[`ByteSev];
-            ifbuf3[6] <=  dout_BRAMconv2Arr3_2[`ByteSix];
-            ifbuf3[5] <=  dout_BRAMconv2Arr3_2[`ByteFiv];
-            ifbuf3[4] <=  dout_BRAMconv2Arr3_2[`ByteFor];
-            ifbuf3[3] <=  dout_BRAMconv2Arr3_2[`ByteThr];
-            ifbuf3[2] <=  dout_BRAMconv2Arr3_2[`ByteTwo];
-            ifbuf3[1] <=  dout_BRAMconv2Arr3_2[`ByteOne];
-            ifbuf3[0] <=  dout_BRAMconv2Arr3_1[`ByteEig];
+            ifbuf3[8] <=  dout_BRAMConv2Arr2_2[`ByteEig];
+            ifbuf3[7] <=  dout_BRAMConv2Arr2_2[`ByteSev];
+            ifbuf3[6] <=  dout_BRAMConv2Arr2_2[`ByteSix];
+            ifbuf3[5] <=  dout_BRAMConv2Arr2_2[`ByteFiv];
+            ifbuf3[4] <=  dout_BRAMConv2Arr2_2[`ByteFor];
+            ifbuf3[3] <=  dout_BRAMConv2Arr2_2[`ByteThr];
+            ifbuf3[2] <=  dout_BRAMConv2Arr2_2[`ByteTwo];
+            ifbuf3[1] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf3[0] <=  dout_BRAMConv2Arr2_1[`ByteEig];
 //          --        
         end
         `mid1:begin
-            if(addr_layer3 == addr_layer3_base + 31 && addr_BRAMConv2Arr2_1 != 4093) begin
-                ProcessBubble1 <= `InitMid1;
+            if(addr_layer3 == addr_layer3_base + 31 && addr_BRAMConv2Arr1_1 != 1021) begin
+                ProcessBubble1 <= `InitMid2;
                 Process <= ProcessBubble1;
                 we_CB_bub <= 0;
                 we_CB <= we_CB_bub;   
-            end else if (addr_layer3 == addr_layer3_base + 31 && addr_BRAMConv2Arr2_1 == 4093)    begin
+            end else if (addr_layer3 == addr_layer3_base + 31 && addr_BRAMConv2Arr1_1 == 1021)    begin
                 ProcessBubble1 <= `InitLo2;
                 Process <= ProcessBubble1;
                 we_CB_bub <= 0;
-                we_CB <= we_CB_bub;   
-            end       
+                we_CB <= we_CB_bub;          
             end else begin
                 Process <= `mid1;
                 ProcessBubble1 <= `mid1;
                 addr_BRAM4k_1        <= addr_BRAM4k_1 + 32;
                 addr_BRAM4k_2        <= addr_BRAM4k_2 + 32;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
                 addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
                 addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
                 addr_layer3 <= addr_layer3 + 1;
             end
 //          -weight----------------------------------------------
@@ -2039,37 +2039,37 @@ end else if( rst == `RstDisable && locked == 1 )begin
             weightB65 <= dout_layer3[`ByteTwo];
             weightB66 <= dout_layer3[`ByteThr];
 //          ------------------------------------------------            
-            ifbuf1[9]  <=  addr_BRAM4k_2[`ByteOne];
-            ifbuf1[8]  <=  addr_BRAM4k_1[`ByteEig];
-            ifbuf1[7]  <=  addr_BRAM4k_1[`ByteSev];
-            ifbuf1[6]  <=  addr_BRAM4k_1[`ByteSix];
-            ifbuf1[5]  <=  addr_BRAM4k_1[`ByteFiv];
-            ifbuf1[4]  <=  addr_BRAM4k_1[`ByteFor];
-            ifbuf1[3]  <=  addr_BRAM4k_1[`ByteThr];
-            ifbuf1[2]  <=  addr_BRAM4k_1[`ByteTwo];
-            ifbuf1[1]  <=  addr_BRAM4k_1[`ByteOne];
+            ifbuf1[9]  <=  dout_BRAM4k_2[`ByteOne];
+            ifbuf1[8]  <=  dout_BRAM4k_1[`ByteEig];
+            ifbuf1[7]  <=  dout_BRAM4k_1[`ByteSev];
+            ifbuf1[6]  <=  dout_BRAM4k_1[`ByteSix];
+            ifbuf1[5]  <=  dout_BRAM4k_1[`ByteFiv];
+            ifbuf1[4]  <=  dout_BRAM4k_1[`ByteFor];
+            ifbuf1[3]  <=  dout_BRAM4k_1[`ByteThr];
+            ifbuf1[2]  <=  dout_BRAM4k_1[`ByteTwo];
+            ifbuf1[1]  <=  dout_BRAM4k_1[`ByteOne];
             ifbuf1[0]  <=  0;
 
-            ifbuf2[9]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[8]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
-            ifbuf2[7]  <=  dout_BRAMconv2Arr2_1[`ByteSev];
-            ifbuf2[6]  <=  dout_BRAMconv2Arr2_1[`ByteSix];
-            ifbuf2[5]  <=  dout_BRAMconv2Arr2_1[`ByteFiv];
-            ifbuf2[4]  <=  dout_BRAMconv2Arr2_1[`ByteFor];
-            ifbuf2[3]  <=  dout_BRAMconv2Arr2_1[`ByteThr];
-            ifbuf2[2]  <=  dout_BRAMconv2Arr2_1[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_1[`ByteOne];
+            ifbuf2[9]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[8]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
+            ifbuf2[7]  <=  dout_BRAMConv2Arr1_1[`ByteSev];
+            ifbuf2[6]  <=  dout_BRAMConv2Arr1_1[`ByteSix];
+            ifbuf2[5]  <=  dout_BRAMConv2Arr1_1[`ByteFiv];
+            ifbuf2[4]  <=  dout_BRAMConv2Arr1_1[`ByteFor];
+            ifbuf2[3]  <=  dout_BRAMConv2Arr1_1[`ByteThr];
+            ifbuf2[2]  <=  dout_BRAMConv2Arr1_1[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_1[`ByteOne];
             ifbuf2[0]  <=  0;
 
-            ifbuf3[9] <=  dout_BRAMconv2Arr3_2[`ByteOne];
-            ifbuf3[8] <=  dout_BRAMconv2Arr3_1[`ByteEig];
-            ifbuf3[7] <=  dout_BRAMconv2Arr3_1[`ByteSev];
-            ifbuf3[6] <=  dout_BRAMconv2Arr3_1[`ByteSix];
-            ifbuf3[5] <=  dout_BRAMconv2Arr3_1[`ByteFiv];
-            ifbuf3[4] <=  dout_BRAMconv2Arr3_1[`ByteFor];
-            ifbuf3[3] <=  dout_BRAMconv2Arr3_1[`ByteThr];
-            ifbuf3[2] <=  dout_BRAMconv2Arr3_1[`ByteTwo];
-            ifbuf3[1] <=  dout_BRAMconv2Arr3_1[`ByteOne];
+            ifbuf3[9] <=  dout_BRAMConv2Arr2_2[`ByteOne];
+            ifbuf3[8] <=  dout_BRAMConv2Arr2_1[`ByteEig];
+            ifbuf3[7] <=  dout_BRAMConv2Arr2_1[`ByteSev];
+            ifbuf3[6] <=  dout_BRAMConv2Arr2_1[`ByteSix];
+            ifbuf3[5] <=  dout_BRAMConv2Arr2_1[`ByteFiv];
+            ifbuf3[4] <=  dout_BRAMConv2Arr2_1[`ByteFor];
+            ifbuf3[3] <=  dout_BRAMConv2Arr2_1[`ByteThr];
+            ifbuf3[2] <=  dout_BRAMConv2Arr2_1[`ByteTwo];
+            ifbuf3[1] <=  dout_BRAMConv2Arr2_1[`ByteOne];
             ifbuf3[0] <=  0;
 //          --        
         end
@@ -2084,10 +2084,8 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 ProcessBubble1 <= `lo2;
                 addr_BRAM4k_1        <= addr_BRAM4k_1 + 32;
                 addr_BRAM4k_2        <= addr_BRAM4k_2 + 32;
-                addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
-                addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
+                addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
+                addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
                 addr_layer3 <= addr_layer3 + 1;
             end
 //          -weight----------------------------------------------
@@ -2166,26 +2164,26 @@ end else if( rst == `RstDisable && locked == 1 )begin
             weightB66 <= dout_layer3[`ByteThr];
 //          ------------------------------------------------            
             ifbuf1[9] <=  0;
-            ifbuf1[8] <=  addr_BRAM4k_2[`ByteEig];
-            ifbuf1[7] <=  addr_BRAM4k_2[`ByteSev];
-            ifbuf1[6] <=  addr_BRAM4k_2[`ByteSix];
-            ifbuf1[5] <=  addr_BRAM4k_2[`ByteFiv];
-            ifbuf1[4] <=  addr_BRAM4k_2[`ByteFor];
-            ifbuf1[3] <=  addr_BRAM4k_2[`ByteThr];
-            ifbuf1[2] <=  addr_BRAM4k_2[`ByteTwo];
-            ifbuf1[1]  <=  addr_BRAM4k_2[`ByteOne];
-            ifbuf1[0]  <=  addr_BRAM4k_1[`ByteEig];
+            ifbuf1[8] <=  dout_BRAM4k_2[`ByteEig];
+            ifbuf1[7] <=  dout_BRAM4k_2[`ByteSev];
+            ifbuf1[6] <=  dout_BRAM4k_2[`ByteSix];
+            ifbuf1[5] <=  dout_BRAM4k_2[`ByteFiv];
+            ifbuf1[4] <=  dout_BRAM4k_2[`ByteFor];
+            ifbuf1[3] <=  dout_BRAM4k_2[`ByteThr];
+            ifbuf1[2] <=  dout_BRAM4k_2[`ByteTwo];
+            ifbuf1[1]  <=  dout_BRAM4k_2[`ByteOne];
+            ifbuf1[0]  <=  dout_BRAM4k_1[`ByteEig];
 
             ifbuf2[9] <=  0;
-            ifbuf2[8] <=  dout_BRAMconv2Arr2_2[`ByteEig];
-            ifbuf2[7] <=  dout_BRAMconv2Arr2_2[`ByteSev];
-            ifbuf2[6] <=  dout_BRAMconv2Arr2_2[`ByteSix];
-            ifbuf2[5] <=  dout_BRAMconv2Arr2_2[`ByteFiv];
-            ifbuf2[4] <=  dout_BRAMconv2Arr2_2[`ByteFor];
-            ifbuf2[3] <=  dout_BRAMconv2Arr2_2[`ByteThr];
-            ifbuf2[2] <=  dout_BRAMconv2Arr2_2[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[0]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
+            ifbuf2[8] <=  dout_BRAMConv2Arr1_2[`ByteEig];
+            ifbuf2[7] <=  dout_BRAMConv2Arr1_2[`ByteSev];
+            ifbuf2[6] <=  dout_BRAMConv2Arr1_2[`ByteSix];
+            ifbuf2[5] <=  dout_BRAMConv2Arr1_2[`ByteFiv];
+            ifbuf2[4] <=  dout_BRAMConv2Arr1_2[`ByteFor];
+            ifbuf2[3] <=  dout_BRAMConv2Arr1_2[`ByteThr];
+            ifbuf2[2] <=  dout_BRAMConv2Arr1_2[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[0]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
 
             ifbuf3[9] <=  0;
             ifbuf3[8] <=  0;
@@ -2208,7 +2206,8 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 we_CB_bub <= 0;
                 we_CB <= we_CB_bub;
                 addr_layer3_base_bub <= addr_layer3_base_bub + 32;
-                addr_layer3_base <= addr_layer3_base_bub;               
+                addr_layer3_base <= addr_layer3_base_bub;   
+                addrbase8k <= 0;            
 
             end else if (addr_layer3 == addr_layer3_base + 31 && kernCounter == 63) begin
                 ProcessBubble1 <= `Stop;
@@ -2218,15 +2217,15 @@ end else if( rst == `RstDisable && locked == 1 )begin
                 we_CB <= we_CB_bub;
                 addr_layer3_base_bub <= addr_layer3_base_bub + 32; //64 input channel
                 addr_layer3_base <= addr_layer3_base_bub;
+                addrbase8k <= 0;    
+
             end else begin
                 Process <= `lo1;
                 ProcessBubble1 <= `lo1;
+                addr_BRAM4k_1        <= addr_BRAM4k_1 + 32;
+                addr_BRAM4k_2        <= addr_BRAM4k_2 + 32;
                 addr_BRAMConv2Arr1_1 <= addr_BRAMConv2Arr1_1 + 32;
                 addr_BRAMConv2Arr1_2 <= addr_BRAMConv2Arr1_2 + 32;
-                addr_BRAMConv2Arr2_1 <= addr_BRAMConv2Arr2_1 + 32;
-                addr_BRAMConv2Arr2_2 <= addr_BRAMConv2Arr2_2 + 32;
-                addr_BRAMConv2Arr3_1 <= addr_BRAMConv2Arr3_1 + 32;
-                addr_BRAMConv2Arr3_2 <= addr_BRAMConv2Arr3_2 + 32;
                 kernCounterbub <= kernCounter ;
                 addr_layer3_base_bub <= addr_layer3_base;
                 addr_layer3_base <= addr_layer3_base;
@@ -2307,26 +2306,26 @@ end else if( rst == `RstDisable && locked == 1 )begin
             weightB65 <= dout_layer3[`ByteTwo];
             weightB66 <= dout_layer3[`ByteThr];
 //          ------------------------------------------------            
-            ifbuf1[9]  <=  addr_BRAM4k_2[`ByteOne];
-            ifbuf1[8]  <=  addr_BRAM4k_1[`ByteEig];
-            ifbuf1[7]  <=  addr_BRAM4k_1[`ByteSev];
-            ifbuf1[6]  <=  addr_BRAM4k_1[`ByteSix];
-            ifbuf1[5]  <=  addr_BRAM4k_1[`ByteFiv];
-            ifbuf1[4]  <=  addr_BRAM4k_1[`ByteFor];
-            ifbuf1[3]  <=  addr_BRAM4k_1[`ByteThr];
-            ifbuf1[2]  <=  addr_BRAM4k_1[`ByteTwo];
-            ifbuf1[1]  <=  addr_BRAM4k_1[`ByteOne];
+            ifbuf1[9]  <=  dout_BRAM4k_2[`ByteOne];
+            ifbuf1[8]  <=  dout_BRAM4k_1[`ByteEig];
+            ifbuf1[7]  <=  dout_BRAM4k_1[`ByteSev];
+            ifbuf1[6]  <=  dout_BRAM4k_1[`ByteSix];
+            ifbuf1[5]  <=  dout_BRAM4k_1[`ByteFiv];
+            ifbuf1[4]  <=  dout_BRAM4k_1[`ByteFor];
+            ifbuf1[3]  <=  dout_BRAM4k_1[`ByteThr];
+            ifbuf1[2]  <=  dout_BRAM4k_1[`ByteTwo];
+            ifbuf1[1]  <=  dout_BRAM4k_1[`ByteOne];
             ifbuf1[0]  <=  0;
 
-            ifbuf2[9]  <=  dout_BRAMconv2Arr2_2[`ByteOne];
-            ifbuf2[8]  <=  dout_BRAMconv2Arr2_1[`ByteEig];
-            ifbuf2[7]  <=  dout_BRAMconv2Arr2_1[`ByteSev];
-            ifbuf2[6]  <=  dout_BRAMconv2Arr2_1[`ByteSix];
-            ifbuf2[5]  <=  dout_BRAMconv2Arr2_1[`ByteFiv];
-            ifbuf2[4]  <=  dout_BRAMconv2Arr2_1[`ByteFor];
-            ifbuf2[3]  <=  dout_BRAMconv2Arr2_1[`ByteThr];
-            ifbuf2[2]  <=  dout_BRAMconv2Arr2_1[`ByteTwo];
-            ifbuf2[1]  <=  dout_BRAMconv2Arr2_1[`ByteOne];
+            ifbuf2[9]  <=  dout_BRAMConv2Arr1_2[`ByteOne];
+            ifbuf2[8]  <=  dout_BRAMConv2Arr1_1[`ByteEig];
+            ifbuf2[7]  <=  dout_BRAMConv2Arr1_1[`ByteSev];
+            ifbuf2[6]  <=  dout_BRAMConv2Arr1_1[`ByteSix];
+            ifbuf2[5]  <=  dout_BRAMConv2Arr1_1[`ByteFiv];
+            ifbuf2[4]  <=  dout_BRAMConv2Arr1_1[`ByteFor];
+            ifbuf2[3]  <=  dout_BRAMConv2Arr1_1[`ByteThr];
+            ifbuf2[2]  <=  dout_BRAMConv2Arr1_1[`ByteTwo];
+            ifbuf2[1]  <=  dout_BRAMConv2Arr1_1[`ByteOne];
             ifbuf2[0]  <=  0;
 
             ifbuf3[9] <=  0;

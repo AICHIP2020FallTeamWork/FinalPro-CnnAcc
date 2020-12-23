@@ -39,6 +39,7 @@
 #             weightA"+str(i+2)+"5 <= dout_weight_1[`ByteEig];\n\
 #             weightA"+str(i+2)+"6 <= dout_weight_1[`ByteSev];")
 
-for i in range(16):
-    print(\
-"            ifbuf1["+str(i)+"] <= 0;")
+for i in range(1,9):
+    for j in range(64):
+        print(\
+"        registers"+str(i)+"["+str(j)+"] <= 0;")
