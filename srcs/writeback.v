@@ -303,7 +303,16 @@ always @(posedge clk or negedge rst) begin
                 Zuhe <=  `Zero;
                 end
             end
-//             `Layer3:
+            `Layer3: begin
+                if(doneflag_CB == 1) begin
+                    we_BRAMtemp <= 1;
+                    din_BRAMtemp_1 <= dout_CB;
+                    addr_BRAMtemp_1 <= addr_BRAMtemp_1 + 1;
+                end else begin
+                    we_BRAMtemp <= 0;
+                    din_BRAMtemp_1 <= 64'bz;
+                end
+            end
             `Layer4: begin
                 if(doneflag_CB == 1) begin
                     we_BRAMtemp <= 1;
@@ -357,6 +366,40 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
         case(Layer)
             `Layer1:begin
                 we_CB <= 0;
+            end
+            `Layer3  :begin
+                if(wb_en) begin
+                    if(we_CB_i) begin
+                        orderFlag <= 1;
+                        case(StateCB)
+                            `First:begin
+                                we_CB <= 1;
+                                wdata_CB1  <= sumA1 + sumA2 + sumA3;
+                                wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
+                                wdata_CB3  <= sumA4 + sumA5 + sumA6;
+                                wdata_CB4  <= sumA4_ + sumA5_ + sumA6_;
+                                wdata_CB5  <= sumB1 + sumB2 + sumB3;
+                                wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
+                                wdata_CB7  <= sumB4 + sumB5 + sumB6;
+                                wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
+                                waddr_CB <= 0;
+                                StateCB <= `Second ;
+                            end
+                            `Second:begin
+                                we_CB <= 1;
+                                wdata_CB1  <= sumA1 + sumA2 + sumA3;
+                                wdata_CB2  <= sumA1_ + sumA2_ + sumA3_;
+                                wdata_CB3  <= sumA4 + sumA5 + sumA6;
+                                wdata_CB4  <= sumA4_ + sumA5_ + sumA6_;
+                                wdata_CB5  <= sumB1 + sumB2 + sumB3;
+                                wdata_CB6  <= sumB1_ + sumB2_ + sumB3_;
+                                wdata_CB7  <= sumB4 + sumB5 + sumB6;
+                                wdata_CB8  <= sumB4_ + sumB5_ + sumB6_;
+                                waddr_CB   <= (waddr_CB + 1) & 6'b0111_11; 
+                            end
+                        endcase
+                    end
+                end
             end
             `Layer4  :begin
                 if(wb_en) begin
@@ -429,7 +472,6 @@ always @ (posedge clk or negedge rst) begin // this part is for controlling chan
         endcase
     end
 end
-
 
 
 reg [5:0]   waddr_CB;
