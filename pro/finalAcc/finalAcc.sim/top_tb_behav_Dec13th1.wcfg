@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="24954589521fs"></ZoomStartTime>
-      <ZoomEndTime time="25009082096fs"></ZoomEndTime>
-      <Cursor1Time time="25000000000fs"></Cursor1Time>
+      <ZoomStartTime time="7590703088fs"></ZoomStartTime>
+      <ZoomEndTime time="7673859383fs"></ZoomEndTime>
+      <Cursor1Time time="7650000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="245"></NameColumnWidth>
-      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+      <ValueColumnWidth column_width="145"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="29" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -31,13 +31,6 @@
    <wvobject fp_name="/top_tb/top_/PE/Layer" type="array">
       <obj_property name="ElementShortName">Layer[3:0]</obj_property>
       <obj_property name="ObjectShortName">Layer[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/pe_group11/Process" type="array">
-      <obj_property name="ElementShortName">Process[2:0]</obj_property>
-      <obj_property name="ObjectShortName">Process[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/pe_group11/FinishFlag" type="logic">
       <obj_property name="ElementShortName">FinishFlag</obj_property>
@@ -59,60 +52,108 @@
       <obj_property name="ObjectShortName">Row[4:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM32k_1" type="array">
-      <obj_property name="ElementShortName">addr_BRAM32k_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_BRAM32k_1[11:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/pe_group11/Process" type="array">
+      <obj_property name="ElementShortName">Process[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Process[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/ProcessBubble1" type="array">
+      <obj_property name="ElementShortName">ProcessBubble1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ProcessBubble1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addrbase8k" type="array">
+      <obj_property name="ElementShortName">addrbase8k[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrbase8k[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM4k_1" type="array">
+      <obj_property name="ElementShortName">addr_BRAM4k_1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM4k_1[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM32k_2" type="array">
-      <obj_property name="ElementShortName">addr_BRAM32k_2[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_BRAM32k_2[11:0]</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAM4k_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAM4k_2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAM4k_2[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/dout_BRAM32k_1" type="array">
-      <obj_property name="ElementShortName">dout_BRAM32k_1[63:0]</obj_property>
-      <obj_property name="ObjectShortName">dout_BRAM32k_1[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/dout_BRAM32k_2" type="array">
-      <obj_property name="ElementShortName">dout_BRAM32k_2[63:0]</obj_property>
-      <obj_property name="ObjectShortName">dout_BRAM32k_2[63:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr1_1" type="array">
-      <obj_property name="ElementShortName">addr_BRAMConv2Arr1_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_BRAMConv2Arr1_1[11:0]</obj_property>
+      <obj_property name="ElementShortName">addr_BRAMConv2Arr1_1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAMConv2Arr1_1[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr1_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAMConv2Arr1_2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAMConv2Arr1_2[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr2_1" type="array">
-      <obj_property name="ElementShortName">addr_BRAMConv2Arr2_1[11:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_BRAMConv2Arr2_1[11:0]</obj_property>
+      <obj_property name="ElementShortName">addr_BRAMConv2Arr2_1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAMConv2Arr2_1[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/din_BRAMConv2Arr1_1" type="array">
-      <obj_property name="ElementShortName">din_BRAMConv2Arr1_1[63:0]</obj_property>
-      <obj_property name="ObjectShortName">din_BRAMConv2Arr1_1[63:0]</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr2_2" type="array">
+      <obj_property name="ElementShortName">addr_BRAMConv2Arr2_2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAMConv2Arr2_2[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/din_BRAMConv2Arr2_1" type="array">
-      <obj_property name="ElementShortName">din_BRAMConv2Arr2_1[63:0]</obj_property>
-      <obj_property name="ObjectShortName">din_BRAMConv2Arr2_1[63:0]</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAM4k_1" type="array">
+      <obj_property name="ElementShortName">dout_BRAM4k_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAM4k_1[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/we_BRAMConv2Arr1_1" type="logic">
-      <obj_property name="ElementShortName">we_BRAMConv2Arr1_1</obj_property>
-      <obj_property name="ObjectShortName">we_BRAMConv2Arr1_1</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAM4k_2" type="array">
+      <obj_property name="ElementShortName">dout_BRAM4k_2[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAM4k_2[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/we_BRAMConv2Arr2_1" type="logic">
-      <obj_property name="ElementShortName">we_BRAMConv2Arr2_1</obj_property>
-      <obj_property name="ObjectShortName">we_BRAMConv2Arr2_1</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv2Arr1_1" type="array">
+      <obj_property name="ElementShortName">dout_BRAMConv2Arr1_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAMConv2Arr1_1[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/Selctrl" type="logic">
-      <obj_property name="ElementShortName">Selctrl</obj_property>
-      <obj_property name="ObjectShortName">Selctrl</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv2Arr1_2" type="array">
+      <obj_property name="ElementShortName">dout_BRAMConv2Arr1_2[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAMConv2Arr1_2[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_tb/top_/PE/BRAMFLAG" type="array">
-      <obj_property name="ElementShortName">BRAMFLAG[1:0]</obj_property>
-      <obj_property name="ObjectShortName">BRAMFLAG[1:0]</obj_property>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv2Arr2_1" type="array">
+      <obj_property name="ElementShortName">dout_BRAMConv2Arr2_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAMConv2Arr2_1[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/dout_BRAMConv2Arr2_2" type="array">
+      <obj_property name="ElementShortName">dout_BRAMConv2Arr2_2[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_BRAMConv2Arr2_2[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/addr_layer3" type="array">
+      <obj_property name="ElementShortName">addr_layer3[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_layer3[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/dout_layer3" type="array">
+      <obj_property name="ElementShortName">dout_layer3[71:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_layer3[71:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/doneflag_CB" type="logic">
+      <obj_property name="ElementShortName">doneflag_CB</obj_property>
+      <obj_property name="ObjectShortName">doneflag_CB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/we_BRAMtemp" type="logic">
+      <obj_property name="ElementShortName">we_BRAMtemp</obj_property>
+      <obj_property name="ObjectShortName">we_BRAMtemp</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/addr_BRAMtemp_1" type="array">
+      <obj_property name="ElementShortName">addr_BRAMtemp_1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_BRAMtemp_1[8:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/din_BRAMtemp_1" type="array">
+      <obj_property name="ElementShortName">din_BRAMtemp_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">din_BRAMtemp_1[63:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/waddr_CB" type="array">
+      <obj_property name="ElementShortName">waddr_CB[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr_CB[5:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

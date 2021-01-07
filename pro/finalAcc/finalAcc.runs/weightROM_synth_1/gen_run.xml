@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="weightROM_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1607650828">
+<GenRun Id="weightROM_synth_1" LaunchPart="xc7z035ffg676-2" LaunchTime="1608574003">
   <File Type="PA-TCL" Name="weightROM.tcl"/>
   <File Type="REPORTS-TCL" Name="weightROM_reports.tcl"/>
   <File Type="RDS-RDS" Name="weightROM.vds"/>

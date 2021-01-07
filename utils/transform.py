@@ -1,10 +1,17 @@
 import numpy as np
 
-# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv1.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv4.dat', dtype=np.uint8)
 # memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1.output.dat', dtype=np.uint8)
-memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv4.input.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv4.output.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv3.input.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv3.dat', dtype=np.uint8)
+# memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.dat', dtype=np.uint8)
+memining = np.fromfile('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv2.dat', dtype=np.uint8)
 
-width = 8
+# width = 8
+width = 9
 string=''
 
 def change(a):
@@ -48,7 +55,17 @@ for i in range(len(memining)):
         string = string + ',\n'
 print(string)
 
-with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv2.input.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.input.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.output.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.input.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.coe','w') as f1:    #设置文件对象
+# with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.input.coe','w') as f1:    #设置文件对象
+
+with open('D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.coe','w') as f1:    #设置文件对象
+
+
+
     f1.write(string)
 
 

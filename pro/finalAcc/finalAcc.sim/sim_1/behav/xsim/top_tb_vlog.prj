@@ -1,10 +1,16 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0" \
 "../../../../finalAcc.srcs/sources_1/ip/BRAM4k/sim/BRAM4k.v" \
+"../../../../finalAcc.srcs/sources_1/ip/BRAM16K/sim/BRAM16K.v" \
+"../../../../finalAcc.srcs/sources_1/ip/weightRomLayer3/sim/weightRomLayer3.v" \
+"../../../../finalAcc.srcs/sources_1/ip/weightRomLayer4/sim/weightRomLayer4.v" \
+"../../../../finalAcc.srcs/sources_1/ip/weightROM/sim/weightROM.v" \
+"../../../../finalAcc.srcs/sources_1/ip/BRAM8K/sim/BRAM8K.v" \
 "../../../../finalAcc.srcs/sources_1/ip/BRAM32k/sim/BRAM32k.v" \
 "../../../../finalAcc.srcs/sources_1/ip/WLay1ROM/sim/WLay1ROM.v" \
 "../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \
 "../../../../finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" \
+"../../../../../../srcs/channelBuf.v" \
 "../../../../../../srcs/pe1.v" \
 "../../../../../../srcs/pe_group2.v" \
 "../../../../../../srcs/top.v" \

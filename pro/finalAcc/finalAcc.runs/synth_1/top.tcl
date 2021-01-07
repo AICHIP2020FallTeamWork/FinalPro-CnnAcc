@@ -32,8 +32,15 @@ set_property ip_cache_permissions {read write} [current_project]
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1input.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/parameters/conv1.coe
 add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/im1/conv1.output.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.input.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv4.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.input.coe
+add_files D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv3.coe
+add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.input.coe
+add_files d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/data/mydata/conv2.coe
 read_verilog -library xil_defaultlib {
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/defines.v
+  D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/channelBuf.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe1.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/pe_group2.v
   D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/srcs/writeback.v
@@ -44,6 +51,9 @@ set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/re
 set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/weightROM.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightROM/weightROM_ooc.xdc]
+
 read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM4k/BRAM4k.xci
 set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM4k/BRAM4k_ooc.xdc]
 
@@ -52,6 +62,18 @@ set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/re
 
 read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM.xci
 set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/WLay1ROM/WLay1ROM_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM8K/BRAM8K.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM8K/BRAM8K_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/BRAM16K/BRAM16K_ooc.xdc]
+
+read_ip -quiet D:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer4/weightRomLayer4_ooc.xdc]
+
+read_ip -quiet d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer3/weightRomLayer3.xci
+set_property used_in_implementation false [get_files -all d:/GradeFour/AICHIP/ref/project/repo/FinalPro-CnnAcc/pro/finalAcc/finalAcc.srcs/sources_1/ip/weightRomLayer3/weightRomLayer3_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
