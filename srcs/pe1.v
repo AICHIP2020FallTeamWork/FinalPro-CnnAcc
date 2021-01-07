@@ -3579,7 +3579,7 @@ wire FinishWBB6;
             ifmapA53 = ifbuf2[4];
             ifmapA54 = ifbuf2[3];
             ifmapA55 = ifbuf2[4];
-            ifmapA56 = ifbuf3[5];
+            ifmapA56 = ifbuf2[5];
         end
     end
     pe_group2 pe_group15(

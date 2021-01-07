@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="7590703088fs"></ZoomStartTime>
-      <ZoomEndTime time="7673859383fs"></ZoomEndTime>
-      <Cursor1Time time="7650000000fs"></Cursor1Time>
+      <ZoomStartTime time="3314400000fs"></ZoomStartTime>
+      <ZoomEndTime time="3393200001fs"></ZoomEndTime>
+      <Cursor1Time time="3380000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="245"></NameColumnWidth>
-      <ValueColumnWidth column_width="145"></ValueColumnWidth>
+      <ValueColumnWidth column_width="141"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
+   <WVObjectSize size="30" />
    <wvobject fp_name="/top_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -71,31 +71,43 @@
       <obj_property name="ElementShortName">addr_BRAM4k_1[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAM4k_1[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAM4k_2" type="array">
       <obj_property name="ElementShortName">addr_BRAM4k_2[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAM4k_2[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr1_1" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv2Arr1_1[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv2Arr1_1[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr1_2" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv2Arr1_2[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv2Arr1_2[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr2_1" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv2Arr2_1[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv2Arr2_1[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/addr_BRAMConv2Arr2_2" type="array">
       <obj_property name="ElementShortName">addr_BRAMConv2Arr2_2[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr_BRAMConv2Arr2_2[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/top_tb/top_/PE/dout_BRAM4k_1" type="array">
       <obj_property name="ElementShortName">dout_BRAM4k_1[63:0]</obj_property>
@@ -155,5 +167,10 @@
       <obj_property name="ElementShortName">waddr_CB[5:0]</obj_property>
       <obj_property name="ObjectShortName">waddr_CB[5:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/top_/PE/WB/CB/waddr" type="array">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
